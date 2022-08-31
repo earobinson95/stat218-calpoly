@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.132">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-09-12">
+
+<title>Stat 218: Applied Statistics for Life Sciences</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="syllabus-master_files/libs/clipboard/clipboard.min.js"></script>
+<script src="syllabus-master_files/libs/quarto-html/quarto.js"></script>
+<script src="syllabus-master_files/libs/quarto-html/popper.min.js"></script>
+<script src="syllabus-master_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="syllabus-master_files/libs/quarto-html/anchor.min.js"></script>
+<link href="syllabus-master_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="syllabus-master_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="syllabus-master_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="syllabus-master_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="syllabus-master_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#course-resources" id="toc-course-resources" class="nav-link active" data-scroll-target="#course-resources">Course Resources</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a>
+  <ul class="collapse">
+  <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link" data-scroll-target="#course-objectives">Course Objectives</a></li>
+  <li><a href="#ge-mathematics-quantitative-reasoning" id="toc-ge-mathematics-quantitative-reasoning" class="nav-link" data-scroll-target="#ge-mathematics-quantitative-reasoning">GE: Mathematics / Quantitative Reasoning</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#class-schedule-topic-outline" id="toc-class-schedule-topic-outline" class="nav-link" data-scroll-target="#class-schedule-topic-outline">Class Schedule &amp; Topic Outline</a></li>
+  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies">Course Policies</a>
+  <ul class="collapse">
+  <li><a href="#assessmentgrading" id="toc-assessmentgrading" class="nav-link" data-scroll-target="#assessmentgrading">Assessment/Grading</a></li>
+  <li><a href="#course-organization" id="toc-course-organization" class="nav-link" data-scroll-target="#course-organization">Course Organization</a>
+  <ul class="collapse">
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a></li>
+  <li><a href="#assessment-breakdown" id="toc-assessment-breakdown" class="nav-link" data-scroll-target="#assessment-breakdown">Assessment Breakdown</a></li>
+  <li><a href="#working-in-teams" id="toc-working-in-teams" class="nav-link" data-scroll-target="#working-in-teams">Working in Teams</a></li>
+  </ul></li>
+  <li><a href="#late-policy" id="toc-late-policy" class="nav-link" data-scroll-target="#late-policy">Late Policy</a></li>
+  <li><a href="#attendance" id="toc-attendance" class="nav-link" data-scroll-target="#attendance">Attendance</a></li>
+  <li><a href="#expectations" id="toc-expectations" class="nav-link" data-scroll-target="#expectations">Expectations</a></li>
+  </ul></li>
+  <li><a href="#required-university-information" id="toc-required-university-information" class="nav-link" data-scroll-target="#required-university-information">Required University Information</a>
+  <ul class="collapse">
+  <li><a href="#academic-integrity-and-class-conduct" id="toc-academic-integrity-and-class-conduct" class="nav-link" data-scroll-target="#academic-integrity-and-class-conduct">Academic Integrity and Class Conduct</a></li>
+  <li><a href="#policy-on-intellectual-property" id="toc-policy-on-intellectual-property" class="nav-link" data-scroll-target="#policy-on-intellectual-property">Policy on intellectual property</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Stat 218: Applied Statistics for Life Sciences</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 12, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<table class="table">
+<thead>
+<tr class="header">
+<th>Instructor</th>
+<th>Class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dr.&nbsp;Emily Robinson</td>
+<td>Location: 186-C203 (Construction Innovations Ctr)</td>
+</tr>
+<tr class="even">
+<td>Email: <a href="mailto:erobin17@calpoly.edu?subject=Stat%20218-05">erobin17@calpoly.edu</a></td>
+<td>Time: Monday/Wednesday 2:10 PM - 4:00 PM</td>
+</tr>
+<tr class="odd">
+<td>Office: 25-103 (Faculty Offices East)</td>
+<td>Office Hours: Thursdays 2:30 PM - 4:30 PM or by Appointment <a href="">Schedule here</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="course-resources" class="level1 tabset tabset-fade">
+<h1 class="tabset tabset-fade">Course Resources</h1>
+<div class="panel-tabset" data-group="coures-resources">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Textbooks</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Required Technology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Canvas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Writing &amp; Learning Center</a></li></ul>
+<div class="tab-content" data-group="coures-resources">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ims.jpeg" class="img-fluid figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We will be using <a href="https://openintro-ims.netlify.app/index.html">Introduction to Modern Statistics (IMS)</a> by Mine Çetinkaya-Rundel and Johanna Hardin, a free online text; you have the option to obtain a printed copy if you wish.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R.jpeg" class="img-fluid figure-img" style="width:15.0%"></p>
+<p></p><figcaption class="figure-caption"><code>R</code> is the statistical software we will be using in this course (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>)</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rstudio.png" class="img-fluid figure-img" style="width:30.0%"></p>
+<p></p><figcaption class="figure-caption">RStudio is the most popular way to interact with the <code>R</code> software. We will be interacting with RStudio through RStudio Cloud (https://rstudio.cloud/). You will join the Stat 218 workspace, and then be able to access the course homework and lab assignments. We will be walking through this in the first week of lab!</figcaption><p></p>
+</figure>
+</div>
+<p>RStudio Cloud will be your resource for course lab assignments</p>
+<ul>
+<li>data sets</li>
+<li>lab assignments</li>
+<li>group projects</li>
+<li>software resources</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Canvas will be your resource for the course materials necessary for each week. There will be a published “coursework” page which you can access through RStudio Connect. The page will walk you through what you are expected to do each week, including:</p>
+<ul>
+<li>textbook reading</li>
+<li>lecture videos</li>
+<li>homework questions</li>
+<li>quiz questions</li>
+</ul>
+<p><strong><em>Important</em></strong>: Make sure you are receiving email notifications for <em>any</em> Canvas activity. That includes: announcements, emails, comments, etc. In Canvas, click on your name, then Notifications. Check that Canvas is using an email address that you regularly check; you have the option of registering a mobile number. Check the boxes to get notifications for announcements, content, discussions, and grades.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>There is free drop-in tutoring for 100- and 200-level math and stat courses through the writing and learning center!</p>
+<p>The Writing and Learning Center offers virtual and in-person tutoring appointments with four locations across campus and hours available daily Sunday thru Friday. For more information on our hours and locations, visit the <a href="https://writingandlearning.calpoly.edu/hours">Tutoring Hours</a> webpage.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="course-description" class="level1">
+<h1>Course Description</h1>
+<p>Stat 218 is designed to engage you in the statistical investigation process from developing a research question and data collection methods to analyzing and communicating results. This course introduces basic descriptive and inferential statistics using both traditional (normal and <span class="math inline">\(t\)</span>-distribution) and simulation approaches including confidence intervals and hypothesis testing on means (one-sample, two-sample, paired), proportions (one-sample, two-sample), regression and correlation. You will be exposed to numerous examples of real-world applications of statistics that are designed to help you develop a conceptual understanding of statistics.</p>
+<section id="course-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="course-objectives">Course Objectives</h2>
+<p>After taking this course, you will be able to:</p>
+<ul>
+<li>Understand and appreciate how statistics affects your daily life and the fundamental role of statistics in all disciplines.</li>
+<li>Evaluate statistics and statistical studies you encounter in your other courses.</li>
+<li>Critically read news stories based on statistical studies as an informed consumer of data.</li>
+<li>Assess the role of randomness and variability in different contexts.</li>
+<li>Use basic methods to conduct and analyze statistical studies using statistical software.</li>
+<li>Evaluate and communicate answers to the four pillars of statistical inference: How strong is the evidence of an effect? What is the size of the effect? How broadly do the conclusions apply? Can we say what caused the observed difference?</li>
+</ul>
+<!-- A. Design a data collection scheme based on simple random sampling or simple experimental designs. -->
+<!-- B. Distinguish between observational studies and experiments and understand the limitations (practical and consequential) of each. -->
+<!-- C. Summarize data using graphical and numerical techniques. -->
+<!-- D. Construct and interpret confidence intervals for means and differences between means for independent and paired samples. -->
+<!-- E. Conduct parametric and non-parametric two-sample hypothesis tests for means. -->
+<!-- F. Construct and interpret a confidence interval for a single proportion. -->
+<!-- G. Conduct Chi-square goodness-of-fit tests and tests for independence. -->
+<!-- H. Distinguish between case-control and cohort studies and compute relative-risk and odds in the appropriate settings. -->
+<!-- I. Perform analysis of variance tests and post-hoc comparisons for completely randomized designs. -->
+<!-- J. Use simple linear regression to describe relationships between variables. -->
+</section>
+<section id="ge-mathematics-quantitative-reasoning" class="level2">
+<h2 class="anchored" data-anchor-id="ge-mathematics-quantitative-reasoning">GE: Mathematics / Quantitative Reasoning</h2>
+<p>This course fulfills the B4: Mathematics / Quantitative Reasoning requirement of the General Education curriculum because learning probability and statistics allows us to disentangle what’s really happening in nature from “noise” inherent in data collection. STAT 218 builds critical thinking skills which form the basis of statistical inference, allowing students to evaluate claims from data.</p>
+<p>After completing an Area B4 course, students should be able to:</p>
+<ul>
+<li>Calculate and interpret various descriptive statistics</li>
+<li>Identify and describe data collection methods based on simple random sampling or simple experimental designs</li>
+<li>Construct confidence intervals for a single mean, differences between means for independent and paired samples, a single proportion, and the difference between two proportions from independent samples, and interpret the results in the context of the life sciences</li>
+<li>Formulate various decision problems in the life sciences in terms of hypothesis tests.</li>
+<li>Calculate parametric hypothesis tests for the difference in two independent sample means and two independent sample proportions, Chi-square goodness-of-fit, Chi-square test for independence, and interpret the results in the context of the life sciences.</li>
+<li>Calculate and interpret non-parametric hypothesis test for two independent sample means.</li>
+<li>Describe relationships between two quantitative variables using simple linear regression.</li>
+</ul>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>Entrance to STAT 218 requires at least one of the following be met:</p>
+<ul>
+<li>Grade of C- or better in MATH 115</li>
+<li>Grade of B or better in MATH 96</li>
+<li>appropriate placement on the <a href="https://math.calpoly.edu/mape">Math Placement Exam</a></li>
+</ul>
+<p>You should have familiarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).</p>
+<hr>
+</section>
+</section>
+<section id="class-schedule-topic-outline" class="level1">
+<h1>Class Schedule &amp; Topic Outline</h1>
+<p>This schedule is tentative and subject to change.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/calendar.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Tentative schedule of class topics and important due dates</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sep 19, Sep 21</td>
+<td style="text-align: left;">Introduction to Data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 26, Sep 28</td>
+<td style="text-align: left;">Quantitative Variable Exploratory Data Analysis</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 3, Oct 5</td>
+<td style="text-align: left;">Inference for One Mean</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 10</td>
+<td style="text-align: left;">Simple Linear Regression</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 12</td>
+<td style="text-align: left;">Midterm Exam 1 (In Class)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 17, Oct 19</td>
+<td style="text-align: left;">Difference in Means</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 24, Oct 26</td>
+<td style="text-align: left;">Paired Data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 31, Nov 2</td>
+<td style="text-align: left;">Analysis of Variance (ANOVA)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 7</td>
+<td style="text-align: left;">One Categorical Variable Exploratory Data Analysis</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 9</td>
+<td style="text-align: left;">Midterm Exam 2 (In Class)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 14, Nov 16</td>
+<td style="text-align: left;">One Categorical Variable Inference</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 28, Nov 30</td>
+<td style="text-align: left;">Two Categorical Variable Inference</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dec 9</td>
+<td style="text-align: left;">Final Exam (1:10 - 4:00 PM)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="course-policies" class="level1">
+<h1>Course Policies</h1>
+<section id="assessmentgrading" class="level2">
+<h2 class="anchored" data-anchor-id="assessmentgrading">Assessment/Grading</h2>
+<p>Your grade in STAT 218 will contain the following components:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/unnamed-chunk-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Lower bounds for grade cutoffs are shown in the following table. I will not “round up” grades at the end of the semester beyond strict mathematical rules of rounding.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Letter grade</th>
+<th>X +</th>
+<th>X</th>
+<th>X -</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>97</td>
+<td>94</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>87</td>
+<td>84</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>77</td>
+<td>74</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>67</td>
+<td>64</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>&lt;61</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Interpretation of this table:</p>
+<ul>
+<li>A grade of 85 will receive a B.</li>
+<li>A grade of 77 will receive a C+.</li>
+<li>A grade of 70 will receive a C-.</li>
+<li>Anything below a 61 will receive an F.</li>
+</ul>
+<section id="general-evaluation-criteria" class="level4">
+<h4 class="anchored" data-anchor-id="general-evaluation-criteria"><em>General Evaluation Criteria</em></h4>
+<p>In every assignment, discussion, and written component of this class, you are expected to demonstrate that you are intellectually engaging with the material. I will evaluate you based on this engagement, which means that technically correct but low effort answers which do not demonstrate engagement or understanding will receive no credit.</p>
+<p>While this is not an English class, grammar and spelling are important, as is your ability to communicate technical information in writing; both of these criteria will be used in addition to assignment-specific rubrics to evaluate your work.</p>
+</section>
+</section>
+<section id="course-organization" class="level2">
+<h2 class="anchored" data-anchor-id="course-organization">Course Organization</h2>
+<section id="communication" class="level3">
+<h3 class="anchored" data-anchor-id="communication">Communication</h3>
+<p>Course material will be posted in Canvas modules and announcements will be used to let you know what is due over the next week.</p>
+<p>We will use Canvas discussion boards to manage questions and responses regarding course content. There are discussion forums for the different components of each week (e.g., Week 1 Lab). Please <strong>do not</strong> send me an email about homework questions or questions about the course material. It is incredibly helpful for others in the course to see the questions you have and the responses to those questions. If you think you can answer another student’s question, please respond!</p>
+<p>You can expect me to reply to emails within 48 hours during the week (72 hours on weekends). If you don’t hear back from me in this time span, assume I did not receive your email and resend it!</p>
+</section>
+<section id="assessment-breakdown" class="level3">
+<h3 class="anchored" data-anchor-id="assessment-breakdown">Assessment Breakdown</h3>
+<div class="panel-tabset" data-group="coures-resources">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Reading &amp; Videos (5%)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">In-class Activities (10%)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Group Labs (10%)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Individual Assignments (15%)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">Midterm exams (20%)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false" href="">Final exam (15%)</a></li></ul>
+<div class="tab-content" data-group="coures-resources">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>You will be expected to complete the assigned textbook reading and course videos prior to attending class each week. As you complete the reading and watch the videos, you should complete the concept check quiz questions. You can retake the video quizzes as many times as you like (the most recent grade will be recorded in Canvas) until the deadline.</p>
+<ul>
+<li>Concept check quizzes are due <strong>Monday at 8pm Pacific Time each week</strong>.</li>
+<li>The two lowest concept check quiz grades will be dropped.</li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Monday’s classes will be dedicated to meeting with your classmates and instructor to work through that week’s group activity. Attendance and completion of the activity counts towards this portion of your grade.</p>
+<ul>
+<li>Printed activities will be provided for you on Monday, with Word and PDF files posted on Canvas</li>
+<li>Activities will be checked for completion at the <strong>beginning of class on Wednesday.</strong></li>
+<li>If you have an excused absence the day the activity is due (e.g., quarantine or ill), you may email me a scanned copy of the completed activity for credit. This must be received by <strong>8pm Pacific Time on the day the activity would be checked in class</strong>.</li>
+<li>The lowest activity grade will be dropped.</li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Every Wednesday, you will meet with your classmates and instructor to work through that week’s Rstudio Cloud group lab. The lab will reinforce the ideas learned in the activities completed Monday, through the use of R to explore and analyze data.</p>
+<ul>
+<li>Each group will turn in selected questions from the lab to Canvas. Labs are due <strong>Friday at 8pm Pacific Time each week</strong>.</li>
+<li>Each individual student will also turn in the entirety of each lab for completion at the <strong>beginning of class on Monday</strong>.</li>
+<li>The lowest lab grade will be dropped.</li>
+</ul>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>You will complete weekly assignments in <strong>Canvas</strong>. These should be completed <strong>individually</strong> (meaning all answers should be written in your own words), but you may use your classmates, tutors, or your instructor for assistance.</p>
+<ul>
+<li>Weekly assignments are due <strong>Sunday at 8pm Pacific Time each week</strong>.</li>
+<li>The lowest assignment grade will be dropped.</li>
+</ul>
+<section id="midterm-final-projects-25" class="level3">
+<h3 class="anchored" data-anchor-id="midterm-final-projects-25">Midterm &amp; Final Projects (25%)</h3>
+<p>There will be two projects throughout the quarter, where you will be asked to apply the statistical concepts you have learned in the context of real data. Each of these projects will be done in the teams you have been working with in class. More details will be provided during class.</p>
+</section>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<p>There will be one midterm exam (worth 15% of the course grade). The midterm exam will be taken in class during your normal in-class time. Each exam has a group (Wednesday) and individual (Friday) component. A practice exam will be released in Canvas one week prior to the exam, with solutions to the practice exam released in Canvas the Friday prior to the exam. Further details, resources, and instructions for each exam will be posted the week prior to the exam in Canvas.</p>
+<section id="group-portion" class="level5">
+<h5 class="anchored" data-anchor-id="group-portion"><em>Group portion</em>:</h5>
+<p>Group midterm exam 1 will be: <strong>Wednesday, April 27</strong></p>
+<p>Group midterm exam 2 will be: <strong>Wednesday, May 18</strong></p>
+<ul>
+<li>Group portions of the midterms are worth 20% of your midterm exam grade.</li>
+<li>Group midterm exams are open book, open notes.</li>
+<li>You will be allowed a calculator on the group midterm exams.</li>
+<li>You <strong>will</strong> be required to use Rstudio on the group midterm exams.</li>
+<li><strong>If you miss more than 25% of class days within a unit without communicating with your section instructor and group-mates, you must complete the group exam individually.</strong></li>
+</ul>
+</section>
+<section id="individual-portion" class="level5">
+<h5 class="anchored" data-anchor-id="individual-portion"><em>Individual portion</em>:</h5>
+<p>Individual midterm exam 1 will be: <strong>Tuesday, April 26th</strong></p>
+<p>Individual midterm exam 2 will be: <strong>Tuesday, May 17th</strong></p>
+<ul>
+<li>Individual portions of the midterms will be worth 80% of your midterm exam grade.</li>
+<li>Potential individual midterm exam questions will be released one week prior to the exam.</li>
+<li>Individual midterm exams are open notes.</li>
+<li>A formula sheet will be provided to use during the exam (also released with the potential midterm exam questions).</li>
+<li>You will be allowed a calculator on the individual midterm exams.</li>
+<li>You will <strong>not</strong> be required to use Rstudio on the individual midterm exams.</li>
+</ul>
+</section>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<p>The group final exam will be taken in class during your normal in-class time. A practice exam will be released in Canvas one week prior to the exam, with solutions to the practice exam released in Canvas the Wednesday prior to the exam. Further details, resources, and instructions for each exam will be posted the week prior to the exam in Canvas.</p>
+<section id="group-portion-1" class="level5">
+<h5 class="anchored" data-anchor-id="group-portion-1"><em>Group portion</em>:</h5>
+<p>Group final exam will be <strong>Wednesday, June 1st (during normal class time)</strong>.</p>
+<ul>
+<li>The group portion of the final exam will be worth 20% of your exam grade.</li>
+<li>The group final exams is open book, open notes.</li>
+<li>You will be allowed a calculator on the group final exam.</li>
+<li>You <strong>will</strong> be required to use Rstudio on the group final exam.</li>
+<li><strong>If you miss more than 25% of class days in Unit 3 without communicating with your section instructor and group-mates, you must complete the group exam individually.</strong></li>
+</ul>
+</section>
+<section id="individual-portion-1" class="level5">
+<h5 class="anchored" data-anchor-id="individual-portion-1"><em>Individual portion</em>:</h5>
+<p>Individual final exam will be: <strong>Saturday, June 4, from 10:10am – 1:00pm in 180-0107.</strong></p>
+<ul>
+<li>The individual portion of the final exam will be worth 80% of your exam grade.</li>
+<li>Potential final exam questions will be released on Monday, May 30.</li>
+<li>The individual final exam is closed book.</li>
+<li>You will be provided a one page formula sheet during the exam.</li>
+<li>You will be allowed a calculator on the individual final exam.</li>
+<li>You will <strong>not</strong> be required to use Rstudio on the individual final exams.</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="working-in-teams" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-teams">Working in Teams</h3>
+<p>Working in teams is beneficial for <em>every</em> student, but only if each person meaningfully engages in the discussions being had. Each of you will work in a group of 2-3 students to discuss the course concepts and complete the course activities and labs.</p>
+<p>To ensure the group’s work is divided equitably each week, your team will be rotating through a set of group roles. This ensures one person doesn’t act as the group leader for multiple sessions of class, while someone else is always the note taker. You will circulate through the following roles each week:</p>
+<table class="table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Responsibilities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Manager</td>
+<td>Responsible for organizing the team work: making sure all roles were assigned and clear, leading discussion of the activity or lab assignment problems.</td>
+</tr>
+<tr class="even">
+<td>Recorder</td>
+<td>Responsible for collecting, organizing, and recording answers to the assignment during the discussions, compiling the summary of the answers discussed, sending summary to Editor.</td>
+</tr>
+<tr class="odd">
+<td>Editor</td>
+<td>During the group discussions the editor is responsible for making sure everyone has a chance to contribute, asking quiet team members to speak up, asking loud team members to listen to others, and bringing the conversation back to the lab assignment if it deviates. The Editor is also responsible for reviewing the draft summary provided by the Recorder, sharing the summary with the team, soliciting feedback from the team, and submitting the final assignment by the deadline.</td>
+</tr>
+</tbody>
+</table>
+<p>If you are in a group of two, the <em>Manager</em> also acts as the <em>Editor</em>, and is expected to both organize the team work, lead the discussion, and review the draft summary prepared by the Recorder.</p>
+<section id="team-meetings" class="level4">
+<h4 class="anchored" data-anchor-id="team-meetings"><em>Team Meetings</em></h4>
+<p>There will be time in each class for your team to work on the assignment for the week, however this time will not be sufficient to complete the assignments. Therefore, every group is expected to meet for at least 1-hour outside of class.</p>
+<p><strong>If you are not in attendance for <em>more than one</em> of your team meetings that week, you will be expected to complete that week’s activity and lab on your own.</strong></p>
+<!-- My hope is that each member of the group looks over the week's assignment on Monday while reading the week's chapter(s). Then, each member should have a  solid understanding of the content by Tuesday's activity. During Tuesday's activity and Wednesday's lab, the Team Manager is tasked with leading the -->
+<!-- discussion of the activity. The Reporter is tasked with recording the ideas shared by the team. The editor is tasked with ensuring each team member has the opportunity to share and, following the class meeting, is in charge of reviewing the draft submitted by the Recorder.  -->
+<!-- As a team, you can choose to work together or independently on the assignment's problems between course meetings. The Manager is responsible for scheduling additional meetings, so that the Editor is able to submit the assignment on time.  -->
+</section>
+</section>
+</section>
+<section id="late-policy" class="level2">
+<h2 class="anchored" data-anchor-id="late-policy">Late Policy</h2>
+<p><strong>Individual Assignments</strong></p>
+<p>Assignments are expected to be submitted on time. However, every student will be permitted to submit <strong>one</strong> individual assignment 24 hours late without question. You do not need to contact me to use this allowance, but I will be keeping track of when you use your allowance.</p>
+<p>Any additional late assignments will be accepted only under extenuating circumstances, and only if you have contacted me <strong>prior</strong> to the assignment due date and received permission to hand the assignment in late. I reserve the right not to grade any additional assignments received after the assignment due date.</p>
+<p><strong>Exams</strong>:</p>
+<ul>
+<li><p>Students that are in quarantine but healthy enough to take the exam should email me to arrange to take the exam at home while being proctored via Zoom.</p></li>
+<li><p>If you are ill to the point of not being able to take the exam, please email me to arrange a time to take the exam remotely via Zoom when you are feeling better within the week of the exam.</p></li>
+<li><p>Students who miss the exam without contacting me prior to the exam will receive a zero on the exam.</p></li>
+<li><p>Work is not a legitimate reason for an exam absence.</p></li>
+</ul>
+</section>
+<section id="attendance" class="level2">
+<h2 class="anchored" data-anchor-id="attendance">Attendance</h2>
+<p>You are expected to attend class and participate in the week’s team collaboration in a timely manner. If you find that you are unable to participate in the week’s team collaborations, <strong>please let your team know and contact me</strong>. Consistent, repeated failure to attend class or actively participate in the online portions of the course will affect the participation portion of your grade.</p>
+<p>If you are feeling ill, please <strong>do not come to class</strong>. Instead, please email myself and group-mates letting them know <strong>prior to the class meeting</strong>. Review the material and work on the homework assignment, and then schedule an appointment with me to meet virtually.</p>
+</section>
+<section id="expectations" class="level2">
+<h2 class="anchored" data-anchor-id="expectations">Expectations</h2>
+<p>You can expect me to:</p>
+<ul>
+<li>reply to emails within 48 hours during the week (72 hours on weekends)</li>
+<li>be available in class to assist with assignments</li>
+<li>be available by appointment for additional help or discussion</li>
+</ul>
+<p>I expect you to:</p>
+<ul>
+<li>Read the textbook material and watch any videos before coming to class</li>
+<li>Engage with the material and your classmates during class</li>
+<li>Seek help when you do not understand the material</li>
+<li>Communicate promptly if you anticipate that you will have trouble meeting deadlines or participating in a portion of the course.</li>
+<li>Be respectful and considerate of everyone in the class</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="required-university-information" class="level1">
+<h1>Required University Information</h1>
+<p>See <a href="https://academicprograms.calpoly.edu/content/academicpolicies/index">academicprograms.calpoly.edu/content/academicpolicies</a>.</p>
+<section id="academic-integrity-and-class-conduct" class="level2">
+<h2 class="anchored" data-anchor-id="academic-integrity-and-class-conduct">Academic Integrity and Class Conduct</h2>
+<p>You will be engaging with your classmates and me through in-person discussions, zoom meetings, and collaborative activities. It is expected that everyone will engage in these interactions civilly and in good faith. Discussion and disagreement are important parts of the learning process, but it is important that mutual respect prevail. Individuals who detract from an atmosphere of civility and respect will be removed from the conversation.</p>
+<p>Students are expected to adhere to the following responsibilities concerning academic dishonesty:</p>
+<ol type="1">
+<li><p>consult and analyze sources that are relevant to the topic of inquiry;</p></li>
+<li><p>acknowledge when they draw from the ideas or the phrasing of those sources in their own writing;</p></li>
+<li><p>learn and use appropriate citation conventions within the field in which they are studying; and</p></li>
+<li><p>ask their instructor for guidance when they are uncertain of how to acknowledge the contributions of others in their thinking and writing.</p></li>
+</ol>
+<p>When students fail to adhere to these responsibilities, they may intentionally or unintentionally “use someone else’s language, ideas, or other original (not common-knowledge) material without properly acknowledging its source” <a href="http://www.wpacouncil.org">http://www.wpacouncil.org</a>. When the act is intentional, the student has engaged in plagiarism.</p>
+<p>Plagiarism is an act of academic misconduct, which carries with it consequences including, but not limited to, receiving a course grade of “F” and a report to the Office of the Dean of Students. Unfortunately, it is not always clear if the misuse of sources is intentional or unintentional, which means that you may be accused of plagiarism even if you do not intentionally plagiarize. If you have any questions regarding use and citation of sources in your academic writing, you are responsible for consulting with your instructor before the assignment due date. In addition, you can work with an Writing Center tutor at any point in your writing process, including when you are integrating or citing sources.</p>
+<p><strong>In STAT 218, students involved in plagiarism on assignments (all parties involved) will receive a zero grade on that assignment. The second offense will result in a zero on that assignment, and the incident will be reported to the Office of Students Rights and Responsibilities. Academic misconduct on an exam will result in a zero on that exam and will be reported to the Dean of Students, without exception.</strong></p>
+</section>
+<section id="policy-on-intellectual-property" class="level2">
+<h2 class="anchored" data-anchor-id="policy-on-intellectual-property">Policy on intellectual property</h2>
+<p>This syllabus, course lectures and presentations, and any course materials provided throughout this term are protected by U.S. copyright laws. Students enrolled in the course may use them for their own research and educational purposes. However, reproducing, selling or otherwise distributing these materials without written permission of the copyright owner is expressly prohibited, including providing materials to commercial platforms such as Chegg or CourseHero. Doing so may constitute a violation of U.S. copyright law as well as Cal Poly’s Code of Student Conduct.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
