@@ -6,6 +6,11 @@
 
 + Fall 2022
 
-**Class Slides**
+[Master Syllabus](https://earobinson95.github.io/stat218-calpoly/00-course-info/syllabus-master.html)
 
-**Reading Guides**
+## Week 1: Introduction to Data
+
++ Lectures [a]() & [b]()
++ [Reading Guide]()
++ [Activity]()
++ [Lab]()

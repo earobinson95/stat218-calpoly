@@ -317,6 +317,33 @@ class_days %>%
 kableExtra::kable(caption = "Tentative schedule of class topics and important due dates", format = "simple")
 ```
 
+# Course Expectations
+
+You will get out of this course what you put in. The following excerpt was taken from Rob Jenkins’ article “Defining the Relationship” which was published in The Chronicle of Higher Education (August 8, 2016). This accurately summarizes what I expect of you in my classroom (and also what you should expect of me). 
+
+*“I’d like to be your partner. More than anything, I’d like for us to form a mutually beneficial alliance in this endeavor we call education.*
+
+*I pledge to do my part. I will:*
+
++ *Stay abreast of the latest ideas in my field.* 
++ *Teach you what I believe you need to know; with all the enthusiasm I possess.*
++ *Invite your comments and questions and respond constructively.*
++ *Make myself available to you outside of class (within reason).*
++ *Evaluate your work carefully and return it promptly with feedback.* 
++ *Be as fair, respectful, and understanding as I can humanly be.*
++ *If you need help beyond the scope of this course, I will do my best to provide it or see that you get it.* 
+
+*In return, I expect you to:*
+
++ *Show up for class each day or let me know (preferably in advance) if you have some good reason to be absent.* 
++ *Do your reading and other assignments outside of class and be prepared for each class meeting.*
++ *Focus during class on the work we’re doing and not on extraneous matters (like whoever or whatever is on your phone at the moment).* 
++ *Participate in class discussions.*
++ *Be respectful of your fellow students and their points of view.* 
++ *In short, I expect you to devote as much effort to learning as I devote to teaching.*
+
+*What you get out of this relationship is that you’ll be better equipped to succeed in this and other college courses, work-related assignments, and life in general. What I get is a great deal of professional and personal satisfaction. Because I do really like you guys and want the best for you.”*
+
 # Course Policies
 
 ## Assessment/Grading
@@ -326,51 +353,42 @@ Your grade in STAT 218 will contain the following components:
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = "center"}
 
 library(RColorBrewer)
-pal <- brewer.pal(n = 8, name = "Greens")
+pal <- brewer.pal(n = 8, name = "Purples")
 
 grades <- tribble(
   ~category,  ~percent,
-  "Reading & Videos", 0.05,
-  "In-class Activities", 0.10,
-  "Group Labs", 0.10,
-  "Individual Assignments", 0.15,
-  "Midterm Group Project", 0.10, 
+  # "Reading & Videos", 0.05,
+  "Activities", 0.10,
+  "Labs", 0.10,
+  "Assignments", 0.15,
+  "Midterm Project", 0.15, 
   "Midterm Exams (2)", 0.20,
-  "Final Group Project", 0.15,
+  "Final Project", 0.15,
   "Final Exam", 0.15
 ) %>% 
   mutate(category = factor(category, 
                            levels = c(
-                             "Reading & Videos",
-                             "In-class Activities",
-                             "Group Labs",
-                             "Individual Assignments",
-                             "Midterm Group Project",
+                             # "Reading & Videos",
+                             "Activities",
+                             "Labs",
+                             "Assignments",
+                             "Midterm Project",
                              "Midterm Exams (2)",
-                             "Final Group Project",
+                             "Final Project",
                              "Final Exam")
                            )
          ) %>% 
   mutate(
-    location = rep(1, 8) 
+    location = rep(1, 7) 
   )
 
 grades %>% 
   ggplot(aes(x = location, y = percent)) +
   geom_col(aes(fill = category), col = 'black') + 
   guides(fill = "none") + 
-  geom_text(aes(x = rep(1, 8), 
-                label = c(
-                  "Reading & Videos (5%)",
-                  "Activities (10%)",
-                  "Labs (10%)",
-                  "Assignments (15%)",
-                  "Midterm Project (10%)",
-                  "Midterm Exams (20%)",
-                  "Final Project (15%)", 
-                  "Final Exam (15%)"
-                  ), 
-                y = c(0.98, 0.90, 0.80, 0.68, 0.55, 0.40, 0.24, 0.08)
+  geom_text(aes(x = location, 
+                label = paste(category, " - ", percent*100, "%"), 
+                y = c(0.95, 0.85, 0.725, 0.575, 0.40, 0.235, 0.075)
                 )
             ) + 
   scale_x_discrete('', expand = c(0,0))+
@@ -415,25 +433,18 @@ You can expect me to reply to emails within 48 hours during the week (72 hours o
 
 ### Assessment Breakdown
 
-::: {.panel-tabset group="coures-resources"}
+<!-- ::: {.panel-tabset group="coures-resources"} -->
 
-#### Reading & Videos (5%)
-
-You will be expected to complete the assigned textbook reading and course videos prior to attending class each week. As you complete the reading and watch the videos, you should complete the concept check quiz questions. You can retake the video quizzes as many times as you like (the most recent grade will be recorded in Canvas) until the deadline.
-
-* Concept check quizzes are due **Monday at 8pm Pacific Time each week**.
-* The two lowest concept check quiz grades will be dropped.
-
-#### In-class Activities (10%)
+#### _Activities (10%)_
 
 Monday's classes will be dedicated to meeting with your classmates and instructor to work through that week's group activity. Attendance and completion of the activity counts towards this portion of your grade. 
 
 * Printed activities will be provided for you on Monday, with Word and PDF files posted on Canvas
-* Activities will be checked for completion at the **beginning of class on Wednesday.** 
+* Activities will be checked individually for completion at the **beginning of class on Wednesday.** 
 * If you have an excused absence the day the activity is due (e.g., quarantine or ill), you may email me a scanned copy of the completed activity for credit. This must be received by **8pm Pacific Time on the day the activity would be checked in class**.
 * The lowest activity grade will be dropped.
 
-#### Group Labs (10%)
+#### _Labs (10%)_
 
 Every Wednesday, you will meet with your classmates and instructor to work through that week's Rstudio Cloud group lab. The lab will reinforce the ideas learned in the activities completed Monday, through the use of R to explore and analyze data.  
 
@@ -441,22 +452,22 @@ Every Wednesday, you will meet with your classmates and instructor to work throu
 * Each individual student will also turn in the entirety of each lab for completion at the **beginning of class on Monday**.
 * The lowest lab grade will be dropped.
 
-#### Individual Assignments (15%)
+#### _Individual Assignments (15%)_
 
 You will complete weekly assignments in **Canvas**. These should be completed **individually** (meaning all answers should be written in your own words), but you may use your classmates, tutors, or your instructor for assistance. 
 
 * Weekly assignments are due **Sunday at 8pm Pacific Time each week**.
 * The lowest assignment grade will be dropped.
 
-### Midterm & Final Projects (25%)
+### _Midterm & Final Projects (25%)_
 
 There will be two projects throughout the quarter, where you will be asked to apply the statistical concepts you have learned in the context of real data. Each of these projects will be done in the teams you have been working with in class. More details will be provided during class.
 
-#### Midterm exams (20%)
+### _Midterm exams (20%)_
 
 There will be one midterm exam (worth 15% of the course grade). The midterm exam will be taken in class during your normal in-class time. Each exam has a group (Wednesday) and individual (Friday) component.  A practice exam will be released in Canvas one week prior to the exam, with solutions to the practice exam released in Canvas the Friday prior to the exam. Further details, resources, and instructions for each exam will be posted the week prior to the exam in Canvas.
 
-##### _Group portion_:
+#### _Group portion_:
 
 Group midterm exam 1 will be: **Wednesday, April 27**  
 
@@ -468,7 +479,7 @@ Group midterm exam 2 will be: **Wednesday, May 18**
 * You **will** be required to use Rstudio on the group midterm exams.
 * **If you miss more than 25% of class days within a unit without communicating with your section instructor and group-mates, you must complete the group exam individually.**
 
-##### _Individual portion_:
+#### _Individual portion_:
 
 Individual midterm exam 1 will be: **Tuesday, April 26th**  
 
@@ -484,11 +495,11 @@ the potential midterm exam questions).
 * You will be allowed a calculator on the individual midterm exams. 
 * You will **not** be required to use Rstudio on the individual midterm exams.
 
-#### Final exam (15%)
+### _Final exam (15%)_
 
 The group final exam will be taken in class during your normal in-class time. A practice exam will be released in Canvas one week prior to the exam, with solutions to the practice exam released in Canvas the Wednesday prior to the exam. Further details, resources, and instructions for each exam will be posted the week prior to the exam in Canvas.
 
-##### _Group portion_:
+#### _Group portion_:
 
 Group final exam will be **Wednesday, June 1st (during normal class time)**. 
 
@@ -498,7 +509,7 @@ Group final exam will be **Wednesday, June 1st (during normal class time)**.
 * You **will** be required to use Rstudio on the group final exam.
 * **If you miss more than 25% of class days in Unit 3 without communicating with your section instructor and group-mates, you must complete the group exam individually.**
 
-##### _Individual portion_:
+#### _Individual portion_:
 
 Individual final exam will be: **Saturday, June 4, from 10:10am – 1:00pm in 180-0107.** 
 
@@ -509,7 +520,7 @@ Individual final exam will be: **Saturday, June 4, from 10:10am – 1:00pm in 18
 * You will be allowed a calculator on the individual final exam. 
 * You will **not** be required to use Rstudio on the individual final exams.
 
-:::
+<!-- ::: -->
 
 ### Working in Teams 
 
@@ -531,11 +542,6 @@ If you are in a group of two, the *Manager* also acts as the *Editor*, and is ex
 There will be time in each class for your team to work on the assignment for the week, however this time will not be sufficient to complete the assignments. Therefore, every group is expected to meet for at least 1-hour outside of class. 
 
 __If you are not in attendance for *more than one* of your team meetings that week, you will be expected to complete that week's activity and lab on your own.__ 
-
-<!-- My hope is that each member of the group looks over the week's assignment on Monday while reading the week's chapter(s). Then, each member should have a  solid understanding of the content by Tuesday's activity. During Tuesday's activity and Wednesday's lab, the Team Manager is tasked with leading the -->
-<!-- discussion of the activity. The Reporter is tasked with recording the ideas shared by the team. The editor is tasked with ensuring each team member has the opportunity to share and, following the class meeting, is in charge of reviewing the draft submitted by the Recorder.  -->
-
-<!-- As a team, you can choose to work together or independently on the assignment's problems between course meetings. The Manager is responsible for scheduling additional meetings, so that the Editor is able to submit the assignment on time.  -->
 
 ## Late Policy
 
@@ -560,22 +566,6 @@ Any additional late assignments will be accepted only under extenuating circumst
 You are expected to attend class and participate in the week's team collaboration in a timely manner. If you find that you are unable to participate in the week's team collaborations, __please let your team know and contact me__. Consistent, repeated failure to attend class or actively participate in the online portions of the course will affect the participation portion of your grade.
 
 If you are feeling ill, please **do not come to class**. Instead, please email myself and group-mates letting them know **prior to the class meeting**. Review the material and work on the homework assignment, and then schedule an appointment with me to meet virtually.
-
-## Expectations
-
-You can expect me to:
-
-+   reply to emails within 48 hours during the week (72 hours on weekends)
-+   be available in class to assist with assignments
-+   be available by appointment for additional help or discussion
-
-I expect you to:
-
-+   Read the textbook material and watch any videos before coming to class
-+   Engage with the material and your classmates during class
-+   Seek help when you do not understand the material
-+   Communicate promptly if you anticipate that you will have trouble meeting deadlines or participating in a portion of the course.
-+   Be respectful and considerate of everyone in the class
 
 ---
 
