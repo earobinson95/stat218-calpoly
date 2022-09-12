@@ -1,10 +1,7 @@
 ---
-title: "Stat 218: Week 1 Reading Guide"
-format: pdf
-editor: visual
+title: "Week 1 Reading Guide"
+output: html_document
 ---
-
-# Introduction to Data
 
 ## Chapter 1: Data, Types of Variables & Study Design
 
@@ -369,7 +366,6 @@ What are the four principles of a well-designed randomized experiment?
 </br>
 
 Fill in the appropriate scope of inference for each study design.
-
 \begin{center}
 \begin{tabular}{|p{2in}|p{2in}|p{2in}|}
 \hline
