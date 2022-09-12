@@ -1,8 +1,10 @@
 ---
-title: "Week 1 Reading Guide"
+title: "Stat 218: Week 1 Reading Guide"
 format: pdf
 editor: visual
 ---
+
+# Introduction to Data
 
 ## Chapter 1: Data, Types of Variables & Study Design
 

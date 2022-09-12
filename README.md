@@ -6,11 +6,11 @@
 
 + Fall 2022
 
-[Master Syllabus](https://earobinson95.github.io/stat218-calpoly/00-course-info/syllabus-master.html)
+[Syllabus](https://earobinson95.github.io/stat218-calpoly/00-course-info/syllabus-master.html)
 
 ## Week 1: Introduction to Data
 
-+ Lectures [a]() & [b]()
++ [Lectures slides]()
 + [Reading Guide]()
-+ [Activity]()
-+ [Lab]()
++ [Activity 1: Martian Alphabet]()
++ [Lab 1: Welcome to RStudio Cloud!]()
