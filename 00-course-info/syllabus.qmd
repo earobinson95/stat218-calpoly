@@ -122,7 +122,8 @@ not_here_dates <- c(
 # 2:10 section final Exam Dec. 9th at 1:10 - 4:00 PM
 # 4:10 section final Exam Dec. 7th at 4:10 - 7:00 PM
 exam_dates <- c(ymd(20221019), 
-                ymd(20221109),
+                ymd(20221109), 
+                ymd(20221130),
                 ymd(20221207), 
                 ymd(20221209)
                 )
@@ -189,8 +190,8 @@ class_cal <- Cal %>%
 class_cal
 
 exam_days <- filter(Cal, category == "Exam") %>%
-  mutate(topic = c("Midterm Exam 1 (In Class)", "Midterm Exam 2 (In Class)",  "Final Exam (Section 06) at 4:10-7:00 PM", "Final Exam (Section 05) at 1:10-4:00 PM"),
-         time = c("In Class", "In Class", "1:10-4:00 PM", "4:10-7:00 PM")) %>%
+  mutate(topic = c("Midterm Exam 1 (In Class)", "Midterm Exam 2 (In Class)",  "Final Exam (Group Portion) In Class", "Final Exam (Section 06) at 4:10-7:00 PM", "Final Exam (Section 05) at 1:10-4:00 PM"),
+         time = c("In Class", "In Class", "In Class", "1:10-4:00 PM", "4:10-7:00 PM")) %>%
   rowwise() %>%
   mutate(sem_week = week(date),
          Date = paste(format(date, "%b %e"), sep = ",", collapse = ", "))
@@ -425,18 +426,18 @@ Lower bounds for grade cutoffs are shown in the following table. I will not "rou
 
 | Letter grade | X +  | X   | X - |
 |--------------|------|-----|-----|
-| A            | 97   | 94  | 90  |
-| B            | 87   | 84  | 80  |
-| C            | 77   | 74  | 70  |
-| D            | 67   | 64  | 61  |
-| F            | \<61 |     |     |
+| A            |  .   | 93  | 90  |
+| B            | 87   | 83  | 80  |
+| C            | 77   | 73  | 70  |
+| D            | 67   | 63  | 60  |
+| F            | \<60 |     |     |
 
 Interpretation of this table:
 
 -   A grade of 85 will receive a B.
 -   A grade of 77 will receive a C+.
 -   A grade of 70 will receive a C-.
--   Anything below a 61 will receive an F.
+-   Anything below a 60 will receive an F.
 
 #### _General Evaluation Criteria_
 
@@ -495,11 +496,11 @@ You will complete weekly assignments in **Canvas**. These should be completed **
 
 #### _Midterm & Final Projects (25%)_
 
-There will be two projects throughout the quarter, where you will be asked to apply the statistical concepts you have learned in the context of real data. Each of these projects will be done in the teams you have been working with in class. More details will be provided during class.
+There will be two projects throughout the quarter, where you will be asked to apply the statistical concepts you have learned in the context of real data. Each of these projects will be completed individually. More details will be provided during class.
 
 #### _Midterm exams (20%)_
 
-There will be two midterms exams (worth 10% each of the course grade). The midterm exams will be taken in class during your normal in-class time. Each exam has a group (first 45 minutes) and individual (last hour) component (15 minute break between). Further details, resources, and instructions for each exam will be posted the in Canvas.
+There will be two midterm exams (worth 10% each of the course grade). The midterm exams will be taken in class during your normal in-class time. Each exam has a group (first 45 minutes) and individual (last hour) component (15 minute break between). Further details, resources, and instructions for each exam will be posted the in Canvas.
 
 Midterm exam 1 will be: **Wednesday, October 19**
 
@@ -515,12 +516,9 @@ Midterm exam 2 will be: **Wednesday, November 9**
 
 ##### _Individual portion_:
 
-* Individual portions of the midterms will be worth 80% of your midterm exam
-grade.
-* Potential individual midterm exam questions will be posted on canvas.
+* Individual portions of the midterms will be worth 80% of your midterm exam grade.
 * Individual midterm exams are open notes. 
-* A formula sheet will be provided to use during the exam (also released with
-the potential midterm exam questions).
+* A formula sheet will be provided to use during the exam.
 * You will be allowed a calculator on the individual midterm exams.
 * You will **not** be required to use Rstudio on the individual midterm exams.
 
@@ -542,13 +540,12 @@ Group final exam **Wednesday, November 30**
 
 ##### _Individual portion_:
 
-Individual final exam will be:
+Tentatively, individual final exam will be:
 
 + Section 05 (2:10 - 4:00pm) **Friday, December 9 at 1:10 - 4:00pm**
 + Section 06 (4:10 - 6:00pm) **Wednesday, December 7th at 4:10 - 7:00pm**
 
 * The individual portion of the final exam will be worth 80% of your exam grade.
-* Potential final exam questions will be posted on canvas.
 * The individual final exam is *closed book*. 
 * You will be provided a one page formula sheet during the exam.
 * You will be allowed a calculator on the individual final exam. 
