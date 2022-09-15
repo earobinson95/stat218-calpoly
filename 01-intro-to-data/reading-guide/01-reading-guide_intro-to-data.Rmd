@@ -1,6 +1,9 @@
 ---
 title: "Week 1 Reading Guide"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ## Chapter 1: Data, Types of Variables & Study Design
