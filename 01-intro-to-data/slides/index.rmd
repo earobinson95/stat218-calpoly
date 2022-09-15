@@ -233,16 +233,6 @@ c(str_split(i1, "\\n", simplify = T)[1:2],
 
 ]
 
-<!-- --- -->
-<!-- class: primary -->
-<!-- # GET INTO YOUR GROUPS -->
-
-<!-- + Introduce yourselves again (with year + major + comfort food/hobby) -->
-<!-- + Determine a form of communication and send your name to each other (email, canvas, phone, slack, etc.) -->
-<!-- + Select a 1 hour time slot you could meet each week and put "placeholders" on your calendar.  -->
-<!--   + Keep in mind group lab questions are due at 8pm on Fridays. -->
-<!-- + How will you meet (Zoom, library study room, etc)? -->
-
 ---
 class: center, middle, inverse
 # TAKE A BREAK TO STRETCH
@@ -277,10 +267,9 @@ class:primary
 
 + Complete Activity 1: Martian Alphabet
   + *check during class Wednesday, 9/21*
-  
 + Week 1 Reading Guide (Ch. 1 & 2)
-  + *before class Wednesday, 9/21*
-  
+  + *read before class Wednesday, 9/21*
+  + *no associated concept check quiz*
 + Stat 218 Community & Syllabus Concept Check Quizzes
   + *due Wednesday, 9/21, at 8pm*
 
@@ -290,23 +279,59 @@ class: inverse
 
  Today we will...
 
-`r fa_i("chart-bar")` Check *Activity 1: Martian Alphabet*
+`r fa_i("people-group")` Meet your group mates!
 
-`r fa_i("chart-bar")` Introduce Instructional Student Assistant
+`r fa_i("check")` Check *Activity 1: Martian Alphabet*
 
-`r fa_i("chart-bar")` Set up RStudio Cloud & Introduction to R
+`r fa_i("hand")` Introduce Instructional Student Assistant
 
-`r fa_i("chart_bar")` Lab 1: Welcome to RStudio Cloud!
+`r fa_i("computer")` Set up RStudio Cloud & Introduction to R
 
-`r fa_i("chart_bar")` Beginning your midterm project
+`r fa_i("code")` Lab 1: Welcome to RStudio Cloud!
+
+`r fa_i("list")` Beginning your midterm project
+
+---
+class: primary
+# GET INTO YOUR GROUPS
+
++ Introduce yourselves again (with year + major)
+
++ Determine a form of communication and send your name to each other (email, canvas, phone, slack, etc.)
+
++ Select a 1 hour time slot you could meet each week and put "placeholders" on your calendar.
+  + Keep in mind group lab questions are due at 8pm on Fridays.
+  + Most times you will be able to complete this during class.
+  
++ How will you meet (Zoom, library study room, etc)?
+
+---
+class:primary
+# Lab 1: Welcome to RStudio Cloud!
+
+```{r, fig.cap = "", fig.alt = "Image of a man giving a TED talk.", out.width = "60%"}
+knitr::include_graphics("images/signing-up-for-rscloud.png")
+```
+
+---
+class:primary
+# Lab 1: Welcome to RStudio Cloud!
+
+```{r, fig.cap = "", fig.alt = "Image of a man giving a TED talk.", out.width = "100%"}
+knitr::include_graphics("images/copying-a-project-in-rscloud.png")
+```
 
 ---
 class:primary
 # INTRODUCITON TO R
 
+```{r, fig.cap = "", fig.alt = "Image of a man giving a TED talk.", out.width = "70%"}
+knitr::include_graphics("images/r-environment.png")
+```
+
 ---
 class:primary
-# R MARKDOWN DOCUMENTS
+# RMARKDOWN (RMD) DOCUMENTS
 
 ```{r, fig.alt = "Two fuzzy round monsters dressed as wizards, working together to brew different things together from a pantry (code, text, figures, etc.) in a cauldron labeled “R Markdown”. The monster wizard at the cauldron is reading a recipe that includes steps “1. Add text. 2. Add code. 3. Knit. 4. (magic) 5. Celebrate perceived wizardry.” The R Markdown potion then travels through a tube, and is converted to markdown by a monster on a broom with a magic wand, and eventually converted to an output by pandoc. Stylized text (in a font similar to Harry Potter) reads 'R Markdown. Text. Code. Output. Get it together, people.'", out.width = "65%"}
 knitr::include_graphics("images/rmarkdown_wizards.png")
@@ -316,17 +341,29 @@ knitr::include_graphics("images/rmarkdown_wizards.png")
 
 ---
 class:primary
-# R Knowledge Rollercoaster
+# RMARKDOWN (RMD) DOCUMENTS
+
+```{r, fig.cap = "", fig.alt = "Image of a man giving a TED talk.", out.width = "100%"}
+knitr::include_graphics("images/working-with-rmd.png")
+```
+
+---
+class:primary
+# EXPORTING YOUR LAB DOCUMENTS
+
+```{r, fig.cap = "", fig.alt = "Image of a man giving a TED talk.", out.width = "100%"}
+knitr::include_graphics("images/exporting-rmd-files.png")
+```
+
+---
+class:primary
+# R KNOWLEDGE ROLLERCOASTER
 
 ```{r, fig.alt = "An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it.", out.width = "70%"}
 knitr::include_graphics("images/r_rollercoaster.png")
 ```
 
 .medium[Illustrations by [Allison Horst](https://www.allisonhorst.com/)]
-
----
-class:primary
-# Lab 1: Welcome to RStudio Cloud!
 
 ---
 class:primary
@@ -349,11 +386,10 @@ class:primary
 
 + Stat 218 Community & Syllabus Concept Check Quizzes 
   + *due TONIGHT, 9/21, at 8pm*
-  
 + Lab 1: Welcome to RStudio Cloud
   + *selected questions: due Friday, 9/22 at 8pm*
-  + *individual completion: due Monday, 9/26 at 2pm* 
-  
-+ Midterm project: Part 1 (aka Assignment 1)
+  + *completion: due Monday, 9/26 at 2pm* 
++ Midterm Project: Part 1 (aka Assignment 1)
   + *due Sunday, 9/25 at 8pm*
-
++ Week 2: Reading Guide (Chapter 5)
+  + *concept check quizzes due Monday, 9/26 at 2pm*
