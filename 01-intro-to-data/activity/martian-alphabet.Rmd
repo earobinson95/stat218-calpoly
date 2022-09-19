@@ -44,7 +44,7 @@ How well can humans distinguish one “Martian” letter from another? In today�
 
 1.	Were you correct or incorrect in identifying Bouba?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 ### Steps of the statistical investigation process  
 
@@ -58,11 +58,11 @@ How well can humans distinguish one “Martian” letter from another? In today�
 
 2.  What are the observational units in this study?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 3.  How many students are in class today? This is the **sample size**.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 
 
@@ -70,7 +70,7 @@ A **variable** is information collected or measured on each observational unit o
 
 4. **Identify the variable we are collecting on each observational unit in this study, i.e., what are we measuring on each student?**  *Hint*: Your answer to question 1 is the outcome for the variable measured on one observational unit.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 
 We will look at two types of variables: **quantitative** and **categorical**. 
@@ -91,7 +91,7 @@ include_graphics(here::here("01-intro-to-data",
 
 5. Is the variable identified in question 4 categorical or quantitative?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 
 
@@ -103,7 +103,7 @@ include_graphics(here::here("01-intro-to-data",
 
 $\text{proportion} = \frac{\text{number of students who correctly identified Bouba}}{\text{total number of students}}$
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 The proportion in question 6 is called a **summary statistic**---a single value that summarizes the data set. It is important to note that a variable is different than a summary statistic. A *variable* is measured on a *single observational unit* while a summary *statistic* is calculated from a *group* of observational units. 
 
@@ -149,40 +149,40 @@ To do this we need to simulate what statistics could have happened if we all wer
 
 9. If humans really don’t know Martian and are just guessing which is Bouba, what are the chances of getting it right?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 10. How could we use a coin to simulate each student “just guessing” which Martian letter is Bouba?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 11. How could we use coins to simulate the entire class “just guessing” which Martian letter is Bouba? 
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 12. How many people in your class would you expect to choose Bouba correctly just by chance? Explain your reasoning.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 13. Each student will flip a coin one time to simulate your “guess” under the assumption that we can't read Martian.  Let Heads = correct, Tails = incorrect.
 
 - What was the result of your one simulation?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 - What was the result from your class’s simulation?  What proportion of students “guessed” correctly in the simulation?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 14. If students really don’t know Martian and are just guessing which is Bouba, which seems more unusual: (1) the result from your class’s **simulation** or (2) the **observed proportion** of students in your class that were correct (this is your summary statistic from question 6)?  Explain your reasoning.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 
 While your observed class data is likely different from the simulated “just-guessing” class, comparing our class data to a single simulation does not provide enough information to decide whether we believe our class can read Martian! The differences between these two statistics seen could just be due to the randomness of that set of coin flips!  Let’s simulate another class.  
 
 15. Each student should flip their coin again.  What was the result from your class’s second simulation?  What proportion of students “guessed” correctly in the second simulation?  Create a plot to compare the two simulated results with the observed class result.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 We still only have a couple of simulations to compare our class data to. It would be much better to be able to see how our class compared to *hundreds* or *thousands* of “just-guessing” classes.  Since we don’t want to flip coins all class period, we will use a computer simulation (<http://www.rossmanchance.com/applets/2021/oneprop/OneProp.htm>) to get 1000 "random guessing" statistics.
 
@@ -202,7 +202,7 @@ of random guessing with 1000 statistics.
 
 \vspace{0.1in}
 
-    Sketch the distribution displayed by the simulation here.  Label each axis appropriately. 
+Sketch the distribution displayed by the simulation here.  Label each axis appropriately. 
 
 \vspace{1in}
 
@@ -210,30 +210,30 @@ of random guessing with 1000 statistics.
 17. What does one dot on the plot above represent in context of the problem?
 
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 18. Is your class particularly good or bad at Martian?  Use the plot in question 17 to explain your answer. 
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 19.	Is it *possible* that we could see our class results just by chance if everyone was just guessing?  Explain your reasoning.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 20.	Is it *likely* that we could see our class results just by chance if everyone was just guessing?  Explain your reasoning.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 
 **Step 5**: The next step in the statistical investigation process is to *communicate the results and answer the research question*.
 
 21.	Does this activity provide strong evidence that students were not just guessing at random? If so, what do you think is going on here?  Can we as class read Martian?
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 If you are interested, this activity was inspired by a TED talk given by Vilayanur Ramachandran in 2007. The synesthesia part begins at roughly 17:30 minutes: <https://www.ted.com/talks/vs_ramachandran_3_clues_to_understanding_your_brain>.  
 
-\vspace{0.25in}
+\vspace{0.2in}
 
 ### Take-home messages
 
@@ -245,7 +245,7 @@ If you are interested, this activity was inspired by a TED talk given by Vilayan
 
 ### Additional notes
 
-Use this space to summarize your thoughts and take additional notes on today's activity and material covered, and to write down the names and contact information of your teammates.
+Use this space to summarize your thoughts and take additional notes on today's activity and material covered.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
