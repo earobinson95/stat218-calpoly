@@ -1,0 +1,35 @@
+
+<script>
+        /* Get the modal*/
+          var modaldescriptivestatistics = document.getElementById('modaldescriptivestatistics');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var imgdescriptivestatistics = document.getElementById('imgdescriptivestatistics');
+          var modalImgdescriptivestatistics = document.getElementById('imgmodaldescriptivestatistics');
+          var captionTextdescriptivestatistics = document.getElementById('captiondescriptivestatistics');
+          imgdescriptivestatistics.onclick = function(){
+            modaldescriptivestatistics.style.display = 'block';
+            modalImgdescriptivestatistics.src = this.src;
+            captionTextdescriptivestatistics.innerHTML = this.alt;
+          }
+          /* When the user clicks on the modalImg, close it*/
+          modalImgdescriptivestatistics.onclick = function() {
+            modaldescriptivestatistics.style.display = 'none';
+          }
+</script>
+<script>
+        /* Get the modal*/
+          var modalinferentialstatistics = document.getElementById('modalinferentialstatistics');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var imginferentialstatistics = document.getElementById('imginferentialstatistics');
+          var modalImginferentialstatistics = document.getElementById('imgmodalinferentialstatistics');
+          var captionTextinferentialstatistics = document.getElementById('captioninferentialstatistics');
+          imginferentialstatistics.onclick = function(){
+            modalinferentialstatistics.style.display = 'block';
+            modalImginferentialstatistics.src = this.src;
+            captionTextinferentialstatistics.innerHTML = this.alt;
+          }
+          /* When the user clicks on the modalImg, close it*/
+          modalImginferentialstatistics.onclick = function() {
+            modalinferentialstatistics.style.display = 'none';
+          }
+</script>

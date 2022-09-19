@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 218 Introduction to Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Emily Robinson" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/modal.css" type="text/css" />
+    <link rel="stylesheet" href="css/sizeformat.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class:title-slide-custom
+
+&lt;style&gt;
+p.caption {
+  font-size: 0.8em;
+}
+&lt;/style&gt;
+
+
+&lt;style&gt;
+
+/* colors: #EEB422, #114201, #191970, #00a8cc */
+/* define the new color palette here! */
+a, a &gt; code {
+  color: #114201;
+  text-decoration: none;
+}
+
+.title-slide h2::after, .mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: #114201;
+  color: #114201;
+  height: 2px;
+}
+
+.remark-slide-content {
+  background-color: #FFFFFF;
+  border-top: 100px solid #114201;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.5;
+  &lt;!-- padding: 1em 2em 1em 2em --&gt;
+  &lt;!-- background-image: url(css/UNL.svg); --&gt;
+	background-position: 2% 98%;
+	background-size: 10%;
+	border-bottom: 0;
+}
+
+.inverse {
+  background-color: #114201;
+  &lt;!-- border-top: 20px solid #696969; --&gt;
+  &lt;!-- background-image: none; --&gt;
+	&lt;!-- background-position: 50% 75%; --&gt;
+  &lt;!-- background-size: 150px; --&gt;
+}
+
+.remark-slide-content &gt; h1 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 45px;
+  margin-top: -95px;
+  margin-left: -00px;
+  color: #FFFFFF;
+}
+
+.title-slide {
+  background-color: #FFFFFF;
+  &lt;!-- border-left: 80px solid 	#114201; --&gt;
+  &lt;!-- background-image:  url(css/UNL.svg); --&gt;
+	background-position: 98% 98%;
+	&lt;!-- background-attachment: fixed, fixed; --&gt;
+	background-size: 20%;
+	border-bottom: 0;
+	border: 10px solid 	#114201;
+	&lt;!-- background: transparent; --&gt;
+}
+
+.title-slide &gt; h1  {
+  color: #111111;
+  font-size: 32px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: 80px;
+}
+.title-slide &gt; h2  {
+  margin-top: -25px;
+  padding-bottom: -20px;
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 28px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide &gt; h3  {
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 28px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -20px;
+}
+
+body {
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+.remark-slide-number {
+  font-size: 13pt;
+  font-family: 'Roboto';
+  color: #272822;
+  opacity: 1;
+}
+
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  font-family: 'Roboto';
+  color: #FAFAFA;
+  opacity: 1;
+}
+
+.title-slide-custom .remark-slide-number {
+  display: none;
+}
+
+.title-slide-custom h3::after, .mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: #114201;
+  color: #114201;
+  height: 2px;
+}
+
+.title-slide-custom {
+  background-color: #FFFFFF;
+  &lt;!-- border-left: 80px solid 	#114201; --&gt;
+  &lt;!-- background-image:  url(css/UNL.svg); --&gt;
+	background-position: 98% 98%;
+	&lt;!-- background-attachment: fixed, fixed; --&gt;
+	background-size: 20%;
+	border-bottom: 0;
+	border: 10px solid 	#114201;
+	&lt;!-- background: transparent; --&gt;
+}
+
+.title-slide-custom &gt; h1  {
+  color: #111111;
+  font-size: 40px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: 80px;
+  padding-bottom: 10px;
+}
+.title-slide-custom &gt; h2  {
+  margin-top: -25px;
+  padding-bottom: 30px;
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 32px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide-custom &gt; h3  {
+  margin-top: -25px;
+  padding-bottom: -25px;
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 32px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide-custom &gt; h4  {
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 28px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -30px;
+  padding-bottom: -25px;
+}
+.title-slide-custom &gt; h5  {
+  color: #111111;
+  text-shadow: none;
+  font-weight: 100;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -40px;
+}
+
+&lt;!-- img { --&gt;
+&lt;!--   max-width: 50%; --&gt;
+&lt;!-- } --&gt;
+
+&lt;/style&gt;
+
+
+
+
+
+
+&lt;br&gt;&lt;br&gt;
+# INTRODUCTION TO DATA &amp; STATISTICAL INFERENCE
+## Stat 218: Applied Statistics for the Life Sceinces
+#### Dr. Emily Robinson 
+#### California Polytechnic State University - San Luis Obispo
+&lt;!-- ##### <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:black;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) --&gt;
+
+---
+class:inverse
+# MONDAY, SEPTEMBER 19, 2022
+
+ Today we will...
+
+<i class="fa fa-door-open" role="presentation" aria-label="door-open icon"></i> Welcome to Stat 218 (Applied Statistics for the Life Sciences)
+
+<i class="fa fa-hand" role="presentation" aria-label="hand icon"></i> Introductions
+
+<i class="fa fa-file" role="presentation" aria-label="file icon"></i> Syllabus
+
+<i class="fa fa-chart-line" role="presentation" aria-label="chart-line icon"></i> What is Data &amp; Statistics?
+
+<i class="fa fa-comment" role="presentation" aria-label="comment icon"></i> Activity 1: Martian Alphabet
+
+---
+class:primary
+# INTRODUCTIONS
+
+Please share the following:
+
++ First and last name (and what you want to be called in class)
++ Preferred pronouns
++ Major
++ Favorite comfort food or your go to hobby
+
+---
+class:primary
+# SYLLABUS
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+...because who doesn't love syllabus week?
+
+---
+class: center, middle, inverse
+# DATA &amp; STATISTICS
+
+---
+class:primary
+# WHAT IS DATA?
+
++ Data are plain facts, usually raw numbers.
++ Collected on observational units.
++ Can be in the form of counts, measurements, or responses.
+
+Why do we need data? Why is proper *collection*, *analysis*, and *interpretation* of data important?
+
+---
+class:primary
+# TIDY DATA
+
+&lt;img src="images/tidydata_1.jpg" alt="Stylized text providing an overview of Tidy Data. The top reads “Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.” On the left reads “In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.” There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure." width="70%" style="display: block; margin: auto;" /&gt;
+
+.medium[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
+
+---
+class:primary
+# TIDY DATA
+
+&lt;img src="images/tidy_data.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# WHAT IS STATISTICS?
+
+**Statistics** is the study of how best to *collect*, *analyze*, and *draw conclusions* from data.
+
+To me...
+
++ statisitics is the best tool we have to understand uncertainty;
++ helps us make educated guesses about the unknown in the ocean of data;
++ the propper application of statistical methods is crucial in most if not all of the steps of the scientific method.
+
+Where are statistics used?
+
+---
+class:primary
+# BRANCHES OF STATISTICS
+
+.pull-left[**Descriptive Statistics**
+
+are methods that describe, show, or summarize the data from our sample in a meaningful way.
+
+.center[
+&lt;!-- Trigger the Modal --&gt;
+&lt;img id='imgdescriptivestatistics' src='images/descriptive-statistics.jpg' alt=' ' width='25%'&gt;
+&lt;!-- The Modal --&gt;
+&lt;div id='modaldescriptivestatistics' class='modal'&gt;
+  &lt;!-- Modal Content (The Image) --&gt;
+  &lt;img class='modal-content' id='imgmodaldescriptivestatistics'&gt;
+  &lt;!-- Modal Caption (Image Text) --&gt;
+  &lt;div id='captiondescriptivestatistics' class='modal-caption'&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+.medium[Illustrations by [luminousmen.com](https://luminousmen.com/post/descriptive-and-inferential-statistics)]
+
+
+].pull-right[
+
+**Inferential Statistics**
+
+are methods that allow us to draw conclusions about the larger population that the sample represents.
+
+.center[
+&lt;!-- Trigger the Modal --&gt;
+&lt;img id='imginferentialstatistics' src='images/inferential-statistics.png' alt=' ' width='60%'&gt;
+&lt;!-- The Modal --&gt;
+&lt;div id='modalinferentialstatistics' class='modal'&gt;
+  &lt;!-- Modal Content (The Image) --&gt;
+  &lt;img class='modal-content' id='imgmodalinferentialstatistics'&gt;
+  &lt;!-- Modal Caption (Image Text) --&gt;
+  &lt;div id='captioninferentialstatistics' class='modal-caption'&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+]
+
+---
+class: center, middle, inverse
+# TAKE A BREAK TO STRETCH
+
+---
+class:primary
+# ACTIVITY 1:  MARTIAN ALPHABET
+
+&lt;img src="images/bouba-kiki.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class: primary
+# ACTIVITY 1 REGROUP
+
+So what do you think? Are we good at speaking Martian?
+
+---
+class: primary
+# TED Talk
+
+[3 Clues to Understanding Your Brain](https://www.ted.com/talks/vs_ramachandran_3_clues_to_understanding_your_brain) by Vilayanur Ramachandran (2007).
+
+&lt;img src="images/ted_talk.png" alt="Image of a man giving a TED talk." width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# TO DO
+
++ Complete Activity 1: Martian Alphabet
+  + *check during class Wednesday, 9/21*
++ Week 1 Reading Guide (Ch. 1 &amp; 2)
+  + *read before class Wednesday, 9/21*
+  + *no associated concept check quiz*
++ Stat 218 Community &amp; Syllabus Concept Check Quizzes
+  + *due Wednesday, 9/21, at 8pm*
+
+---
+class: inverse
+# WEDNESDAY, SEPTEMBER 21, 2022
+
+ Today we will...
+
+<i class="fa fa-people-group" role="presentation" aria-label="people-group icon"></i> Meet your group mates!
+
+<i class="fa fa-check" role="presentation" aria-label="check icon"></i> Check *Activity 1: Martian Alphabet*
+
+<i class="fa fa-hand" role="presentation" aria-label="hand icon"></i> Introduce Instructional Student Assistant
+
+<i class="fa fa-computer" role="presentation" aria-label="computer icon"></i> Set up RStudio Cloud &amp; Introduction to R
+
+<i class="fa fa-code" role="presentation" aria-label="code icon"></i> Lab 1: Welcome to RStudio Cloud!
+
+<i class="fa fa-list" role="presentation" aria-label="list icon"></i> Beginning your midterm project
+
+---
+class: primary
+# GET INTO YOUR GROUPS
+
++ Introduce yourselves again (with year + major)
+
++ Determine a form of communication and send your name to each other (email, canvas, phone, slack, etc.)
+
++ Select a 1 hour time slot you could meet each week and put "placeholders" on your calendar.
+  + Keep in mind group lab questions are due at 8pm on Fridays.
+  + Most times you will be able to complete this during class.
+  
++ How will you meet (Zoom, library study room, etc)?
+
+---
+class:primary
+# Lab 1: Welcome to RStudio Cloud!
+
+&lt;img src="images/signing-up-for-rscloud.png" alt="Image of a man giving a TED talk." width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# Lab 1: Welcome to RStudio Cloud!
+
+&lt;img src="images/copying-a-project-in-rscloud.png" alt="Image of a man giving a TED talk." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# INTRODUCITON TO R
+
+&lt;img src="images/r-environment.png" alt="Image of a man giving a TED talk." width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# RMARKDOWN (RMD) DOCUMENTS
+
+&lt;img src="images/rmarkdown_wizards.png" alt="Two fuzzy round monsters dressed as wizards, working together to brew different things together from a pantry (code, text, figures, etc.) in a cauldron labeled “R Markdown”. The monster wizard at the cauldron is reading a recipe that includes steps “1. Add text. 2. Add code. 3. Knit. 4. (magic) 5. Celebrate perceived wizardry.” The R Markdown potion then travels through a tube, and is converted to markdown by a monster on a broom with a magic wand, and eventually converted to an output by pandoc. Stylized text (in a font similar to Harry Potter) reads 'R Markdown. Text. Code. Output. Get it together, people.'" width="65%" style="display: block; margin: auto;" /&gt;
+
+.medium[Illustrations by [Allison Horst](https://www.allisonhorst.com/)]
+
+---
+class:primary
+# RMARKDOWN (RMD) DOCUMENTS
+
+&lt;img src="images/working-with-rmd.png" alt="Image of a man giving a TED talk." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# EXPORTING YOUR LAB DOCUMENTS
+
+&lt;img src="images/exporting-rmd-files.png" alt="Image of a man giving a TED talk." width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# R KNOWLEDGE ROLLERCOASTER
+
+&lt;img src="images/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." width="70%" style="display: block; margin: auto;" /&gt;
+
+.medium[Illustrations by [Allison Horst](https://www.allisonhorst.com/)]
+
+---
+class:primary
+# BEGINNING YOUR MIDTERM PROJECT
+
+Over the next five weeks, you will slowly put together the pieces of your midterm project. The first step is to find a data set.
+
+This week you are tasked with exploring the [CORGIS (The Collection of Really Great, Interesting, Situated Data sets)](https://corgis-edu.github.io/corgis/csv/) website and finding a data set that interests you.
+
+There are only two qualifications for the data set:
+
++ The data set must have two numerical variables.
++ The data set must be interesting to you!
+
+It is great if you find a data set that also has one (or two) categorical variables, but that is not required.
+
+---
+class:primary
+# TO DO
+
++ Stat 218 Community &amp; Syllabus Concept Check Quizzes 
+  + *due TONIGHT, 9/21, at 8pm*
++ Lab 1: Welcome to RStudio Cloud
+  + *selected questions: due Friday, 9/22 at 8pm*
+  + *completion: due Monday, 9/26 at 2pm* 
++ Midterm Project: Part 1 (aka Assignment 1)
+  + *due Sunday, 9/25 at 8pm*
++ Week 2: Reading Guide (Chapter 5)
+  + *concept check quizzes due Monday, 9/26 at 2pm*
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightlines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+        /* Get the modal*/
+          var modaldescriptivestatistics = document.getElementById('modaldescriptivestatistics');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var imgdescriptivestatistics = document.getElementById('imgdescriptivestatistics');
+          var modalImgdescriptivestatistics = document.getElementById('imgmodaldescriptivestatistics');
+          var captionTextdescriptivestatistics = document.getElementById('captiondescriptivestatistics');
+          imgdescriptivestatistics.onclick = function(){
+            modaldescriptivestatistics.style.display = 'block';
+            modalImgdescriptivestatistics.src = this.src;
+            captionTextdescriptivestatistics.innerHTML = this.alt;
+          }
+          /* When the user clicks on the modalImg, close it*/
+          modalImgdescriptivestatistics.onclick = function() {
+            modaldescriptivestatistics.style.display = 'none';
+          }
+</script>
+<script>
+        /* Get the modal*/
+          var modalinferentialstatistics = document.getElementById('modalinferentialstatistics');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var imginferentialstatistics = document.getElementById('imginferentialstatistics');
+          var modalImginferentialstatistics = document.getElementById('imgmodalinferentialstatistics');
+          var captionTextinferentialstatistics = document.getElementById('captioninferentialstatistics');
+          imginferentialstatistics.onclick = function(){
+            modalinferentialstatistics.style.display = 'block';
+            modalImginferentialstatistics.src = this.src;
+            captionTextinferentialstatistics.innerHTML = this.alt;
+          }
+          /* When the user clicks on the modalImg, close it*/
+          modalImginferentialstatistics.onclick = function() {
+            modalinferentialstatistics.style.display = 'none';
+          }
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
