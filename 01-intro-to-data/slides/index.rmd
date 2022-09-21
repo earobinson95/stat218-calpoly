@@ -110,7 +110,7 @@ write("", file = "js-addins.html")
 
 <br><br>
 # INTRODUCTION TO DATA & STATISTICAL INFERENCE
-## Stat 218: Applied Statistics for the Life Sceinces
+## Stat 218: Applied Statistics for the Life Sciences
 #### Dr. Emily Robinson 
 #### California Polytechnic State University - San Luis Obispo
 <!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
@@ -280,8 +280,6 @@ class: inverse
  Today we will...
 
 `r fa_i("people-group")` Meet your group mates!
-
-`r fa_i("check")` Check *Activity 1: Martian Alphabet*
 
 `r fa_i("hand")` Introduce Instructional Student Assistant
 
