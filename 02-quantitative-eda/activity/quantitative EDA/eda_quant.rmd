@@ -3,10 +3,10 @@ title: 'Exploring Quantitative Variables: IMDb Movie Reviews'
 author: 'Your Name: _______________'
 date: "September 26, 2022"
 output:
+  word_document: default
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
-  word_document: default
 ---
 
 ```{r setup}
@@ -54,7 +54,7 @@ In today's activity, we will review summary measures and plots for quantitative 
 
 \newpage
 
-## Movies released in 2016
+## Movies released in 2020
 
 A data set was collected on movies released in 2020. Here is a list of some of the variables collected on the observational units (each movie):
 
@@ -100,6 +100,16 @@ movie_ratings <- left_join(movie_ids,
   drop_na(averageRating)
 ```
 
+The code below `head()` shows us the top 6 observational units in the movie data set.
+
+```{r, echo = T, eval = F}
+head(movie_ratings)
+```
+
+```{r, echo = F, eval = T}
+head(movie_ratings) %>% knitr::kable()
+```
+
 ## Visualizing a Single Quantitative Variable
 
 1.  What are the three types of plots used to plot a single quantitative variable?
@@ -115,12 +125,12 @@ A dotplot will plot a dot for each value in the data set. The code below was use
 #| warning: false
 
 ggplot(data = movie_ratings, 
-       mapping = aes(x = averageRating)) + 
-  geom_dotplot(dotsize = 0.5) +
+       mapping = aes(x = averageRating)) +
+  geom_dotplot(dotsize = 0.5, method="histodot") +
   labs(title = "Score of Movies from 2020", # Title for plot
-       x = "IMDb Score", # Label for x axis
+       x = "IMDb Score (Average Rating)", # Label for x axis
        y = "Frequency" # Label for y axis
-       ) 
+       )
 ```
 
 2.  What does each dot on the dotplot represent?
@@ -129,48 +139,59 @@ ggplot(data = movie_ratings,
 
 3.  How would you describe the shape of the distribution of IMDb scores?
 
-\newpage
+\vspace{1cm}
 
-<!-- Question on what dotsize does -->
+4.  What do you think `dotsize = 0.5` in the code chunk does?
+
+\newpage
 
 ## Histogram
 
 To create a histogram of the IMDb scores, all we need to do is change the geometric object we are displaying on our plot! In a dotplot we use dots, but in a histogram we use bars. Notice, in the code below there are two changes:
 
 -   I am using `geom_histogram()` instead of `geom_dotplot()`
--   I am specifying how wide the bins of the histogram should be using `binwidth = 0.6`
+-   I am specifying how wide the bins of the histogram should be using `binwidth = 0.5`
 
-```{r histogram}
+```{r histogram, eval = F}
 ggplot(data = movie_ratings, 
        mapping = aes(x = averageRating)) + 
-  geom_histogram(binwidth = 0.6) +
-  labs(title = "Score of Movies from 2016", # Title for plot
-       x = "IMDb Score", # Label for x axis
+  geom_histogram(binwidth = 0.5) +
+  labs(title = "Score of Movies from 2020", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
        y = "Frequency" # Label for y axis
        )
 ```
 
-4.  Why did I **not** need to specify a `binwidth` in the dot plot I made?
-
-```{=tex}
-\vspace{2cm}
-\vspace{2cm}
+```{r histogram2, echo = F, eval = T}
+ggplot(data = movie_ratings, 
+       mapping = aes(x = averageRating)) + 
+  geom_histogram(binwidth = 0.5, fill = "gray", color = "white") +
+  labs(title = "Score of Movies from 2020", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Frequency" # Label for y axis
+       ) +
+  scale_x_continuous(limits = c(0,10), breaks = seq(0,10,1), expand = c(0,0))
 ```
-5.  Which range of IMDb scores have the *highest* frequency?
+
+5.  Why did I **not** need to specify a `binwidth` in the dot plot I made?
 
 \vspace{2cm}
 
-5.  What IMDB scores are movies *rarely* rated?
+6.  Which range of IMDb scores have the *highest* frequency?
 
 \vspace{2cm}
 
-6.  Are there IMDB scores that were possible but *no* movies in this sample were given those ratings?
+7.  What IMDB scores are movies *rarely* rated?
+
+\vspace{2cm}
+
+8.  Are there IMDB scores that were possible but *no* movies in this sample were given those ratings?
 
 \vspace{2cm}
 
 ## Boxplot
 
-7.  Which five summary statistics are used to create a box plot?
+9.  Which five summary statistics are used to create a box plot?
 
 -   \vspace{0.5cm}
 
@@ -198,43 +219,41 @@ summarize(movie_ratings,
 
 \vspace{1cm}
 
-8.  Using the summary statistics provided, sketch a box plot of IMDb scores. Be sure to label the axes!
+10.  Using the summary statistics provided, sketch a box plot of IMDb scores. Be sure to label the axes!
 
-```{=tex}
-\vspace{2cm}
-\vspace{2cm}
-```
-9.  How do you decide if a value is an "outlier" when creating a boxplot?
+\vspace{5cm}
+
+11.  How do you decide if a value is an "outlier" when creating a boxplot?
 
 \vspace{2cm}
 
-In the code below, I'm providing you with the top 3 and the bottom 3 IMDb scores.
+In the code below, I'm providing you with the top 6 and the bottom 6 IMDb scores.
 
-**Bottom 3:**
+**Bottom 6:**
 
 ```{r min}
 movie_ratings %>% 
   select(averageRating) %>% 
-  slice_min(order_by = averageRating, n = 3)
+  slice_min(order_by = averageRating, n = 6)
 ```
 
 \vspace{0.5cm}
 
-**Top 3:**
+**Top 6:**
 
 ```{r max}
 movie_ratings %>% 
   select(averageRating) %>% 
-  slice_max(order_by = averageRating, n = 3)
+  slice_max(order_by = averageRating, n = 6)
 ```
 
-10. Revisit your previous boxplot to decide if any observations should be plotted as outliers.
+12. Revisit your previous boxplot to decide if any observations should be plotted as outliers.
 
-(Modify your previous plot) \vspace{2cm}
+(Modify your previous plot) \vspace{1cm}
 
 ## Plot Comparison
 
-11. Compare the three graphs of IMDb scores created above.
+13. Compare the three graphs of IMDb scores created above.
 
 -   Which graph(s) show the shape of the distribution?
 
@@ -250,7 +269,7 @@ movie_ratings %>%
 
 ## Summarizing a single quantitative variable
 
-12. Based on the distributions provided, do you believe the *mean* IMDb score will be greater or less than the median? Explain why!
+14. Based on the distributions provided, do you believe the *mean* IMDb score will be greater or less than the median? Explain why!
 
 \vspace{2cm}
 
@@ -262,16 +281,16 @@ summarize(movie_ratings,
           )
 ```
 
-13. Interpret the value of the standard deviation in the context of these data.
+15. Interpret the value of the standard deviation in the context of these data.
 
 \vspace{2cm}
 
 ### Take-Home Messages
 
-1.  Histograms, box plots, and dot plots can all be used to graphically display a single quantitative variable.
++  Histograms, box plots, and dot plots can all be used to graphically display a single quantitative variable.
 
-2.  The box plot is created using the five number summary: the minimum value, Q1, median, Q3, and the maximum value. Values in the data set that are less than $Q_1 - 1.5*\text{IQR}$ and greater than $Q_3 + 1.5*\text{IQR}$ are considered outliers and are graphically represented by a dot outside of the whiskers on the box plot.
++  The box plot is created using the five number summary: the minimum value, Q1, median, Q3, and the maximum value. Values in the data set that are less than $Q_1 - 1.5*\text{IQR}$ and greater than $Q_3 + 1.5*\text{IQR}$ are considered outliers and are graphically represented by a dot outside of the whiskers on the box plot.
 
-3.  Data should be summarized numerically **and** displayed graphically to give us information about the study.
++  Data should be summarized numerically **and** displayed graphically to give us information about the study.
 
-4.  When comparing distributions of quantitative variables we look at the shape, center, spread, and for outliers. There are two measures of center: mean and the median and two measures of spread: standard deviation and the interquartile range, $\text{IQR} = Q3 - Q1$.
++  When comparing distributions of quantitative variables we look at the shape, center, spread, and for outliers. There are two measures of center: mean and the median and two measures of spread: standard deviation and the interquartile range, $\text{IQR} = Q3 - Q1$.
