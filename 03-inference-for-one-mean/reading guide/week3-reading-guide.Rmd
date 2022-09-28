@@ -1,9 +1,9 @@
 ---
 title: "Week 3 Reading Guide"
 output:
-  word_document: default
-  html_document: default
   pdf_document: default
+  html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -174,26 +174,27 @@ __Bootstrap $X$% confidence interval:__ ($(\frac{(1-X)}{2})^{th}$ percentile, $(
 
 __In the Awesome Auto example,__
 
-- What is the unit of study?
+- What is the observational unit? What is the variable of interest?
 
 \vspace{0.2in}
 
-- What was the sample mean? 
+- What was the sample mean? *Use a symbol to denote this!*
 
 \vspace{0.2in}
 
-- What sample size of cars was collected?
+- What sample size of cars was collected? *Use a symbol to denote this!*
 
 \vspace{0.2in}
 
-- What was the standard deviation of the sample?
+- What was the standard deviation of the sample? *Use a symbol to denote this!*
 
 \vspace{0.2in}
 
 #### 19.1.2
 
-How is a bootstrap sample similar to collecting a new sample from the
-population?
+<br>
+
+How is a bootstrap sample similar to collecting a new sample from the population?
 
 \vspace{0.2in}
 
@@ -227,7 +228,7 @@ What percentiles were used to construct a 95% confidence interval?
 
 \vspace{0.2in}
 
-__What percentiles would you have used if you wanted a 90% confidence interval?
+What percentiles would you have used if you wanted a 90% confidence interval?
 
 \vspace{0.2in}
 
@@ -250,7 +251,7 @@ Standard deviation:
 
 \vspace{0.2in}
 
-Where the percentile and SE confidence intervals similar?
+Were the percentile and SE confidence intervals similar?
 
 \vspace{0.2in}
 
@@ -267,25 +268,17 @@ interval for the standard deviation?
 
 True or false: Bootstrapping can only be used if the sample size is small.
 
-\vspace{0.2in}
+\vspace{0.5in}
 
 ### Section 19.2: Mathematical Model for a Mean
 
-**Conditions to use the CLT for means:**
+**Conditions to use the CLT (Central Limit Theorem) for means:**
 
 - Independence: 
 
 \vspace{0.2in}
 
-  * Checked by: 
-
-\vspace{0.2in}
-
 - Normality:
-
-\vspace{0.2in}
-
-  * Checked by:
 
 \vspace{0.2in}
 
@@ -307,13 +300,13 @@ How do we calculate degrees of freedom for the $t$-distribution?
 
 \vspace{0.2in}
 
-#### Formulas
+#### 19.2.4 Formulas:
 
 $SE(\overline{x})=$
 
 \vspace{0.2in}
 
-$t^*$:
+$t^*_{df}$:
 
 \vspace{0.2in}
  
