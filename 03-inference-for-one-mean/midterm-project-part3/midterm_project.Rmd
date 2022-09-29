@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE,
 # I suggest copying and pasting code from a prior lab. 
 # You will need to change: 
 # 1. the name of the dataset (you get to choose the name)
-# 2. directions for how to get to the data
+# 2. directions for how to get to the data (is it in a data folder? is it in the main folder?)
 
 
 ```
@@ -34,8 +34,7 @@ knitr::opts_chunk$set(echo = FALSE,
 <!-- This section has three tasks:
 1. Describe the context of your dataset in your own words!
 2. Tell me why you picked this dataset
-3. Describe the two variables you are interested in. One should be the
-explanatory variable and one should be the response.
+3. Describe the two quantitative variables you are interested in. One should be the explanatory variable and one should be the response.
 -->
 
 
@@ -46,7 +45,7 @@ explanatory variable and one should be the response.
 ### Histogram of <INSERT NAME OF RESPONSE VARIABLE>
 
 ```{r histogram-1}
-## Code to make your firsthistogram goes here! 
+## Code to make your first histogram goes here! 
 ## Don't forget to choose nice binwidths and an axis title!
 
 
@@ -66,6 +65,10 @@ explanatory variable and one should be the response.
 <!-- Here is where you describe what you see in the histogram. Your description must include the following components: center, spread, shape, outliers -->
 
 
+
+<!-- ---------------------------------------- -->
+<!-- PAUSE HERE UNTIL MIDTERM PROJECT: PART 4 -->
+<!-- ---------------------------------------- -->
 
 ### Scatterplot of <INSERT NAME OF RESPONSE VARIABLE> and <INSERT NAME OF EXPLANATORY VARIABLE>
 
