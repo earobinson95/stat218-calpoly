@@ -10,7 +10,35 @@
 
 ## Week 1: Introduction to Data
 
-+ [Lectures slides]()
-+ [Reading Guide]()
-+ [Activity 1: Martian Alphabet]()
-+ [Lab 1: Welcome to RStudio Cloud!]()
++ [Lectures slides](https://earobinson95.github.io/stat218-calpoly/01-intro-to-data/slides/index.html#1)
++ [Reading Guide](https://github.com/earobinson95/stat218-calpoly/raw/main/01-intro-to-data/reading-guide/Ch.1-2%20Reading%20Guide.docx)
++ [Activity 1: Martian Alphabet](https://earobinson95.github.io/stat218-calpoly/01-intro-to-data/activity/martian-alphabet.html)
++ [Lab 1: Welcome to RStudio Cloud!]
+  + [GitHub Repo](https://github.com/earobinson95/218-01-lab-intro-to-R)
+  + [Feedback]()
++ [Midterm Project: Part 1]()
+
+## Week 2: Sampling & Quantitative Variable EDA
+
++ [Reading Guide](https://earobinson95.github.io/stat218-calpoly/02-quantitative-eda/reading%20guide/viz_summarize_quant.html)
++ [Activity 2A: Bias](https://earobinson95.github.io/stat218-calpoly/02-quantitative-eda/activity/bias/Activity%202A%20-%20Bias.html)
++ [Activity 2B: Visualizing & Summarizing Quantitative Variables](https://earobinson95.github.io/stat218-calpoly/02-quantitative-eda/activity/quantitative%20EDA/Activity%202B%20-%20IMBD%20Movie%20Review.html)
++ [Lab 2: Visualizing & Summarizing Quantitative Variables]()
+  + [Github Repo](https://github.com/earobinson95/218-02-lab-quantitative-eda)
+  + [Feedback](https://earobinson95.github.io/218-02-lab-quantitative-eda/218-02-lab-example-feedback.html)
++ [Midterm Project: Part 2](https://earobinson95.github.io/stat218-calpoly/02-quantitative-eda/midterm-project-part2/midterm-project-part2-assignment%2Bfeedback.html)
+
+## Week 3: Inference for One Mean
+
++ [Reading Guide](https://earobinson95.github.io/stat218-calpoly/03-inference-for-one-mean/reading%20guide/week3-reading-guide.pdf)
++ [Activity 3: Sleepless Nights](https://earobinson95.github.io/stat218-calpoly/03-inference-for-one-mean/activity/activity3-sleepless-nights.html)
++ [Lab 3: One Mean Inference](https://earobinson95.github.io/218-03-lab-one-mean-inference/one_mean_inference.html)
+  + [Github Repo](https://github.com/earobinson95/218-03-lab-one-mean-inference)
+  + [Feedback](https://earobinson95.github.io/218-03-lab-one-mean-inference/feedback.html)
++ [Midterm Project: Part 3]()
+  + [GitHub Repo]
+  +
+
+## Week 4: Simple Linear Regression
+
+
