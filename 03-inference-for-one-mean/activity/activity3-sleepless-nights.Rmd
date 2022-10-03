@@ -517,7 +517,7 @@ confidence interval? Explain.**
 
 \vspace{2cm}
 
-**34. How would the 95% confidence interval change if you surveyed a much smaller number of students? Assume that the sample mean would still be 6.6.**
+**34. How would the 95% confidence interval change if you surveyed a much smaller number of students? Assume that the sample mean would still be 7.34.**
 
 \vspace{2cm}
 
@@ -527,13 +527,13 @@ confidence interval? Explain.**
 
 \vspace{2cm}
 
-**18. Why do you think your intervals were different / similar?**
+**36. Why do you think your intervals were different / similar?**
 
 \vspace{2cm}
 
 # Generalizability
 
-**19.	Think again about how the sample was selected from the population. Do you feel comfortable generalizing the results of your analysis to the population of all STAT 218 students at your school? Explain.**
+**37.	Think again about how the sample was selected from the population. Do you feel comfortable generalizing the results of your analysis to the population of all STAT 218 students at your school? Explain.**
 
 \vspace{2cm}
 

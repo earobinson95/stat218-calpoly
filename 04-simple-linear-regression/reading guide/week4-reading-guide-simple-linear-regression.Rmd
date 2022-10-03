@@ -1,0 +1,472 @@
+---
+title: 'Week 4 Reading Guide: Simple Linear Regression'
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Chapter 7
+
+## Section 7.1 - Fitting a line, residuals, and correlation
+
+In the equation $y = b_0 + b_1 \times x + e$ what do the following represent?
+
+**$y$**
+
+\vspace{0.2in}
+
+**$b_0$**
+
+\vspace{0.2in}
+
+**$b_1$**
+
+\vspace{0.2in}
+
+What then is $\beta_0$?
+
+\vspace{0.2in}
+
+What is $\beta_1$?
+
+\vspace{0.2in}
+
+**Predictor:**
+
+\vspace{0.2in}
+
+**Outcome:**
+
+\vspace{0.2in}
+
+---
+
+In the example of possum head lengths and total lengths, describe the following:
+
+**predictor variable:**
+
+\vspace{0.2in}
+
+**outcome variable:**
+
+\vspace{0.2in}
+
+**direction of relationship:**
+
+\vspace{0.2in}
+
+**strength of relationship:**
+
+\vspace{0.2in}
+
+---
+
+### 7.1.3
+
+**Residual:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+### 7.1.4
+
+**Correlation:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**$\rho$:** population correlation 
+
+**$r$:** sample correlation
+
+\vspace{0.2in}
+
+What values can the correlation have? 
+
+\vspace{0.2in}
+
+What does a positive correlation suggest about the relationship between x and y?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+What does a negative correlation suggest about the relationship between x and y?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 7.2 -- Least squares regression
+
+What method is used to find the "best" least squares line?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Sample slope interpretation:** a 1 unit increase in the *x*-variable is
+associated with a $|b_1|$ unit *predicted* increase/decrease in the mean of the
+*y*-variable.
+
+\vspace{0.2in}
+
+**Sample intercept interpretation:** when the *x*-variable is 0, $b_0$ is the 
+*predicted* mean of the *y*-variable.
+
+\vspace{0.2in}
+
+### 7.2.4
+
+**Extrapolation:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+### 7.2.5
+
+**R-squared / Coefficient of determination:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 7.3 -- Outliers in linear regression
+
+Where does an outlier with "high leverage" fall on a scatterplot?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+What does it mean for an outlier to be "influential"?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+Where would an outlier with "high influence" fall on a scatterplot?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## Reminders from previous chapters
+
+**Scatterplot:** displays two quantitative variables; one dot = two measurements
+($x$, $y$) on one observational unit.
+
+**Four characteristics of a scatterplot:**
+
+* *Form*: pattern of the dots plotted.  Is the trend generally linear (you can fit a straight line to the data) or non-linear?  
+* *Strength*: how closely do the points follow a trend?  Very closely (strong)? No pattern (weak)?  
+* *Direction*: as the $x$ values increase, do the $y$-values tend to increase (positive) or decrease (negative)?  
+* Unusual observations or *outliers*: points that do not fit the overall pattern of the data. 
+
+# Chapter 24
+
+## 24.1 -- Sandwich Store
+
+Why are they using $\beta_0$ and $\beta_1$ in the regression equation instead of 
+$b_0$ and $b_1$? 
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+### 24.1.2
+
+Will the regression equation for each sample of 20 retail stores be the **same**
+as the population regression equation? If not, how different will they be?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Variability of the regression line:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+How would you describe the plot in Figure 24.6? What is this distribution
+called?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 24.2 -- Randomization test for the slope
+
+What are the "typical" null and alternative hypotheses for testing the slope of
+a regression line?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+If the observed slope is positive, is it possible to obtain a permuted slope
+that is negative? Why or why not?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+In Figure 24.10, what is being plotted? e.g., if this was a dot plot, what would
+each dot represent?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+Where is the distribution in Figure 24.10 centered? Why do you believe it is
+centered there?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+To create a **simulated null distribution** of sample slopes or sample
+correlations, 
+
+1. How many cards will you need and how will the cards be labeled?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+2. What do you do with the cards after labeling them?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+3. After shuffling, what value will be plotted on the simulated null
+distribution?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 24.3 -- Confidence interval for the slope
+
+What is the goal of a confidence interval?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+When making a confidence interval, do we assume the null hypothesis is true?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+To create a **bootstrap distribution** of sample slopes or sample correlations, 
+
+1. How many cards will you need and how will the cards be labeled?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+2. What do you do with the cards after labeling them?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+3. After shuffling, what value will be plotted on the bootstrap distribution?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+
+Is this similar or different from how you obtained a bootstrap resample for one
+mean?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+Where is the bootstrap distribution in Figure 24.14 centered? Why is it centered
+there?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+How would you interpret the 95% confidence interval for the slope?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 24.4 -- Mathematical model for testing the slope
+
+**$T=$**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+In a theory-based test of slope or correlation, how are the degrees of freedom
+determined?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+How would you obtain a p-value for a T-statistic?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+Explain why testing for slope is equivalent to testing for correlation.
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Formula for t-based confidence interval:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+Where in the `R` output can $SE(b_1)$ be found?
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## 24.6 -- Checking model conditions
+
+**Linearity:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+- Checked by: 
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Independent observations:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+- Checked by: 
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Nearly normal residuals:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+- Checked by: 
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+**Constant or equal variance:**
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+- Checked by: 
+
+\vspace{0.2in}
+\vspace{0.2in}
+
+---
+
+## Reminders from Previous Chapters
+
+**General steps of a hypothesis test:**
+
+1. Frame the research question in terms of hypotheses.
+
+2. Collect and summarize data using a test statistic.
+	
+3. Assume the null hypothesis is true, and simulate or mathematically model a
+null distribution for the test statistic.
+
+4. Compare the observed test statistic to the null distribution to calculate a
+p-value.
+
+5. Make a conclusion based on the p-value and write the conclusion in context.
+
+**Parameter:** a value summarizing a variable(s) for a population.
+
+**Statistic:** a value summarizing a variable(s) for a sample.
+
+**Sampling distribution:** plot of statistics from 1000s of samples of the same
+size
+taken from the same population.
+
+**Standard deviation of a statistic:** the variability of statistics from 1000s
+of samples; how far, on average, each statistic is from the true value of the
+parameter.
+
+**Standard error of a statistic:** estimated standard deviation of a statistic.
+
+**Null hypothesis ($H_0$):** the skeptical perspective; no difference; no
+change; no effect; random chance; what the researcher hopes to demonstrate is
+**wrong**.
+
+**Alternative hypothesis ($H_A$):** the new perspective; a
+difference/increase/decrease; an effect; not random chance; what the researcher
+hopes to demonstrate is **correct**.
+
+**Null value:** the value of the parameter when we assume the null hypothesis is
+true (labeled as $parameter_0$).
+
+**Null distribution:**  the simulated or modeled distribution of statistics
+(sampling distribution) we would expect to occur if the null hypothesis is true.
+
+**P-value:** probability of seeing the observed sample data, or something more
+extreme, assuming the null hypothesis is true.
+
+$\implies$ Lower the p-value the stronger the evidence AGAINST the null
+hypothesis and FOR the alternative hypothesis.
+
+**Decision:** a determination of whether to reject or fail to reject a null
+hypothesis based on a p-value and a pre-set level of significance.
+
+* If p-value $\leq \alpha$, then reject $H_0$.
+
+* If p-value $> \alpha$, then fail to reject $H_0$.
+
+**Significance level ($\alpha$):** a threshold used to determine if a p-value
+provides enough evidence to reject the null hypothesis or not.
+
+- Common levels of $\alpha$ include 0.01, 0.05, and 0.10.
+
+**Statistically significant:** results are considered "statistically
+significant" if the p-value is below the significance level.
+
+**Confidence interval:** a process to determine how large an effect is; a range
+of plausible values for the parameter.
+
+**Margin of error:** the value that is added to and subtracted from the sample
+statistic to create a confidence interval; half the width of a confidence
+interval.
+
+**Bootstrapping:** the process of drawing with replacement $n$ times from the
+original sample.
+
+**Bootstrapped resample:** a random sample of size $n$ from the original sample,
+selected with replacement.
+
+**Bootstrapped statistic:** the statistic recorded from the bootstrapped 
+resample.
+
+**Confidence level:** how confident we are that the confidence interval will
+capture the parameter.
+
+**Bootstrap $X$% confidence interval:** ($(\frac{(1-X)}{2})^{th}$ percentile,
+$(X+(\frac{(1-X)}{2})^{th}$ percentile) of a bootstrap distribution
+
+**$t$-distribution:** A bell-shaped symmetric distribution, centered at 0, wider
+than the standard normal distribution.
+
+* The variability in a $t$-distribution depends on the sample size (used to
+calculate degrees of freedom --- df for short).
+* The $t$-distribution gets closer to the standard normal distribution as df increases.
+
+**Degrees of freedom (df):** describes the variability of the $t$-distribution.
+
+**T-score:** the name for a standardized statistic which is compared to a $t$-distribution.
