@@ -35,10 +35,13 @@
 + [Lab 3: One Mean Inference](https://earobinson95.github.io/218-03-lab-one-mean-inference/one_mean_inference.html)
   + [Github Repo](https://github.com/earobinson95/218-03-lab-one-mean-inference)
   + [Feedback](https://earobinson95.github.io/218-03-lab-one-mean-inference/feedback.html)
-+ [Midterm Project: Part 3]()
-  + [GitHub Repo]
++ Midterm Project: Part 3
+  + GitHub Repo
   +
 
 ## Week 4: Simple Linear Regression
 
++ [Readin Guide](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/reading%20guide/week4-reading-guide-simple-linear-regression.pdf)
++ [Activity 4: Diving Penguins](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/activity/activity4-diving-penguins.html)
++ Lab 4
 
