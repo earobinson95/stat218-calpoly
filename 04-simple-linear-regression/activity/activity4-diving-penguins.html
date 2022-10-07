@@ -240,8 +240,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In statistics we use a method called “least squares.” The idea is that we minimize the sum of the squared distances between each point and the line. That’s a mouthful! Let’s visualize what this means.</p>
 <p>**10. On your plot, draw the vertical distance between some of the points and the line you drew.*</p>
 <p>These vertical distances are how far off your estimated duration is from what was actually seen in the data. These values are called <strong>residuals</strong>. The least squares method finds the line that minimizes the <em>square</em> of these residuals.</p>
-<p><strong>11. When you square small residuals what happens?</strong> <em>Hint: what happens if you square a value between 0 and 1?</em></p>
+<p><strong>11. When you square a residual what happens?</strong> <em>Hint: What happens if you square positive number? A negative number?</em></p>
 <p><strong>12. When you square large residuals what happens?</strong></p>
+<p><strong>13. When you square a number between 0 and 1 what happens?</strong></p>
 </section>
 <section id="obtaining-coefficient-estimates-from-r" class="level2">
 <h2 class="anchored" data-anchor-id="obtaining-coefficient-estimates-from-r">Obtaining Coefficient Estimates from <code>R</code></h2>
@@ -267,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2 Dive_HeartRate   -0.131     0.007     -17.6       0   -0.146   -0.116</code></pre>
 </div>
 </div>
-<p><strong>13. Using the output from the <code>R</code> code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. And put a carat (“hat”) over the <span class="math inline">\(y\)</span>-variable name to emphasize that the line gives predicted values of the <span class="math inline">\(y\)</span> (response) variable.</strong></p>
+<p><strong>14. Using the output from the <code>R</code> code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. And put a carat (“hat”) over the <span class="math inline">\(y\)</span>-variable name to emphasize that the line gives predicted values of the <span class="math inline">\(y\)</span> (response) variable.</strong></p>
 <p><span class="math display">\[\widehat{\text{Dive Duration}} = \underline{\hspace{3cm}} + \underline{\hspace{3cm}} \times \text{(Heart Rate)}\]</span></p>
 <p>Notation: The equation of the best fit line is written as <span class="math inline">\(\hat{y} = b_0 + b_1 \times \text{(x)}\)</span> where</p>
 <ul>
@@ -276,19 +277,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(x\)</span> is a value of the explanatory variable</li>
 <li><span class="math inline">\(\hat{y}\)</span> is the predicted value for the response variable</li>
 </ul>
-<p><strong>14. Is the slope positive or negative? Explain how the sign of the slope tells you about whether your data display a positive or a negative association.</strong></p>
+<p><strong>15. Is the slope positive or negative? Explain how the sign of the slope tells you about whether your data display a positive or a negative association.</strong></p>
 </section>
 <section id="interpreting-the-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="interpreting-the-coefficients">Interpreting the Coefficients</h2>
 <p>Let’s investigate what the slope means in the context of heart rate and dive duration.</p>
-<p><strong>15. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.</strong></p>
-<p><strong>16. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.</strong></p>
-<p><strong>17. By how much do your predictions in #8 and #9 differ? Does this number look familiar? Explain.</strong></p>
-<p><strong>18. These questions above were designed to help you interpret the slope. Interpret the slope in context:</strong></p>
+<p><strong>16. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.</strong></p>
+<p><strong>17. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.</strong></p>
+<p><strong>18. By how much do your predictions in #8 and #9 differ? Does this number look familiar? Explain.</strong></p>
+<p><strong>19. These questions above were designed to help you interpret the slope. Interpret the slope in context:</strong></p>
 <p>The slope of the regression line predicting dive duration based on heart rate is , meaning that for every beat per minute increase in heart rate, the predicted dive duration (increases / decreases) by minutes.</p>
 <p>Let’s investigate the meaning of the <span class="math inline">\(y\)</span>-intercept in the context of dive duration and heart rate.</p>
-<p><strong>19. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.</strong></p>
-<p><strong>20. Your answer to #12 should look familiar. What is this value?</strong></p>
+<p><strong>20. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.</strong></p>
+<p><strong>21. Your answer to #12 should look familiar. What is this value?</strong></p>
 </section>
 <section id="be-cautious" class="level2">
 <h2 class="anchored" data-anchor-id="be-cautious">Be cautious!</h2>
@@ -302,8 +303,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p><strong>21. What was the lowest value of heart rate observed in these data?</strong></p>
-<p><strong>22. What heart rates do you believe would be an extrapolation?</strong></p>
+<p><strong>22. What was the lowest value of heart rate observed in these data?</strong></p>
+<p><strong>23. What heart rates do you believe would be an extrapolation?</strong></p>
 </section>
 <section id="coefficient-of-determination" class="level2">
 <h2 class="anchored" data-anchor-id="coefficient-of-determination">Coefficient of Determination</h2>
@@ -311,19 +312,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Keep in mind that <span class="math inline">\(R^2\)</span>, like correlation, requires that the relationship between the explanatory and response variables is linear!</p>
 <p><span class="math inline">\(R^2\)</span> values are reported as proportions, but can also be thought of as a percent. Values close to 1 or 100% indicate that the explanatory variable is able to explain a large portion of the variability in the response.</p>
 <p>We calculate <span class="math inline">\(R^2\)</span> by squaring the correlation (r).</p>
-<p><strong>23. Calculate the coefficient of determination (<span class="math inline">\(R^2\)</span>) for the relationship between heart rate and dive duration.</strong> <em>Hint: Look back at question 5.</em></p>
-<p><strong>24. Complete the following statement to interpret what this value means in the context of the data:</strong></p>
+<p><strong>24. Calculate the coefficient of determination (<span class="math inline">\(R^2\)</span>) for the relationship between heart rate and dive duration.</strong> <em>Hint: Look back at question 5.</em></p>
+<p><strong>25. Complete the following statement to interpret what this value means in the context of the data:</strong></p>
 <p>The coefficient of determination is %, this means that % of the variation in penguin’s is attributable to changes in their .</p>
 </section>
 <section id="recall-the-context-of-todays-exploration" class="level2">
 <h2 class="anchored" data-anchor-id="recall-the-context-of-todays-exploration">Recall the Context of Today’s Exploration</h2>
 <p>Let’s remember what the purpose of this study was. For the penguin study, researchers equipped emperor penguins with devices that record their heart rates during dives. The data we analyzed contained Dive Heart Rate (beats per minute), the Duration (minutes) of dives, and other related variables. <em>These researchers were interested in studying if there was evidence of an association between a penguin’s dive heart rate and the duration of their dive?</em></p>
-<p><strong>25. Write out the null and alternative hypothesis in words.</strong></p>
-<p><strong>26. Using the research question, rewrite the hypotheses using notation. Use the slope as the summary measure.</strong> <em>Hint: What is the symbol for the population slope?</em></p>
+<p><strong>26. Write out the null and alternative hypothesis in words.</strong></p>
+<p><strong>27. Using the research question, rewrite the hypotheses using notation. Use the slope as the summary measure.</strong> <em>Hint: What is the symbol for the population slope?</em></p>
 </section>
 <section id="inference-for-the-slope-coefficient" class="level2">
 <h2 class="anchored" data-anchor-id="inference-for-the-slope-coefficient">Inference for the Slope Coefficient</h2>
-<p><strong>27. Based on the slope coefficient you reported in question 14, do you think there is convincing evidence of an association between a penguin’s heart rate and the duration of their dive?</strong></p>
+<p><strong>28. Based on the slope coefficient you reported in question 14, do you think there is convincing evidence of an association between a penguin’s heart rate and the duration of their dive?</strong></p>
 </section>
 </section>
 <section id="hypothesis-testing" class="level1">
@@ -375,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span>  ___________) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">" ___________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>28. What inputs should be entered for each of the following to create the simulation to test regression slope?</strong></p>
+<p><strong>29. What inputs should be entered for each of the following to create the simulation to test regression slope?</strong></p>
 <ul>
 <li>Response variable (choose <code>Duration</code> or <code>Dive_HeartRate</code>):</li>
 </ul>
@@ -391,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Summary measure (choose <code>"slope"</code> or <code>"correlation"</code>):</li>
 </ul>
-<p><strong>29. Suppose we wanted to complete the simulation test using correlation as the summary measure, instead of slope. Which input(s) in #4 would need to be changed to test for correlation? What input(s) should you use instead?</strong></p>
+<p><strong>30. Suppose we wanted to complete the simulation test using correlation as the summary measure, instead of slope. Which input(s) in #4 would need to be changed to test for correlation? What input(s) should you use instead?</strong></p>
 <p>Here is a preview of what the output of this code looks like for 5000 permutations:</p>
 <p><em>Note: We name the values in our null distribution (plotted in the next histogram), <code>null_dist</code></em></p>
 <div class="cell">
@@ -436,8 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<p><strong>30. What does the <code>replicate</code> column represent?</strong></p>
-<p><strong>31. What does the <code>stat</code> column represent?</strong></p>
+<p><strong>31. What does the <code>replicate</code> column represent?</strong></p>
+<p><strong>32. What does the <code>stat</code> column represent?</strong></p>
 </section>
 </section>
 <section id="visualizing-the-null-distribution" class="level2">
@@ -452,10 +453,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p><strong>32. Why is the distribution centered at 0?</strong></p>
-<p><strong>33. Mark where the observed slope lies on the distribution.</strong></p>
-<p><strong>34. Shade or circle what area you will use to calculate the p-value.</strong></p>
-<p><strong>35. Estimate what p-value we will obtain from <code>R</code>.</strong></p>
+<p><strong>33. Why is the distribution centered at 0?</strong></p>
+<p><strong>34. Mark where the observed slope lies on the distribution.</strong></p>
+<p><strong>35. Shade or circle what area you will use to calculate the p-value.</strong></p>
+<p><strong>36. Estimate what p-value we will obtain from <code>R</code>.</strong></p>
 </section>
 <section id="calculating-the-p-value" class="level2">
 <h2 class="anchored" data-anchor-id="calculating-the-p-value">Calculating the p-value</h2>
@@ -490,7 +491,7 @@ Explanatory: Dive_HeartRate (numeric)
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">obs_stat =</span> __________, </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">direction =</span> <span class="st">"_________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>36. What inputs should be entered for each of the following to calculate the p-value?</strong></p>
+<p><strong>37. What inputs should be entered for each of the following to calculate the p-value?</strong></p>
 <ul>
 <li><code>obs_stat =</code></li>
 </ul>
@@ -511,16 +512,16 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 1       0</code></pre>
 </div>
 </div>
-<p><strong>37. Why did I get a warning message from <code>R</code>? What does the warning tell me?</strong></p>
+<p><strong>38. Why did I get a warning message from <code>R</code>? What does the warning tell me?</strong></p>
 </section>
 <section id="communicate-the-results-and-answer-the-research-question" class="level2">
 <h2 class="anchored" data-anchor-id="communicate-the-results-and-answer-the-research-question">Communicate the results and answer the research question</h2>
-<p><strong>38. Based on the p-value and an <span class="math inline">\(\alpha = 0.05\)</span>, write a conclusion in context of the problem.</strong></p>
-<p><strong>39. Based on the p-value you obtained for testing the slope, what p-value do you think you would get if you tested the correlation instead?</strong> <em>Hint: think about the relationship between slope and correlation!</em></p>
+<p><strong>39. Based on the p-value and an <span class="math inline">\(\alpha = 0.05\)</span>, write a conclusion in context of the problem.</strong></p>
+<p><strong>40. Based on the p-value you obtained for testing the slope, what p-value do you think you would get if you tested the correlation instead?</strong> <em>Hint: think about the relationship between slope and correlation!</em></p>
 </section>
 <section id="connection-to-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="connection-to-confidence-intervals">Connection to Confidence Intervals</h2>
-<p><strong>40. If you were to make a 95% confidence interval for the true slope (<span class="math inline">\(\beta_1\)</span>), would the interval contain 0? Why or why not?</strong></p>
+<p><strong>41. If you were to make a 95% confidence interval for the true slope (<span class="math inline">\(\beta_1\)</span>), would the interval contain 0? Why or why not?</strong></p>
 <div style="page-break-after: always;"></div>
 <section id="take-home-messages" class="level3">
 <h3 class="anchored" data-anchor-id="take-home-messages">Take-home messages</h3>

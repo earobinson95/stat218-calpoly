@@ -1,9 +1,9 @@
 ---
 title: "Activity 4: Diving Penguins"
 date: 10/10/2022
-format: html
+# format: html
 # format: pdf
-# format: docx
+format: docx
 ---
 
 ```{r setup, include = FALSE}
@@ -191,11 +191,15 @@ These vertical distances are how far off your estimated duration is from what wa
 
 \vspace{0.5cm}
 
-**11. When you square small residuals what happens?** *Hint: what happens if you square a value between 0 and 1?*
+**11. When you square a residual what happens?** *Hint: What happens if you square positive number? A negative number?*
 
 \vspace{1cm}
 
 **12. When you square large residuals what happens?**
+
+\vspace{1cm}
+
+**13. When you square a number between 0 and 1 what happens?**
 
 \vspace{1cm}
 
@@ -228,7 +232,7 @@ get_regression_table(diving_lm)
 ```
 
 
-**13. Using the output from the `R` code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic $x$ and $y$. And put a carat (“hat”) over the $y$-variable name to emphasize that the line gives predicted values of the $y$ (response) variable.**
+**14. Using the output from the `R` code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic $x$ and $y$. And put a carat (“hat”) over the $y$-variable name to emphasize that the line gives predicted values of the $y$ (response) variable.**
 
 \vspace{0.25cm}
 
@@ -244,7 +248,7 @@ $\hat{y} = b_0 + b_1 \times \text{(x)}$ where
 + $x$ is a value of the explanatory variable
 + $\hat{y}$ is the predicted value for the response variable
 
-**14. Is the slope positive or negative?  Explain how the sign of the slope tells you about whether your data display a positive or a negative association.**
+**15. Is the slope positive or negative?  Explain how the sign of the slope tells you about whether your data display a positive or a negative association.**
 
 \vspace{0.5in}
 
@@ -258,19 +262,19 @@ For a given data set, the signs (positive or negative) for the correlation coeff
 
 Let’s investigate what the slope means in the context of heart rate and dive duration. 
 
-**15. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.**
+**16. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.**
 
 \vspace{1cm}
 
-**16. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.**
+**17. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.**
 
 \vspace{1cm}
 
-**17. By how much do your predictions in #8 and #9 differ? Does this number look familiar? Explain.**
+**18. By how much do your predictions in #8 and #9 differ? Does this number look familiar? Explain.**
 
 \vspace{1cm}
 
-**18. These questions above were designed to help you interpret the slope. Interpret the slope in context:**
+**19. These questions above were designed to help you interpret the slope. Interpret the slope in context:**
 
 The slope of the regression line predicting dive duration based on heart rate is \underline{\hspace{3cm}}, meaning that for every \underline{\hspace{3cm}} beat per minute increase in heart rate, the predicted dive duration (increases / decreases) by \underline{\hspace{1cm}} minutes.
 
@@ -284,11 +288,11 @@ The slope coefficient of a least squares regression model is interpreted as the 
 
 Let’s investigate the meaning of the $y$-intercept in the context of dive duration and heart rate. 
 
-**19. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.**
+**20. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.**
 
 \vspace{1cm}
 
-**20. Your answer to #12 should look familiar. What is this value?**
+**21. Your answer to #12 should look familiar. What is this value?**
 
 \vspace{1cm}
 
@@ -312,11 +316,11 @@ Predicting values for the response variable for values of the explanatory variab
 knitr::include_graphics("extrapolating.png")
 ```
 
-**21. What was the lowest value of heart rate observed in these data?**
+**22. What was the lowest value of heart rate observed in these data?**
 
 \vspace{1cm}
 
-**22.	What heart rates do you believe would be an extrapolation?**
+**23.	What heart rates do you believe would be an extrapolation?**
 
 \vspace{2cm}
 
@@ -330,11 +334,11 @@ $R^2$ values are reported as proportions, but can also be thought of as a percen
 
 We calculate $R^2$ by squaring the correlation (r). 
 
-**23. Calculate the coefficient of determination ($R^2$) for the relationship between heart rate and dive duration.** *Hint: Look back at question 5.*
+**24. Calculate the coefficient of determination ($R^2$) for the relationship between heart rate and dive duration.** *Hint: Look back at question 5.*
 
 \vspace{1cm}
 
-**24. Complete the following statement to interpret what this value means in the context of the data:**
+**25. Complete the following statement to interpret what this value means in the context of the data:**
 
 The coefficient of determination is \underline{\hspace{1cm}}%, this means that \underline{\hspace{1cm}}% of the variation in penguin's \underline{\hspace{3cm}}is attributable to changes in their \underline{\hspace{3cm}}.
 
@@ -344,17 +348,17 @@ Let's remember what the purpose of this study was. For the penguin study, resear
 
 \vspace{0.5cm}
 
-**25. Write out the null and alternative hypothesis in words.**
+**26. Write out the null and alternative hypothesis in words.**
 
 \vspace{1in}
 
-**26. Using the research question, rewrite the hypotheses using notation. Use the slope as the summary measure.** *Hint: What is the symbol for the population slope?*
+**27. Using the research question, rewrite the hypotheses using notation. Use the slope as the summary measure.** *Hint: What is the symbol for the population slope?*
 
 \vspace{0.5in}
 
 ## Inference for the Slope Coefficient
 
-**27. Based on the slope coefficient you reported in question 14, do you think there is convincing evidence of an association between a penguin's heart rate and the duration of their dive?**
+**28. Based on the slope coefficient you reported in question 14, do you think there is convincing evidence of an association between a penguin's heart rate and the duration of their dive?**
 
 \vspace{1cm}
 
@@ -419,7 +423,7 @@ diving %>%
   calculate(stat = " ___________")
 ```
 
-**28. What inputs should be entered for each of the following to create the simulation to test regression slope?**
+**29. What inputs should be entered for each of the following to create the simulation to test regression slope?**
 
 \vspace{.5 mm}
 
@@ -444,7 +448,7 @@ diving %>%
 
 \vspace{0.2in}
 
-**29. Suppose we wanted to complete the simulation test using correlation as the summary measure, instead of slope. Which input(s) in #4 would need to be changed to test for correlation?  What input(s) should you use instead?**
+**30. Suppose we wanted to complete the simulation test using correlation as the summary measure, instead of slope. Which input(s) in #4 would need to be changed to test for correlation?  What input(s) should you use instead?**
 
 \vspace{0.5cm}
 
@@ -468,11 +472,11 @@ head(null_dist) %>% knitr::kable(digits = 3)
 
 \vspace{0.1in}
 
-**30. What does the `replicate` column represent?**
+**31. What does the `replicate` column represent?**
 
 \vspace{1in}
 
-**31. What does the `stat` column represent?**
+**32. What does the `stat` column represent?**
 
 \vspace{1in}
 
@@ -491,17 +495,19 @@ null_dist %>%
 
 \vspace{0.2in}
 
-**32. Why is the distribution centered at 0?**
+**33. Why is the distribution centered at 0?**
 
 \vspace{1in}
 
-**33. Mark where the observed slope lies on the distribution.**
-
-**34. Shade or circle what area you will use to calculate the p-value.**
+**34. Mark where the observed slope lies on the distribution.**
 
 \vspace{0.25in}
 
-**35. Estimate what p-value we will obtain from `R`.**
+**35. Shade or circle what area you will use to calculate the p-value.**
+
+\vspace{0.25in}
+
+**36. Estimate what p-value we will obtain from `R`.**
 
 ## Calculating the p-value
 
@@ -533,7 +539,7 @@ get_p_value(null_dist,
             direction = "_________")
 ```
 
-**36. What inputs should be entered for each of the following to calculate the p-value?**
+**37. What inputs should be entered for each of the following to calculate the p-value?**
 
 + `obs_stat =` 
 
@@ -553,21 +559,21 @@ get_p_value(null_dist,
 
 \vspace{0.2in}
 
-**37. Why did I get a warning message from `R`? What does the warning tell me?**
+**38. Why did I get a warning message from `R`? What does the warning tell me?**
 
 ## Communicate the results and answer the research question
 
-**38. Based on the p-value and an $\alpha = 0.05$, write a conclusion in context of the problem.**
+**39. Based on the p-value and an $\alpha = 0.05$, write a conclusion in context of the problem.**
 
 \vspace{1in}
 
-**39. Based on the p-value you obtained for testing the slope, what p-value do you think you would get if you tested the correlation instead?** *Hint: think about the relationship between slope and correlation!*
+**40. Based on the p-value you obtained for testing the slope, what p-value do you think you would get if you tested the correlation instead?** *Hint: think about the relationship between slope and correlation!*
 
 \vspace{1in}
 
 ## Connection to Confidence Intervals
 
-**40. If you were to make a 95% confidence interval for the true slope ($\beta_1$), would the interval contain 0? Why or why not?**
+**41. If you were to make a 95% confidence interval for the true slope ($\beta_1$), would the interval contain 0? Why or why not?**
 
 \vspace{1in}
 
