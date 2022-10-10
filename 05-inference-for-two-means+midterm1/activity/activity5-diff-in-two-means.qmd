@@ -1,0 +1,366 @@
+---
+title: "Activity 5: Revisiting IMDb Movie Reviews - Comparing Two Groups"
+format: pdf
+---
+
+This week our focus is comparing the means of two groups. With linear regression we were able to compare the predicted mean response across different values of a continuous explanatory variable. This week, however, we are moving from a *continuous* explanatory variable to a **categorical** explanatory variable! 
+
+## Learning Outcomes
+
++ Summarize and visualize quantitative data for two means.
+
++ Given a research question involving one categorical explanatory variable and one quantitative response variable, construct the null and alternative hypotheses in words and using appropriate statistical symbols.
+
++ Describe and perform a simulation-based hypothesis test for a difference in means.
+
++ Interpret and evaluate a p-value for a simulation-based hypothesis test for a difference in means.
+
+This week our focus is comparing the means of two groups. With linear regression we were able to compare the predicted mean response across different values of a continuous explanatory variable. This week, however, we are moving from a *continuous* explanatory variable to a **categorical** explanatory variable! 
+
+## Learning Outcomes
+
++ Summarize and visualize quantitative data for two means.
+
++ Given a research question involving one categorical explanatory variable and one quantitative response variable, construct the null and alternative hypotheses in words and using appropriate statistical symbols.
+
++ Describe and perform a simulation-based hypothesis test for a difference in means.
+
++ Interpret and evaluate a p-value for a simulation-based hypothesis test for a difference in means.
+
+## Movies released in 2020
+
+Recall the data set we used a couple of weeks ago, visualizing the distribution of IMDB movie ratings. The data set included eight variables, listed below.  
+
+| **Variable** 	| **Description** |
+|----	|-------------	|
+| `movie_title` | Title of movie |
+| `budget_mil` | Amount of money (in US $ millions) budgeted for the production of the movie |
+| `revenue_mil` | Amount of money (in US $ millions) the movie made after release|
+| `duration` | Length of the movie (in minutes)|
+| `content_rating` | Rating of the movie (`G`, `PG`, `PG-13`, `R`, `Not Rated`)|
+| `imdb_score` | IMDb user rating score from 1 to 10 |
+| `genres` | Categories the movie falls into (e.g., Action, Drama, etc.) |
+| `facebook_likes` | Number of likes a movie receives on Facebook |
+
+
+## Comparing Two Groups
+
+Let's compare the ***budget*** for movies ***rated PG*** and movies ***rated R***. Technically, the data set has four different content ratings: Not Rated, PG, PG-13, and R. To make the comparison of PG and R movies easier, I went ahead and made a smaller data set containing only these two ratings.
+
+In case you are interested, this is the code I used!
+
+```{r}
+movies_pg <- filter(movies, 
+                    content_rating %in% c("PG", "R")
+                    )
+```
+
+## Setup Context
+
+1. What is the observational unit for this study?
+
+\vspace{0.5in}
+
+
+2. The two variables assessed in this study are the Movie Rating `(content_rating)` and budget `(buget_mil)`. Identify the role for each variable (explanatory or response) and variable type (quantitative or categorical).
+
+\vspace{0.5in}
+
+**Explanatory:**
+
+\vspace{0.5in}
+
+**Response:**
+
+\vspace{0.5in}
+
+3. What is the population of interest for this study?
+
+\vspace{0.5in}
+
+## Exploratory Data Analysis (EDA)
+
+Similar to summarizing the mean of all of the movies, we have two options to compare these two groups: 
+
++ Use summary statistics
++ Use visualizations
+
+## Summary Statistics for Differences
+
+Let's start with summary statistics. Our familiar friend `favstats()` can help us compare summary statistics across different groups. Before when we used `favstats()` we only had one variable, but now we have two! 
+
+Now, we will use two variables as a "formula", which looks like `response ~ explanatory`. So, the budget of the film is the response and the content rating is the explanatory variable. So, our code looks like: 
+
+```{r stat-comparison, eval = FALSE}
+favstats(budget_mil ~ content_rating, 
+         data = movies_pg)
+```
+
+Use the output from the `favstats()` function to answer the following questions:
+
+```{r, echo = FALSE}
+favstats(budget_mil ~ content_rating,
+         data = movies_pg)
+```
+
+\vspace{0.8in}
+
+4. Report the observed mean budget amount for the PG rating. *Use appropriate notation.*
+
+\vspace{0.3in}
+
+5. Report the observed mean budget amount for the R rating. *Use appropriate notation.*
+
+\vspace{0.3in}
+
+6. Calculate the difference in mean budget amount for movies in 2016 with a PG rating minus those with a R rating.  *Use PG rated minus R rated as the order of subtraction. Use appropriate notation with informative subscripts.*
+
+\vspace{0.8in}
+
+7. Which content rating has the largest observed standard deviation? 
+
+\vspace{0.8in}
+
+8. Which content rating has the largest sample size? What effect does sample size have on each group's standard deviation?
+
+\vspace{0.8in}
+
+9.  Which content rating has the largest observed IQR?
+
+\vspace{0.8in}
+
+## Visualizing Differences
+
+Let's refresh ourselves on the different ways to plot a numerical variable. 
+
+10. What are the three types of plots used to plot a single quantitative variable?
+
+\vspace{0.8in}
+
+11. For each type of plot, how would you include a categorical variable in the plot? 
+
+### Faceted Histograms
+
+When we want to add a categorical variable (like `content_rating`) to a histogram, we create separate plots for each level of the categorical variable. These separate plots are called **facets**. We are comparing the budgets for PG and R movies, so we will have two facets, one per content rating. 
+
+The code to make a faceted histogram looks like the following:
+
+```{r facet-preview, eval = FALSE}
+ggplot(data = movies_pg, 
+       mapping = aes(x = budget_mil)) + 
+  geom_histogram(binwidth = 100) + 
+  labs(x = "Movie Budget (in millions)") +
+  facet_wrap(~ content_rating)
+```
+
+Notice the last line is the only new part! That line creates a faceted plot (using `facet_wrap()`) and says to facet "by" (`~`) the `content_rating`. 
+
+Let's look at what this plot ends up looking like:
+
+```{r facet-hist, echo = FALSE}
+ggplot(data = movies_pg, 
+       mapping = aes(x = budget_mil)) + 
+  geom_histogram(binwidth = 100, fill = "gray", color = "white") + 
+  theme_bw() +
+  labs(x = "Movie Budget (in millions)") +
+  facet_wrap(~ content_rating) 
+```
+
+12. How would you describe the shape of the distribution of PG movie budgets? 
+
+\vspace{1in}
+
+13. How would you describe the shape of the distribution of R movie budgets? 
+
+\vspace{0.8in}
+
+14. Visually, does it appear that there are outliers in either of these groups?
+
+\vspace{0.8in}
+
+### Side-by-Side Boxplots
+
+Another way we can incorporate a categorical into our plots is to plot our boxplots for each group side-by-side. As opposed to faceting, these boxplots will be on the **same** plot. We only need to add one extra piece to our previous code: a categorical variable. 
+
+Before, we either plotted our **one** numerical variable horizontally (using `x`) or vertically (using `y`). 
+
+```{r one-box, echo = FALSE}
+horizontal <- ggplot(data = movies, 
+             mapping = aes(x = imdb_score)) + 
+  geom_boxplot() + 
+  # theme(aspect.ratio = 0.5) +
+  # theme_bw() +
+  labs(x = "IMDB Score")
+
+vertical <- ggplot(data = movies, 
+                   mapping = aes(y = imdb_score)) + 
+  geom_boxplot() + 
+  # theme(aspect.ratio = 2) +
+  # theme_bw() +
+  labs(y = "IMDB Score")
+
+library(patchwork)
+horizontal + vertical
+```
+
+Now we need to plot **two** boxplots side-by-side. Similar to before, we can stack the plots horizontally or vertically. 
+
+#### Horizontal Stacking
+
+```{r horizontal-box}
+ggplot(data = movies_pg, 
+       mapping = aes(x = content_rating, y = budget_mil)) +
+  geom_boxplot() +
+  labs(x = "Content Rating of Movie", 
+       y = "Movie Budget (in millions)")
+```
+
+15. Why are the boxplots stacked side-by-side horizontally? What part of the `R` code does this?
+
+\vspace{0.8in}
+
+#### Vertical Stacking
+
+```{r vertical-box}
+ggplot(data = movies_pg, 
+       mapping = aes(x = content_rating, y = budget_mil)) +
+  geom_boxplot() +
+  labs(x = "Content Rating of Movie", 
+       y = "Movie Budget (in millions)") +
+  coord_flip()
+```
+
+16. How was the previous code changed to stack the boxplots side-by-side vertically? 
+
+\vspace{0.8in}
+ 
+17. Which orientation do you prefer?
+
+## Statistical Inference
+
+Now that we have explored our data with summary statistics and visualizations, we want to use our data to draw inferences and make claims about the larger population.
+
+**Step 1: Ask a research question**
+
+18. In words, write out the **parameter** of interest in context of the study. Assign a symbole and use proper notation and be sure to define your subscripts. *Use PG rated minus R rated as the order of subtraction.*
+
+*Hint: Look at question 6. Remember this is a 'word formula' of the summary statistic + variable(s) + population.*
+
+
+\vspace{1in}
+
+19. Write out the null and alternative hypotheses in words.
+ 
+
+\vspace{1in}
+
+Recall in Question 6, we calculated the observed statistic of interest (difference in means) and assigned a symbol. 
+
+$$\bar x_{PG} - \bar x_{R} = $$
+
+**Step 2: Conduct a Hypothesis test**
+
+Remember that the null distribution is created based on the assumption the null hypothesis is true.  In this study, the null hypothesis states that **there is no association / relationship between the two variables**.  This means that the movie budget observed in the data set would have been the same regardless of the movie rating.
+
+I've provided your group with a set of cards to use to simulate a sample that could have happened if the null was true. 
+
+11. How many cards will we start with?
+
+\vspace{0.3in}
+
+12. What will we write on each card?
+
+\vspace{0.3in}
+
+13. Next, we need to generate a data set that could have happened if the null hypothesis was true. How do we do this?
+
+\vspace{0.8in}
+
+14. Once we have generated our new data set that could have happened if the null was true, what value do we calculate? *Hint: What statistic are we calculating from the data?*
+
+\vspace{0.3in}
+
+15. Create one simulation using the cards provided. Is your simulated statistic closer to the null value of zero than the difference in means calculated from the sample?  Explain why this makes sense.
+
+\vspace{0.8in}
+
+16. Once we create a null distribution of 1000 simulations, at what value do you expect the distribution to be centered?  Explain your reasoning.
+
+## Carrying out the simulation in `R`
+
+
+We will use the **infer** package (again) to make our simulated null distribution. The process we used for this situation will look very similar to before, since all we are changing is the statistic we calculate! 
+
+17. Fill in the blanks for the code below. You might want to look back at your `Activity 4: Diving Penguins` for some help!
+
+```{r fill-in-infer, eval = FALSE}
+snow %>% 
+  
+  specify(response = _____________, explanatory = _____________) %>% 
+  
+  hypothesise(null = _____________) %>% 
+  
+  generate(reps = _____________, type = _____________) %>% 
+  
+  calculate(stat = "diff in means", 
+            order = c("PG", "R")
+            )
+
+```
+
+\vspace{0.2in}
+
+Last time we use a `"slope"` statistic, so we didn't need to specify the order of subtraction. But now, with a difference in means we need to specify which group should come first and which should come second.
+
+18. Draw a line where the observed statistic falls on the simulated null distribution below. Shade the area that you will use to calculate the p-value.
+
+```{r null-dist, echo = FALSE}
+null_dist <- snow %>% 
+  specify(response = Snowfall, explanatory = WeatherPattern) %>% 
+  hypothesise(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "diff in means", 
+            order = c("El_Nino", "La_Nina")
+            ) 
+
+null_dist %>% 
+  visualize() +
+  labs(x = "Simulated Difference in Means (El Nino - La Nina)",
+       y = "Frequency (out of 1000)",
+       title = "")
+
+```
+
+```{r p-value, include = FALSE}
+obs_diff <- snow %>% 
+  specify(response = Snowfall, explanatory = WeatherPattern) %>% 
+  calculate(stat = "diff in means", 
+            order = c("El_Nino", "La_Nina")
+            )
+
+get_p_value(null_dist, obs_stat = obs_diff, direction = "greater")
+```
+
+
+19.  Estimate the p-value for your hypothesis test. Based off of this p-value, write a conclusion to the hypothesis test.
+
+\vspace{0.2in}
+
+---
+
+## Using theoretical methods instead...
+
+What we just did used simulation to approximate what the sampling distribution of $\bar{x}_1-\bar{x}_2$ would look like if the null was true. However, we don't necessarily need to use simulation to approximate this distribution! 
+
+Next week we will model the sampling distribution for $\bar{x}_1-\bar{x}_2$ using a $t$-distribution. See a theme?
+
+---
+
+### Take-home messages
+
+To create one simulated sample on the null distribution for a difference in sample means, you carry out the following steps:
+
+- label cards with the values from the observed sample
+- tear the $x$ and $y$ values apart
+- shuffle the cards and make new pairs of $x$ and $y$ values
+- calculate and plot the difference in means 
