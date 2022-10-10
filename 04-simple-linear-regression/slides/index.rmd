@@ -353,11 +353,10 @@ class:primary
 ].pull-right[
 .center[
 <img src="images/can-you-draw-it-mobile-qrcode.png" width="72%"/>
-<font size="6">
+
 **SCAN ME**
 
-OR VISIT [bit.ly/3BF56Zj](https://bit.ly/3BF56Zj)
-</font>
+OR VISIT [bit.ly/3BF56Zj](https://emily-robinson.shinyapps.io/can-you-draw-it/)
 ]
 ]
 
