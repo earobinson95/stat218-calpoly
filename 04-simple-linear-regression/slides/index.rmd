@@ -111,13 +111,12 @@ write("", file = "js-addins.html")
 <br><br>
 # INTRODUCTION TO DATA & STATISTICAL INFERENCE
 ## Stat 218: Applied Statistics for the Life Sciences
-#### Dr. Emily Robinson 
 #### California Polytechnic State University - San Luis Obispo
 <!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
 
 ---
 class:inverse
-# MONDAY, OCTOBER 10, 2022
+# Tuesday, OCTOBER 11, 2022
 
  Today we will...
 
@@ -126,7 +125,7 @@ class:inverse
 + Big Picture on Simple Linear Regression
 
 + Activity 4: Diving Penguins
-  + Checked for engagement and completion in class Wednesday
+  + Checked for engagement and completion in class Thursday
 
 ---
 class: primary
@@ -362,7 +361,8 @@ OR VISIT [bit.ly/3BF56Zj](https://emily-robinson.shinyapps.io/can-you-draw-it/)
 
 ---
 class:primary
-# Did it looks something like this? Did your neighbors look the same? 
+# Did it looks something like this?
+## Did your neighbors look the same? 
 .center[
 <img src="images/can-you-draw-it-example.png" width="40%"/>
 ]
@@ -437,7 +437,7 @@ class:primary
 **Null:** The true slope between $x$ and $y$ for the population is equal to 0 $(H_O: \beta_1 = 0)$
 
 
-**Alternative:** The true slope between $x$ and $y$ for the population is different than 0 $(H_O: \beta_1 \ne 0)$
+**Alternative:** The true slope between $x$ and $y$ for the population is different than 0 $(H_A: \beta_1 \ne 0)$
 
 Then we look for evidence (p-values & confidence intervals)!
 
@@ -463,7 +463,7 @@ class:primary
 # TO DO
 
 + Complete Activity 4: Diving Penguins
-  + *check during class Wednesday, 10/12*
+  + *check during class Thursday, 10/13*
 
 ---
 class: inverse
