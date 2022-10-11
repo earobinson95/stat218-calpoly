@@ -34,14 +34,17 @@
 + [Activity 3: Sleepless Nights](https://earobinson95.github.io/stat218-calpoly/03-inference-for-one-mean/activity/activity3-sleepless-nights.html)
 + [Lab 3: One Mean Inference](https://earobinson95.github.io/218-03-lab-one-mean-inference/one_mean_inference.html)
   + [Github Repo](https://github.com/earobinson95/218-03-lab-one-mean-inference)
-  + [Feedback](https://earobinson95.github.io/218-03-lab-one-mean-inference/feedback.html)
+  + [Feedback](https://earobinson95.github.io/218-03-lab-one-mean-inference/lab3_feedback.html)
 + Midterm Project: Part 3
   + GitHub Repo
-  +
 
 ## Week 4: Simple Linear Regression
 
-+ [Readin Guide](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/reading%20guide/week4-reading-guide-simple-linear-regression.pdf)
++ [Slides](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/slides/index.html#1)
++ [Reading Guide](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/reading%20guide/week4-reading-guide-simple-linear-regression.pdf)
 + [Activity 4: Diving Penguins](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/activity/activity4-diving-penguins.html)
-+ Lab 4
++ [Lab 4: Golf Driving Distances](https://earobinson95.github.io/218-04-lab-simple-linear-regression/04-lab-golf-driving-distances.html)
+  + [Github Repo](https://github.com/earobinson95/218-04-lab-simple-linear-regression)
+  + [Feedback](https://earobinson95.github.io/218-04-lab-simple-linear-regression/lab4_feedback.html)
++ Midterm Project: Part 4
 
