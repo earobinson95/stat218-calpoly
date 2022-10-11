@@ -1,5 +1,5 @@
 ---
-title: "Stat 218 Introduction to Data"
+title: "Stat 218: Simple Linear Regression"
 author: "Dr. Emily Robinson"
 date: "California Polytechnic State University"
 output:
@@ -9,9 +9,7 @@ output:
       after_body:
         "js-addins.html"
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
-    # css: ["default", "rladies-fonts", "css/modal.css", "css/this-presentation.css"]
     css: ["default", "metropolis-fonts", "metropolis" ,"css/modal.css", "css/sizeformat.css"]
-    # css: [default, metropolis, metropolis-fonts]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -111,12 +109,13 @@ write("", file = "js-addins.html")
 <br><br>
 # INTRODUCTION TO DATA & STATISTICAL INFERENCE
 ## Stat 218: Applied Statistics for the Life Sciences
+### Dr. Robinson
 #### California Polytechnic State University - San Luis Obispo
 <!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
 
 ---
 class:inverse
-# Tuesday, OCTOBER 11, 2022
+# WEDNESDAY, OCTOBER 10, 2022
 
  Today we will...
 
@@ -125,7 +124,7 @@ class:inverse
 + Big Picture on Simple Linear Regression
 
 + Activity 4: Diving Penguins
-  + Checked for engagement and completion in class Thursday
+  + Checked for engagement and completion in class Wednesday
 
 ---
 class: primary
@@ -434,10 +433,10 @@ knitr::include_graphics("images/sampling-slr.png")
 class:primary
 # INFERENCE FOR SLOPE
 
-**Null:** The true slope between $x$ and $y$ for the population is equal to 0 $(H_O: \beta_1 = 0)$
+**Null:** The true slope between $x$ and $y$ for the population is equal to 0 (There is no association between $x$ and $y$ for the population) $(H_O: \beta_1 = 0)$
 
 
-**Alternative:** The true slope between $x$ and $y$ for the population is different than 0 $(H_A: \beta_1 \ne 0)$
+**Alternative:** The true slope between $x$ and $y$ for the population is different than 0 (There is an association between $x$ and $y$ for the population) $(H_A: \beta_1 \ne 0)$
 
 Then we look for evidence (p-values & confidence intervals)!
 
@@ -463,7 +462,7 @@ class:primary
 # TO DO
 
 + Complete Activity 4: Diving Penguins
-  + *check during class Thursday, 10/13*
+  + *check during class Wednesday, 10/12*
 
 ---
 class: inverse
@@ -487,7 +486,7 @@ class:primary
 
 .center[
 ```{r, fig.cap = "", fig.alt = "", out.width = "35%"}
-knitr::include_graphics("images/golf-drive.png")
+knitr::include_graphics("images/golf-drive.PNG")
 ```
 ]
 
