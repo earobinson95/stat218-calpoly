@@ -115,7 +115,7 @@ write("", file = "js-addins.html")
 
 ---
 class:inverse
-# WEDNESDAY, OCTOBER 10, 2022
+# MONDAY, OCTOBER 10, 2022
 
  Today we will...
 
