@@ -470,13 +470,17 @@ class: inverse
 
  Today we will...
 
-+ Review Lab 3 Feedback
-
-+ Check Activity 4: Diving Penguins for Engagement & Completion
++ 15 minutes to regroup
+  + Check Activity 4: Diving Penguins for Engagement & Completion
+  + Review Lab 3 Feedback
+  + Double check Midterm Project: Part 3 (resubmit if necessary)
+      + *I left comments if I could not see your project or could not see your data description.*
+      + *I did not leave comments if you only had one histogram or I could not see your histogram descriptions.*
 
 + Lab 4: Golf Driving Distance
 
 + If time, begin working on Midterm Project: Part 4 - this is related to today's lab!
+  + Due Sunday, October 23
 
 ---
 class:primary
@@ -500,7 +504,7 @@ class:primary
 
 **Due Sunday, October 23 at 11:59pm**
 
-+ You have two weeks to complete this, but remember you have an exam during this time as well so do not put it off.
++ You have two weeks to complete this, but remember you have an exam during this time as well so **do not** put it off.
 
 See [Midterm Project Example Writeup](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/midterm%20project/example_writeup_evals.pdf).
 
@@ -512,7 +516,7 @@ class:primary
   + *Canvas Quiz & Completion due Friday, 10/14 at 11:59pm*
 + Begin working on Midterm Project: Part 4
   + *Due Sunday, October 23 at 11:59pm*
-  + DO NOT PUT THIS OFF
+  + **Do not** put this off
 + Read Section 4.6 & Section 20.1 (short this week!)
   + Short concept check *due Monday, October 17 at 2:10pm*
 + Begin preparing for Midterm Exam 1
