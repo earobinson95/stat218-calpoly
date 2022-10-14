@@ -1,0 +1,17 @@
+Triathlete	ChainRing	Time
+A	circular	84.8
+A	oval	84.9
+B	circular	84.7
+B	oval	80.1
+C	circular	77.2
+C	oval	73.5
+D	circular	86.5
+D	oval	83.2
+E	circular	81.8
+E	oval	82.9
+F	circular	88.3
+F	oval	84.5
+G	circular	84.3
+G	oval	81.7
+H	circular	95.6
+H	oval	90.2
