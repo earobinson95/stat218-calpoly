@@ -49,7 +49,7 @@ numericCols <- c("CORNFLK", "OATBRAN")
 cholesterol_data[,numericCols] <- lapply(cholesterol_data[,numericCols], as.numeric)
 
 cholesterol_data <- cholesterol_data |> 
-  mutate(cholesterolDiff = CORNFLK - OATBRAN)
+  mutate(CholesterolDiff = CORNFLK - OATBRAN)
 
 cholesterol_data_long <- cholesterol_data |> 
   pivot_longer(cols = c(CORNFLK, OATBRAN),
@@ -74,115 +74,90 @@ cholesterol_data_long <- cholesterol_data |>
 
 ---
 
-## Review from last week
+## Review from Activity 6A: Cholesterol II
 
 Researchers investigated whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels. Twenty-eight (28) individuals were randomly assigned a diet that included either corn flakes (14 individuals) or oat bran (14 individuals). After two weeks, cholesterol levels (mmol/L) of the participant were recorded.
 
+## But actually what happened was...
+
+Fourteen (14) individuals were randomly assigned a diet that included either oat bran or corn flakes. After two weeks on the initial diet, serum cholesterol were measured and the participants were then crossed-over to the alternate diet. After two-weeks on the second diet, cholesterol levels were once again recorded. 
+
 ## Vocabulary Review
 
-1.  Identify the variables in this study.  What role (explanatory or response)
-do each have?
+1.  How was the data collected differently from the previous activities?
 
-\vspace{0.5in}
+\vspace{0.8in}
 
-2. Are the **differences** in AQI scores independent for each case (US city)? 
-Explain.
+2. Are the cholesterol levels independent across the 28 measurements? Explain.
 
-\vspace{0.5in}
+\vspace{0.8in}
 
-3. Why is this treated as a paired study design and not two independent samples?
+Since we can match or pair the cholesterol level measurements between the treatment groups, we call this a **paired study design**. These could be paired up by taking measurements on the same observational unit twice or taking measurements on similar observational units (e.g. identical twins, similar fields, etc.). When analyzing the data and making conclusions, we must take this design into consideration or we are violating a key assumption (independence).
 
-\vspace{0.5in}
+The data set below shows the data for each participant `ID`. The `CORNLK` column indicates the cholesterol level for that individual on the corn flake diet and the `OATBRAN` column indicates the cholesterol level for that individual on the oat bran diet.
+
+\vspace{0.1in}
+
+```{r data}
+head(cholesterol_data)
+```
+
+3. What does the `CholesterolDiff` column represent? Why does this calculation make sense?
 
 ## Ask a Research Question
 
-4. What are the two competing possibilities for explaining the differences in 
-AQI scores? 
+Researchers are still interested in whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels.
+
+4. Write the null and alternative hypothesis in **words**.
 
 \vspace{0.8in}
 
-5. Write the null hypothesis in **words**.
-
-\vspace{0.8in}
-
-6. What is the research question this study seeks to address?
-
-\vspace{0.8in}
-
-7. Write the alternative hypothesis in **notation**.
+5. Write the null and alternative hypothesis in **notation**.
 
 \vspace{0.8in}
 
 ## Summarize and Visualize the Data
 
-A histogram of the differences in AQI scores for the 33 cities and a table of
-summary statistics are shown below. 
+A histogram of the differences in cholesterol levels for the 14 individuals and a table of summary statistics are shown below. 
 
 ```{r histogram}
-ggplot(data = air, 
-       mapping = aes(x = Difference)) +
-  geom_histogram(binwidth = 17) +
-  labs(x = "Difference in air quality score (April 2020 - 5 Year Median)") 
+ggplot(data = cholesterol_data, 
+       mapping = aes(x = CholesterolDiff)) +
+  geom_histogram(binwidth = 0.25) +
+  labs(x = "Difference in cholesterol levels (Corn flake - oat bran)") 
 ```
 
-Summary statistics for the June 2020 (Current) AQI scores, median AQI scores
-from 2015--2019, and the differences in AQI scores.
+Summary statistics for the cholesterol levels from the corn flake diet `CORNFLK`, cholesterol levels from the oat bran diet `OATBRAN`, and the differences in cholesterol levels between the corn flake and oat bran diets `CholesterolDiff`.
 
-```{r}
-air %>%
-  pivot_longer(cols = Current:Difference, 
-               names_to = "time_period", 
-               values_to = "AQI") %>% 
-  mutate(time_period = fct_relevel(time_period, 
-                                   "Current", 
-                                   "5yearMedian", 
-                                   "Difference"
-                                   )
-         ) %>% 
-  group_by(time_period) %>% 
-  summarize(mean = mean(AQI), 
-            sd = sd(AQI)
-  ) %>% 
-  rename(Mean = mean, 
-         `Standard Deviation` = sd, 
-         Variable = time_period) %>% 
-  pander()
+```{r, echo = F}
+favstats(Cholesterol ~ Diet, data = cholesterol_data_long)
+
+cbind("Variable" = "CholesterolDiff", favstats(~ CholesterolDiff, data = cholesterol_data))
 ```
 
-\newpage
+8. Report the observed statistic of interest (mean difference) for the data. Use notation to assign a symbol to this.
 
-8. Report the summary statistic of interest (mean difference) for the data.  
-
-\vspace{0.3in}
-
-9. What notation is used for the value in question 8? 
-
-\vspace{0.3in}
+\vspace{0.8in}
 
 ## Use Statistical Methods to Draw Inferences from the Data 
 
 ### Hypothesis Test 
 
-To simulate the null distribution of paired sample mean differences we need 
-to randomly assign the AQI score for each city to be either the current value or
-the five year median. 
+To simulate the null distribution of paired sample mean differences we need to randomly assign the cholesterol level for each participant to be either the corn flake or the oat bran cholesterol level. 
 
-Take for example Albuquerque, New Mexico. In April 2020 the current AQI score was
-23 and the five year median was 30. If we assume the null is true, that the mean
-of the differences is 0, then there is no relationship between Albuquerque's 
-AQI score and the time period. That means, Albuquerque would have been just as 
-likely to see an AQI score of 30 in April of 2020. 
+Take for example participant ID 1. On the corn flake diet, their cholesterol level was 4.61 mmol/L and on the oat bran diet, it was 3.84 mmol/L. If we assume the null is true, that the mean of the differences is 0, then there is no relationship between participant 1's cholesterol level and the diet they were on. That means, Participant 1 would have been just as likely to see a cholesterol level of 3.84 mmol/L on the corn flake diet.
 
-10. How can we use a coin to decide which values for each city are randomly
-assigned to the "Current" (April 2020) time period? 
+\vspace{0.1in}
 
-\vspace{1in}
+9. How can we use a coin to decide which values for each participant are randomly assigned to the corn flake diet?
+
+\vspace{0.8in}
 
 A simulated null distribution is shown below. 
 
 ```{r null-dist, warning = FALSE}
-null_dist <- air %>% 
-  specify(response = Difference) %>% 
+null_dist <- cholesterol_data %>% 
+  specify(response = CholesterolDiff) %>% 
   hypothesise(null = "point", mu = 0) %>% 
   generate(reps = 1000, type = "bootstrap") %>% 
   calculate(stat = "mean")
@@ -193,53 +168,41 @@ null_dist %>%
        x = "Simulated Mean Difference")
 ```
 
-11. Explain why the null distribution is centered at zero. 
+10. Explain why the null distribution is centered at zero. 
 
-\newpage
+\vspace{0.8in}
 
-12. Find the observed mean difference on the distribution. 
+11. Find the observed **mean difference** on the distribution. *Hint: Look at question 8.*
 
-\vspace{0.1in}
+\vspace{0.8in}
 
-13. Shade the area of the distribution you will use to calculate the p-value. 
+12. Shade the area of the distribution you will use to calculate the p-value and estimate the p-value.
 
-\vspace{0.1in}
+\vspace{0.8in}
 
-14. Estimate the p-value for testing if there was improved air quality in US
-cities in April 2020. 
+15. How much evidence does this provide for a change in cholesterol level due to diet?
 
-\vspace{0.25in}
+\vspace{0.8in}
 
-15. How much evidence does this provide for improved air quality in US cities?
+16. If evidence was found for a change in diet, could we conclude that the diet ***caused*** the change? Explain.
 
-\vspace{0.5in}
-
-16. If evidence was found for improved air quality in US cities, could we
-conclude that the stay-at-home directives ***caused*** the improvement in air
-quality? Explain.
-
-\vspace{1in}
+\vspace{0.8in}
 
 ## Confidence Interval
 
-The goal of a confidence interval is to estimate a plausible range of values for
-the population parameter. 
+The goal of a confidence interval is to estimate a plausible range of values for the population parameter. 
 
 17. What is the population parameter in this study?
 
-\newpage
+\vspace{0.8in}
 
-To create a bootstrap distribution, we **do not** assume the null hypothesis is
-true. Instead, we assume that the difference in AQI scores for these 33 US
-cities are representative of the differences in AQI scores for other US cities.
-So, we will randomly sample, with replacement, from our original sample to
-obtain a bootstrap sample. 
+To create a bootstrap distribution, we **do not** assume the null hypothesis is true. Instead, we assume that the difference in cholesterol levels for these 14 individuals are representative of the differences in cholesterol levels for other individuals. So, we will randomly sample, with replacement, from our original sample to obtain a bootstrap sample. 
 
 I've created a bootstrap distribution below, using 1000 reps. 
 
 ```{r boot-dist}
-boot_dist <- air %>% 
-  specify(response = Difference) %>% 
+boot_dist <- cholesterol_data %>% 
+  specify(response = CholesterolDiff) %>% 
   generate(reps = 1000, type = "bootstrap") %>% 
   calculate(stat = "mean")
 
@@ -271,7 +234,7 @@ boot_dist %>%
   pivot_longer(cols = everything(), 
                names_to = "Quantile", 
                values_to = "Value") %>% 
-  pander()
+  knitr::kable(digits = 3)
 ```
 
 
@@ -282,8 +245,7 @@ boot_dist %>%
 \vspace{1in}
 
 
-21. Do the results of your confidence interval and hypothesis test agree? What
-does each tell you about the null hypothesis?
+21. Do the results of your confidence interval and hypothesis test agree? What does each tell you about the null hypothesis?
 
 \vspace{1in}
 
@@ -291,27 +253,11 @@ does each tell you about the null hypothesis?
 
 ## Take-home messages
 
-1.	The differences in a paired data set are treated like a single quantitative
-variable when performing a statistical analysis.  Paired data (or paired
-samples) occur when pairs of measurements are collected. We are only interested
-in the population (and sample) of **differences**, and not in the original data. 
++ The differences in a paired data set are treated like a single quantitative variable when performing a statistical analysis.  Paired data (or paired amples) occur when pairs of measurements are collected. We are only interested in the population (and sample) of **differences**, and not in the original data. 
 
-3. When analyzing paired data, the summary statistic is the "mean difference"
-**not** the "difference in means"^[Technically, if we calculate the differences
-and then take the mean (mean difference), and we calculate the two means and
-then take the difference (difference in means), the value will be the same.
-However, the *sampling variability* of the two statistics will differ, as we
-will see in the next activity].  This terminology will be *very* important in
-interpretations.
++ When analyzing paired data, the summary statistic is the "mean difference" **not** the "difference in means"^[Technically, if we calculate the differences and then take the mean (mean difference), and we calculate the two means and then take the difference (difference in means), the value will be the same. However, the *sampling variability* of the two statistics will differ, as we will see in the next activity].  This terminology will be *very* important in interpretations.
 
-4. To create one simulated sample on the null distribution for the mean
-difference, we focus on each observation **not** on the groups of observations. 
-For each observation, we flip a coin to decide which response value goes first
-and which goes second. We do this for **every** observation. Once we've randomly
-assigned which observation comes first, we find the difference in the values for
-each observation. Finally, we calculate and plot the simulated mean difference.
++ To create one simulated sample on the null distribution for the mean difference, we focus on each observation **not** on the groups of observations. For each observation, we flip a coin to decide which response value goes first and which goes second. We do this for **every** observation. Once we've randomly
+assigned which observation comes first, we find the difference in the values for each observation. Finally, we calculate and plot the simulated mean difference.
 
-5. To create one simulated sample on the bootstrap distribution for a sample
-mean or mean difference, label $n$ cards with the original values / differences.
-Randomly draw with replacement $n$ times.  Calculate and plot the resampled mean
-or mean difference.
++ To create one simulated sample on the bootstrap distribution for a sample mean or mean difference, label $n$ cards with the original values / differences. Randomly draw with replacement $n$ times. Calculate and plot the resampled mean or mean difference.
