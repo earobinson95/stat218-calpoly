@@ -121,9 +121,9 @@ class:inverse
 
 + Recap Two Independent Means from Reading
 
-+ Activity 5: 
++ Activity 5: Cholesterol I
 
-+ Exam Review
++ Question Time: Exam Review / Midterm Project Part 4
 
 ---
 class:primary
@@ -154,26 +154,59 @@ class:primary
 class:primary
 # TWO INDEPENDENT MEANS
 
+```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+knitr::include_graphics("images/two-independent-means.png")
+```
+
 ---
 class:primary
 # INFERENCE FOR TWO INDEPENDENT MEANS
 
-$\mu_{group 1} - \mu_{group 2}$: The true mean difference between *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
+**Parameter**
+
+$\mu_{group 1} - \mu_{group 2}$: The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
+
+--
+
+**Null:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0 (There is no relationship between *EXPLANATORY* and *RESPONSE*.) $(H_O: \mu_{group 1} - \mu_{group 2} = 0)$
 
 
-**Null:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0 (There is no difference between the two groups) $(H_O: \mu_{group 1} - \mu_{group 2} = 0)$
+**Alternative:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0 (There is a relationship between *EXPLANATORY* and *RESPONSE*) $(H_A: \mu_{group 1} - \mu_{group 2} \ne 0)$
 
 
-**Alternative:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0 (There is a difference between the two groups) $(H_A: \mu_{group 1} - \mu_{group 2} \ne 0)$
+---
+class:primary
+# INFERENCE FOR TWO INDEPENDENT MEANS
+
+Observed statistic: $\bar x_{Group 1} - \bar x_{Group 2}$
+
+.pull-left[
+**Randomization**
+
+1. Write observed explanatory and response variables on the card.
+2. Assume the null is true & "rip" the cards.
+3. Simulate new groups, under the assumption is the null (permute/randomly match).
+4. Calculate the summary statistic.
+5. Draw a line at your observed statistic to calculate your p-value.
+
+].pull-right[
+**Theory**
+
++ Calculate your T-statistic using $$\frac{\text{Observed Statistic} - \text{Null Value}}{\text{SE}}.$$
++ Calculate the df as the smallest of $n_{\text{Group 1}} - 1$ and $n_{\text{Group 2}}-1.$
++ Compare your T-statistic to the $t_{df}$ distribution to calculate your p-value.
+
+]
 
 ---
 class: primary
-# ACTIVITY 5:
+# ACTIVITY 5: Cholesterol I
 
+[Activity 5: Cholesterol I](https://earobinson95.github.io/stat218-calpoly/05-inference-for-two-means%2Bmidterm1/activity/activity5-cholesterol-I.html)
 
 .center[
 ```{r, fig.cap = "", fig.alt = "", out.width = "50%"}
-# knitr::include_graphics("images/diving-penguins.jpg")
+knitr::include_graphics("images/cornflake-vs-oatbran.cms")
 ```
 ]
 
@@ -181,6 +214,7 @@ class: primary
 class:primary
 # TO DO
 
+.pull-left[
 + Complete Activity 5: 
   + *check during class Monday, 10/24*
 + Midterm Project: Part 4
@@ -189,6 +223,14 @@ class:primary
 + Study for Midterm Exam 1
   + In class next *Wednesday, 10/19*
   + Format & Practice Materials posted on Canvas
+
+].pull-right[
+**Office Hours This Week: 25-103**
+
++ Tuesday, 10/18 at 2:30pm - 4:30pm
++ Wednesday, 10/19 CANCELED
++ Thursday, 10/20 at 2:30pm - 3:30pm
+]
 
 ---
 class: inverse
