@@ -1,8 +1,8 @@
 ---
 title: "Activity 5: Cholesterol I"
 subtitle: "Hypothesis Testing for Two Independent Means"
-format: pdf
-# format: html
+# format: pdf
+format: html
 # format: docx
 ---
 
