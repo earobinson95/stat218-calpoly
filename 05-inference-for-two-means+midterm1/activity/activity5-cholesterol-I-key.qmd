@@ -1,9 +1,10 @@
 ---
 title: "Activity 5: Cholesterol I"
 subtitle: "Hypothesis Testing for Two Independent Means"
-# format: pdf
-format: html
-# format: docx
+format:
+  pdf:
+    include-in-header:
+      - keycol.tex
 ---
 
 ```{r setup, echo = FALSE, include = FALSE}
@@ -55,6 +56,8 @@ cholesterol_data_long <- cholesterol_data |>
                names_to = "Diet",
                values_to = "Cholesterol")  |> 
        select(Diet, Cholesterol)
+
+# write.csv(cholesterol_data_long, "cholesterol_data_long.csv", row.names = F, na = "")
 ```
 
 This week our focus is comparing the means of two groups. With linear regression we were able to compare the predicted mean response across different values of a continuous explanatory variable. This week, however, we are moving from a *continuous* explanatory variable to a **categorical** explanatory variable! 
@@ -87,24 +90,23 @@ Let's compare the cholesterol levels `Cholesterol` for participants on the corn 
 
 1. What is the observational unit for this study?
 
-\vspace{0.5in}
-
+\key{One study participant/individual.}
 
 2. The two variables assessed in this study are the `Diet` and `Cholesterol`. Identify the role for each variable (explanatory or response) and variable type (quantitative or categorical).
 
 \vspace{0.5in}
 
-**Explanatory:**
+**Explanatory:** \key{Diet (Categorical)}
 
 \vspace{0.5in}
 
-**Response:**
+**Response:** \key{Cholesterol (Quantitative)}
 
 \vspace{0.5in}
 
 3. What is the population of interest for this study?
 
-\vspace{0.5in}
+\key{All individuals.}
 
 ## Exploratory Data Analysis (EDA)
 
@@ -135,15 +137,16 @@ favstats(Cholesterol ~ Diet,
 
 4. Report the observed mean cholesterol level for participants on the corn flake diet. *Use appropriate notation.*
 
-\vspace{0.3in}
+\key{$\mu_{\text{CORNFLK}}=4.444$}
 
 5. Report the observed mean cholesterol level for participants on the oat bran diet. *Use appropriate notation.*
 
-\vspace{0.3in}
+\key{$\mu_{\text{OATBRAN}}=4.081$}
 
 6. Calculate the difference in mean cholesterol level between participants on the corn flake diet and participants on the oat bran diet.  *(CORNFLK minus OATBRAN) Use appropriate notation with informative subscripts.*
 
-\vspace{0.8in}
+
+\key{$\mu_{\text{CORNFLK}}-\mu_{\text{OATBRAN}}=4.444-4.081=0.363$}
 
 ## Visualizing Two Groups
 
@@ -151,11 +154,11 @@ Let's refresh ourselves on the different ways to plot a numerical variable.
 
 8. What are the three types of plots used to plot a single quantitative variable?
 
-\vspace{0.8in}
+\key{Dot plot, histogram, density plot, box-plot}
 
 9. For each type of plot, how would you include a categorical variable in the plot? 
 
-\vspace{0.8in}
+\key{Color, faceting (side by side), stack, etc.}
 
 ### Faceted Histograms
 
@@ -221,7 +224,7 @@ ggplot(data = cholesterol_data_long,
 
 10. Why are the boxplots stacked side-by-side horizontally? What part of the `R` code does this?
 
-\vspace{0.8in}
+\key{By indicating x = Diet and y = Cholesterol in the aesthetics, we are telling R to put the explanatory variable (diet) on the x-axis and the response variable (cholesterol level) on the y-axis.}
 
 \newpage
 
@@ -237,9 +240,11 @@ ggplot(data = cholesterol_data_long,
 
 11. How was the previous code changed to stack the boxplots side-by-side vertically? 
 
-\vspace{0.8in}
+\key{The aesthetics were flipped so x = Cholesterol and y = Diet.}
  
 12. Which orientation do you prefer?
+
+\key{Both oreintations show us the same information, but perceptually, one might be easier to extract that information from.}
 
 \newpage
 ## Statistical Inference
@@ -252,25 +257,28 @@ Now that we have explored our data with summary statistics and visualizations, w
 
 13. In words, write out the **parameter** of interest in context of the study. Assign a symbol and use proper notation and be sure to define your subscripts. *Use corn flakes minus oat bran as the order of subtraction.*
 
-
-\vspace{1in}
+\key{The true mean difference in cholesterol levels between corn flakes and oat bran for all individuals.}
 
 14. Write out the null and alternative hypotheses in words.
  
 
-\vspace{1in}
+\key{Null: The true difference in mean cholesterol levels between corn flakes and oat bran for all individuals is 0 (there is no relationship between diet and cholesterol level for all individuals.)}
+
+
+\key{Alternative:The true mean difference in cholesterol levels between corn flakes and oat bran for all individuals (there is a relationship between diet and cholesterol level for all individuals.}
 
 15. Write out the null and alternative hypotheses with notation.
  
+\key{$H_O = \mu_{\text{CORNFLK}}-\mu_{\text{OATBRAN}}=0$}
 
-\vspace{1in}
+\key{$H_O = \mu_{\text{CORNFLK}}-\mu_{\text{OATBRAN}}\ne0$}
 
 
 **Step 2: Conduct a Hypothesis test**
 
 Recall in Question 6, we calculated the observed statistic of interest (difference in means) and assigned a symbol. 
 
-$$\bar x_{CORNFLK} - \bar x_{OATBRAN} = 0.2225$$
+$$\bar x_{\text{CORNFLK}} - \bar x_{\text{OATBRAN}} = 0.2225$$
 
 Remember that the null distribution is created based on the assumption the null hypothesis is true.  In this study, the null hypothesis states that **there is no association / relationship between the two variables**.  This means that the cholesterol levels observed in the data set would have been the same regardless of the diet and we would expect there to be a difference in means between the two groups of zero.
 
@@ -278,25 +286,27 @@ I've provided your group with a set of cards to use to simulate a sample that co
 
 16. How many cards will we start with?
 
-\vspace{0.3in}
+\key{28 cards - one for each individual}
 
 17. What will we write on each card?
 
-\vspace{0.3in}
+\key{Their diet and associated cholesterol level.}
 
 18. Next, we need to generate a data set that could have happened if the null hypothesis was true. How do we do this?
 
-\vspace{0.8in}
+\key{Rip the cards apart and randomly permute/match a diet with a cholesterol level.}
 
 19. Once we have generated our new data set that could have happened if the null was true, what value do we calculate? *Hint: What statistic are we calculating from the data?*
 
-\vspace{0.3in}
+\key{Calcuate the simulated difference in means between the simualted corn flake diet and simulated oat bran diet.}
 
 20. Create one simulation using the cards provided. Is your simulated statistic closer to the null value of zero than the difference in means calculated from the sample?  Explain why this makes sense.
 
-\vspace{0.8in}
+\key{Simulation done in class. It is likely closer to the null value of zero since we simulated under the assumption of the null (no relationship).}
 
 21. Once we create a null distribution of 1000 simulations, at what value do you expect the distribution to be centered?  Explain your reasoning.
+
+\key{I expect to see the null distribution centered at zero since this is the null value and we are simulated "if the null is true".}
 
 ## Carrying out the simulation in `R`
 
@@ -307,11 +317,11 @@ We will use the **infer** package (again) to make our simulated null distributio
 ```{r fill-in-infer, eval = FALSE}
 cholesterol_data_long %>% 
   
-  specify(response = _____________, explanatory = _____________) %>% 
+  specify(response = Cholesterol, explanatory = Diet) %>% 
   
-  hypothesise(null = _____________) %>% 
+  hypothesise(null = "independence") %>% 
   
-  generate(reps = _____________, type = _____________) %>% 
+  generate(reps = 1000, type = "permute") %>% 
   
   calculate(stat = "diff in means", 
             order = c("CORNFLK", "OATBRAN")
@@ -349,17 +359,17 @@ obs_diff <- cholesterol_data_long %>%
             order = c("CORNFLK", "OATBRAN")
             )
 
-get_p_value(null_dist, obs_stat = obs_diff, direction = "greater")
+get_p_value(null_dist, obs_stat = obs_diff, direction = "two-sided")
 ```
 
 
 24.  Based off the simulation, what is the p-value for your hypothesis test. Based off of this p-value, write a conclusion to the hypothesis test.
 
-\vspace{0.2in}
+\key{p-value = 0.38 > 0.05 $\implies$ fail to reject the null. Since our p-value is greater than 0.05, we fail to reject the null hypothesis and conclude there is a relationship between diet and cholesterol levels.}
 
 25. Can we say diet causes changes in cholesterol levels? Explain.
 
-\vspace{0.2in}
+\key{If we had found a significant relationship, yes. Since individuals were randomly assigned to treatments in an experimental study design, we could determine causation.}
 
 ---
 
@@ -398,6 +408,8 @@ favstats(Cholesterol ~ Diet,
 
 26. Using the above formula and the summary statistics (we saw these earlier as well), calculate the $t$-statistic for these data. 
 
+\key{$T = \frac{(4.444-4.081)-0}{\sqrt{\frac{0.969}{14}+\frac{1.057}{14}}} = 0.954$}
+
 \vspace{0.8in}
 
 27. Using the $t$-distribution below, find your calculated $t$-statistic. Shade the area that you will use to calculate the p-value. 
@@ -425,7 +437,7 @@ We then multiply by 2 to "shade" the other side for our two-sided test.
 
 28. Indicate the p-value for your hypothesis test. Is this similar to the p-value you obtained using simulation? Would your decision/conclusion change?
 
-\vspace{0.8in}
+\key{p-value = 0.357; this is similar to what we obtained in the simulation method (randomization). Our decision/conclusion does not change.}
 
 Remember the `t_test()` function when we were comparing **one mean** to a "status quo" value? Similarly, we can use this to use theory based methods to test our hypotheses and compare the difference in means between our two groups.
 
@@ -445,7 +457,7 @@ infer::t_test(cholesterol_data_long,
 
 29. Where have we seen approximately the statistic and p_value before? How about the estimate?
 
-\vspace{0.8in}
+\key{The statistic is what we calculated with our T-statistic and the p-value is the associated p-value with the t-distribution. The estimate is the oberved difference in means between the corn flakes and oatbran diet.}
 
 ---
 

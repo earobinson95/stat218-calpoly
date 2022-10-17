@@ -349,7 +349,7 @@ obs_diff <- cholesterol_data_long %>%
             order = c("CORNFLK", "OATBRAN")
             )
 
-get_p_value(null_dist, obs_stat = obs_diff, direction = "greater")
+get_p_value(null_dist, obs_stat = obs_diff, direction = "two-sided")
 ```
 
 
@@ -357,7 +357,7 @@ get_p_value(null_dist, obs_stat = obs_diff, direction = "greater")
 
 \vspace{0.2in}
 
-25. Can we say diet causes changes in cholesterol levels? Explain.
+25. If we would have concluded evidence of a relationship between diet and cholesterol levels, would we have been able to say diet causes changes in cholesterol levels? Explain.
 
 \vspace{0.2in}
 
