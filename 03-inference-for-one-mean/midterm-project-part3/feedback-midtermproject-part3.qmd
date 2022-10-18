@@ -1,0 +1,62 @@
+---
+title: "Feedback for Midterm Project: Part 3 [15 pts]"
+format: html
+---
+
+This is the first big step in completing your midterm project.
+
+This week you need to accomplish the following tasks:
+
+### [1 pts] Download the midterm_project.Rmd
+
+This template will walk you through parts of the project just like the labs. If you can't get this to work, please come to office hours.
+
+### [1 pts] Upload the template to your RStudio Cloud project (from last week)
+
+The Rmd template is for your use! If you can't get this to work, please come to office hours.
+
+### [1 pts] Insert code to load in the necessary packages
+
+Use library() to load all necessary packages for your project!
+
+### [2 pts] Insert code to load in the dataset
+
+We need to use read_csv() to laod the data set into the Rmd document - avoid using the point and click import button.
+
+### [4 pts] Write a description of your dataset
+
+Nice job addressing all parts of the data description! Can you tell me a story with this in paragraph form?
+
+#### (1) Describe the context of your dataset in your own words! 
+
+Tell me more about the data set! What are the observational units and where did they come from? What are the variables of interest in the data set?
+
+#### (2) Tell me why you picked this dataset
+
+Show me you are excited about the data set! Why do you feel a connection to this project?
+
+#### (3) Describe the two quantitative variables you are interested in. One should be the explanatory variable and one should be the response.
+
+Can you describe what you expect this relationship to look like? Why did you select these are your explanatory and response variables?
+
+### [4 pts] Insert code to create a histogram of each variable
+
+Put reader friendly names in the histogram section headers!
+
+Make sure to address the center, spread, shape, and outliers of your histograms!
+
+Use complete sentences to describe the histograms.
+
+### [1 pts] Knit the project to a pdf/html, export properly from RStudio cloud, and upload document to canvas.
+
+See the Course Resources module for "Getting started in Rstudio cloud" on how to knit and export your file from Rstudio cloud.
+
+### [1 pts] Title + Name
+
+Remember to give your project a fun title and take credit for the project (aka include your name!).
+
+### General Comments
+
+While this is not an English class, make sure to write in complete sentences and tell me a story about your data!
+
+ 
