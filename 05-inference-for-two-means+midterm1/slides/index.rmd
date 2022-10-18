@@ -107,7 +107,7 @@ write("", file = "js-addins.html")
 ```
 
 <br><br>
-# INTRODUCTION TO DATA & STATISTICAL INFERENCE
+# Week 5: Two Independent Means + Midterm Exam 1
 ## Stat 218: Applied Statistics for the Life Sciences
 ### Dr. Robinson
 #### California Polytechnic State University - San Luis Obispo
@@ -234,28 +234,45 @@ class:primary
 
 ---
 class: inverse
-# WEDNESDAY, OCTOBER 19, 2022
+# WEDNESDAY, OCTOBER 19, 2022 (Section 05)
 
  Today we will...
+.medium[
++ **Group Midterm 1 Exam (40 minutes)**
+  + Group Canvas Assignment open from 2:10pm - 3:00pm
+  + RStudio: *Section05-Group-Midterm-Exam-1*
+  + Closed-book, closed-note, closed-internet (besides Rstudio and Canvas for accessing & turning in)
+  + Return R note cards to front of room when done
 
-+ Group Midterm 1 Exam (40 minutes)
++ **Break (10-15 minutes)**
+  + Be back by 3:10pm for Individual Midterm Exam
 
-+ Break (15 minutes)
-
-+ Individual Midterm Exam (50 minutes)
++ **Individual Midterm Exam (50 minutes)**
+  + Closed-book, closed-note, closed-internet
+  + Can use a basic calculator, but you shouldn't need one to complete
+  + Turn in at 4:00pm
+]
 
 ---
-class: primary
-# GROUP EXAM
+class: inverse
+# WEDNESDAY, OCTOBER 19, 2022 (Section 06)
 
----
-class: primary
-# TAKE A BREAK
+ Today we will...
+.medium[
++ **Group Midterm 1 Exam (40 minutes)**
+  + Group Canvas Assignment open from 4:10pm - 5:00pm
+  + RStudio: *Section06-Group-Midterm-Exam-1*
+  + Closed-book, closed-note, closed-internet (besides Rstudio and Canvas for accessing & turning in)
+  + Return R note cards to front of room when done
 
----
-class: primary
-# INDIVIDUAL EXAM
++ **Break (10-15 minutes)**
+  + Be back by 5:10pm for Individual Midterm Exam
 
++ **Individual Midterm Exam (50 minutes)**
+  + Closed-book, closed-note, closed-internet
+  + Can use a basic calculator, but you shouldn't need one to complete
+  + Turn in at 6:00pm
+]
 ---
 class:primary
 # TO DO
@@ -263,6 +280,8 @@ class:primary
 + Midterm Project: Part 4
   + *Due Sunday, October 23 at 11:59pm*
   + **Do not** put this off
+  + Office Hours Thursday, 10/20 at 2:30pm - 3:30pm
+  
 + Read Chapter 20 & 21
   + concept check *due Monday, October 24 at 2:10pm*
 

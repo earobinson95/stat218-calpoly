@@ -394,7 +394,7 @@ If these conditions seem reasonable, then we can use a $t$-distribution with the
 Previously we drew our line on the null distribution at our observed difference in means. However, if we use a $t$-distribution, we need to draw our line at the **standardized statistic** ($t$-statistic) instead of the observed difference in means. To calculate a $t$-statistic we use the following formula:
 
 $$
-T = \frac{\text{Point Estimate} - \text{Null Value}}{\text{SE of the Point Estimate}}=\frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s^2}{n_1} + \frac{s^2}{n_2}}}
+T = \frac{\text{Point Estimate} - \text{Null Value}}{\text{SE of the Point Estimate}}=\frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 $$
 
 \vspace{0.1in}
@@ -408,7 +408,7 @@ favstats(Cholesterol ~ Diet,
 
 26. Using the above formula and the summary statistics (we saw these earlier as well), calculate the $t$-statistic for these data. 
 
-\key{$T = \frac{(4.444-4.081)-0}{\sqrt{\frac{0.969}{14}+\frac{1.057}{14}}} = 0.954$}
+\key{$T = \frac{(4.444-4.081)-0}{\sqrt{\frac{0.969^2}{14}+\frac{1.057^2}{14}}} = 0.9469$}
 
 \vspace{0.8in}
 
@@ -432,7 +432,7 @@ In statistics, there are calculus methods used to find the area of this shaded r
 We then multiply by 2 to "shade" the other side for our two-sided test.
 
 ```{r pt, echo = FALSE}
-2*pt(q = 0.953893, df = 13, lower.tail = F)
+2*pt(q = 0.9469003, df = 25.80532, lower.tail = F)
 ```
 
 28. Indicate the p-value for your hypothesis test. Is this similar to the p-value you obtained using simulation? Would your decision/conclusion change?

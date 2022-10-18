@@ -9,7 +9,6 @@ format: pdf
 ```{r setup, echo = FALSE, include = FALSE}
 knitr::opts_chunk$set(message = FALSE, 
                       warning = FALSE, 
-                      fig.align = "center",
                       fig.pos = "H")
 
 library(tidyverse)
@@ -270,7 +269,7 @@ Now that we have explored our data with summary statistics and visualizations, w
 
 Recall in Question 6, we calculated the observed statistic of interest (difference in means) and assigned a symbol. 
 
-$$\bar x_{CORNFLK} - \bar x_{OATBRAN} = 0.2225$$
+$$\bar x_{CORNFLK} - \bar x_{OATBRAN} = 0.363$$
 
 Remember that the null distribution is created based on the assumption the null hypothesis is true.  In this study, the null hypothesis states that **there is no association / relationship between the two variables**.  This means that the cholesterol levels observed in the data set would have been the same regardless of the diet and we would expect there to be a difference in means between the two groups of zero.
 
@@ -342,7 +341,7 @@ null_dist %>%
   scale_x_continuous(limits = c(-1.25,1.25), breaks = seq(-1.5, 1.5, 0.25))
 ```
 
-```{r p-value, include = FALSE}
+```{r p-value, include = TRUE}
 obs_diff <- cholesterol_data_long %>% 
   specify(response = Cholesterol, explanatory = Diet) %>% 
   calculate(stat = "diff in means", 
@@ -384,7 +383,7 @@ If these conditions seem reasonable, then we can use a $t$-distribution with the
 Previously we drew our line on the null distribution at our observed difference in means. However, if we use a $t$-distribution, we need to draw our line at the **standardized statistic** ($t$-statistic) instead of the observed difference in means. To calculate a $t$-statistic we use the following formula:
 
 $$
-T = \frac{\text{Point Estimate} - \text{Null Value}}{\text{SE of the Point Estimate}}=\frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s^2}{n_1} + \frac{s^2}{n_2}}}
+T = \frac{\text{Point Estimate} - \text{Null Value}}{\text{SE of the Point Estimate}}=\frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 $$
 
 \vspace{0.1in}
@@ -420,7 +419,7 @@ In statistics, there are calculus methods used to find the area of this shaded r
 We then multiply by 2 to "shade" the other side for our two-sided test.
 
 ```{r pt, echo = FALSE}
-2*pt(q = 0.953893, df = 13, lower.tail = F)
+2*pt(q = 0.9469003, df = 25.80532, lower.tail = F)
 ```
 
 28. Indicate the p-value for your hypothesis test. Is this similar to the p-value you obtained using simulation? Would your decision/conclusion change?
