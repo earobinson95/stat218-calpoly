@@ -49,19 +49,20 @@
 
 ## Week 5: Two Independent Means + Midterm 1
 
-+ [Slides]()
-+ [Reading Guide]()
-+ [Activity 5: Cholesterol I]()
++ [Slides](https://earobinson95.github.io/stat218-calpoly/05-inference-for-two-means%2Bmidterm1/slides/index.html#1)
++ [Reading Guide](https://earobinson95.github.io/stat218-calpoly/05-inference-for-two-means%2Bmidterm1/reading%20guide/week5_reading_guide.pdf)
++ [Activity 5: Cholesterol I](https://earobinson95.github.io/stat218-calpoly/05-inference-for-two-means%2Bmidterm1/activity/activity5-cholesterol-I.html)
 
-## Week 6: Two Independent Means + Paired
+## Week 6: Two Independent Means + Paired Means
 
 + [Slides]()
-+ [Reading Guide]()
-+ [Acitivty 6: Cholesterol II]()
++ [Reading Guide](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/reading%20guide/week6-reading-guide.pdf)
++ [Acitivty 6: Cholesterol II](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
 + [Lab 6: ]()
   + Github Rep
   + Feedback
 
+## Week 7:
 
 
 
