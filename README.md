@@ -47,3 +47,22 @@
   + [Feedback](https://earobinson95.github.io/218-04-lab-simple-linear-regression/lab4_feedback.html)
 + Midterm Project: Part 4
 
+## Week 5: Two Independent Means + Midterm 1
+
++ [Slides]()
++ [Reading Guide]()
++ [Activity 5: Cholesterol I]()
+
+## Week 6: Two Independent Means + Paired
+
++ [Slides]()
++ [Reading Guide]()
++ [Acitivty 6: Cholesterol II]()
++ [Lab 6: ]()
+  + Github Rep
+  + Feedback
+
+
+
+
+

@@ -1,6 +1,10 @@
 ---
-title: "Week 5 Reading Guide: Confidence Intervals for a Difference in Two Means & Paired Data"
-output: html_document
+title: 'Week 6 Reading Guide: Confidence Intervals for a Difference in Two Means &
+  Paired Data'
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ## Section 20.2: Bootstrap confidence interval for difference in means
@@ -9,51 +13,51 @@ output: html_document
 
 1. What is the research question?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 2. What are the observational units?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 3. What variables are recorded?  Give the type (categorical or quantitative) and
 role (explanatory or response) of each.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 4. What are the sample statistics presented in this example?  What notation
 would be used to represent each value?
 
-</br>
+\vspace{0.2in}
 
 5. What is the parameter representing in the context of this problem?  What
 notation would be used to represent this parameter?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 6. How could we use cards to simulate **one** bootstrap resample 
 *which does not assume the null hypothesis is true*?  How many cards?  What is
 written on the cards?  What would we do with the cards?  What would you record
 once you have a simulated sample?
 
-</br>
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
+\vspace{0.2in}
 
 7. After 1000 resamples are generated, where is the resulting bootstrap
 distribution centered?  Why does that make sense?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 8. Does the 90% confidence interval provide evidence of a difference across the
 two treatments?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 ---
 
@@ -63,82 +67,82 @@ Conditions to use the CLT for a difference in two means:
 
 - Independence: 
 
-</br> 
-</br>
+\vspace{0.2in} 
+\vspace{0.2in}
 
   * Checked by: 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 - Normality: 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
   * Checked by: 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 In a two-sample $t$-test, how are the degrees of freedom determined?
 
-</br>
-</br>		
+\vspace{0.2in}
+\vspace{0.2in}		
 
 True or false: A large p-value indicates that the null hypothesis is true.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 #### Formulas
 
 $SE(\overline{x_1} - \overline{x_2})=$
 
-</br>
+\vspace{0.2in}
 
 $T=$
 
-</br>
+\vspace{0.2in}
 
 Confidence interval for a difference in means: 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 #### Notation
 
 $\mu_1$ represents: 
 
-</br>
+\vspace{0.2in}
 
 $\mu_2$ represents: 
 
-</br>
+\vspace{0.2in}
 
 $\sigma_1$ represents: 
 
-</br>
+\vspace{0.2in}
 
 $\sigma_2$ represents: 
 
-</br>
+\vspace{0.2in}
 
 $\overline{x_1}$ represents:
 
-</br>
+\vspace{0.2in}
 
 $\overline{x_2}$ represents:
 
-</br>
+\vspace{0.2in}
 
 $s_1$ represents:
 
-</br>
+\vspace{0.2in}
 
 $s_2$ represents:
 
-</br>
+\vspace{0.2in}
 
 ---
 
@@ -146,85 +150,85 @@ $s_2$ represents:
 
 1. What is the research question?
 
-</br>
+\vspace{0.2in}
 
 2. What are the observational units?
 
-</br>
+\vspace{0.2in}
 
 3. What variables will be analyzed?  Give the type and role of each.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 4. Can the results of this study be generalized to a larger population?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 5. Are causal conclusions appropriate for these data?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 6. Write the null and the alternative hypotheses in words.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 7. Write the null and the alternative hypotheses in notation.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 8. What are the sample statistics presented in this example?  What notation
 would be used to represent each value?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 9. Are the independence and normality conditions violated?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 10. Calculate the standard error of the difference in sample means.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 11. Calculate the T-score / $t$-statistic (the standardized statistic for the
 sample mean).
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 12. What $t$-distribution should the T-score be compared to in order to
 calculate a p-value? How many degrees of freedom should be used?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 13. What was the p-value of the test?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 14. What conclusion should the researcher make?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 15. Calculate a 95\% confidence interval for the parameter of interest using
 `qt(0.975, df = 49) = 1.677` as the $t^*$ value.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 16. Interpret your interval in the context of the problem.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 ---
 
@@ -232,8 +236,8 @@ calculate a p-value? How many degrees of freedom should be used?
 
 What is a **paired** observation?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 ## Section 21.1: Randomization test for the mean paired difference
 
@@ -241,47 +245,47 @@ What is a **paired** observation?
 
 1. What is the research question?
 
-</br>
+\vspace{0.2in}
 
 2. What are the observational units?
 
-</br>
+\vspace{0.2in}
 
 3. What variables will be analyzed? 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 4. Why should we take the differences between the two treads rather than
 analyzing them as two separate groups? *Hint:* What condition is required to 
 analyze the data as two separate groups?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 5. Write the null and the alternative hypotheses in words.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 6. Write the null and the alternative hypotheses in notation.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 7. For a difference in two means, we shuffled around the values of the
 explanatory variable and paired them with a new response value. How is this 
 process different with paired data? How are the values shuffled?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 8. What is the observed mean of the differences in tread wear? Where is this 
 located on the null distribution? What does this lead you to conclude for the 
 hypothesis test?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 ---
 
@@ -291,54 +295,54 @@ hypothesis test?
 
  1. What is the research question?
 
-</br>
+\vspace{0.2in}
 
 2. What are the observational units?
 
-</br>
+\vspace{0.2in}
 
 3. What variables will be analyzed? 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 4. Why should these data be analyzed as **paired** observations instead of two 
 separate groups?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 5. For a confidence interval we don't assume the null hypothesis is true. So, 
 then how are the cards / values sampled to create a new dataset? 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 6. Where will the distribution of bootstrap statistics be centered? Why?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 7. What are the two methods you can use to calculate a confidence interval? 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 8. What confidence interval was obtained?
 
-</br>
+\vspace{0.2in}
 
 9. How would you interpret this confidence interval? Careful! You need to 
 indicate what order of subtraction was used! 
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 10. Based on the confidence interval, would you reject or fail to reject the 
 null hypothesis that $\mu_{diff} = 0$?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 ---
 
@@ -349,29 +353,29 @@ null hypothesis that $\mu_{diff} = 0$?
 1. What is the observed mean of the differences in textbook prices between
 Amazon and the UCLA Bookstore?
 
-</br>
+\vspace{0.2in}
 
 2. How many textbooks were included in the sample?
 
-</br>
+\vspace{0.2in}
 
 3. Write the null and the alternative hypotheses in words.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 4. Write the null and the alternative hypotheses in notation.
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 5. To use a $t$-distribution to obtain our p-value or confidence interval, we 
 are required to check two conditions: independence of observations and
 normality of the population distribution. Do you believe these conditions
 are violated?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 6. What is the formula for the standardized $t$-statistic?
 
@@ -381,33 +385,33 @@ $$
 
 7. What $t$-distribution should be used for these data?
 
-</br>
+\vspace{0.2in}
 
 8. What tails should be used to calculate the p-value? 
 
-</br>
+\vspace{0.2in}
 
 9. What p-value was obtained for the hypothesis test? 
 
-</br>
+\vspace{0.2in}
 
 10. Based on the p-value, what would you conclude for the hypothesis test?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 11. Did you reach the same conclusion you suspected you would in #10 of the 
 last section? Why do you think that is?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
 
 12. What confidence interval was obtained when using the $t$-distribution?
 
-</br>
+\vspace{0.2in}
 
 13. Is this similar or different from the confidence interval that was obtained
 using a bootstrap distribution?
 
-</br>
-</br>
+\vspace{0.2in}
+\vspace{0.2in}
