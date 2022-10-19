@@ -41,6 +41,8 @@ I love your excitement for the data set you selected :)
 
 Can you describe what you expect this relationship to look like? Why did you select these are your explanatory and response variables?
 
+Can you describe what you expect this relationship to look like? Which did you select as your explanatory and response variable?
+
 ### [4 pts] Insert code to create a histogram of each variable
 
 Put reader friendly names in the histogram section headers!
@@ -51,7 +53,7 @@ Make sure to address the center, spread, shape, and outliers of your histograms!
 
 Tell me where your outliers are.
 
-Use complete sentences to describe the histograms.
+Use complete sentences and context to describe the histograms.
 
 Try increasing your bin width in your histograms. It might make the shape a little more apparent.
 
