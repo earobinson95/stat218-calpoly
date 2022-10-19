@@ -35,6 +35,8 @@ Tell me more about the data set! What are the observational units and where did 
 
 Show me you are excited about the data set! Why do you feel a connection to this project?
 
+I love your excitement for the data set you selected :)
+
 #### (3) Describe the two quantitative variables you are interested in. One should be the explanatory variable and one should be the response.
 
 Can you describe what you expect this relationship to look like? Why did you select these are your explanatory and response variables?
@@ -43,9 +45,15 @@ Can you describe what you expect this relationship to look like? Why did you sel
 
 Put reader friendly names in the histogram section headers!
 
+Nice use of the favstats() output!
+
 Make sure to address the center, spread, shape, and outliers of your histograms!
 
+Tell me where your outliers are.
+
 Use complete sentences to describe the histograms.
+
+Try increasing your bin width in your histograms. It might make the shape a little more apparent.
 
 ### [1 pts] Knit the project to a pdf/html, export properly from RStudio cloud, and upload document to canvas.
 
@@ -54,6 +62,8 @@ See the Course Resources module for "Getting started in Rstudio cloud" on how to
 ### [1 pts] Title + Name
 
 Remember to give your project a fun title and take credit for the project (aka include your name!).
+
+Give your project a fun title!
 
 ### General Comments
 
