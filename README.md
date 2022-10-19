@@ -35,8 +35,7 @@
 + [Lab 3: One Mean Inference](https://earobinson95.github.io/218-03-lab-one-mean-inference/one_mean_inference.html)
   + [Github Repo](https://github.com/earobinson95/218-03-lab-one-mean-inference)
   + [Feedback](https://earobinson95.github.io/218-03-lab-one-mean-inference/lab3_feedback.html)
-+ Midterm Project: Part 3
-  + GitHub Repo
++ [Midterm Project: Part 3](https://earobinson95.github.io/stat218-calpoly/03-inference-for-one-mean/midterm-project-part3/feedback-midtermproject-part3.html)
 
 ## Week 4: Simple Linear Regression
 
