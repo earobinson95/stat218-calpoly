@@ -1,0 +1,60 @@
+---
+title: "Feedback for Midterm Project: Part 4"
+format: html
+---
+
+[15 points total]
+
+## [2 pts] Address any comments I left you in Midterm Project: Part 3
+
+Go back to review the comments left in the rubric for Midterm Project: Part 3. Make sure to address any of these!
+
+## [1 pts] Make sure your section headers have your variable names
+
+Put reader friendly names in the section headers!
+
+## [3 pts] Make and discuss your scatterplot
+
+Make sure to address form, direction, strength, and unusual observations!
+
+Discuss your scatterplot in complete sentences and context of your data set.
+
+## [4 pts] Discuss each of the LINE conditions
+
+### Linearity -- Check with your scatterplot
+
+Does a line appear to fit well in drawing a trend in your scatter plot?
+
+### Independence -- Check with your critical thinking skills
+
+What are we looking for independence between? Observations? Variables? etc.
+
+### Normality -- Check with your histogram of your response (y) variable
+
+You made a histogram of your response variable above - does it look approximately normal? Why or why not?
+
+### Equal Variance -- Check with your scatterplot
+
+Recall with equal variance we are looking at the vertical range across the y-axis! If we were to take our fingers and draw a band around our data, would the width of our fingers change?
+
+## [1 pts] Fit a regression model (like we did in lab)
+
+How do we fit a regression model? Look at the R note cards for Weeks 3&4. We want to save this information in an R object we give a name to.
+
+geom_smooth(method = "lm") draws the line on our histogram, but we want to obtain the model information in R so we can extract the regression table.
+
+## [1 pts] Obtain your regression table (like we did in lab)
+
+Nice job extracting the regression table! Make sure you can read the equation of your linear regression from this output and interpret the values.
+
+## [1 pts] Knit to either a pdf or HTML document and EXPORT from RStudio and save somewhere on your computer, open and double check your file on your computer, upload to canvas.
+
+See the Course Resources module for "Getting started in Rstudio cloud" on how to knit and export your file from Rstudio cloud.
+
+## [2 pts] Turned in on time
+
+Make sure you are keeping track of due dates!
+
+### General Comments
+
+While this is not an English class, make sure to write in complete sentences and tell me a story about your data!
