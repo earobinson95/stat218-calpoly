@@ -45,7 +45,7 @@
 + [Lab 4: Golf Driving Distances](https://earobinson95.github.io/218-04-lab-simple-linear-regression/04-lab-golf-driving-distances.html)
   + [Github Repo](https://github.com/earobinson95/218-04-lab-simple-linear-regression)
   + [Feedback](https://earobinson95.github.io/218-04-lab-simple-linear-regression/lab4_feedback.html)
-+ Midterm Project: Part 4
++ [Midterm Project: Part 4](https://earobinson95.github.io/stat218-calpoly/04-simple-linear-regression/midterm%20project/feedback-midterm-project-part4.html)
 
 ## Week 5: Two Independent Means + Midterm 1
 
@@ -55,9 +55,10 @@
 
 ## Week 6: Two Independent Means + Paired Means
 
-+ [Slides]()
++ [Slides](https://earobinson95.github.io/stat218-calpoly/slides/index.html#1)
 + [Reading Guide](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/reading%20guide/week6-reading-guide.pdf)
 + [Acitivty 6: Cholesterol II](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
++ [Acitivty 6: Cholesterol III](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-III.html)
 + [Lab 6: ]()
   + Github Rep
   + Feedback

@@ -1,0 +1,225 @@
+---
+title: "Stat 218: Week 6"
+author: "Dr. Emily Robinson"
+date: "California Polytechnic State University"
+output:
+  xaringan::moon_reader:
+    seal: false
+    includes:
+      after_body:
+        "js-addins.html"
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: ["default", "metropolis-fonts", "metropolis" ,"css/modal.css", "css/sizeformat.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightlines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class:title-slide-custom
+
+<style>
+p.caption {
+  font-size: 0.8em;
+}
+</style>
+
+```{r, child = "style.Rmd"}
+```
+
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+
+# Packages
+library(emoji)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(iconr)
+library(fontawesome)
+library(readr)
+library(patchwork)
+
+# R markdown options
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      cache = FALSE,
+                      fig.align = 'center',
+                      dpi = 300)
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = '')
+```
+
+```{r, include = F, eval = T, cache = F}
+clean_file_name <- function(x) {
+  basename(x) %>% str_remove("\\..*?$") %>% str_remove_all("[^[A-z0-9_]]")
+}
+img_modal <- function(src, alt = "", id = clean_file_name(src), other = "") {
+  
+  other_arg <- paste0("'", as.character(other), "'") %>%
+    paste(names(other), ., sep = "=") %>%
+    paste(collapse = " ")
+  
+  js <- glue::glue("<script>
+        /* Get the modal*/
+          var modal{id} = document.getElementById('modal{id}');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var img{id} = document.getElementById('img{id}');
+          var modalImg{id} = document.getElementById('imgmodal{id}');
+          var captionText{id} = document.getElementById('caption{id}');
+          img{id}.onclick = function(){{
+            modal{id}.style.display = 'block';
+            modalImg{id}.src = this.src;
+            captionText{id}.innerHTML = this.alt;
+          }}
+          /* When the user clicks on the modalImg, close it*/
+          modalImg{id}.onclick = function() {{
+            modal{id}.style.display = 'none';
+          }}
+</script>")
+  
+  html <- glue::glue(
+     " <!-- Trigger the Modal -->
+<img id='img{id}' src='{src}' alt='{alt}' {other_arg}>
+<!-- The Modal -->
+<div id='modal{id}' class='modal'>
+  <!-- Modal Content (The Image) -->
+  <img class='modal-content' id='imgmodal{id}'>
+  <!-- Modal Caption (Image Text) -->
+  <div id='caption{id}' class='modal-caption'></div>
+</div>
+"
+  )
+  write(js, file = "js-addins.html", append = T)
+  return(html)
+}
+# Clean the file out at the start of the compilation
+write("", file = "js-addins.html")
+```
+
+<br><br>
+# Week 5: Two Independent Means + Midterm Exam 1
+## Stat 218: Applied Statistics for the Life Sciences
+### Dr. Robinson
+#### California Polytechnic State University - San Luis Obispo
+<!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
+
+---
+class:inverse
+# MONDAY, OCTOBER 24 2022
+
+ Today we will...
+
++ Recap Two Independent Means & Confidence Intervals
+
++ Activity 6A: Cholesterol II
+
++ Chat About Paired Means
+
++ Activity 6B: Cholesterol III
+
+---
+class:primary
+# REMINDER FROM LAST WEEK
+
+**Weeks 5 & 6**
+
++ ONE quantiative variable & ONE categorical variable
++ Visualize with side-by-side boxplots
++ Inference comparing the difference in means to 0
+
+---
+class:primary
+# TWO INDEPENDENT MEANS
+
+```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+knitr::include_graphics("images/two-independent-means.png")
+```
+
+---
+class:primary
+# INFERENCE FOR TWO INDEPENDENT MEANS
+
+**Parameter**
+
+$\mu_{group 1} - \mu_{group 2}$: The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
+
+--
+
+**Null:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0 (There is no relationship between *EXPLANATORY* and *RESPONSE*.) $(H_O: \mu_{group 1} - \mu_{group 2} = 0)$
+
+
+**Alternative:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0 (There is a relationship between *EXPLANATORY* and *RESPONSE*) $(H_A: \mu_{group 1} - \mu_{group 2} \ne 0)$
+
+
+---
+class:primary
+# CONFIDENCE INTERVALS FOR TWO INDEPENDENT MEANS
+
+Observed statistic: $\bar x_{Group 1} - \bar x_{Group 2}$
+Parameter: $\mu_{Group 1} - \mu_{Group 2}$
+
+.pull-left[
+**Bootstrapping**
+
+].pull-right[
+**Theory**
+
+]
+
+---
+class: primary
+# ACTIVITY 5: Cholesterol II
+
+[Activity 5: Cholesterol II: Confidence Intervals for Two Independent Means](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "50%"}
+knitr::include_graphics("images/cornflake-vs-oatbran.cms")
+```
+]
+
+---
+class:primary
+# TO DO
+
++ Complete Activities 6A & 6B: 
+  + *check during class Wednesday, 10/26*
++ Final Midterm Project Submission
+  + *Due Sunday, October 30 at 11:59pm*
+
+---
+class: inverse
+# WEDNESDAY, OCTOBER 26, 2022
+
+ Today we will...
+ 
+---
+class: inverse
+# Lab 6: 
+
+---
+class:primary
+# TO DO
+
++ Lab 6:
+  + Canvas Quiz & Completion turned in as groups
+  + *Due Friday, October 28 at 11:59pm*
+  
++ Final Midterm Project Submission
+  + *Due Sunday, October 30 at 11:59pm*
+  
++ Read ...
+  + concept check *due Monday, October 31 at 2:10pm*
+
+
+
