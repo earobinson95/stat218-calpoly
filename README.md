@@ -58,7 +58,7 @@
 + [Slides](https://earobinson95.github.io/stat218-calpoly/slides/index.html#1)
 + [Reading Guide](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/reading%20guide/week6-reading-guide.pdf)
 + [Acitivty 6: Cholesterol II](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
-+ [Acitivty 6: Cholesterol III](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-III.html)
++ [Acitivty 6: Cholesterol III](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6B-cholesterol-III.html)
 + [Lab 6: ]()
   + Github Rep
   + Feedback

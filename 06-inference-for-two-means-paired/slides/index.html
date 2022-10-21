@@ -218,7 +218,7 @@ body {
 
 
 &lt;br&gt;&lt;br&gt;
-# Week 5: Two Independent Means + Midterm Exam 1
+# Week 6: Confidence Intervals for Two Independent Means + Paired Means
 ## Stat 218: Applied Statistics for the Life Sciences
 ### Dr. Robinson
 #### California Polytechnic State University - San Luis Obispo
@@ -240,56 +240,138 @@ class:inverse
 
 ---
 class:primary
-# REMINDER FROM LAST WEEK
+# TWO INDEPENDENT MEANS (REMINDER)
 
-**Weeks 5 &amp; 6**
+.pull-left[
 
-+ ONE quantiative variable &amp; ONE categorical variable
-+ Visualize with side-by-side boxplots
-+ Inference comparing the difference in means to 0
++ ONE quantitative variable &amp; ONE categorical variable
++ Visualize with side-by-side box-plots
++ Inference comparing the difference in group means to 0
 
----
-class:primary
-# TWO INDEPENDENT MEANS
+].pull-right[
 
-&lt;img src="images/two-independent-means.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/two-independent-means.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
 
 ---
 class:primary
 # INFERENCE FOR TWO INDEPENDENT MEANS
 
-**Parameter**
+**Parameter** `\(\mu_{group 1} - \mu_{group 2}\)`: The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
 
-`\(\mu_{group 1} - \mu_{group 2}\)`: The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
+.pull-left[
 
---
+**Null:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0.
 
-**Null:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0 (There is no relationship between *EXPLANATORY* and *RESPONSE*.) `\((H_O: \mu_{group 1} - \mu_{group 2} = 0)\)`
+**Alternative:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0.
 
+].pull-right[
 
-**Alternative:** The true difference in mean *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0 (There is a relationship between *EXPLANATORY* and *RESPONSE*) `\((H_A: \mu_{group 1} - \mu_{group 2} \ne 0)\)`
+`\(H_O: \mu_{group 1} - \mu_{group 2} = 0\)`
+
+`\(H_A: \mu_{group 1} - \mu_{group 2} \ne 0\)`
+
+]
 
 
 ---
 class:primary
 # CONFIDENCE INTERVALS FOR TWO INDEPENDENT MEANS
-
-Observed statistic: `\(\bar x_{Group 1} - \bar x_{Group 2}\)`
-Parameter: `\(\mu_{Group 1} - \mu_{Group 2}\)`
++ Observed statistic: `\(\bar x_{Group 1} - \bar x_{Group 2}\)`
++ Parameter: `\(\mu_{Group 1} - \mu_{Group 2}\)`
 
 .pull-left[
 **Bootstrapping**
 
+Sampling with replacement to estimate our sampling distribution.
+
++ Percentile Method
++ Estimate SE
+
 ].pull-right[
 **Theory**
+
+point estimate `\(\pm\)` multiplier `\(\times\)` SE
+
+`\((\bar x_1 - \bar x_2) \pm t^*_{df}\times \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\)`
+
+where df = min of `\(n_1-1\)` or `\(n_2-1\)`
 
 ]
 
 ---
 class: primary
-# ACTIVITY 5: Cholesterol II
+# ACTIVITY 6A: Cholesterol II
 
-[Activity 5: Cholesterol II: Confidence Intervals for Two Independent Means](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
+[Activity 6A: Cholesterol II: Confidence Intervals for Two Independent Means](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
+
+.center[
+&lt;img src="images/cornflake-vs-oatbran.cms" width="50%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class:primary
+# PAIRED MEANS
+
++ ONE quantitative variable &amp; ONE categorical variable
++ BUT... we no longer satisfy the independent observation condition.
++ Calculate the difference between the two groups for each individual
++ Inference comparing the **mean of the individual differences** to 0
+
+Our observational units are the similar across the two groups, naturally "paired" by time, genetics, location, etc.
+
+---
+class:primary
+# PAIRED MEANS
+
+&lt;img src="images/paired-means.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class:primary
+# INFERENCE FOR PAIRED MEANS
+
+**Parameter** `\(\mu_{group 1 - group 2}\)`: The true **mean difference** in *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population.
+
+.pull-left[
+
+**Null:** The true **mean difference** in *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is equal to 0.
+
+**Alternative:** The true **mean difference** in *RESPONSE VARIABLE* between *GROUP 1* and *GROUP 2* for the population is not equal to 0.
+
+].pull-right[
+
+`\(H_O: \mu_{group 1 - group 2}= 0\)`
+
+`\(H_A: \mu_{group 1 - group 2}\ne 0\)`
+
+]
+
+---
+class:primary
+# SIMULATION FOR PAIRED MEANS
+
++ Observed statistic: `\(\bar x_{Group 1 - Group 2}\)`
++ Parameter: `\(\mu_{Group 1 - Group 2}\)`
+
+.pull-left[
+
+**Statistical Significance (p-values): Null Distribution Randomization**
+
+Flip a coin for each individual to randomize which measurement is assigned to which treatment group.
+
+].pull-right[
+
+**Confidence Intervals: Bootstrapping**
+
+Sampling with replacement to estimate our sampling distribution.
+
+]
+---
+class: primary
+# ACTIVITY 6B: Cholesterol III
+
+[Activity 6B: Cholesterol III: Inference for Paired Data Means](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6B-cholesterol-III.html)
 
 .center[
 &lt;img src="images/cornflake-vs-oatbran.cms" width="50%" style="display: block; margin: auto;" /&gt;
@@ -301,7 +383,8 @@ class:primary
 
 + Complete Activities 6A &amp; 6B: 
   + *check during class Wednesday, 10/26*
-+ Final Midterm Project Submission
+  
++ Final Midterm Project Submission (Full write up!)
   + *Due Sunday, October 30 at 11:59pm*
 
 ---
@@ -309,6 +392,8 @@ class: inverse
 # WEDNESDAY, OCTOBER 26, 2022
 
  Today we will...
+ 
+ + Lab 6
  
 ---
 class: inverse
@@ -322,7 +407,7 @@ class:primary
   + Canvas Quiz &amp; Completion turned in as groups
   + *Due Friday, October 28 at 11:59pm*
   
-+ Final Midterm Project Submission
++ Final Midterm Project Submission (Full Writeup)
   + *Due Sunday, October 30 at 11:59pm*
   
 + Read ...
