@@ -1,7 +1,7 @@
 ---
 title: "Activity 6A: Cholesterol II"
 subtitle: "Confidence Intervals for Two Independent Means"
-format: pdf
+# format: pdf
 # format: html
 # format: docx
 ---
@@ -78,6 +78,18 @@ Last week we used cards to simulate what differences in mean cholesterol levels 
 
 Today, we are interested in estimating what range of values the **true** difference in means might take on. 
 
+**Reminder - Output from `t_test()`**
+
+```{r, echo = F}
+infer::t_test(cholesterol_data_long,
+formula = Cholesterol ~ Diet,
+alternative = "two-sided",
+mu = 0,
+order = c("CORNFLK", "OATBRAN"),
+conf_int = FALSE) %>%
+  knitr::kable(digits = 3)
+```
+
 1. Based on the p-value you obtained from *Activity 5: Cholesterol I*, do you believe 0 is a plausible value for $\mu_{\text{CORNFLK}} - \mu_{\text{OATBRAN}}$? 
 
 \vspace{0.8in}
@@ -87,13 +99,13 @@ Today, we are interested in estimating what range of values the **true** differe
 ## Confidence interval
 
 A **confidence interval** represents a range of plausible values for a population parameter. In this case, our population parameter is $\mu_{\text{CORNFLK}} - \mu_{\text{OATBRAN}}$, or the true difference in mean
-cholesterol levels between corn flake and oatbran diets. 
+cholesterol levels between corn flake and oat bran diets. 
 
 The best way to estimate what range of values a parameter might have is to go out and collect more samples. However, that is often not feasible. So, instead we mimic this process by *resampling with replacement* from our original sample. This process is called **bootstrapping**. 
 
 ## Bootstrapping cholesterol & diets
 
-When bootstrapping with two groups, we're assuming that the sample within each group is *representative* of other possible values in the population. Here, we are assuming that the participants included in our sample are representative of the cholesterol of all other individiuals. 
+When bootstrapping with two groups, we're assuming that the sample within each group is *representative* of other possible values in the population. Here, we are assuming that the participants included in our sample are representative of the cholesterol of all other individuals. 
 
 Because we **are not** assuming the null is true (that there is no difference in the means of these two groups), we **do not** combine the groups together. Rather, we keep the groups separate and sample from each group separately. 
 
@@ -141,8 +153,7 @@ cholesterol_data_long %>%
   generate(reps = _______________, type = _______________) %>% 
   
   calculate(stat = "diff in means", 
-            order = c("CORNFLK", "OATBRAN")
-            )
+            order = c("CORNFLK", "OATBRAN"))
 ```
 
 \vspace{0.1in}
@@ -185,14 +196,16 @@ I've provided a table of different percentiles to help you create your confidenc
 
 ```{r percentile-CI, echo = FALSE}
 bootstrap_dist %>% 
-  summarize("0.5%" = quantile(stat, 0.05), 
+  summarize("0.5%" = quantile(stat, 0.005), 
             "1%" = quantile(stat, 0.01),
             "2.5%" = quantile(stat, 0.025),
             "5%" = quantile(stat, 0.05),
+            "10%" = quantile(stat, 0.1),
             "90%" = quantile(stat, 0.90),
             "95%" = quantile(stat, 0.95),
             "97.5%" = quantile(stat, 0.975),
-            "99.5%" = quantile(stat, 0.95)
+            "99%" = quantile(stat, 0.99),
+            "99.5%" = quantile(stat, 0.995)
             ) %>% 
   pivot_longer(cols = everything(), 
                names_to = "Quantile", 

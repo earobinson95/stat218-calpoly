@@ -98,8 +98,8 @@ The data set below shows the data for each participant `ID`. The `CORNLK` column
 
 \vspace{0.1in}
 
-```{r data}
-head(cholesterol_data)
+```{r data, echo = F}
+head(cholesterol_data) |> knitr::kable()
 ```
 
 3. What does the `CholesterolDiff` column represent? Why does this calculation make sense?
@@ -135,7 +135,7 @@ favstats(Cholesterol ~ Diet, data = cholesterol_data_long)
 cbind("Variable" = "CholesterolDiff", favstats(~ CholesterolDiff, data = cholesterol_data))
 ```
 
-8. Report the observed statistic of interest (mean difference) for the data. Use notation to assign a symbol to this.
+8. Report the observed statistic of interest (mean difference) for the data. Use notation to assign a symbol to this. Have we seen this number before? Where?
 
 \vspace{0.8in}
 
@@ -180,11 +180,11 @@ null_dist %>%
 
 \vspace{0.8in}
 
-15. How much evidence does this provide for a change in cholesterol level due to diet?
+15. How much evidence does this provide for a change in cholesterol level due to diet? How does this differ from the previous activities?
 
 \vspace{0.8in}
 
-16. If evidence was found for a change in diet, could we conclude that the diet ***caused*** the change? Explain.
+16. Can we conclude that the diet ***caused*** the change? Explain.
 
 \vspace{0.8in}
 
@@ -222,14 +222,14 @@ boot_dist %>%
 
 ```{r percentile-ci}
 boot_dist %>% 
-  summarize("0.5%" = quantile(stat, 0.05), 
+  summarize("0.5%" = quantile(stat, 0.005), 
             "1%" = quantile(stat, 0.01),
             "2.5%" = quantile(stat, 0.025),
             "5%" = quantile(stat, 0.05),
             "90%" = quantile(stat, 0.90),
             "95%" = quantile(stat, 0.95),
             "97.5%" = quantile(stat, 0.975),
-            "99.5%" = quantile(stat, 0.95)
+            "99.5%" = quantile(stat, 0.995)
             ) %>% 
   pivot_longer(cols = everything(), 
                names_to = "Quantile", 
@@ -241,11 +241,6 @@ boot_dist %>%
 ## Communicate the Results and Address the Research Question
 
 20. Interpret the 99% confidence interval in the context of the problem.
-
-\vspace{1in}
-
-
-21. Do the results of your confidence interval and hypothesis test agree? What does each tell you about the null hypothesis?
 
 \vspace{1in}
 

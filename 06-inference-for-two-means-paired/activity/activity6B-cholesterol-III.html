@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.132">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Activity 6B: Cholesterol III</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="activity6B-cholesterol-III_files/libs/clipboard/clipboard.min.js"></script>
+<script src="activity6B-cholesterol-III_files/libs/quarto-html/quarto.js"></script>
+<script src="activity6B-cholesterol-III_files/libs/quarto-html/popper.min.js"></script>
+<script src="activity6B-cholesterol-III_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="activity6B-cholesterol-III_files/libs/quarto-html/anchor.min.js"></script>
+<link href="activity6B-cholesterol-III_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="activity6B-cholesterol-III_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="activity6B-cholesterol-III_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="activity6B-cholesterol-III_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="activity6B-cholesterol-III_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Activity 6B: Cholesterol III</h1>
+<p class="subtitle lead">Inference for Paired Data</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-layout-align="center">
+
+</div>
+<section id="learning-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h3>
+<ul>
+<li><p>Given a research question involving paired differences, construct the null and alternative hypotheses in words and using appropriate statistical symbols.</p></li>
+<li><p>Describe and perform a simulation-based hypothesis test for a paired mean difference.</p></li>
+<li><p>Interpret and evaluate a p-value for a simulation-based hypothesis test for a paired mean difference.</p></li>
+<li><p>Use bootstrapping to find a confidence interval for a paired mean difference.</p></li>
+<li><p>Interpret a confidence interval for a paired mean difference.</p></li>
+<li><p>Use a confidence interval to determine the conclusion of a hypothesis test.</p></li>
+</ul>
+<hr>
+</section>
+<section id="review-from-activity-6a-cholesterol-ii" class="level2">
+<h2 class="anchored" data-anchor-id="review-from-activity-6a-cholesterol-ii">Review from Activity 6A: Cholesterol II</h2>
+<p>Researchers investigated whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels. Twenty-eight (28) individuals were randomly assigned a diet that included either corn flakes (14 individuals) or oat bran (14 individuals). After two weeks, cholesterol levels (mmol/L) of the participant were recorded.</p>
+</section>
+<section id="but-actually-what-happened-was" class="level2">
+<h2 class="anchored" data-anchor-id="but-actually-what-happened-was">But actually what happened was…</h2>
+<p>Fourteen (14) individuals were randomly assigned a diet that included either oat bran or corn flakes. After two weeks on the initial diet, serum cholesterol were measured and the participants were then crossed-over to the alternate diet. After two-weeks on the second diet, cholesterol levels were once again recorded.</p>
+</section>
+<section id="vocabulary-review" class="level2">
+<h2 class="anchored" data-anchor-id="vocabulary-review">Vocabulary Review</h2>
+<ol type="1">
+<li>How was the data collected differently from the previous activities?</li>
+</ol>
+<ol start="2" type="1">
+<li>Are the cholesterol levels independent across the 28 measurements? Explain.</li>
+</ol>
+<p>Since we can match or pair the cholesterol level measurements between the treatment groups, we call this a <strong>paired study design</strong>. These could be paired up by taking measurements on the same observational unit twice or taking measurements on similar observational units (e.g.&nbsp;identical twins, similar fields, etc.). When analyzing the data and making conclusions, we must take this design into consideration or we are violating a key assumption (independence).</p>
+<p>The data set below shows the data for each participant <code>ID</code>. The <code>CORNLK</code> column indicates the cholesterol level for that individual on the corn flake diet and the <code>OATBRAN</code> column indicates the cholesterol level for that individual on the oat bran diet.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: right;">CORNFLK</th>
+<th style="text-align: right;">OATBRAN</th>
+<th style="text-align: right;">CholesterolDiff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">4.61</td>
+<td style="text-align: right;">3.84</td>
+<td style="text-align: right;">0.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">6.42</td>
+<td style="text-align: right;">5.57</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">5.40</td>
+<td style="text-align: right;">5.85</td>
+<td style="text-align: right;">-0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">4.54</td>
+<td style="text-align: right;">4.80</td>
+<td style="text-align: right;">-0.26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">3.98</td>
+<td style="text-align: right;">3.68</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">3.82</td>
+<td style="text-align: right;">2.96</td>
+<td style="text-align: right;">0.86</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="3" type="1">
+<li>What does the <code>CholesterolDiff</code> column represent? Why does this calculation make sense?</li>
+</ol>
+</section>
+<section id="ask-a-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="ask-a-research-question">Ask a Research Question</h2>
+<p>Researchers are still interested in whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels.</p>
+<ol start="4" type="1">
+<li>Write the null and alternative hypothesis in <strong>words</strong>.</li>
+</ol>
+<ol start="5" type="1">
+<li>Write the null and alternative hypothesis in <strong>notation</strong>.</li>
+</ol>
+</section>
+<section id="summarize-and-visualize-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="summarize-and-visualize-the-data">Summarize and Visualize the Data</h2>
+<p>A histogram of the differences in cholesterol levels for the 14 individuals and a table of summary statistics are shown below.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cholesterol_data, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> CholesterolDiff)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Difference in cholesterol levels (Corn flake - oat bran)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="activity6B-cholesterol-III_files/figure-html/histogram-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Summary statistics for the cholesterol levels from the corn flake diet <code>CORNFLK</code>, cholesterol levels from the oat bran diet <code>OATBRAN</code>, and the differences in cholesterol levels between the corn flake and oat bran diets <code>CholesterolDiff</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>     Diet  min     Q1 median     Q3  max     mean        sd  n missing
+1 CORNFLK 2.25 3.9125   4.44 4.9100 6.42 4.443571 0.9688344 14       0
+2 OATBRAN 1.84 3.6900   3.84 4.7025 5.85 4.080714 1.0569802 14       0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Variable   min    Q1 median    Q3  max      mean        sd  n missing
+1 CholesterolDiff -0.45 0.115   0.36 0.695 0.86 0.3628571 0.4059638 14       0</code></pre>
+</div>
+</div>
+<ol start="8" type="1">
+<li>Report the observed statistic of interest (mean difference) for the data. Use notation to assign a symbol to this. Have we seen this number before? Where?</li>
+</ol>
+</section>
+<section id="use-statistical-methods-to-draw-inferences-from-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="use-statistical-methods-to-draw-inferences-from-the-data">Use Statistical Methods to Draw Inferences from the Data</h2>
+<section id="hypothesis-test" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-test">Hypothesis Test</h3>
+<p>To simulate the null distribution of paired sample mean differences we need to randomly assign the cholesterol level for each participant to be either the corn flake or the oat bran cholesterol level.</p>
+<p>Take for example participant ID 1. On the corn flake diet, their cholesterol level was 4.61 mmol/L and on the oat bran diet, it was 3.84 mmol/L. If we assume the null is true, that the mean of the differences is 0, then there is no relationship between participant 1’s cholesterol level and the diet they were on. That means, Participant 1 would have been just as likely to see a cholesterol level of 3.84 mmol/L on the corn flake diet.</p>
+<ol start="9" type="1">
+<li>How can we use a coin to decide which values for each participant are randomly assigned to the corn flake diet?</li>
+</ol>
+<p>A simulated null distribution is shown below.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> cholesterol_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> CholesterolDiff) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"point"</span>, <span class="at">mu =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>() <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">""</span>, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Simulated Mean Difference"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="activity6B-cholesterol-III_files/figure-html/null-dist-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="10" type="1">
+<li>Explain why the null distribution is centered at zero.</li>
+</ol>
+<ol start="11" type="1">
+<li>Find the observed <strong>mean difference</strong> on the distribution. <em>Hint: Look at question 8.</em></li>
+</ol>
+<ol start="12" type="1">
+<li>Shade the area of the distribution you will use to calculate the p-value and estimate the p-value.</li>
+</ol>
+<ol start="15" type="1">
+<li>How much evidence does this provide for a change in cholesterol level due to diet? How does this differ from the previous activities?</li>
+</ol>
+<ol start="16" type="1">
+<li>Can we conclude that the diet <strong><em>caused</em></strong> the change? Explain.</li>
+</ol>
+</section>
+</section>
+<section id="confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval">Confidence Interval</h2>
+<p>The goal of a confidence interval is to estimate a plausible range of values for the population parameter.</p>
+<ol start="17" type="1">
+<li>What is the population parameter in this study?</li>
+</ol>
+<p>To create a bootstrap distribution, we <strong>do not</strong> assume the null hypothesis is true. Instead, we assume that the difference in cholesterol levels for these 14 individuals are representative of the differences in cholesterol levels for other individuals. So, we will randomly sample, with replacement, from our original sample to obtain a bootstrap sample.</p>
+<p>I’ve created a bootstrap distribution below, using 1000 reps.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> cholesterol_data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> CholesterolDiff) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>() <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">""</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Bootstrap Mean Difference"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="activity6B-cholesterol-III_files/figure-html/boot-dist-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="18" type="1">
+<li>Where is the bootstrap distribution be centered? Why is it centered there?</li>
+</ol>
+<ol start="19" type="1">
+<li>Use the table below to find a 99% confidence interval for <span class="math inline">\(\mu_{\text{diff}}\)</span>.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">"0.5%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.005</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"1%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.01</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"2.5%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"5%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.05</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"90%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.90</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"95%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.95</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"97.5%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"99.5%"</span> <span class="ot">=</span> <span class="fu">quantile</span>(stat, <span class="fl">0.995</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Quantile"</span>, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantile</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0.5%</td>
+<td style="text-align: right;">0.108</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1%</td>
+<td style="text-align: right;">0.118</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.5%</td>
+<td style="text-align: right;">0.150</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5%</td>
+<td style="text-align: right;">0.184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">90%</td>
+<td style="text-align: right;">0.494</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">95%</td>
+<td style="text-align: right;">0.526</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">97.5%</td>
+<td style="text-align: right;">0.549</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">99.5%</td>
+<td style="text-align: right;">0.616</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="communicate-the-results-and-address-the-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="communicate-the-results-and-address-the-research-question">Communicate the Results and Address the Research Question</h2>
+<ol start="20" type="1">
+<li>Interpret the 99% confidence interval in the context of the problem.</li>
+</ol>
+<hr>
+</section>
+<section id="take-home-messages" class="level2">
+<h2 class="anchored" data-anchor-id="take-home-messages">Take-home messages</h2>
+<ul>
+<li><p>The differences in a paired data set are treated like a single quantitative variable when performing a statistical analysis. Paired data (or paired amples) occur when pairs of measurements are collected. We are only interested in the population (and sample) of <strong>differences</strong>, and not in the original data.</p></li>
+<li><p>When analyzing paired data, the summary statistic is the “mean difference” <strong>not</strong> the “difference in means”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This terminology will be <em>very</em> important in interpretations.</p></li>
+<li><p>To create one simulated sample on the null distribution for the mean difference, we focus on each observation <strong>not</strong> on the groups of observations. For each observation, we flip a coin to decide which response value goes first and which goes second. We do this for <strong>every</strong> observation. Once we’ve randomly assigned which observation comes first, we find the difference in the values for each observation. Finally, we calculate and plot the simulated mean difference.</p></li>
+<li><p>To create one simulated sample on the bootstrap distribution for a sample mean or mean difference, label <span class="math inline">\(n\)</span> cards with the original values / differences. Randomly draw with replacement <span class="math inline">\(n\)</span> times. Calculate and plot the resampled mean or mean difference.</p></li>
+</ul>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Technically, if we calculate the differences and then take the mean (mean difference), and we calculate the two means and then take the difference (difference in means), the value will be the same. However, the <em>sampling variability</em> of the two statistics will differ, as we will see in the next activity<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
