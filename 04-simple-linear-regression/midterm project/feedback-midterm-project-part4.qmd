@@ -19,7 +19,13 @@ Make sure to address form, direction, strength, and unusual observations!
 
 Discuss your scatterplot in complete sentences and context of your data set.
 
+Discuss your scatterplot in context of your data set.
+
+Make sure you have a "+" before your labs() for reader friendly axis labels.
+
 ## [4 pts] Discuss each of the LINE conditions
+
+Please describe your conditions in complete sentences.
 
 ### Linearity -- Check with your scatterplot
 
