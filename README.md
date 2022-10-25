@@ -59,11 +59,11 @@
 + [Reading Guide](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/reading%20guide/week6-reading-guide.pdf)
 + [Acitivty 6: Cholesterol II](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
 + [Acitivty 6: Cholesterol III](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6B-cholesterol-III.html)
-+ [Lab 6: ]()
-  + Github Rep
-  + Feedback
++ [Lab 6: ](https://earobinson95.github.io/218-06-lab-paired/218-06lab-color-interference.html)
+  + [Github Repo](https://github.com/earobinson95/218-06-lab-paired)
+  + [Feedback](https://earobinson95.github.io/218-06-lab-paired/lab6_feedback.html)
 
-## Week 7:
+## Week 7: ANOVA
 
 
 
