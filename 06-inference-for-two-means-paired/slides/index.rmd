@@ -290,11 +290,40 @@ class: inverse
 
  Today we will...
  
+ + Misconceptions from Midterm Projects
  + Quick recap of paired means
  + Check Activity 2B for Engagement and Completion
  + Lab 6: Color Interference
  + Return Exams
  
+  
+---
+class:primary
+# MIDTERM PROJECT MISCONCEPTIONS
+
++ Scatterplots do not have skewness; they have linear or nonlinear form.
+
++ When looking at independence we look for independent observations not variables.
+
++ To check your normality assumptions, look at the histogram of your response you created previously.
+
++ Make sure to justify all answers! (e.g. why are they outliers?)
+
+---
+class:primary
+# FINAL MIDTERM WRITEUP (10% of Grade)
+
+**Coefficient Estimates Section**
+
++ Interpret your slope coefficient.
++ Interpret your intercept coefficient.
+
+**Slope Inference Section**
+
++ State your p-value and justify your conclusion.
++ Interpret the 95% confidence interval for your slope.
+
+***Make sure to use context of your study! While this is not an English class, make sure to write in complete setences and tell me a story about your data!***
  
 ---
 class:primary
@@ -309,8 +338,6 @@ class: inverse
 # LAB 6: COLOR INTERFERENCE
 
 [Lab 6 Questions](https://earobinson95.github.io/218-06-lab-paired/218-06lab-color-interference.html)
-
-
 
 ---
 class:primary
