@@ -375,7 +375,7 @@ knitr::include_graphics("images/black.png")
 **DiffCol text**
 
 ```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
-knitr::include_graphics("images/diffcol.png")
+knitr::include_graphics("images/diffcol.PNG")
 ```
 ]
 ---

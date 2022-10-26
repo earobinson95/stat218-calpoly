@@ -1,36 +1,44 @@
 ---
-title: "Week 7 Reading Guide: Hypothesis Testing Errors & Comparing Many Means"
-output: pdf_document
+title: 'Week 7 Monday Reading Guide: Hypothesis Testing Errors & Comparing Many Means'
+output:
+  word_document: default
+  pdf_document: default
 ---
 
 ## Chapter 14: Decision Errors
 
 **A Type I error happens when:**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **A Type II error happens when:**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 ### Section 14.1: Significance-level
 
 **How do we use a "significance level" ($\alpha$) in hypothesis testing?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **How does $\alpha$ relate to a Type I error?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **How does $\alpha$ relate to a Type II error?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
+
+---
+
+## Section 4.6
+
+**When visualizing more than two groups, how can you incorporate the extra level into a box-plot?**
 
 ---
 
@@ -38,93 +46,93 @@ output: pdf_document
 
 **What does ANOVA stand for?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **Suppose you have three groups (A, B, and C). Write down all of the ways you could compare the means of these three groups (e.g., A - B)?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **Thinking about the previous chapter (on hypothesis testing errors), why should we not make all of the comparisons you just wrote down?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 
 **What is the null hypothesis for *every* ANOVA test?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **What is the alternative hypothesis for *every* ANOVA test?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **What conditions must be checked before performing an ANOVA?**
 
-/vspace{0.25in}
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 ### Section 22.2: Batting Case Study
 
 **What are the observational units in this study?**
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **What is the explanatory variable for this study? Is it numerical or categorical?**
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **What is the response variable for this study? Is it numerical or categorical?**
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **State the null and alternative hypothesis for testing if the on-base percentage is the same across the outfield, infield, and catchers.**
 
-/vspace{0.25in}
-/vspace{0.25in}
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 ### Section 22.2: Randomization test for comparing many means
 
 **Based on the visualization in Figure 22.2, do you believe there is a substantial difference in the on-base percentage between these three groups? What are you comparing when you make your decision?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **Looking at the plot, the largest difference is between the outfield and the catchers. Why would it be inappropriate to only compare those two groups instead of all three?** 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 #### Section 22.2.1
 
 **What is the "mean square between groups" (MSG)?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **How many degrees of freedom does the MSG have?**
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **What is the "mean square error" (MSE)?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **How many degrees of freedom does the MSE have?**
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **What is the equation of an F-statistic?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 ### Section 22.2.2
 
@@ -132,41 +140,41 @@ output: pdf_document
 
 Step 1: Write ______________ on ________________ cards.
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 Step 2: Assume the null hypothesis is true and _____________ the cards. 
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 Step 3: Create a new dataset that could have happened if the null hypothesis
 was true by _________________. 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 Step 4: With the new dataset, calculate the ______________. 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 *If you need a hint, look back to what we did for two means, since the steps are nearly identical. The only aspect that has changed is how many groups we are starting with!*
 
-/vspace{0.25in}
+\vspace{0.25in}
 
 **Why does the distribution in Figure 22.5 have only positive numbers?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **To find the p-value for a simulation-based ANOVA, what do you do?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **If you reject the null in an ANOVA, what can you conclude?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 
 ## Section 22.3: Mathematical model for comparing many means
@@ -174,20 +182,20 @@ Step 4: With the new dataset, calculate the ______________.
 **What distribution does a theory-based / mathematical method use to find its p-value?**
 *Hint:* It's not a randomization / permutation distribution! 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **What components of the hypothesis testing process are the same between the simulation-based and theory-based (mathematical) methods?** *Hint:* Think about how the p-value was found. What steps were carried out? 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **What components of the hypothesis testing process are different between the simulation-based and theory-based (mathematical) methods?** *Hint:* Think about how the p-value was found. What steps were carried out? 
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}
 
 **Previously, to use a $t$-distribution for our analysis, we needed to check additional conditions. Is that true in the case of an ANVOA?**
 
-/vspace{0.25in}
-/vspace{0.25in}
+\vspace{0.25in}
+\vspace{0.25in}

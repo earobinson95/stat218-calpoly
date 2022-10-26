@@ -1,173 +1,151 @@
 ---
-title: "Week 7 Reading Guide Part 2: Exploring Categorical Data"
-output: html_document
+title: 'Week 7 Wednesday Reading Guide: Exploring Categorical Data'
+output:
+  word_document: default
+  pdf_document: default
 ---
 
 ## Chapter 4: Exploring Categorical Data
 
-</br>
+\vspace{0.25in}
 
 ### Section 4.1: Contingency tables and bar plots
 
-</br>
+\vspace{0.25in}
 
-__Contingency table:__
+**Contingency table:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Row total:__
+**Row total:**
 
-</br>
+\vspace{0.25in}
 
-__Column total:__
+**Column total:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Frequency table:__
+**Frequency table:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Bar plot:__
+**Bar plot:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__How is a bar plot similar to a histogram?__
+**How is a bar plot similar to a histogram?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__How is a bar plot different from a histogram?__
+**How is a bar plot different from a histogram?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 ## Section 4.2: Visualizing two categorical variables
 
-__What are the three ways to add a second categorical variable to a bar plot?__
+**What are the three ways to add a second categorical variable to a bar plot?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Which plot would be best if you wanted to compare the proportions between two 
-groups?__
+**Which plot would be best if you wanted to compare the proportions between two 
+groups?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Which plot would be best if you wanted to compare the sample size of each 
-group?__
+**Which plot would be best if you wanted to compare the sample size of each 
+group?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Which plot would be best if one categorical variable is the response and the
-other is the explanatory variable?__
+**Which plot would be best if one categorical variable is the response and the
+other is the explanatory variable?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__How is a mosaic plot different from a bar plot?__
+**How is a mosaic plot different from a bar plot?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 
 ## Setion 4.3: Row and column proportions
 
-__Row proportions:__
+**Row proportions:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Column proportions:__
+**Column proportions:**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Table 4.3 is called a "relative frequency table." How is this table different 
-from the contingency table (Table 4.1)?__
+**Table 4.3 is called a "relative frequency table." How is this table different 
+from the contingency table (Table 4.1)?**
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
-__Conditional proportion:__
+**Conditional proportion:**
 
-</br>
-</br>
-
-## Section 4.4: Pie charts
-
-__In what scenario is a pie chart a "good" visualization to use?__
-
-</br>
-</br>
-
-__In what scenario is a pie chart a bad visualization to use?__
-
-</br>
-</br>
-
-## Section 4.5: Waffle Charts
-
-__How is a waffle chart different from a mosaic plot?__
-
-</br>
-</br>
-
-__In what scenario is a waffle chart a "good" visualization to use?__
-
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 ## Questions to Consider 
 
 In a contingency table, which variable (explanatory or response) generally will
 make the columns of the table?  Which variable will make the rows of the table?
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 In a segmented bar plot, the bars represent the levels of which variable?  The
 segments represent the levels of which variable?
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 What type of plot(s) are appropriate to display a single categorical variable?
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 What type of plot(s) are appropriate to display two categorical variables?
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 What is the difference between a standardized segmented bar plot and a mosaic
 plot?
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
 
 True or false: Pie charts are generally highly recommended ways to graphically
 display categorical data.
 
-</br>
+\vspace{0.25in}
 
 True or false: Two categorical variables are associated if the conditional 
 proportions of a particular outcome (typically of the response variable) differ
 across levels of the other variable (typically the explanatory variable).
 
-</br>
+\vspace{0.25in}
 
 
 True or false: When a segmented bar plot has segments that sum to 1 (or 100%),
 the segment heights correspond to the proportions conditioned on the
 **segment**.
 
-</br>
-</br>
+\vspace{0.25in}
+\vspace{0.25in}
