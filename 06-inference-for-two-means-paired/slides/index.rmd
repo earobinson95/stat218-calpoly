@@ -290,6 +290,7 @@ class: inverse
 
  Today we will...
  
+ + Common Final Time
  + Misconceptions from Midterm Projects
  + Quick recap of paired means
  + Check Activity 2B for Engagement and Completion
@@ -359,25 +360,37 @@ knitr::include_graphics("images/paired-means.png")
 ```
 
 ---
-class: inverse
+class: primary
 # LAB 6: COLOR INTERFERENCE
 
 [Lab 6 Questions](https://earobinson95.github.io/218-06-lab-paired/218-06lab-color-interference.html)
 
+.pull-left[
+**Black text**
+
+```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+knitr::include_graphics("images/black.png")
+```
+].pull-right[
+**DiffCol text**
+
+```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+knitr::include_graphics("images/diffcol.png")
+```
+]
 ---
 class:primary
 # TO DO
 
-+ Lab 6:
++ **Lab 6: Color Interference**
   + Canvas Quiz & Completion turned in as groups
   + *Due Friday, October 28 at 11:59pm*
-  
-+ Final Midterm Project Submission (Full Write-up)
++ **Final Midterm Project Submission** (Full Write-up)
   + *Due Sunday, October 30 at 11:59pm*
   + This is 10% of your grade (see [syllabus](https://earobinson95.github.io/stat218-calpoly/00-course-info/syllabus.html))
-  
-+ Read ...
++ **Read 14.1 + 4.6 + 22 for Monday**
   + concept check *due Monday, October 31 at 2:10pm*
-
-
++ **Read 4.1 - 4.3 for next Wednesday**
+  + concept check *due Wednesday, November 2 at 2:10pm*
+  
 
