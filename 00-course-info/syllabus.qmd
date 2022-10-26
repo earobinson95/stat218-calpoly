@@ -124,8 +124,7 @@ not_here_dates <- c(
 exam_dates <- c(ymd(20221019), 
                 ymd(20221109), 
                 ymd(20221130),
-                ymd(20221207), 
-                ymd(20221209)
+                ymd(20221203)
                 )
 
 # project_dates <- c(ymd(20221104), ymd(20221205), ymd(20221209))
@@ -190,8 +189,8 @@ class_cal <- Cal %>%
 class_cal
 
 exam_days <- filter(Cal, category == "Exam") %>%
-  mutate(topic = c("Midterm Exam 1 (In Class)", "Midterm Exam 2 (In Class)",  "Final Exam (Group Portion) In Class", "Final Exam (Section 06) at 4:10-7:00 PM", "Final Exam (Section 05) at 1:10-4:00 PM"),
-         time = c("In Class", "In Class", "In Class", "1:10-4:00 PM", "4:10-7:00 PM")) %>%
+  mutate(topic = c("Midterm Exam 1 (In Class)", "Midterm Exam 2 (In Class)",  "Final Exam (Group Portion) In Class", "Final Exam (Individual) at 10:10AM-1:00PM"),
+         time = c("In Class", "In Class", "In Class", "10:10AM-1:00PM")) %>%
   rowwise() %>%
   mutate(sem_week = week(date),
          Date = paste(format(date, "%b %e"), sep = ",", collapse = ", "))
