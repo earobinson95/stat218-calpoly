@@ -133,8 +133,6 @@ For a categorical variable that has more than two groups, we can use the **same*
 
 1.  Think back to last week, what were two ways we visualized one numerical variable and one categorical variable?
 
-\pagebreak
-
 ## Side-by-Side Boxplots
 
 The boxplot of movie budgets (in millions) by content rating is plotted using the code below. The boxplots are presented in both orientations, horizontal stacking and vertical stacking, so you can pick whichever orientation you prefer. :)
