@@ -1,6 +1,6 @@
 ---
-title: 'Activity 7A: Introduction to ANalysis Of VAriance'
-author: "Your Name: ____________________"
+title: 'Activity 7A: IMDB Movies'
+subtitle: 'Introduction to ANalysis Of VAriance'
 format: html
 # format: pdf
 # format: docx
