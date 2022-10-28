@@ -1,0 +1,307 @@
+---
+title: "Stat 218: Week 7"
+author: "Dr. Emily Robinson"
+date: "California Polytechnic State University"
+output:
+  xaringan::moon_reader:
+    seal: false
+    includes:
+      after_body:
+        "js-addins.html"
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: ["default", "metropolis-fonts", "metropolis" ,"css/modal.css", "css/sizeformat.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightlines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class:title-slide-custom
+
+<style>
+p.caption {
+  font-size: 0.8em;
+}
+</style>
+
+```{r, child = "style.Rmd"}
+```
+
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+
+# Packages
+library(emoji)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(iconr)
+library(fontawesome)
+library(readr)
+library(patchwork)
+
+# R markdown options
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      cache = FALSE,
+                      fig.align = 'center',
+                      dpi = 300)
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = '')
+```
+
+```{r, include = F, eval = T, cache = F}
+clean_file_name <- function(x) {
+  basename(x) %>% str_remove("\\..*?$") %>% str_remove_all("[^[A-z0-9_]]")
+}
+img_modal <- function(src, alt = "", id = clean_file_name(src), other = "") {
+  
+  other_arg <- paste0("'", as.character(other), "'") %>%
+    paste(names(other), ., sep = "=") %>%
+    paste(collapse = " ")
+  
+  js <- glue::glue("<script>
+        /* Get the modal*/
+          var modal{id} = document.getElementById('modal{id}');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var img{id} = document.getElementById('img{id}');
+          var modalImg{id} = document.getElementById('imgmodal{id}');
+          var captionText{id} = document.getElementById('caption{id}');
+          img{id}.onclick = function(){{
+            modal{id}.style.display = 'block';
+            modalImg{id}.src = this.src;
+            captionText{id}.innerHTML = this.alt;
+          }}
+          /* When the user clicks on the modalImg, close it*/
+          modalImg{id}.onclick = function() {{
+            modal{id}.style.display = 'none';
+          }}
+</script>")
+  
+  html <- glue::glue(
+     " <!-- Trigger the Modal -->
+<img id='img{id}' src='{src}' alt='{alt}' {other_arg}>
+<!-- The Modal -->
+<div id='modal{id}' class='modal'>
+  <!-- Modal Content (The Image) -->
+  <img class='modal-content' id='imgmodal{id}'>
+  <!-- Modal Caption (Image Text) -->
+  <div id='caption{id}' class='modal-caption'></div>
+</div>
+"
+  )
+  write(js, file = "js-addins.html", append = T)
+  return(html)
+}
+# Clean the file out at the start of the compilation
+write("", file = "js-addins.html")
+```
+
+<br><br>
+# Week 7: ANOVA + Categorical Variable EDA
+## Stat 218: Applied Statistics for the Life Sciences
+### Dr. Robinson
+#### California Polytechnic State University - San Luis Obispo
+<!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
+
+---
+class:inverse
+# MONDAY, OCTOBER 31 2022
+
+ Today we will...
+
++ Decision Errors
++ Introduction to ANOVA
++ Activity 7
+
+---
+class:primary
+# DECISION ERRORS
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+knitr::include_graphics("images/decision-errors.PNG")
+```
+]
+
+.pull-left[
+**False positive** Reject the null when the null is true.
+].pull-right[
+**False negative** Fail to reject the null when the null is false.
+]
+
+.small[image source: https://www.statisticssolutions.com/to-err-is-human-what-are-type-i-and-ii-errors/]
+
+---
+class:primary
+# WHAT'S DIFFERENT?
+
++ *Explanatory variable:* categorical
++ *Response variable:* quantitative
++ Visualize with side-by-side box-plots
+
+.pull-left[
+
+**Two Independent Means**
+
++ 2 Groups
++ Inference comparing the difference in group means to 0
+
+].pull-right[
+
+**AN**alysis **O**f **VA**riance (ANOVA)
+
++ 3+ Groups
++ Inference comparing the difference in group means to 0
+
+*Special case: technically can do this with only 2 groups as well.*
+]
+
+---
+class:primary
+# INFERENCE FOR ANOVA
+
+.pull-left[
+
+**Null:** The population means for all groups are equal.
+
+**Alternative:** At least one population mean differs.
+
+].pull-right[
+
+$H_O: \mu_\text{G1} = \mu_\text{G2} = \mu_\text{G3}=...=\mu_\text{Gk}$,
+
+$H_A:$ At least one $\mu_{i}$ differs.
+
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-dotplot-blank.PNG")
+```
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-dotplot-combined.PNG")
+```
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-dotplot-means.PNG")
+```
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-squares-graph.PNG")
+```
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-squares-calculations.PNG")
+```
+]
+
+---
+class:primary
+# ANOVA
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
+knitr::include_graphics("images/anova-F-distribution.PNG")
+```
+]
+
+---
+class: primary
+# Activity 7A: Introduction to ANalysis Of VAriance
+
+[Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7-anova.html)
+
+.center[
+```{r, fig.cap = "", fig.alt = "", out.width = "50%"}
+# knitr::include_graphics("images/cornflake-vs-oatbran.cms")
+```
+]
+
+---
+class:primary
+# TO DO
+
++ Complete Activity 7 
+  + *check during class Wednesday, 11/2*
+
+---
+class: inverse
+# WEDNESDAY, November 2, 2022
+
+ Today we will...
+
++ Visualizing and Summarizing Categorical Variables
++ Lab 7: Categorical EDA
++ Begin Final Project
+
+---
+# Visualizing Categorical Variables
+
+---
+# Summarizing Categorical Variables
+
+**Contingency tables**
+
+**Frequency tables**
+
+---
+# Lab 7: Categorical EDA
+
+[Lab 7]()
+
+---
+class:primary
+# TO DO
+
++ **Lab 7: Categorical EDA**
+  + Canvas Quiz & Completion turned in as groups
+  + *Due Friday, November 4 at 11:59pm*
++ **Read ... for Monday**
+  + concept check *due Monday, October 7 at 2:10pm*
++ **Final Project: Step 1**
+  + *Due Sunday, November 13 at 11:59pm*
++ **Begin studying for Midterm Exam 2**
+  + *In class Wednesday, November 9*
+  + See canvas for "what to expect"
+
+  
+

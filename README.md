@@ -55,15 +55,23 @@
 
 ## Week 6: Two Independent Means + Paired Means
 
-+ [Slides](https://earobinson95.github.io/stat218-calpoly/slides/index.html#1)
++ [Slides](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/slides/index.html#1)
 + [Reading Guide](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/reading%20guide/week6-reading-guide.pdf)
 + [Acitivty 6: Cholesterol II](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6A-cholesterol-II.html)
 + [Acitivty 6: Cholesterol III](https://earobinson95.github.io/stat218-calpoly/06-inference-for-two-means-paired/activity/activity6B-cholesterol-III.html)
-+ [Lab 6: ](https://earobinson95.github.io/218-06-lab-paired/218-06lab-color-interference.html)
++ [Lab 6: Color Interference](https://earobinson95.github.io/218-06-lab-paired/218-06lab-color-interference.html)
   + [Github Repo](https://github.com/earobinson95/218-06-lab-paired)
   + [Feedback](https://earobinson95.github.io/218-06-lab-paired/lab6_feedback.html)
 
 ## Week 7: ANOVA
+
++ [Slides](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/slides/index.html#1)
++ Reading Guides
+  + ANOVA
+  + Categorical EDA
++ [Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7-anova.html)
++ 
++ Lab 7
 
 
 
