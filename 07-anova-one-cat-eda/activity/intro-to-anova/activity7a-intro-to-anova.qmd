@@ -1,10 +1,10 @@
 ---
 title: 'Activity 7A: IMDB Movies'
 subtitle: 'Introduction to ANalysis Of VAriance'
-format: html
+# format: html
 # format: pdf
-# format: docx
-editor: visual
+format: docx
+editor: source
 execute: 
   message: false
   echo: false
@@ -125,6 +125,9 @@ genres <- tibble(Genre = c("Comedy",
 
 movie_ratings <- movie_ratings |> 
   semi_join(genres, by = "Genre")
+
+
+movie_ratings
 ```
 
 ## Visualizing a Single Categorical and a Single Quantitative Variable
@@ -209,7 +212,7 @@ Use the output from the `favstats()` function to answer the following questions:
 
 \vspace{0.8in}
 
-9.  Which genre has the largest sample size? What is the formula for the standard deviation of a mean? What effect does sample size have on the standard deviation?
+9.  Which genre has the largest sample size? What is the formula for the standard deviation of a mean (aka remember this is our standard error)? What effect does sample size have on the standard error?
 
 \vspace{0.5in}
 
@@ -282,6 +285,8 @@ movie_ratings |>
 
 11. What do the purple dashed lines across each group's boxplot represent? *Hint:* The purple dashed line is different from the black solid line!
 
+\vspace{0.5in}
+
 ## Components of an F-statistic
 
 The two components of an F-statistic are called the *sum of squares between groups* (SSG) and the *sum of squares of the errors* (SSE). Let's break down what each of these mean.
@@ -294,7 +299,7 @@ The **SSG** compares each group's mean to the overall mean. As its name indicate
 
 The **SSE** is similar to a "residual," it measures how far an observation is from the mean of that group. As its name indicates, these differences are **squared** and then added together.
 
-13. Draw horizontal lines on the plot above, indicating which values are being compared with calculating the SSE.
+13. Draw vertical lines on the plot above, indicating which values are being compared with calculating the SSE.
 
 \vspace{0.25in}
 

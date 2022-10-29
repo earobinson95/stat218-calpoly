@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name: ____________________">
 
-<title>Activity 7A: Introduction to ANalysis Of VAriance</title>
+<title>Activity 7A: IMDB Movies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,19 +109,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Activity 7A: Introduction to ANalysis Of VAriance</h1>
+<h1 class="title">Activity 7A: IMDB Movies</h1>
+<p class="subtitle lead">Introduction to ANalysis Of VAriance</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your Name: ____________________ </p>
-          </div>
-  </div>
     
     
   </div>
@@ -274,7 +268,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 172 x 6
+   Movie             Genre             `2020 Gross` runtimeMin~1 avera~2 numVo~3
+   &lt;chr&gt;             &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
+ 1 1917              Thriller/Suspense    157901466 "34"             5.7      23
+ 2 The Invisible Man Horror                64914050 "71"             7.7   29256
+ 3 Halloween         Horror                47274000 "91"             7.8  222169
+ 4 Little Women      Drama                 37593127 "60"             6.5      34
+ 5 Just Mercy        Drama                 35733621 "\\N"            7.6      14
+ 6 Knives Out        Drama                 35244610 "\\N"            8        19
+ 7 Fantasy Island    Horror                26441782 "60"             6.5    6599
+ 8 Unhinged          Thriller/Suspense     20831465 "79"             5.1    1548
+ 9 The Photograph    Drama                 20578185 "32"             7        89
+10 Underwater        Thriller/Suspense     17291078 "60"             7.2      60
+# ... with 162 more rows, and abbreviated variable names 1: runtimeMinutes,
+#   2: averageRating, 3: numVotes</code></pre>
+</div>
 </div>
 </section>
 <section id="visualizing-a-single-categorical-and-a-single-quantitative-variable" class="level2">
@@ -283,7 +293,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Think back to last week, what were two ways we visualized one numerical variable and one categorical variable?</li>
 </ol>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="side-by-side-boxplots" class="level2">
 <h2 class="anchored" data-anchor-id="side-by-side-boxplots">Side-by-Side Boxplots</h2>
@@ -314,8 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s obtain a more complete picture of how different these groups are with summary statistics. Our familiar friend <code>favstats()</code> can help us compare summary statistics across different groups.</p>
 <p>Like before, the rating of the film is the response and the genre is the explanatory variable. So, our code looks like:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">favstats</span>(averageRating <span class="sc">~</span> Genre, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> movie_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">favstats</span>(averageRating <span class="sc">~</span> Genre, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> movie_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Genre min  Q1 median   Q3 max     mean       sd  n missing
 1            Comedy 1.9 5.8    6.8 7.35 8.1 6.413043 1.413025 23       0
@@ -342,7 +351,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How many times larger is your answer in #6 than your answer in #7?</li>
 </ol>
 <ol start="9" type="1">
-<li>Which genre has the largest sample size? What is the formula for the standard deviation of a mean? What effect does sample size have on the standard deviation?</li>
+<li>Which genre has the largest sample size? What is the formula for the standard deviation of a mean (aka remember this is our standard error)? What effect does sample size have on the standard error?</li>
 </ol>
 </section>
 <section id="introducing-a-new-statistic" class="level2">
@@ -384,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>The <strong>SSE</strong> is similar to a “residual,” it measures how far an observation is from the mean of that group. As its name indicates, these differences are <strong>squared</strong> and then added together.</p>
 <ol start="13" type="1">
-<li>Draw horizontal lines on the plot above, indicating which values are being compared with calculating the SSE.</li>
+<li>Draw vertical lines on the plot above, indicating which values are being compared with calculating the SSE.</li>
 </ol>
 <p>There is one final part to an F-statistic. We take each of these quantities (SSG, SSE) and divide them by their respective degrees of freedom. The degrees of freedom are calculated based on (1) the number of items available and (2) the number of statistics that need to be calculated.</p>
 <p>For the SSG, we have <span class="math inline">\(k\)</span> groups and we need to calculate the overall mean. So, our resulting degrees of freedom are <span class="math inline">\(k - 1\)</span>.</p>
