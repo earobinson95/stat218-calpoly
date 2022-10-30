@@ -67,11 +67,14 @@
 
 + [Slides](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/slides/index.html#1)
 + Reading Guides
-  + ANOVA
-  + Categorical EDA
+  + [ANOVA](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/reading%20guide/07-reading-guide-anova.pdf)
+  + [Categorical EDA](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/reading%20guide/07-reading-guide-anova.pdf)
 + [Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7a-intro-to-anova.html)
-+ [Activity 7B: Multiple Comparisons Procedure]()
-+ Lab 7
++ [Activity 7B: Multiple Comparisons Procedure](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/multiple-comparisons-procedure/activity7b-multiple-comparison-procedure.html)
++ [Lab 7: Myopia](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-categorical-eda.html)
+  + [Github Repo](https://github.com/earobinson95/218-07-lab-categorical-eda)
+  + [Feedback](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-feedback.html)
++ [Final Project: Step 1]()
 
 
 
