@@ -127,19 +127,24 @@ class:inverse
 class:primary
 # DECISION ERRORS
 
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
-knitr::include_graphics("images/decision-errors.PNG")
-```
-]
+<!-- .center[ -->
+<!-- ```{r, fig.cap = "", fig.alt = "", out.width = "70%"} -->
+<!-- knitr::include_graphics("images/decision-errors.PNG") -->
+<!-- ``` -->
+<!-- ] -->
 
-.pull-left[
-**False positive** Reject the null when the null is true.
-].pull-right[
-**False negative** Fail to reject the null when the null is false.
-]
+|                      | $H_0$ is True  | $H_0$ is False |
+|----------------------|----------------|----------------|
+| Reject $H_0$         | Type I Error   | Good Decision! |
+| Fail to Reject $H_0$ | Good Decision! | Type II Error  |
 
-.small[image source: https://www.statisticssolutions.com/to-err-is-human-what-are-type-i-and-ii-errors/]
+<!-- .pull-left[ -->
+<!-- **False positive** Reject the null when the null is true. -->
+<!-- ].pull-right[ -->
+<!-- **False negative** Fail to reject the null when the null is false. -->
+<!-- ] -->
+
+<!-- .small[image source: https://www.statisticssolutions.com/to-err-is-human-what-are-type-i-and-ii-errors/] -->
 
 ---
 class:primary

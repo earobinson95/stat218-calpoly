@@ -69,8 +69,8 @@
 + Reading Guides
   + ANOVA
   + Categorical EDA
-+ [Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7-anova.html)
-+ 
++ [Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7a-intro-to-anova.html)
++ [Activity 7B: Multiple Comparisons Procedure]()
 + Lab 7
 
 
