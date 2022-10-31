@@ -1,5 +1,5 @@
 ---
-title: "Activity 7B: IMDb"
+title: "Activity 7B: IMDb III"
 subtitle: "Hypothesis Testing, Decision Errors, & Multiple Comparisons"
 # format: html
 # format: pdf
@@ -200,7 +200,7 @@ Now that we've checked the conditions of an ANOVA, we are ready to perform the a
 
 11. Fill in the necessary components of the code below.
 
-```{r aov-code, eval = FALSE}
+```{r aov-code, echo = TRUE, eval = FALSE}
 aov(_______________________________ ~ __________________________,
     data = movie_ratings)
 ```
