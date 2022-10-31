@@ -1,16 +1,17 @@
 ---
 title: "Your Title Goes Here! Make it fun!"
 author: "Your Name Here!"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include = FALSE}
 # This is code to make your report format look nice! 
 # Please don't modify these options! 
-knitr::opts_chunk$set(echo = FALSE, 
+knitr::opts_chunk$set(echo = TRUE, 
                       message = FALSE, 
                       warning = FALSE, 
-                      fig.align = "center")
+                      fig.align = "center",
+                      error = TRUE)
 
 library(tidyverse)
 library(infer)
@@ -19,10 +20,12 @@ library(janitor)
 
 ```{r data}
 # This is where you will load in your data! 
-# I suggest copying and pasting code from a prior lab. 
+# DO NOT CLICK IMPORT DATASET IN TOP RIGHT.
+# I suggest copying and pasting code from your midterm project. 
 # You will need to change: 
 # 1. the name of the dataset (you get to choose the name)
 # 2. directions for how to get to the data
+
 
 
 ```
@@ -33,16 +36,16 @@ library(janitor)
 
 <!-- This section has three tasks:
 1. Describe the context of your dataset in your own words!
-2. Tell me why you picked this dataset
-3. Describe the two variables you are interested in. One should be the
-explanatory variable and one should be the response.
+2. Tell me why you picked this dataset.
+3. Describe the two categorical variables you are interested in. One should be the explanatory variable and one should be the response. Tell me which is the explanatory and which is the response variable and why.
 -->
 
+Put paragraph about data description here.
 
 ## Data Visualization & Summarization
 <!-- In this section you create three visualizations of your data -->
 
-### Investigating <NAME OF EXPLANATORY VARIABLE>
+### Investigating NAME OF EXPLANATORY VARIABLE
 
 ```{r bar-plot-1}
 ## Code for bar plot:
@@ -54,9 +57,10 @@ explanatory variable and one should be the response.
 ```
 <!-- Description of what you see in the bar plot and in the summary table! -->
 
+Description of bar plot and summary table goes here.
 
 
-### Investigating <NAME OF RESPONSE VARIABLE>
+### Investigating NAME OF RESPONSE VARIABLE
 
 ```{r bar-plot-2}
 ## Code for bar plot:
@@ -68,13 +72,20 @@ explanatory variable and one should be the response.
 ```
 <!-- Description of what you see in the bar plot and in the summary table! -->
 
+Description of bar plot and summary table goes here.
 
 
-### Investigating the Relationship between <NAME OF RESPONSE VARIABLE> and 
-<NAME OF EXPLANATORY VARIABLE>
+
+
+<!-- ------------------------------------- -->
+<!-- --------- END OF STEP 1 ------------- -->
+<!-- --- KNIT, DOUBLE CHECK, & SUBMIT ---- -->
+<!-- ------------------------------------- -->
+
+### Investigating the Relationship between NAME OF RESPONSE VARIABLE and NAME OF EXPLANATORY VARIABLE
 
 ```{r bar-plot-3}
-## Code for bar plot:
+## Code for filled bar plot:
 ## No summary table necessary, since you will be making one to check the model conditions! :) 
 
 
@@ -82,31 +93,33 @@ explanatory variable and one should be the response.
 ```
 <!-- Description of what you see in the bar plot and in the summary table! -->
 
+Description of bar plot 3 goes here.
 
-
-## Independence of <NAME OF RESPONSE VARIABLE> and <NAME OF EXPLANATORY VARIABLE>
+## Independence of NAME OF RESPONSE VARIABLE and NAME OF EXPLANATORY VARIABLE
 <!-- Description of what is being tested in your analysis! -->
 
+Describe what you are testing in your analysis here.
 
 ### Model Conditions
 <!-- Here is where you describe the two conditions for a theory-based chi-squared analysis. -->
 
 <!-- Discuss the independence of observation condition: -->
 
+Discussion on independence of observations goes here.
 
 
 <!-- Discuss the expected cell count condition: -->
 
-
+Discussion on expected cell count condition goes here.
 
 ```{r expected-counts}
 ## This is code that will generate the table of observed counts for you!
 ## You need to fill in the name of your dataset & your variables!
 
-<NAME OF DATASET> %>% 
-  group_by(<VARIABLE1>, <VARIABLE2>) %>% 
+NAME OF DATASET %>% 
+  group_by(VARIABLE1, VARIABLE2) %>% 
   count() %>% 
-  pivot_wider(names_from = <VARIABLE1>, 
+  pivot_wider(names_from = VARIABLE1, 
               values_from = n) %>% 
   adorn_totals(where = c("row", "col"))
 
@@ -114,6 +127,7 @@ explanatory variable and one should be the response.
 
 <!-- State whether using a theory-based method is appropriate, given your conditions. -->
 
+Checking conditions goes here.
 
 
 ### Chi-Squared Analysis 
@@ -127,4 +141,6 @@ explanatory variable and one should be the response.
 ```
 
 <!-- Discuss the results of your analysis. What do you conclude about the relationship between your variables? -->
+
+Discussion of chi-square results goes here.
 
