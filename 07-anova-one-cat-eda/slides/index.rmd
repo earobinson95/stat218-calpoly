@@ -119,9 +119,10 @@ class:inverse
 
  Today we will...
 
-+ Decision Errors
-+ Introduction to ANOVA
-+ Activity 7
++ Recap Reading
++ Activity 7A: Introduction to ANOVA
++ Activity 7B: Hypothesis testing for ANOVA, Errors, and Multiple Comparison Procedures
++ Getting started on your final project
 
 ---
 class:primary
@@ -237,22 +238,46 @@ knitr::include_graphics("images/anova-F-distribution.PNG")
 
 ---
 class: primary
-# Activity 7A: Introduction to ANalysis Of VAriance
+# Activities 
 
-[Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7-anova.html)
+[Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7a-intro-to-anova.html)
 
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "50%"}
-# knitr::include_graphics("images/cornflake-vs-oatbran.cms")
+[Activity 7B: Hypothesis Testing, Decision Errors, & Multiple Comparisons](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/multiple-comparisons-procedure/activity7b-multiple-comparison-procedure.html)
+
+
+.pull-left[
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
+knitr::include_graphics("../activity/intro-to-anova/images/freaky.jpg")
+```
+].pull-right[
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
+knitr::include_graphics("../activity/intro-to-anova/images/transcendents.jpeg")
 ```
 ]
+
+---
+# Final Project
+
+Your Final Project will focus on categorical variables, rather than the numerical variables that the Midterm Project focused on. 
+
+[Example Final Project writeup](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/final_project/example-project/example_writeup_evals.html)
+
+You will have time in class on Wednesday to work on this. You may want to wait until after Wednesday's lab to submit.
+
+**Note: I have broken up the project steps further and made this step due this Sunday!**
 
 ---
 class:primary
 # TO DO
 
-+ Complete Activity 7 
++ Complete Activity 7A: Introduction to ANOVA
   + *check during class Wednesday, 11/2*
++ Complete Activity 7B: Hypothesis Testing, Decision Errors, & Multiple Comparisons
+  + *check during class Wednesday, 11/2*
++ Concept Check (Wednesdays)
+  + *due Wednesday, 11/2 at 2:10pm*
++ Final Project: Step 1
+  + *due Sunday, 11/6 at 11:59pm*
 
 ---
 class: inverse
@@ -262,7 +287,6 @@ class: inverse
 
 + Visualizing and Summarizing Categorical Variables
 + Lab 7: Categorical EDA
-+ Begin Final Project
 
 ---
 # Visualizing Categorical Variables
@@ -277,7 +301,7 @@ class: inverse
 ---
 # Lab 7: Categorical EDA
 
-[Lab 7]()
+[Lab 7: Categorical EDA](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-categorical-eda.html)
 
 ---
 class:primary

@@ -7,11 +7,11 @@ output: pdf_document
 ```{r setup, include = FALSE}
 # This is code to make your report format look nice! 
 # Please don't modify these options! 
-knitr::opts_chunk$set(echo = TRUE, 
+knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
                       fig.align = "center",
-                      error = TRUE)
+                      error = FALSE)
 
 library(tidyverse)
 library(infer)
@@ -41,6 +41,11 @@ library(janitor)
 -->
 
 Put paragraph about data description here.
+
+<!-- ------------------------------------- -->
+<!-- --------- END OF STEP 1 ------------- -->
+<!-- --- KNIT, DOUBLE CHECK, & SUBMIT ---- -->
+<!-- ------------------------------------- -->
 
 ## Data Visualization & Summarization
 <!-- In this section you create three visualizations of your data -->
@@ -75,13 +80,6 @@ Description of bar plot and summary table goes here.
 Description of bar plot and summary table goes here.
 
 
-
-
-<!-- ------------------------------------- -->
-<!-- --------- END OF STEP 1 ------------- -->
-<!-- --- KNIT, DOUBLE CHECK, & SUBMIT ---- -->
-<!-- ------------------------------------- -->
-
 ### Investigating the Relationship between NAME OF RESPONSE VARIABLE and NAME OF EXPLANATORY VARIABLE
 
 ```{r bar-plot-3}
@@ -94,6 +92,11 @@ Description of bar plot and summary table goes here.
 <!-- Description of what you see in the bar plot and in the summary table! -->
 
 Description of bar plot 3 goes here.
+
+<!-- ------------------------------------- -->
+<!-- --------- END OF STEP 2 ------------- -->
+<!-- --- KNIT, DOUBLE CHECK, & SUBMIT ---- -->
+<!-- ------------------------------------- -->
 
 ## Independence of NAME OF RESPONSE VARIABLE and NAME OF EXPLANATORY VARIABLE
 <!-- Description of what is being tested in your analysis! -->
@@ -112,7 +115,12 @@ Discussion on independence of observations goes here.
 
 Discussion on expected cell count condition goes here.
 
-```{r expected-counts}
+
+
+
+<!-- MUST DO!!!! Change eval = FALSE to eval = TRUE in the code chunk header below -->
+
+```{r expected-counts, eval = F}
 ## This is code that will generate the table of observed counts for you!
 ## You need to fill in the name of your dataset & your variables!
 
@@ -127,8 +135,12 @@ NAME OF DATASET %>%
 
 <!-- State whether using a theory-based method is appropriate, given your conditions. -->
 
-Checking conditions goes here.
+Checking theory-based method conditions here.
 
+<!-- ------------------------------------- -->
+<!-- --------- END OF STEP 3 ------------- -->
+<!-- --- KNIT, DOUBLE CHECK, & SUBMIT ---- -->
+<!-- ------------------------------------- -->
 
 ### Chi-Squared Analysis 
 

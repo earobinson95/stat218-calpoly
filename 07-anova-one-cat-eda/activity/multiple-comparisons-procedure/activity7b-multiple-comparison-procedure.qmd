@@ -1,5 +1,5 @@
 ---
-title: "Activity 7B: "
+title: "Activity 7B: IMDb"
 subtitle: "Hypothesis Testing, Decision Errors, & Multiple Comparisons"
 # format: html
 # format: pdf
