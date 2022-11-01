@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.132">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Activity 8: Revisiting the Martian Alphabet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="activity8-one-prop-chisq_files/libs/clipboard/clipboard.min.js"></script>
+<script src="activity8-one-prop-chisq_files/libs/quarto-html/quarto.js"></script>
+<script src="activity8-one-prop-chisq_files/libs/quarto-html/popper.min.js"></script>
+<script src="activity8-one-prop-chisq_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="activity8-one-prop-chisq_files/libs/quarto-html/anchor.min.js"></script>
+<link href="activity8-one-prop-chisq_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="activity8-one-prop-chisq_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="activity8-one-prop-chisq_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="activity8-one-prop-chisq_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="activity8-one-prop-chisq_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Activity 8: Revisiting the Martian Alphabet</h1>
+<p class="subtitle lead">One Proportion Goodness-of-fit</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="remembering-back" class="level2">
+<h2 class="anchored" data-anchor-id="remembering-back">Remembering back…</h2>
+<p>In week one of this course we did an activity exploring if you could correctly identify the letters of the Martian alphabet. You were presented with the two figures below and asked to decide which was “Bouba” and which was “Kiki” (Ramachandran, 2007).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/Bouba-Kiki.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We tabulated how many students correctly guessed that “Kiki” was the figure on the left. Next, we simulated what we would have expected to see if everyone was randomly guessing which figure went with which word.</p>
+<p><strong>1. If everyone was randomly guessing, what would be the probability of correctly identifying “Kiki”?</strong></p>
+<p>Today, we are going to investigate how we could use statistical inference to determine how often we would expect to get a statistic like the one we got on Day 1 of the class, if everyone was just randomly guessing.</p>
+</section>
+<section id="chi-squared-goodness-of-fit-test" class="level2">
+<h2 class="anchored" data-anchor-id="chi-squared-goodness-of-fit-test">Chi-Squared Goodness-of-fit Test</h2>
+<p>Specifically, we will be carrying out what is called a “Chi-Squared goodness-of-fit test.” The big idea behind this test is to compare what proportions we would have expected to get under the null hypothesis to what we actually got.</p>
+<p>In our case, we are assuming that there is an equal chance at guessing correctly or incorrectly.</p>
+<p><strong>2. So, under <span class="math inline">\(H_0\)</span>, what would the values of <span class="math inline">\(p\)</span> be?</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Correct Guess</th>
+<th>Incorrect Guess</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p\)</span> =</td>
+<td><span class="math inline">\(p\)</span> =</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. If the table above represents what is assumed to be true under <span class="math inline">\(H_0,\)</span> what do you believe the alternative hypothesis would be?</strong></p>
+<section id="chi-squared-statistic" class="level3">
+<h3 class="anchored" data-anchor-id="chi-squared-statistic">Chi-Squared Statistic</h3>
+<p>The idea behind the Chi-Squared statistic is to compare the frequencies (of correct and incorrect guesses) we observed to what we would have expected to see if <span class="math inline">\(H_0\)</span> was true.</p>
+<p>This calculation requires two pieces of information:</p>
+<ul>
+<li><span class="math inline">\(p\)</span></li>
+<li>sample size</li>
+</ul>
+<p>Once we have each of these, we can create a table of what frequencies we would have expected to see if <span class="math inline">\(H_0\)</span> was true.</p>
+<p><strong>4. Fill out the expected table below!</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Expected # of Correct Guesses</th>
+<th>Expected # of Incorrect Guesses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, we compare each of our observed frequencies to what we would have expected if <span class="math inline">\(H_0\)</span> was true. We compare how far “off” our observed frequencies are from what was expected in a very specific way, using the following calculation:</p>
+<p><span class="math display">\[
+\frac{(\text{observed} - \text{expected})^2}{\text{expected}}
+\]</span></p>
+<p>This formula should look similar to calculating the percent change, except that we are squaring the numerator.</p>
+<p><strong>5. Fill out the table for our class’ observed frequencies.</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Observed # of Correct Guesses</th>
+<th>Observed # of Incorrect Guesses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>6. Using the formula above, calculate how far “off” the observed frequencies for our class’ guesses are from what we expected under <span class="math inline">\(H_0\)</span>.</strong></p>
+<p>By adding the two values from #6 together, you have the Chi-Squared (or <span class="math inline">\(X^2\)</span>) statistic!</p>
+<p><strong>7. Calculate the value of the <span class="math inline">\(X^2\)</span> statistic for our classes guesses.</strong></p>
+<p><span class="math inline">\(X^2 =\)</span></p>
+<p><strong>8. Take another look at the <span class="math inline">\(X^2\)</span> formula. What type of statistics will we</strong> <strong><em>always</em></strong> <strong>obtain?</strong> <em>Hint: These statistics are similar to the ANOVA F-statistic!</em></p>
+</section>
+</section>
+<section id="sampling-distribution-of-x2-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distribution-of-x2-statistics">Sampling Distribution of <span class="math inline">\(X^2\)</span> Statistics</h2>
+<p>In order for us to calculate our p-value—the probability of observing an <span class="math inline">\(X^2\)</span> statistic as or more extreme than we got, if the null was true – we need a distribution of <span class="math inline">\(X^2\)</span> statistics that could have happened if <span class="math inline">\(H_0\)</span> was true.</p>
+<p>Like all of our previous topics, there are two ways we can obtain this <strong>sampling distribution</strong>:</p>
+<ul>
+<li>using computer simulation</li>
+<li>using mathematical theory</li>
+</ul>
+<p>Let’s see how each of these works!</p>
+</section>
+<section id="simulated-permuted-null-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="simulated-permuted-null-distribution">Simulated / Permuted Null Distribution</h2>
+<p>On Day 1 of class we simulated a distribution of <strong>proportions</strong> that could have happened under the null hypothesis. Today, we are turning our attention to how simulating what <strong><span class="math inline">\(X^2\)</span></strong> statistics we could have gotten if the null hypothesis was true.</p>
+<p>To carry out <strong>one</strong> simulation we need to do the following steps:</p>
+<p><strong>Step 1:</strong> Specify what value of <span class="math inline">\(p\)</span> is assumed under <span class="math inline">\(H_0\)</span>:</p>
+<p><strong>Step 2:</strong> Specify how many <strong>trials</strong> should be used when flipping a coin:</p>
+<p><strong>Step 3:</strong> Specify which response goes with each side of a coin:</p>
+<p><strong>Step 4:</strong> Flip a coin (or simulate flipping a coin) the number of times specified in Step 2. Tabulate how many responses went in each category:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Simulated # of Correct Guesses</th>
+<th>Simulated # of Incorrect Guesses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 5:</strong> Calculate the <span class="math inline">\(X^2\)</span> statistic for the simulation</p>
+<p><strong>Step 6:</strong> Plot the simulated <span class="math inline">\(X^2\)</span> statistic on the distribution</p>
+<p>Alright, after carrying out this process, I obtained the following distribution.</p>
+<div class="cell" data-hash="activity8-one-prop-chisq_cache/html/null-X2_287987cdce96eb895c7b6a067500ed47">
+<div class="cell-output-display">
+<p><img src="activity8-one-prop-chisq_files/figure-html/null-X2-1.png" class="img-fluid" style="width:60.0%"></p>
+</div>
+</div>
+<p>(0.1)</p>
+<p><strong>9. Draw a line where the observed <span class="math inline">\(X^2\)</span> statistic falls on this distribution.</strong></p>
+<p><strong>10. Estimate the p-value for testing if we were all randomly guessing which figure was “Kiki.”</strong></p>
+<p><strong>11. Based on your p-value, what would you conclude for your null and alternative hypotheses from #2 and #3?</strong></p>
+</section>
+<section id="theory-based-null-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="theory-based-null-distribution">Theory-based Null Distribution</h2>
+<p>For the Chi-Squared goodness-of-fit test we’ve been discussing, it can be mathematically shown that the distribution of <span class="math inline">\(X^2\)</span> statistics is approximately a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(k - 1\)</span> degrees of freedom. Similar to an ANOVA, <span class="math inline">\(k\)</span> represents the number of groups in our explanatory variable.</p>
+<p>Degrees of freedom represent the amount of “free” information in a given situation. In our situation, we have two groups, so <span class="math inline">\(k - 1\)</span> would be 1. Since we have two proportions and we know they must sum to 1, only one proportion is “free” or unconstrained. Once I know the proportion of the time someone would guess incorrectly, I also know the proportion of time they would guess correctly!</p>
+<section id="the-chi2-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="the-chi2-distribution">The <span class="math inline">\(\chi^2\)</span> Distribution</h3>
+<p>A <span class="math inline">\(\chi^2\)</span> distribution behaves similar to an F-distribution with two respects, (1) it only has positive values and (2) the shape of the distribution is controlled by degrees of freedom. Below are three different <span class="math inline">\(\chi^2\)</span> distributions, which look quite different. They have very different shapes because they different degrees of freedom!</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="activity8-one-prop-chisq_files/figure-html/chi-squared-1.png" class="img-fluid" style="width:60.0%"></p>
+</div>
+</div>
+</section>
+<section id="conditions-for-using-a-chi2-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="conditions-for-using-a-chi2-distribution">Conditions for Using a <span class="math inline">\(\chi^2\)</span> Distribution</h3>
+<p>In order for the <span class="math inline">\(\chi^2\)</span> distribution to be a good approximation of the true sampling distribution, we need to verify two conditions:</p>
+<ul>
+<li>The observations are independent</li>
+<li>We have a “large enough” sample size
+<ul>
+<li>This is checked by verifying there are at least 5 expected counts in each cell</li>
+</ul></li>
+</ul>
+<p>If the condition about expected cell counts is violated, we are forced to use a simulation-based method (like we just did).</p>
+<p><strong>12. Are the conditions for using a <span class="math inline">\(\chi^2\)</span> distribution to approximate the sampling distribution violated?</strong></p>
+</section>
+<section id="using-a-chi2-distribution-to-find-the-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="using-a-chi2-distribution-to-find-the-p-value">Using a <span class="math inline">\(\chi^2\)</span> Distribution to Find the p-value</h3>
+<p>If we decided in #12 that it is not unreasonable for us to use the <span class="math inline">\(\chi^2\)</span> distribution, then we can use <code>R</code> to find our p-value.</p>
+<p>We will use the <code>pchisq()</code> function, which has three inputs:</p>
+<ul>
+<li>the observed <span class="math inline">\(X^2\)</span> statistic</li>
+<li>how many degrees of freedom should be used for the <span class="math inline">\(\chi^2\)</span> distribution</li>
+<li>if the lower tail (left tail) should be used when calculating the p-value</li>
+</ul>
+<p><strong>13. Using the values you calculated before and your intuition, fill in the code below:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(_____, <span class="at">df =</span> _____, <span class="at">lower.tail =</span> ______)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Running the code you just wrote in <code>R</code> gave me a p-value of 0.0066691.</p>
+<p><strong>14. Based on this p-value what conclusion would you reach regarding the null hypothesis?</strong></p>
+<p><strong>15. Did you reach similar conclusions using simulation-based methods? Why do you believe that is the case?</strong></p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="deer-habitat-fire" class="level2">
+<h2 class="anchored" data-anchor-id="deer-habitat-fire">Deer Habitat &amp; Fire</h2>
+<p>In the previous example, we had two options in our response variable: a correct choice or an incorrect choice. The wonder of the goodness-of-fit test is that it can be scaled up many possible response options!</p>
+<p>Take, for example, the relationship between deer habitat and fires. It is interesting to investigate if deer behave differently (by grazing in certain areas) after a fire. Six months after a fire burned 730 acres of deer habitat, researchers in the Forest Service surveyed a 3,000-acre parcel of land surrounding the burn.</p>
+<p>They divided the area into four sections:</p>
+<ol type="1">
+<li>The region nearest to the heat of the burn</li>
+<li>The inside edge of the burn</li>
+<li>The outside edge of the burn</li>
+<li>The area outside of the burned area</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/fire_schematic.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The researcher are interested to know if the deer show a preference for certain areas of the parcel. Under the null hypothesis, the deer would show no preference for any specific area and are randomly distributed across the 3,000 acres.</p>
+<p>Under the null hypothesis, if deer were randomly distributed over the 3,000 acres, we would expect the frequencies of deer to be proportional to the size of the region.</p>
+<p><strong>16. Fill in the table below with the proportions for the inner burn area and the outer edge.</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Acres</th>
+<th>Proportion of Total Area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inner Burn</td>
+<td>520</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Inner Edge</td>
+<td>210</td>
+<td>0.070</td>
+</tr>
+<tr class="odd">
+<td>Outer Edge</td>
+<td>240</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Outer Unburned</td>
+<td>2,030</td>
+<td>0.677</td>
+</tr>
+</tbody>
+</table>
+<p>These proportions are the null hypothesis!</p>
+<p><strong>17. What would be the alternative hypothesis?</strong> <em>Hint: Think about an ANOVA, what was the alternative hypothesis when the null hypothesis said that all of the means were equal?</em></p>
+<p>Researchers observed a total of 75 deer in the 3,000 acre parcel. The table below shows how many deer were observed in each of the four areas.</p>
+<p><strong>18. Using the proportions calculated above, determine the number of expected deer for each region.</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Observed Counts</th>
+<th>Expected Counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inner Burn</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Inner Edge</td>
+<td>12</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Outer Edge</td>
+<td>18</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Outer Unburned</td>
+<td>43</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>19. Now, calculate the <span class="math inline">\(X^2\)</span> statistic for these data.</strong></p>
+<p><strong>20. Which distribution should be used to find the p-value for this test statistic? How many degrees of freedom do we have?</strong></p>
+<p><strong>21. Suppose the p-value for the <span class="math inline">\(X^2\)</span> statistic you calculated in #19 was less than 0.0001. What conclusion could the researchers conclude about the distribution of deer on the parcel?</strong></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

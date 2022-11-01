@@ -18,15 +18,13 @@ library(infer)
 library(janitor)
 ```
 
-```{r data}
+```{r data, echo = T}
 # This is where you will load in your data! 
 # DO NOT CLICK IMPORT DATASET IN TOP RIGHT.
 # I suggest copying and pasting code from your midterm project. 
 # You will need to change: 
 # 1. the name of the dataset (you get to choose the name)
 # 2. directions for how to get to the data
-
-
 
 ```
 

@@ -76,6 +76,11 @@
   + [Feedback](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-feedback.html)
 + [Final Project: Step 1]()
 
+## Week 8: One Proportion Chisquare Goodness-of-fit + Midterm 2
+
++ Slides
++ [Activity 8]
++ Final Project: Step 2
 
 
 
