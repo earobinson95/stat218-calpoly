@@ -287,7 +287,6 @@ class: inverse
 
 + Visualizing and Summarizing Categorical Variables
 + Lab 7: Categorical EDA
-+ Final Project: Step 1
 
 ---
 # Visualizing & Summarizing Categorical Variables
@@ -303,21 +302,21 @@ class: inverse
 ---
 # One Categorical Variable
 
-```{r, fig.cap = "", fig.alt = "", out.width = "70%"}
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
 knitr::include_graphics("images/single-barplot.PNG")
 ```
 
 ---
 # Two Categorical Variables
 
-```{r, fig.cap = "", fig.alt = "", out.width = "100%"}
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
 knitr::include_graphics("images/two-cat-barplot.PNG")
 ```
 
 ---
 # Two Categorical Variables
 
-```{r, fig.cap = "", fig.alt = "", out.width = "85%"}
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
 knitr::include_graphics("images/two-cat-summary-table.PNG")
 ```
 
@@ -326,7 +325,7 @@ knitr::include_graphics("images/two-cat-summary-table.PNG")
 
 [Lab 7: Categorical EDA](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-categorical-eda.html)
 
-```{r, fig.cap = "", fig.alt = "", out.width = "60%"}
+```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
 knitr::include_graphics("images/myopia.jpg")
 ```
 
@@ -344,5 +343,6 @@ class:primary
 + **Begin studying for Midterm Exam 2**
   + *In class Wednesday, November 9*
   + See canvas for "what to expect" and question bank
+
   
 
