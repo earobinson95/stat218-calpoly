@@ -306,7 +306,7 @@ If the condition about expected cell counts is violated, we are forced to use a 
 
 **12. Are the conditions for using a $\chi^2$ distribution to approximate the sampling distribution violated?**
 
-\key{The observations are independent because each student's response does not tell us information about another student's response. Therefore, independence is met. We do not have a "large enough" sample size since there is only 1 student who incorrectly identified "Kiki". Therefore, the large sample size is violated.}
+\key{The observations are independent because each student's response does not tell us information about another student's response. Therefore, independence is met. We do have a "large enough" sample size since there are more than 5 expected students for both cells (expected 17.5 students to correctly identified "Kiki" and expected 17.5 students to incorrectly identify "Kiki"). Therefore, the large sample size condition is met.}
 
 \vspace{0.1in}
 

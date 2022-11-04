@@ -1,5 +1,5 @@
 ---
-title: "Stat 218: Week 7"
+title: "Stat 218: Week 8"
 author: "Dr. Emily Robinson"
 date: "California Polytechnic State University"
 output:
@@ -107,7 +107,7 @@ write("", file = "js-addins.html")
 ```
 
 <br><br>
-# Week 7: ANOVA + Categorical Variable EDA
+# Week 8: One Proporiton Chi-Square Test + Midterm Exam 2
 ## Stat 218: Applied Statistics for the Life Sciences
 ### Dr. Robinson
 #### California Polytechnic State University - San Luis Obispo
@@ -115,234 +115,86 @@ write("", file = "js-addins.html")
 
 ---
 class:inverse
-# MONDAY, OCTOBER 31 2022
+# MONDAY, NOVEMBER 7 2022
 
  Today we will...
 
-+ Recap Reading
-+ Activity 7A: Introduction to ANOVA
-+ Activity 7B: Hypothesis testing for ANOVA, Errors, and Multiple Comparison Procedures
-+ Getting started on your final project
-
----
-class:primary
-# DECISION ERRORS
-
-|                      | $H_0$ is True  | $H_0$ is False |
-|----------------------|----------------|----------------|
-| Reject $H_0$         | Type I Error   | Good Decision! |
-| Fail to Reject $H_0$ | Good Decision! | Type II Error  |
-
----
-class:primary
-# WHAT'S DIFFERENT?
-
-+ *Explanatory variable:* categorical
-+ *Response variable:* quantitative
-+ Visualize with side-by-side box-plots
-
-.pull-left[
-
-**Two Independent Means**
-
-+ 2 Groups
-+ Inference comparing the difference in group means to 0
-
-].pull-right[
-
-**AN**alysis **O**f **VA**riance (ANOVA)
-
-+ 3+ Groups
-+ Inference comparing the difference in group means to 0
-
-*Special case: technically can do this with only 2 groups as well.*
-]
-
----
-class:primary
-# INFERENCE FOR ANOVA
-
-.pull-left[
-
-**Null:** The population means for all groups are equal.
-
-**Alternative:** At least one population mean differs.
-
-].pull-right[
-
-$H_O: \mu_\text{G1} = \mu_\text{G2} = \mu_\text{G3}=...=\mu_\text{Gk}$,
-
-$H_A:$ At least one $\mu_{i}$ differs.
-
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-dotplot-blank.PNG")
-```
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-dotplot-combined.PNG")
-```
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-dotplot-means.PNG")
-```
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-squares-graph.PNG")
-```
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-squares-calculations.PNG")
-```
-]
-
----
-class:primary
-# ANOVA
-
-.center[
-```{r, fig.cap = "", fig.alt = "", out.width = "80%"}
-knitr::include_graphics("images/anova-F-distribution.PNG")
-```
-]
++ One Proportions
++ Activity 8: One Proportion Chi-Square Test
++ Midterm Exam 2 Review (Ask big picture topic questions!)
 
 ---
 class: primary
-# Activities 
+# One Proportion
 
-[Activity 7A: Introduction to ANalysis Of VAriance](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/intro-to-anova/activity7a-intro-to-anova.html)
+---
+class: primary
+# Activity 8: One Proportion Chi-square Test 
 
-[Activity 7B: Hypothesis Testing, Decision Errors, & Multiple Comparisons](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/activity/multiple-comparisons-procedure/activity7b-multiple-comparison-procedure.html)
+[Activity 8: One Proportion Chi-square Test](https://earobinson95.github.io/stat218-calpoly/08-one-categorical-inference%2Bmidterm2/activity/activity8-one-prop-chisq.html)
 
+---
+class:primary
+# TO DO
 
 .pull-left[
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("../activity/intro-to-anova/images/freaky.jpg")
-```
++ Complete Activity 8: One Prop Chi-square 
+  + *check during class Monday, 11/14*
++ Final Project: Step 2
+  + *Due Sunday, November 13 at 11:59pm*
++ Study for Midterm Exam 1
+  + In class next *Wednesday, 11/9*
+  + Format & Practice Materials posted on Canvas
+  + Might want a basic calculator
+
 ].pull-right[
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("../activity/intro-to-anova/images/transcendents.jpeg")
-```
+**Office Hours This Week: 25-103**
+
++ Tuesday, 11/8 at 2:30pm - 4:30pm
++ Wednesday, 11/9 CANCELED
++ Thursday, 11/10 at 2:30pm - 3:30pm
 ]
 
 ---
-# Final Project
+class: inverse
+# WEDNESDAY, NOVEMBER 9, 2022 (Section 05)
 
-Your Final Project will focus on categorical variables, rather than the numerical variables that the Midterm Project focused on. 
-
-[Example Final Project writeup](https://earobinson95.github.io/stat218-calpoly/07-anova-one-cat-eda/final_project/example-project/example_writeup_evals.html)
-
-You will have time in class on Wednesday to work on this. You may want to wait until after Wednesday's lab to submit.
-
-**Note: I have broken up the project steps further and made this step due this Sunday!**
-
----
-class:primary
-# TO DO
-
-+ Complete Activity 7A: Introduction to ANOVA
-  + *check during class Wednesday, 11/2*
-+ Complete Activity 7B: Hypothesis Testing, Decision Errors, & Multiple Comparisons
-  + *check during class Wednesday, 11/2*
-+ Concept Check (Wednesdays)
-  + *due Wednesday, 11/2 at 2:10pm*
-+ Final Project: Step 1
-  + *due Sunday, 11/6 at 11:59pm*
++ **Group Midterm 2 Exam (40 minutes)**
+  + Group Canvas Assignment open from 2:10pm - 3:00pm
+  + RStudio: *Section05-Group-Midterm-Exam-2*
+  + Closed-book, closed-note, closed-internet (besides Rstudio and Canvas for accessing & turning in)
+  + Return R note cards to front of room when done
++ **Break (10-15 minutes)**
+  + Be back by 3:10pm for Individual Midterm Exam
++ **Individual Midterm Exam 2 (50 minutes)**
+  + Closed-book, closed-note, closed-internet
+  + Might want a basic calculator
+  + Turn in at 4:00pm
 
 ---
 class: inverse
-# WEDNESDAY, November 2, 2022
+# WEDNESDAY, NOVEMBER 9, 2022 (Section 06)
 
- Today we will...
-
-+ Visualizing and Summarizing Categorical Variables
-+ Lab 7: Categorical EDA
-
----
-# Visualizing & Summarizing Categorical Variables
-
-+ Categorical variables have levels / groups
-
-+ Use a bar-plots to visualize frequencies
-
-+ Use summary & contingency tables
-
-+ Can compare **proportions** across groups
-
----
-# One Categorical Variable
-
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("images/single-barplot.PNG")
-```
-
----
-# Two Categorical Variables
-
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("images/two-cat-barplot.PNG")
-```
-
----
-# Two Categorical Variables
-
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("images/two-cat-summary-table.PNG")
-```
-
----
-# Lab 7: Categorical EDA
-
-[Lab 7: Categorical EDA](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-categorical-eda.html)
-
-```{r, fig.cap = "", fig.alt = "", out.width = "40%"}
-knitr::include_graphics("images/myopia.jpg")
-```
++ **Group Midterm 2 Exam (40 minutes)**
+  + Group Canvas Assignment open from 4:10pm - 5:00pm
+  + RStudio: *Section06-Group-Midterm-Exam-2*
+  + Closed-book, closed-note, closed-internet (besides Rstudio and Canvas for accessing & turning in)
+  + Return R note cards to front of room when done
++ **Break (10-15 minutes)**
+  + Be back by 5:10pm for Individual Midterm Exam
++ **Individual Midterm Exam 2 (50 minutes)**
+  + Closed-book, closed-note, closed-internet
+  + Might want a basic calculator
+  + Turn in at 6:00pm
 
 ---
 class:primary
 # TO DO
 
-+ **Lab 7: Categorical EDA**
-  + Canvas Quiz & Completion turned in as groups
-  + *Due Friday, November 4 at 11:59pm*
-+ **Read Grappling with "Statistical Significance" for Monday**
-  + Reflection *due Monday, October 7 at 2:10pm*
-+ **Final Project: Step 1**
++ Final Project: Step 2
   + *Due Sunday, November 13 at 11:59pm*
-+ **Begin studying for Midterm Exam 2**
-  + *In class Wednesday, November 9*
-  + See canvas for "what to expect" and question bank
-
+  + Office Hours Thursday, 10/20 at 2:30pm - 3:30pm
   
-
++ Read Chapter 20 & 21
+  + concept check *due Monday, November 14 at 2:10pm*
+  

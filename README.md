@@ -74,12 +74,12 @@
 + [Lab 7: Myopia](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-categorical-eda.html)
   + [Github Repo](https://github.com/earobinson95/218-07-lab-categorical-eda)
   + [Feedback](https://earobinson95.github.io/218-07-lab-categorical-eda/218-07-lab-feedback.html)
-+ [Final Project: Step 1]()
++ Final Project: Step 1
 
 ## Week 8: One Proportion Chisquare Goodness-of-fit + Midterm 2
 
-+ Slides
-+ [Activity 8]
++ [Slides](https://earobinson95.github.io/stat218-calpoly/08-one-categorical-inference%2Bmidterm2/slides/index.html#1)
+[Activity 8: One Proportion Chi-square Test](https://earobinson95.github.io/stat218-calpoly/08-one-categorical-inference%2Bmidterm2/activity/activity8-one-prop-chisq.html)
 + Final Project: Step 2
 
 
