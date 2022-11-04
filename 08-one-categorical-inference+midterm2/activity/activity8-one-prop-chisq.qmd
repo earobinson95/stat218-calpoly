@@ -1,8 +1,8 @@
 ---
 title: "Activity 8: Revisiting the Martian Alphabet"
 subtitle: "One Proportion Goodness-of-fit"
-format: html
-# format: pdf
+# format: html
+format: pdf
 # format: docx
 ---
 
@@ -152,7 +152,7 @@ To carry out **one** simulation we need to do the following steps:
 
 Alright, after carrying out this process, I obtained the following distribution.
 
-```{r null-X2, cache = TRUE, out.width = "60%"}
+```{r null-X2, cache = TRUE, out.width = "100%"}
 
 get_null_X2 <- function(n){
   rerun(n, 
@@ -178,7 +178,8 @@ get_null_X2(1000) %>%
   geom_histogram() +
   labs(x = "Simulated X2 Statistic", 
        y = "Number of Simulations") +
-  theme_bw()
+  theme_bw() + 
+  scale_x_continuous(limits = c(-1,40), breaks = seq(0,35,5))
 
 ```
 
@@ -208,7 +209,7 @@ A $\chi^2$ distribution behaves similar to an F-distribution with two respects, 
 
 \vspace{0.25in}
 
-```{r chi-squared, out.width = "60%"}
+```{r chi-squared, out.width = "100%"}
 x <- c(0, seq(0.0000001, 40, 0.05)
        )
 DF <- c(2, 4, 9)
