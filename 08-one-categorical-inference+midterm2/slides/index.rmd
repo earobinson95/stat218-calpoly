@@ -125,13 +125,20 @@ class:inverse
 
 ---
 class: primary
-# One Proportion
+# Chi-Squared Goodness-of-fit Test
+
+<br><br><br>
+$$\chi^2_{\text{# outcomes - 1}}=\sum_{\text{outcomes}}\frac{\text{(observed count - expected count)}^2}{\text{expected count}}$$
 
 ---
 class: primary
 # Activity 8: One Proportion Chi-square Test 
 
 [Activity 8: One Proportion Chi-square Test](https://earobinson95.github.io/stat218-calpoly/08-one-categorical-inference%2Bmidterm2/activity/activity8-one-prop-chisq.html)
+
+```{r}
+knitr::include_graphics("../activity/images/Bouba-Kiki.png")
+```
 
 ---
 class:primary
