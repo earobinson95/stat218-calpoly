@@ -1,9 +1,12 @@
 ---
-title: 'Chi-Square Test of Homogeneity: The Good Samaritan'
-author: "Your name: __________"
-#format: pdf
-format: docx
-editor: visual
+title: 'Activity 9B: The Good Samaritan'
+subtitle: 'Chi-Square Test of Homogeneity'
+# format: pdf
+# format: docx
+format:
+ html:
+   self-contained: true
+editor: source
 execute: 
   warning: false
   message: false
@@ -45,25 +48,17 @@ The researchers were interested in investigating whether these data provide evid
 ```{r data}
 #| include: false
 
-good_sam <- read_csv(
-  here::here(
-    "two_days",
-    "Week 9 - Two Cat Inference",
-    "activity", 
-    "day2_homogeneity", 
-    "data", 
-    "goodsam.csv")
-  )
+good_sam <- read_csv("data/goodsam.csv")
 ```
 
-\newpage
+\vspace{0.25cm}
 
 A preview of the dataset is shown below:
 
 ```{r data-preview}
 #| echo: false
-good_sam |> 
-  slice_sample(n = 10) |> 
+good_sam %>% 
+  slice_sample(n = 10) %>% 
   knitr::kable()
 ```
 
@@ -81,12 +76,12 @@ good_sam |>
 
 This is an \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (experiment / observational study) because \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (hurry or no hurry / help or no help) \_\_\_\_\_\_\_ (was / was not) randomly \_\_\_\_\_\_\_\_\_\_\_\_ (assigned / selected).
 
-\newpage
+\vspace{0.25cm}
 
 4.  Put an X in the box that represents the appropriate scope of inference for this study.
 
 |                                              | Random / Representative Sample | No Random / Representative Sample |
-|----------------------------------------------|--------------------------------|-----------------------------------|
+|-----------------------------|---------------------|-----------------------|
 | No Random Assignment of Explanatory Variable |                                |                                   |
 |                                              |                                |                                   |
 | Random Assignment of Explanatory Variable    |                                |                                   |
@@ -109,7 +104,7 @@ In order to set up our hypotheses, we need to express this research question in 
 
 For a proportion, we write the sample proportion as $\hat{p}$ and the population proportion as $\pi$. In general, we will be comparing the proportion of observational units that are labeled as a "success" in the response variable. Here, a "success" would be a person choosing to "Help" the homeless person.
 
-\newpage
+\vspace{0.25cm}
 
 5.  Fill in the details regarding the two parameters of interest for this study.
 
@@ -158,11 +153,11 @@ Similar to what we did yesterday, we can create a two-way table summarizing the 
 
 ```{r observed-counts}
 #| echo: false
-good_sam |> 
-  count(Behavior, Condition) |> 
+good_sam %>% 
+  count(Behavior, Condition) %>% 
   pivot_wider(names_from = Condition, 
-              values_from = n) |> 
-  adorn_totals(where = c("row", "col")) |> 
+              values_from = n) %>% 
+  adorn_totals(where = c("row", "col")) %>% 
   knitr::kable()
 ```
 
@@ -239,7 +234,7 @@ Let's see which option is a better choice.
 
 15. Based on your table of expected counts, which method should you use for approximating the sampling distribution? Why?
 
-\newpage
+\vspace{0.25cm}
 
 ## Theory-based Null Distribution
 
@@ -280,7 +275,7 @@ Running the code you just wrote in `R` gave me a p-value of approximately `r rou
 
 -   Scope of inference
 
-\newpage
+\vspace{0.25cm}
 
 ## Simulated / Permuted Null Distribution
 
@@ -325,16 +320,16 @@ Here's a table of one permuted / simulated dataset:
 ```{r permuted-data-table}
 #| echo: false
 
-good_sam |> 
+good_sam %>% 
   specify(response = Behavior, 
           explanatory = Condition, 
-          success = "Help") |> 
-  hypothesise(null = "independence") |> 
-  generate(reps = 1, type = "permute") |> 
-  group_by(Condition) |> 
-  count(Behavior) |> 
+          success = "Help") %>% 
+  hypothesise(null = "independence") %>% 
+  generate(reps = 1, type = "permute") %>% 
+  group_by(Condition) %>% 
+  count(Behavior) %>% 
   pivot_wider(names_from = Condition, 
-              values_from = n) |> 
+              values_from = n) %>% 
   adorn_totals(where = c("row", "col"))
 ```
 
@@ -347,13 +342,13 @@ Alright, after carrying out this process, I obtained the following distribution.
 ```{r null-dist}
 #| echo: false
 
-good_sam |> 
+good_sam %>% 
   specify(response = Behavior, 
           explanatory = Condition, 
-          success = "Help") |> 
-  hypothesise(null = "independence") |> 
-  generate(reps = 1000, type = "permute") |> 
-  calculate(stat = "Chisq") |> 
+          success = "Help") %>% 
+  hypothesise(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "Chisq") %>% 
   visualize( ) + 
   labs(title = " ", 
             x = "Simulated X-Squared Statistics", 
