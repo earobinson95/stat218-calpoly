@@ -1,0 +1,254 @@
+---
+title: "Stat 218: Week 9"
+author: "Dr. Emily Robinson"
+date: "California Polytechnic State University"
+output:
+  xaringan::moon_reader:
+    seal: false
+    includes:
+      after_body:
+        "js-addins.html"
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: ["default", "metropolis-fonts", "metropolis" ,"css/modal.css", "css/sizeformat.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightlines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class:title-slide-custom
+
+<style>
+p.caption {
+  font-size: 0.8em;
+}
+</style>
+
+```{r, child = "style.Rmd"}
+```
+
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+
+# Packages
+library(emoji)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(iconr)
+library(fontawesome)
+library(readr)
+library(patchwork)
+
+# R markdown options
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      cache = FALSE,
+                      fig.align = 'center',
+                      dpi = 300)
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = '')
+```
+
+```{r, include = F, eval = T, cache = F}
+clean_file_name <- function(x) {
+  basename(x) %>% str_remove("\\..*?$") %>% str_remove_all("[^[A-z0-9_]]")
+}
+img_modal <- function(src, alt = "", id = clean_file_name(src), other = "") {
+  
+  other_arg <- paste0("'", as.character(other), "'") %>%
+    paste(names(other), ., sep = "=") %>%
+    paste(collapse = " ")
+  
+  js <- glue::glue("<script>
+        /* Get the modal*/
+          var modal{id} = document.getElementById('modal{id}');
+        /* Get the image and insert it inside the modal - use its 'alt' text as a caption*/
+          var img{id} = document.getElementById('img{id}');
+          var modalImg{id} = document.getElementById('imgmodal{id}');
+          var captionText{id} = document.getElementById('caption{id}');
+          img{id}.onclick = function(){{
+            modal{id}.style.display = 'block';
+            modalImg{id}.src = this.src;
+            captionText{id}.innerHTML = this.alt;
+          }}
+          /* When the user clicks on the modalImg, close it*/
+          modalImg{id}.onclick = function() {{
+            modal{id}.style.display = 'none';
+          }}
+</script>")
+  
+  html <- glue::glue(
+     " <!-- Trigger the Modal -->
+<img id='img{id}' src='{src}' alt='{alt}' {other_arg}>
+<!-- The Modal -->
+<div id='modal{id}' class='modal'>
+  <!-- Modal Content (The Image) -->
+  <img class='modal-content' id='imgmodal{id}'>
+  <!-- Modal Caption (Image Text) -->
+  <div id='caption{id}' class='modal-caption'></div>
+</div>
+"
+  )
+  write(js, file = "js-addins.html", append = T)
+  return(html)
+}
+# Clean the file out at the start of the compilation
+write("", file = "js-addins.html")
+```
+
+<br><br>
+# Week 9: Two-way Chi-Square Tests
+## Stat 218: Applied Statistics for the Life Sciences
+### Dr. Robinson
+#### California Polytechnic State University - San Luis Obispo
+<!-- ##### `r fa("github", fill = "black")` [Course GitHub Webpage](https://earobinson95.github.io/stat218-calpoly) -->
+
+---
+class:inverse
+# MONDAY, NOVEMBER 14 2022
+
+ Today we will...
+
++ Reminder of Chi-square
++ Check Activity 8 for Completion & Engagement
++ Activity 9A: Fatal Injuries in the Iliad
++ Activity 9B: Good Samaritan
+
+---
+class: primary
+# TWO-CATEGORICAL VARIABLES
+
+```{r, out.width = "100%"}
+knitr::include_graphics("images/two-cat-barplot.PNG")
+```
+
+---
+class: primary
+# EXPECTED COUNTS FOR TWO-WAY TABLES
+
+.pull-left[
+```{r, out.width = "100%"}
+knitr::include_graphics("images/two-cat-summary-table.PNG")
+```
+].pull-right[
+The expected count for a cell is the $$\frac{\text{row total count} \times \text{column total count}}{\text{total sample size}}$$
+]
+
+---
+class: primary
+# CHI-SQUARED STATISTIC
+
+For each cell, calculate
+
+
+$$\frac{\text{(observed count - expected count)}^2}{\text{expected count}}$$
+
+Then add them all together.
+
+---
+class: primary
+# CONDITIONS FOR A CHI-SQUARE TEST
+
+1. Independent Observations
+
+2. Large sample sizes
++ Expected count at least 5 for each cell
+
+---
+class: primary
+# CHI-SQUARE TEST OF **INDEPENDENCE**
+
+Null: There **is no** association between the EXPLANATORY VARIABLE and RESPONSE VARIABLE.
+
+Alternative: There **is an** association between the EXPLANATORY VARIABLE and RESPONSE VARIABLE.
+
+
+---
+class: primary
+# Activity 9A: Fatal Injuries and the Iliad 
+
+[Activity 9A: Fatal Injuries and the Iliad](https://earobinson95.github.io/stat218-calpoly/09-two-categorical-inference/activity/activity9a-fatal-illiad/activity9a_fatal_illiad.html)
+
+```{r, out.width = "25%"}
+knitr::include_graphics("images/iliad.jfif")
+```
+
+.small[image source: https://www.quarto.com/books/9780785841814/the-iliad]
+
+---
+class: primary
+# SCOPE OF INFERENCE
+
+<br>
+
+|                                              | Random / Representative Sample | No Random / Representative Sample |
+|-----------------------------|---------------------|-----------------------|
+| No Random Assignment of Explanatory Variable |                                |                                   |
+|                                              |                                |                                   |
+| Random Assignment of Explanatory Variable    |                                |                                   |
+
+---
+class: primary
+# CHI-SQUARE TEST OF **HOMOGENEITY**
+
+**Parameter** $\pi_{\text{Group } i}$: The true proportion of *observations* in *group xxx* with *outcome xxx*.
+
+Null: The true proportions are all equal $\pi_{G1} = \pi_{G2} = \cdot \cdot \cdot = \pi_{Gk}$
+
+Alternative: At least one true proportion $(\pi_i)$ differs
+
+---
+class: primary
+# Activity 9B: Good Samaritan
+
+[Activity 9A: Good Samaritan](https://earobinson95.github.io/stat218-calpoly/09-two-categorical-inference/activity/activity9b-good-samaritan/activity9b_good_samaritan.html)
+
+```{r, out.width = "50%"}
+knitr::include_graphics("images/helping-hands.jpg")
+```
+
+.small[image source: https://gracetruth.blog/2018/05/06/what-are-the-best-ways-of-helping-people/]
+
+---
+class:primary
+# TO DO
+
+.pull-left[
++ Complete Activity 9A: Fatal Injuries and the Iliad
+  + *check during class Monday, 11/16*
++ Complete Activity 9B: Good Samaritan
+  + *check during class Monday, 11/16*
++ Final Project: Step 3
+  + *Due Sunday, November 20 at 11:59pm*
+
+---
+class: inverse
+# WEDNESDAY, NOVEMBER 16, 2022 (Section 05)
+
+
+---
+class:primary
+# TO DO
+
++ Final Project: Step 3
+  + *Due Sunday, November 20 at 11:59pm*
+  + Office Hours Thursday, 10/20 at 2:30pm - 3:30pm
+
+**Coming up...**
+
++ Final Project: Step 4
+  + *Due Wednesday, November 30 at 11:59pm*
+
++ Final Exam
+  + Group - In class November 30
+  + Individual - Saturday, Dec. 3
