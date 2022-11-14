@@ -164,6 +164,8 @@ class: primary
 2. Large sample sizes
 + Expected count at least 5 for each cell
 
+Follows a $\chi^2$ test statistic where degrees of freedom (df) are $(rows-1)(columns - 1)$.
+
 ---
 class: primary
 # CHI-SQUARE TEST OF **INDEPENDENCE**
