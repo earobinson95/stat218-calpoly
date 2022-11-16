@@ -225,7 +225,6 @@ knitr::include_graphics("images/helping-hands.jpg")
 class:primary
 # TO DO
 
-.pull-left[
 + Complete Activity 9A: Fatal Injuries and the Iliad
   + *check during class Monday, 11/16*
 + Complete Activity 9B: Good Samaritan
@@ -235,8 +234,12 @@ class:primary
 
 ---
 class: inverse
-# WEDNESDAY, NOVEMBER 16, 2022 (Section 05)
+# WEDNESDAY, NOVEMBER 16, 2022
 
+ Today we will...
+ 
+ + Lab 9: Two-way Chi-square Test
+ + Return Exam 2
 
 ---
 class:primary
@@ -253,4 +256,4 @@ class:primary
 
 + Final Exam
   + Group - In class November 30
-  + Individual - Saturday, Dec. 3
+  + Individual - Saturday, Dec. 3 from 10:10am - 1pm
