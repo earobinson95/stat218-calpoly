@@ -37,7 +37,7 @@ question!
 | Section     | Time                   |  Room            |
 |-------------|------------------------|------------------
 | Section 07  |7:10am - 8:00am `r fontawesome::fa("coffee")` `r fontawesome::fa("coffee")` `r fontawesome::fa("coffee")` | 186 - C202  |
-| Section 08  | 8:10am - 8:00am `r fontawesome::fa("coffee")` `r fontawesome::fa("coffee")` | 186 - C202 |
+| Section 08  | 8:10am - 9:00am `r fontawesome::fa("coffee")` `r fontawesome::fa("coffee")` | 186 - C202 |
 | Section 09  | 9:10am - 10:00am `r fontawesome::fa("coffee")` | 014 - 0251 |
 
 **Office Hours** are held in my office (25-103) during the following times:
