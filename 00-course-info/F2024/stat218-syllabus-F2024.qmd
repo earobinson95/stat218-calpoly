@@ -52,9 +52,8 @@ Introducing Faculty Office Hours
 
 | Day       | Time                   |
 |-----------|------------------------|
-| Monday    | 2:10pm - 4:00pm        |
-| Wednesday | 1:10pm - 2:00pm        |
-| Thursday  | 1:10pm - 2:00pm        |
+| Monday    | 10:10pm - 12:00pm      |
+| Thursday  | 12:10pm - 2:00pm       |
 
 
 Note that office hours are not just for when you have content questions. Stop by to introduce yourself, ask questions about the broader field of statistics, or share what you are working on!
