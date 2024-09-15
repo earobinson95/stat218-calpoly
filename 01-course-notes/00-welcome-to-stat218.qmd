@@ -41,7 +41,7 @@ Sometimes data is collected for one reason and used for another
 -   Paying with a credit card at a gas station
 -   ...and more!
 
-1.  Make a list of all the places you left "data exhaust" this week ([MentiMeter Poll](https://www.menti.com/al2rkt2fv58u)).
+1.  Make a list of all the places you left "data exhaust" this week ([MentiMeter Poll](https://www.menti.com/alhwembeeyz3)).
 
 ```{r}
 #| out-width: 10%
@@ -53,93 +53,11 @@ knitr::include_graphics("00-images/data-exhaust-padlet-qr.png")
 
 ## Introduce Yourself!
 
-1.  What are you currently obsessed with? For me, it's pickleball and nectarines!
+1.  What are you currently obsessed with? For me, it's pickleball and cherry tomatoes!
 
 ## What to Expect
 
 ... let's look at the syllabus together!
-
-## Working in Teams `r fontawesome::fa("people-group")`
-
-Working in teams is beneficial for every student, but only if each person meaningfully engages in the discussions being had. Each of you will work in a group of 3-4 students to discuss the course concepts and complete the course activities and labs.
-
-To ensure the group's work is divided equitably each week, your team will be rotating through a set of group roles. This ensures one person doesn't act as the group leader for multiple class sessions, while someone else is always the note taker. You will circulate through the following roles each week:
-
-+---------------------------------------+-----------------------------------------------------+
-| Role                                  | Responsibilities                                    |
-+=======================================+=====================================================+
-| **Facilitator**                       | Responsible for organizing the team work: making    |
-|                                       |                                                     |
-| *Manages team progress through tasks* | sure all roles were assigned and clear, scheduling  |
-|                                       |                                                     |
-|                                       | meetings, coordinating, leading discussion of       |
-|                                       |                                                     |
-|                                       | assignment problems.                                |
-+---------------------------------------+-----------------------------------------------------+
-|                                       |                                                     |
-+---------------------------------------+-----------------------------------------------------+
-| **Recorder**                          | Responsible to make sure everyone is recording      |
-|                                       |                                                     |
-| *Manages communications*              | ideas. In lab assignments, responsible for          |
-|                                       |                                                     |
-|                                       | collecting, organizing, and recording answers to    |
-|                                       |                                                     |
-|                                       | the assignment during the discussions, compiling    |
-|                                       |                                                     |
-|                                       | the summary of the answers discussed, soliciting    |
-|                                       |                                                     |
-|                                       | feedback on summaries from other group              |
-|                                       |                                                     |
-|                                       | members, and submitting the final version of the    |
-|                                       |                                                     |
-|                                       | lab assignment.                                     |
-+---------------------------------------+-----------------------------------------------------+
-|                                       |                                                     |
-+---------------------------------------+-----------------------------------------------------+
-| **Resource Manager**                  | Responsible for pulling up course notes and other   |
-|                                       |                                                     |
-| *Manages team resources*              | useful resources (e.g., R note cards, applets,      |
-|                                       |                                                     |
-|                                       | homework assignments, etc.). Contacts               |
-|                                       |                                                     |
-|                                       | professor/TA for *group questions only*. Ensures    |
-|                                       |                                                     |
-|                                       | everyone understands team questions. Collects       |
-|                                       |                                                     |
-|                                       | team supplies and organizes clean-up.               |
-+---------------------------------------+-----------------------------------------------------+
-|                                       |                                                     |
-+---------------------------------------+-----------------------------------------------------+
-| **Team Captain**                      | Responsible for making sure everyone has a          |
-|                                       |                                                     |
-| *Manages team participation*          | chance to contribute, asking quiet team members     |
-|                                       |                                                     |
-|                                       | to speak up, asking loud team members to listen     |
-|                                       |                                                     |
-|                                       | to others, and bringing the conversation back to    |
-|                                       |                                                     |
-|                                       | the lab assignment if it deviates.                  |
-+---------------------------------------+-----------------------------------------------------+
-
-If you are in a group of *three*, the Facilitator also acts as the Team Captain\*.
-
-1.  Please find your team members and introduce yourself by sharing something about your name.
-
-\vspace{0.1in}
-
-## Suggested Class Norms
-
--   Share talk time
--   Listen to understand
--   Everyone has expertise
--   Be present\*
--   Critique ideas, not people
--   Embrace discomfort
--   Treat everyone with respect
--   Normalize time to think / process
--   (Others? Changes?)
-
-\vspace{0.2in}
 
 ## Example 0.1: Question the Arson `r fontawesome::fa("fire")`
 
@@ -208,7 +126,7 @@ The suspect convicted of the crime was found to have answered 13 of the 16 quest
 
 -   0 correct?
 
-## Example 0.2: Can our class speak Martian?
+## Example 0.2: Can our class speak Martian?  ([MentiMeter Poll](https://www.menti.com/aljew8ngrbhs))
 
 When shown the two Martian letters, Kiki and Bouba, write down whether you think Bouba is on the left or on the right.
 
@@ -226,7 +144,7 @@ knitr::include_graphics("00-images/bouba-kiki.png")
 
 \vspace{0.15in}
 
-3.  How many students in the entire class were correct in identifying Bouba? ([MentiMeter Poll 1](https://www.menti.com/alguueyyhrs3))
+3.  How many students in the entire class were correct in identifying Bouba?
 
 \vspace{0.15in}
 
@@ -254,7 +172,7 @@ knitr::include_graphics("00-images/bouba-kiki.png")
 
 \vspace{0.1in}
 
-8.  Each student should flip their coin again. How many students "guessed" correctly in the second class simulation? (Sketch your results in Q10) ([MentiMeter Poll 2](https://www.menti.com/al3ms4pzma2g))
+8.  Each student should flip their coin again. How many students "guessed" correctly in the second class simulation? (Sketch your results in Q10)
 
 \vspace{0.1in}
 
@@ -318,3 +236,71 @@ The synesthesia part begins at roughly 17:30 minutes: <https://www.ted.com/talks
 :::
 
 \newpage
+
+## Lab Days: Working in Teams `r fontawesome::fa("people-group")`
+
+Working in teams is beneficial for every student, but only if each person meaningfully engages in the discussions being had. Each of you will work in a group of 3-4 students to discuss the course concepts and complete the course activities and labs.
+
+To ensure the group's work is divided equitably each week, your team will be rotating through a set of group roles. This ensures one person doesn't act as the group leader for multiple class sessions, while someone else is always the note taker. You will circulate through the following roles each week:
+
++---------------------------------------+-----------------------------------------------------+
+| Role                                  | Responsibilities                                    |
++=======================================+=====================================================+
+| **Facilitator**                       | Responsible for organizing the team work: making    |
+|                                       |                                                     |
+| *Manages team progress through tasks* | sure all roles were assigned and clear, scheduling  |
+|                                       |                                                     |
+|                                       | meetings, coordinating, leading discussion of       |
+|                                       |                                                     |
+|                                       | assignment problems.                                |
++---------------------------------------+-----------------------------------------------------+
+|                                       |                                                     |
++---------------------------------------+-----------------------------------------------------+
+| **Recorder**                          | Responsible to make sure everyone is recording      |
+|                                       |                                                     |
+| *Manages communications*              | ideas. In lab assignments, responsible for          |
+|                                       |                                                     |
+|                                       | collecting, organizing, and recording answers to    |
+|                                       |                                                     |
+|                                       | the assignment during the discussions, compiling    |
+|                                       |                                                     |
+|                                       | the summary of the answers discussed, soliciting    |
+|                                       |                                                     |
+|                                       | feedback on summaries from other group              |
+|                                       |                                                     |
+|                                       | members, and submitting the final version of the    |
+|                                       |                                                     |
+|                                       | lab assignment.                                     |
++---------------------------------------+-----------------------------------------------------+
+|                                       |                                                     |
++---------------------------------------+-----------------------------------------------------+
+| **Resource Manager**                  | Responsible for pulling up course notes and other   |
+|                                       |                                                     |
+| *Manages team resources*              | useful resources (e.g., R note cards, applets,      |
+|                                       |                                                     |
+|                                       | homework assignments, etc.). Contacts               |
+|                                       |                                                     |
+|                                       | professor/TA for *group questions only*. Ensures    |
+|                                       |                                                     |
+|                                       | everyone understands team questions. Collects       |
+|                                       |                                                     |
+|                                       | team supplies and organizes clean-up.               |
++---------------------------------------+-----------------------------------------------------+
+|                                       |                                                     |
++---------------------------------------+-----------------------------------------------------+
+| **Team Captain**                      | Responsible for making sure everyone has a          |
+|                                       |                                                     |
+| *Manages team participation*          | chance to contribute, asking quiet team members     |
+|                                       |                                                     |
+|                                       | to speak up, asking loud team members to listen     |
+|                                       |                                                     |
+|                                       | to others, and bringing the conversation back to    |
+|                                       |                                                     |
+|                                       | the lab assignment if it deviates.                  |
++---------------------------------------+-----------------------------------------------------+
+
+If you are in a group of *three*, the Facilitator also acts as the Team Captain\*.
+
+1.  Please find your team members and introduce yourself by sharing something about your name.
+
+\vspace{0.1in}
