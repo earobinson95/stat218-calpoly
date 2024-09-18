@@ -126,7 +126,7 @@ The suspect convicted of the crime was found to have answered 13 of the 16 quest
 
 -   0 correct?
 
-## Example 0.2: Can our class speak Martian?  ([MentiMeter Poll](https://www.menti.com/aljew8ngrbhs))
+## Example 0.2: Can our class speak Martian?  (Peardeck Poll -- joinpd.com)
 
 When shown the two Martian letters, Kiki and Bouba, write down whether you think Bouba is on the left or on the right.
 

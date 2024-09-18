@@ -35,9 +35,12 @@ format:
 
 + Example 0.2: Can our class speak Martian?
 
-## [Kiki & Bouba](https://www.mentimeter.com/app/presentation/n/alaswxdk8spvtwbvbx7we2hspi94qzoj/edit?question=k7qss1ea8ryn)
+## [Kiki & Bouba](https://app.peardeck.com/home)
 
-<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alaswxdk8spvtwbvbx7we2hspi94qzoj/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+:::callout-note
+1. Visit **joinpd.com**
+2. Type in the code on the board
+:::
 
 ## To do:
 

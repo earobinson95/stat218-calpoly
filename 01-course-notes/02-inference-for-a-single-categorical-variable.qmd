@@ -690,7 +690,7 @@ acupuncture_binom |>
 
 \vspace{0.5in}
 
-#### Approach 3: Normal Approximation
+#### Approach 3: Normal Approximation (https://shiny.stat.ncsu.edu/jbpost2/NormalApproximation/)
 
 With the previous two approaches, we were simply trying to understand the basic idea behind a confidence interval.  A statistician would probably not use Simulation or the binomial distribution in the same way that we have just illustrated to calculate the endpoints for this confidence interval (think about some reasons why not).
 
