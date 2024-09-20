@@ -102,6 +102,8 @@ Before we look at results, let's discuss some predictions first! With your group
 
 Let's see how everyone did!
 
+\newpage
+
 The suspect convicted of the crime was found to have answered 13 of the 16 questions correct. The plot on the left displays the results from the convicted arson suspect. Sketch your results in the plot on the right.
 
 ![](00-images/arson-sketch.png)
@@ -126,6 +128,8 @@ The suspect convicted of the crime was found to have answered 13 of the 16 quest
 
 -   0 correct?
 
+\newpage
+
 ## Example 0.2: Can our class speak Martian?  (Peardeck Poll -- joinpd.com)
 
 When shown the two Martian letters, Kiki and Bouba, write down whether you think Bouba is on the left or on the right.
@@ -144,7 +148,7 @@ knitr::include_graphics("00-images/bouba-kiki.png")
 
 \vspace{0.15in}
 
-3.  How many students in the entire class were correct in identifying Bouba?
+3.  How many students in the entire class were correct in identifying Bouba?(Sketch the *observed* class results in Q10)
 
 \vspace{0.15in}
 
@@ -188,6 +192,8 @@ knitr::include_graphics("00-images/bouba-kiki.png")
 
 \vspace{0.6in}
 
+\newpage
+
 12. Let's display our results in a different type of graph. Create a *dot-plot* to display the results of the three simulations compared to the observed class results.
 
 ```{r}
@@ -212,6 +218,8 @@ We still only have a few simulations to compare our class data to. It would be m
 Carry out the simulation study 100 times overall, keeping track of the probability of employees chosen for management that were female on each of the simulated experiments. Sketch the 100 simulated "guessing" class results on the dot-plot in Q12.
 
 > Number of repetitions: \_\_\_\_\_
+
+\newpage
 
 14. Is your class particularly good or bad at Martian? Use the plot above to explain your answer.
 
