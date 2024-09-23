@@ -172,6 +172,11 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 \vspace{0.8in}
 
+::: callout-note
+## Definition
+**Confounding Variable:** characteristics other than the variable of interest (e.g., helper/hinderer) that may be related to the outcome (e.g., choice).
+:::
+
 2. Identify the following in the context of this example:
 
 + Population of interest:
@@ -310,7 +315,7 @@ knitr::include_graphics("01-images/women-managerial-training-applet.png")
 
 ## Example 1.4:  Font Preferences
 
-Researchers carried out a marketing field study in order to study preferences of potential consumers in the U.S.  They used silver cardboard boxes to contain chocolate truffles in a forced choice task. All of the box tops were decorated in the same way, and a white label was attached to each bearing the name *“Indulgence”* in either Signet font or Salem font.  The text on each label was approximately equal-sized.  For each of the 40 subjects in the study, one box labeled with the Signet font and another box labeled with the Salem font were placed on a tray, and the subject was simply asked to choose a truffle from one of the two boxes that were on the tray in front of them.  
+Researchers carried out a marketing field study in order to study preferences of potential consumers in the U.S.  They used silver cardboard boxes to contain chocolate truffles in a forced choice task. All of the box tops were decorated in the same way, and a white label was attached to each bearing the name *“Indulgence”* in either Signet font or Salem font.  The text on each label was approximately equal-sized.  For each of the 40 subjects in the study, one box labeled with the Signet font and another box labeled with the Salem font were placed on a tray, and the subject was simply asked to choose a truffle from one of the two boxes that were on the tray in front of them. The researchers randomized the order in which the fonts were presented to each participant.
 
 ```{r}
 #| fig-align: center
