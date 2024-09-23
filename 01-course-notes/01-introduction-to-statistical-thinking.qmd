@@ -11,7 +11,7 @@ format:
           \usepackage{fancyhdr}
           \pagestyle{fancy}
           \fancyhf{}
-          \fancyhead[R]{Chapter 0: Welcome to Stat 218 - Applied Statistics for Life Science}
+          \fancyhead[R]{Chapter 1: Introduction to Statistical Thinking and Data}
           \fancyfoot[C]{\thepage}
   docx:
     toc: false
@@ -22,7 +22,7 @@ execute:
   echo: false
 ---
 
-In last week's notes, we encountered basic examples that required us to think statistically in order to investigate a question of interest. Before we move on to slightly more complex examples, we will discuss some basic definitions that will be used throughout the semester.
+In the previous notes, we encountered basic examples that required us to think statistically in order to investigate a question of interest. Before we move on to slightly more complex examples, we will discuss some basic definitions that will be used throughout the semester.
 
 ::: callout-note
 ## DEFINITIONS
@@ -46,6 +46,13 @@ The population is often so big that obtaining all information about its elements
 -   **Observation:** The collection of measurements from a particular unit in a sample.
 
 -   **Variable:** Any measurable characteristic of an observation.
+
+```{r}
+#| fig-align: center
+#| echo: false
+#| out-width: 80%
+knitr::include_graphics("01-images//population-sample.png")
+```
 :::
 
 ## Example 1.1 Alleged Hearing Loss
@@ -66,7 +73,7 @@ The subject was correct on 7 out of 20 trials when they were asked to identify w
 
 -   Sample:
 
-\vspace{0.3in}
+\vspace{1.2in}
 
 -   Variable of interest:
 
@@ -81,6 +88,8 @@ Let's carry out a simulation study to determine whether this patient who was sus
 An applet has been constructed so that you can conduct your own repeated trials of this hearing experiment: <http://course1.winona.edu/cmalone/afc_hearing/>.
 
 Recall that the goal is to mimic the outcomes of a deaf person.  Therefore, when conducting this experiment, you should mute the speakers on your computer.  
+
+\newpage
 
 2. Conduct 20 repeated trials of the hearing experiment. Record the number of correct results below.
 
@@ -132,6 +141,8 @@ tidyr::tibble("Trial" = rep(seq(1,20)),
                 full_width = FALSE)
 ```
 
+\newpage
+
 There might be extra variables collected on each observation and included in the data set than just our variable of interest. For example, we might have collected the number of seconds it took for the subject to answer.
 
 ```{r}
@@ -149,11 +160,9 @@ tidyr::tibble("Trial" = rep(seq(1,20)),
 
 ## Example 1.2: Helper vs. Hinderer?
 
-<https://www.youtube.com/watch?v=j4n_Qh4Gg9Q>
-
-<https://www.youtube.com/watch?v=ExcxDMEHlHY>
-
-<https://www.youtube.com/watch?v=NsWICFLt_-g>
++ Helper Triangle: <https://www.youtube.com/watch?v=j4n_Qh4Gg9Q>
++ Hinderer Square: <https://www.youtube.com/watch?v=ExcxDMEHlHY>
++ 10-month old choice: <https://www.youtube.com/watch?v=NsWICFLt_-g>
 
 In a study reported in a November 2007 issue of Nature, researchers investigated whether infants take into account an individual’s actions towards others in evaluating that individual as appealing or aversive, perhaps laying the foundation for social interaction [@hamlin2007].  In one component of the study, sixteen 10-month-old infants were shown a “climber” character (a piece of wood with “google” eyes glued onto it) that could not make it up a hill in two tries.  Then they were shown two scenarios for the climber’s next try, one where the climber was pushed to the top of the hill by another character (“helper”) and one where the climber was pushed back down the hill by another character (“hinderer”).  The infant was alternately shown these two scenarios several times.  Then the child was presented with both pieces of wood (the helper and the hinderer) and asked to pick one to play with. The color and shape and order (left/right) of the toys were varied and balanced out among the 16 infants [@holcomb2010introducing].
 
@@ -171,7 +180,7 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 + Sample:
 
-\vspace{0.3in}
+\vspace{1.2in}
 
 + Variable of interest:
 
@@ -180,6 +189,8 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 + Data type:
 
 \vspace{0.3in}
+
+\newpage
 
 + How would you store this information in tidy data format? Think about what your rows and columns represent.
 
@@ -234,11 +245,13 @@ knitr::include_graphics("01-images/helper-hinderer-applet-graph.png")
 
 ## Example 1.3:  Are Women Passed Over for Managerial Training?
 
-This example involves possible discrimination against female employees.  Suppose a large supermarket chain occasionally selects employees to receive management training.  A group of female employees has claimed that they are less likely than male employees of similar qualifications to be chosen for this training.  
+This example involves possible discrimination against women employees. Suppose a large supermarket chain occasionally selects employees to receive management training.  A group of women employees has claimed that they are less likely than male employees of similar qualifications to be chosen for this training.
 
-The large employee pool that can be tapped for management training is 60% female and 40% male; however, since the management program began, 9 of the 20 employees chosen for management training were female (only 45%).  Do the female employees have a valid statistical argument that they are being discriminated against? 
+The large employee pool that can be tapped for management training is 60% women and 40% male; however, since the management program began, 9 of the 20 employees chosen for management training were women (only 45%).  Do the women employees have a valid statistical argument that they are being discriminated against? 
 
-`r fontawesome::fa("question")`  **Research Question:** *Is there statistical evidence for sex discrimination against females?*
+*It is important to acknowledge that the data collected in this study inherently assumes all employees identify as either female or male. However, we recognize that this depiction does not mirror the diverse realities of all individuals.*
+
+`r fontawesome::fa("question")`  **Research Question:** *Is there statistical evidence for sex discrimination against women?*
 
 1.	Identify the following in the context of this example:
 
@@ -248,7 +261,7 @@ The large employee pool that can be tapped for management training is 60% female
 
 + Sample:
 
-\vspace{0.5in}
+\vspace{1.2in}
 
 + Variable of interest:
 
@@ -317,7 +330,7 @@ The researchers aren’t sure which font is more appropriate for the label and s
 
 + Sample:
 
-\vspace{0.5in}
+\vspace{1.2in}
 
 + Variable of interest:
 
