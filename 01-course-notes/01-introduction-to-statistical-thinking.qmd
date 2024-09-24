@@ -173,7 +173,7 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 \vspace{0.8in}
 
 ::: callout-note
-## Definition
+## DEFINITION
 **Confounding Variable:** characteristics other than the variable of interest (e.g., helper/hinderer) that may be related to the outcome (e.g., choice).
 :::
 
@@ -250,11 +250,13 @@ knitr::include_graphics("01-images/helper-hinderer-applet-graph.png")
 
 ## Example 1.3:  Are Women Passed Over for Managerial Training?
 
-This example involves possible discrimination against women employees. Suppose a large supermarket chain occasionally selects employees to receive management training.  A group of women employees has claimed that they are less likely than male employees of similar qualifications to be chosen for this training.
+::: callout-warning
+*It is important to acknowledge that the data collected in this study inherently assumes all employees identify as either woman or man. However, we recognize that this depiction does not mirror the diverse realities of all individuals.*
+:::
 
-The large employee pool that can be tapped for management training is 60% women and 40% male; however, since the management program began, 9 of the 20 employees chosen for management training were women (only 45%).  Do the women employees have a valid statistical argument that they are being discriminated against? 
+This example involves possible discrimination against women employees. Suppose a large supermarket chain occasionally selects employees to receive management training.  A group of women employees has claimed that they are less likely than men employees of similar qualifications to be chosen for this training.
 
-*It is important to acknowledge that the data collected in this study inherently assumes all employees identify as either female or male. However, we recognize that this depiction does not mirror the diverse realities of all individuals.*
+The large employee pool that can be tapped for management training is 60% women and 40% men; however, since the management program began, 9 of the 20 employees chosen for management training were women (only 45%).  Do the women employees have a valid statistical argument that they are being discriminated against? 
 
 `r fontawesome::fa("question")`  **Research Question:** *Is there statistical evidence for sex discrimination against women?*
 
@@ -289,15 +291,15 @@ knitr::include_graphics("01-images/women-managerial-training-sketc.png")
 
 \vspace{0.5in}
 
-Once again, the key question is how to determine whether the result is surprising under the assumption that the selection process is unbiased. To answer this, we will simulate the process of an unbiased selection process, over and over again. Each time we simulate the process, we’ll keep track of how many of the 20 employees selected for management were female. Once we’ve repeated this process a large number of times, we’ll have a pretty good sense for what outcomes would be very surprising, somewhat surprising, or not so surprising if there was no discrimination in the selection process.
+Once again, the key question is how to determine whether the result is surprising under the assumption that the selection process is unbiased. To answer this, we will simulate the process of an unbiased selection process, over and over again. Each time we simulate the process, we’ll keep track of how many of the 20 employees selected for management were women. Once we’ve repeated this process a large number of times, we’ll have a pretty good sense for what outcomes would be very surprising, somewhat surprising, or not so surprising if there was no discrimination in the selection process.
 
 Carry out the applet simulation.  Note that you should consider the following questions when designing your simulation study:
 
 + What are the two possible outcomes on each of the trials?
-+ What is the probability that a female is selected for a managerial position under the assumption that there is no sex discrimination in the selection process?  Change your `Probability of heads` accordingly.
++ What is the probability that a woman is selected for a managerial position under the assumption that there is no sex discrimination in the selection process?  Change your `Probability of heads` accordingly.
 + How many subjects were there in this study?  Keep this value in mind when setting the `Number of tosses` value.
 
-Carry out the simulation study 1000 times overall, keeping track of the probability of employees chosen for management that were female on each of the simulated experiments.  Sketch in your results below:
+Carry out the simulation study 1000 times overall, keeping track of the probability of employees chosen for management that were women on each of the simulated experiments.  Sketch in your results below:
 
 ```{r}
 #| fig-align: center
@@ -309,9 +311,30 @@ knitr::include_graphics("01-images/women-managerial-training-applet.png")
 
 \vspace{0.5in}
 
-5.	Recall that since the management program began, only 9 of the 20 employees (45%) chosen for management training were female.  Does this outcome convince you that the selection process is biased against women?  Why or why not?
+5.	Recall that since the management program began, only 9 of the 20 employees (45%) chosen for management training were women  Does this outcome convince you that the selection process is biased against women?  Why or why not?
 
 \vspace{0.5in}
+
+6. Can we use the results from the employee program from this large supermarket chain to say anything about employee programs from competing supermarkets?
+
+\vspace{0.5in}
+
+::: callout-note
+## DEFINITIONS
+**Representative Sample:** individuals in the sample accurately reflect the characteristics of the population from which it is drawn.
+
+\vspace{0.1in}
+
+**Convenience Sample:** individuals who are easily accessible are more likely to be included in the sample.
+
+\vspace{0.1in}
+
+In general, we always seek to **randomly** select a sample from a population.
+
+\vspace{0.1in}
+
+See <https://openintro-ims.netlify.app/data-design#sec-samp-methods> for more information on sampling methods.
+:::
 
 ## Example 1.4:  Font Preferences
 
@@ -368,6 +391,10 @@ knitr::include_graphics("01-images/font-applet.png")
 \vspace{0.5in}
 
 4.	In the actual study, 30 of the 40 selected the Signet font.  Does this outcome convince you that there is a preference for one font over the other?  Why or why not?
+
+\vspace{0.5in}
+
+5. Why was it important for the researchers to present out the order in which the fonts were presented across the study? For example, how would the study results have been affected if the researchers always presented the Signet font on the left?
 
 \vspace{0.5in}
 
