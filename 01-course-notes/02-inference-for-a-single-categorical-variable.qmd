@@ -11,7 +11,7 @@ format:
           \usepackage{fancyhdr}
           \pagestyle{fancy}
           \fancyhf{}
-          \fancyhead[R]{Chapter 0: Welcome to Stat 218 - Applied Statistics for Life Science}
+          \fancyhead[R]{Chapter 2: Inference and Confidence Intervals for a Single Categorical Variable}
           \fancyfoot[C]{\thepage}
   docx:
     toc: false
@@ -29,7 +29,7 @@ library(tidyverse)
 options("digits" = 6)
 ```
 
-In this chapter, we will discuss methods for making decisions concerning research questions involving only a single categorical variable. Even though we'll be adding lots of terminology along the way, we will use the same logical approach to answering questions that was introduced in Chapter 1.
+In this chapter, we will discuss methods for making decisions concerning research questions involving only a one proportion. Even though we'll be adding lots of terminology along the way, we will use the same logical approach to answering questions that was introduced in Chapter 1.
 
 ## Formal Hypothesis Testing
 
@@ -37,14 +37,14 @@ In previous examples, we have used a logical process to make statistical decisio
 
 ### Population Parameters vs. Sample Statistics
 
-In each of the previous examples, we tested a claim about a population parameter of interest.
+In each of the previous examples, we tested a claim about a **population parameter** of interest.
 
 ::: callout-note
 ### Definitions
 
--   A **parameter** is a numerical descriptive measure of a population. This value is almost always unknown, and our goal is to either estimate this parameter or test claims regarding it.
+-   A **parameter** is a numerical descriptive measure of a *population*. This value is almost always unknown, and our goal is to either estimate this parameter or test claims regarding it.
 
--   A **statistic** is a numerical descriptive measure of a sample. This value is calculated from the observed data.\
+-   A **statistic** is a numerical descriptive measure of a *sample*. This value is calculated from the observed data.
 :::
 
 \newpage
@@ -176,8 +176,8 @@ First, note that in our three examples, we examined different parts of the distr
 | \                                       | \              | \                  |
 | \                                       | \              | \                  |
 +-----------------------------------------+----------------+--------------------+
-| Is there statistical evidence for sex| H~0~:\         | Lower-tailed Test\ |
-| sex discrimination against females?  | \              | \                  |
+| Is there statistical evidence for sex   | H~0~:\         | Lower-tailed Test\ |
+| sex discrimination against females?     |\              | \                  |
 | \                                       | \              | \                  |
 | \                                       | \              | \                  |
 | \                                       | H~A~:\         |                    |
@@ -200,7 +200,7 @@ First, note that in our three examples, we examined different parts of the distr
 Statisticians use the following guidelines to determine whether the observed data supports the research question:
 
 ::: callout-note
-**Upper-tailed test:** The observed result must fall in the upper 5% of the reference distribution.
+**Upper-tailed test:** The observed result must fall in the upper 5% of the null sampling distribution.
 :::
 
 Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?
@@ -215,7 +215,7 @@ knitr::include_graphics("02-images/helper-hinderer-sim.png")
 Statisticians use what is called a ***p-value*** to quantify the amount of evidence that an observed result from a set of data provides for a research question.
 
 ::: callout-note
-**Lower-tailed test:** The observed result must fall in the lower 5% of the reference distribution.
+**Lower-tailed test:** The observed result must fall in the lower 5% of the null sampling distribution.
 :::
 
 Is there statistical evidence for sex discrimination against females?
@@ -228,7 +228,7 @@ knitr::include_graphics("02-images/women-managerial-training-sim.png")
 ```
 
 ::: callout-note
-**Two-tailed test:** The observed result must fall in either the upper 2.5% or the lower 2.5% of the reference distribution.
+**Two-tailed test:** The observed result must fall in either the upper 2.5% or the lower 2.5% of the null sampling distribution.
 :::
 
 Do the majority of all consumers prefer one font over the other?
@@ -249,10 +249,10 @@ Statisticians use what is called a **p-value** to quantify the amount of evidenc
 ::: callout-note
 #### Definition
 
-**P-value**: The probability of observing an outcome as extreme (or even more extreme) than the observed study result, assuming the null hypothesis is true.
+**p-value**: The probability of observing an outcome as extreme (or even more extreme) than the observed study result, assuming the null hypothesis is true.
 :::
 
-Note that in each of the above examples, we obtained the simulation results assuming the null hypothesis was true. Therefore, to estimate the p-value, we simply determine how often outcomes as extreme (or more extreme) than the observed study results appeared in our simulation study.
+Note that in each of the above examples, we obtained the simulated results assuming the null hypothesis was true (plotted on the *null sampling distribution*). Therefore, to estimate the p-value, we simply determine how often outcomes as extreme (or more extreme) than the observed study results appeared in our simulation study.
 
 \newpage
 
@@ -271,14 +271,18 @@ Note that in each of the above examples, we obtained the simulation results assu
 +------------------------------------------------+-------------------------+
 
 ::: callout-note
-#### Making a Decision with P-Values
+#### Making a Decision with p-values
 
 If the p-value is **less than** 0.05 (5%), then the data provide enough statistical evidence to support the research question.
 
+\vspace{0.1in}
+
 If the p-value is not less than 0.05 (5%), then the data do not provide enough statistical evidence to support the research question.
+
+\vspace{0.1in}
 :::
 
-Why does this decision rule work? Consider the "Helper vs. Hinderer" example. Because the p-value falls below 5%, the observed result *must* have been in the upper 5% of the reference distribution. As stated earlier, this implies that the observed study result is very unlikely to happen by chance under the null hypothesis, which supports the research question.
+Why does this decision rule work? Consider the "Helper vs. Hinderer" example. Because the p-value falls below 5%, the observed result *must* have been in the upper 5% of the null sampling distribution. As stated earlier, this implies that the observed study result is very unlikely to happen by chance under the null hypothesis, which supports the research question.
 
 On the other hand, consider the "Are Women Passed Over for Managerial Training" example. Because the p-value was larger than 5%, the observed result *can't* have been in the lower 5% of the reference distribution. This implies that the observed study result is not all that unusual and could have easily happened by chance under the null hypothesis. Therefore, the null hypothesis *could* be true, and we have no evidence to support the research question.
 
@@ -287,14 +291,14 @@ This decision rule is widely accepted for determining whether study results are 
 \newpage
 
 ::: callout-note
--   If the p-value falls below 0.05, we have strong evidence to support the alternative hypothesis (i.e., the research question).
+-   If the p-value falls below 0.05, we have *strong evidence* to support the alternative hypothesis (i.e., the research question).
 
--   If the p-value falls below 0.10 but above 0.05, we have "marginal" evidence to support the alternative hypothesis (i.e., the research question).
+-   If the p-value falls below 0.10 but above 0.05, we have *marginal evidence* to support the alternative hypothesis (i.e., the research question).
 
--   If the p-value is above 0.10, we have no evidence to support the research question
+-   If the p-value is above 0.10, we *do have not have enough evidence* to support the research question
 :::
 
-Next, we will review the steps involved in a formal hypothesis test for each of our three examples. Note that our conclusions are written in the context of the problem. Moreover, even a person with no statistical background should be able to understand these conclusions (i.e., a conclusion should NOT say something like "We reject the null hypothesis.")
+Next, we will review the steps involved in a formal hypothesis test for each of our three examples. Note that our conclusions are written in the context of the problem. Moreover, even a person with no statistical background should be able to understand these conclusions (i.e., a conclusion should NOT say something like "We reject the null hypothesis." -- this is your *decision*.)
 
 **Helper vs. Hinderer**
 
@@ -432,10 +436,9 @@ Suppose a commonly prescribed drug for relieving nervous tension is believed to 
 
 \vspace{0.8in}
 
-## Theoretical Approach to P-values
+## Theoretical Approach to p-values
 
-There is one caveat regarding our current approach to obtaining a p-value. Certainly, different simulations will produce slightly different reference distributions. The general pattern will be the same, but variations do exist. For example, consider the Helper vs. Hinderer study.
-
+There is one caveat regarding our current approach to obtaining a p-value. Certainly, different simulations will produce slightly different null sampling distributions. The general pattern will be the same, but variations do exist. For example, consider the Helper vs. Hinderer study.
 
 **Helper vs. Hinderer**
 
@@ -470,7 +473,7 @@ knitr::include_graphics("02-images/helper-hinderer-sim2.png")
 
 Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a simulation study with only 100 (or 1000) repetitions to *estimate* the p-value, we would ideally like to simulate this experiment over and over again, say an *infinite* number of times. This would provide us with the theoretical probabilities of interest so that can get exact p-values instead of an estimate of the p-value.
 
-The following graphic shows what the distribution would look like if we kept repeating the simulation study over and over again, each time counting and plotting the number of infants that chose the helper toy (assuming there was no real preference in the population of all infants). This is known as the **binomial distribution**.
+The following graphic shows what the null sampling distribution would look like if we kept repeating the simulation study over and over again, each time counting and plotting the number of infants that chose the helper toy (assuming there was no real preference in the population of all infants). This is known as the **binomial distribution**.
 
 ```{r}
 #| fig-align: center
@@ -521,11 +524,11 @@ helperhinder_binom <- tibble("x" = seq(1,16),
 helperhinder_binom |> 
   ggplot(aes(x = x, y = dbinom)) +
   geom_segment(aes(xend = x, yend = 0), size = 1) +
-  geom_text(aes(label = round(dbinom, 3)), vjust = -0.6, color = "gray30", size = 3) +
+  geom_text(aes(label = round(dbinom, 3)*100), vjust = -0.6, color = "gray30", size = 3) +
   labs(x = "Number of 10-month olds who chose 'Helper'",
        y = "Binomial Probability") +
   scale_x_continuous(breaks = seq(1,16)) +
-  scale_y_continuous(breaks = seq(0,0.25, 0.05), limits = c(0,0.25)) +
+  scale_y_continuous(breaks = seq(0,0.25, 0.05), limits = c(0,0.25), labels = scales::percent) +
   theme_bw() +
   theme(aspect.ratio = 0.5)
 ```
@@ -638,7 +641,7 @@ knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
 knitr::include_graphics("02-images/acupuncture-ci-sim.png")
 ```
 
-A formal approach to calculating a confidence interval involves identifying the middle 95% of this distribution. That is, we need to find a lower endpoint that separates the bottom 2.5% of the distribution and an upper endpoint that separates the top 2.5% of the distribution. Let's zoom in on this distribution so that we can find these endpoints:
+A formal approach to calculating a confidence interval involves identifying the middle 95% of the sampling distribution. That is, we need to find a lower endpoint that separates the bottom 2.5% of the distribution and an upper endpoint that separates the top 2.5% of the distribution.
 
 9.  Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
 
@@ -676,11 +679,11 @@ acupuncture_binom <- tibble("x" = seq(60,89)/89,
 acupuncture_binom |> 
   ggplot(aes(x = x, y = dbinom)) +
   geom_segment(aes(xend = x, yend = 0), size = 1) +
-  geom_text(aes(label = round(dbinom, 2)), vjust = -0.5, color = "gray30", size = 3) +
+  geom_text(aes(label = round(dbinom, 2)*100), vjust = -0.5, color = "gray30", size = 3) +
   labs(x = "Proportion that get relief",
        y = "Binomial Probability") +
   scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
-  scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15)) +
+  scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15), labels = scales::percent) +
   theme_bw()+
   theme(aspect.ratio = 0.5)
 ```
@@ -699,6 +702,9 @@ Instead, to calculate a confidence interval for a proportion, a statistician cou
 ```{r}
 #| fig-pos: "H"
 #| fig-cap: "The normal curve superimposed on binomial probabilities."
+acupuncture_binom <- tibble("x" = seq(60,89)/89,
+                             "dbinom" = dbinom(seq(60, 89), 89, prob = 0.87)
+)
 acupuncture_norm <- tibble("x" = seq(0,1, 0.001),
                            "dnorm" = dnorm(x, 
                                            mean = 0.87, 
@@ -718,7 +724,7 @@ acupuncture_binom |>
   labs(x = "Proportion that get relief",
        y = "Binomial Probability") +
   scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
-  # scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15)) +
+  scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15), labels = scales::percent) +
   theme_bw() +
   theme(aspect.ratio = 0.5)
 ```
@@ -846,7 +852,7 @@ One rule of thumb is that as long as there are 10 "successes" and 10 "failures",
 
 \vspace{0.8in}
 
-### What Does 95% Confidence Really Mean?
+### Extension (on own if desired): What Does "95% Confident" Really Mean?
 
 Once again, consider Example 2.3 regarding acupuncture treatment for back pain. Note that if we were to obtain another random sample of 89 individuals, the sample proportion from this new study will probably not be equal to 77/89 = 86.5\%. Thus, the confidence interval we calculate based on this statistic will also change.
 
@@ -913,6 +919,6 @@ knitr::include_graphics("02-images/confint-sim.png")
 \vspace{0.2in}
 
 ::: callout-note
-### Meaning of 95% Confidence
+### Big Picture: Meaning of 95% Confidence
 These simulations show us that if take repeated samples from a population and construct 95% confidence intervals each time, in the long run approximately 95% of our intervals will succeed in capturing the true value of the population proportion, $\pi$. So, when we collect data and calculate a single 95% confidence interval, we say we are 95% confident (or certain) that this interval captures the truth.
 :::

@@ -6,86 +6,83 @@ format:
     theme: simple
 ---
 
-## Monday, September 25th
+## Friday, September 27th
 ### Today we will...
 
-+ Finish Ch. 0 notes (Example 0.1: Can our class speak Martian?)
 + Introduce basic statistical terminology
 + Example 1.1: Alleged Hearing Loss
 + Example 1.2: Helper vs. Hinderer
 
 ## To do:
 
++ **Print/Download Chapter 2 Course Notes**
+  + For class Tuesday 10/1
 + **Homework 1: Can chimpanzees solve problems?**
-  + Due Wednesday 9/27 at 11:59pm
+  + Due Thursday 10/3 at 11:59pm
   
 ::: callout-warning
 Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
 :::
+  
+*Note: I am traveling to MN over the weekend for a wedding. I should be back Sunday evening, but watch Canvas announcements in case my flights get severely messed up.*
 
-## Tuesday, September 26th
+## Monday, September 30th
 ### Today we will...
 
 + Recap basic statistical terminology
-+ Example 1.2: Helper vs. Hinderer
 + Example 1.3: Are women passed over for managerial training? (in groups)
 + Example 1.4: Font Preferences (in groups)
 + **Exit ticket!**
 
-## Exit Ticket!
-
-+ Rip out a half sheet of paper, or grab a notecard from the instructor.
-+ Write your name and answer the question below.
-+ Turn in before you leave.
+## Exit Ticket! `join.pd`
 
 **Example 1.4: Font Preferences**
 
 "Why was it important for the researchers to present balance out the order in which the fonts were presented across the study? For example, how would the study results have been affected if the researchers always presented the Signet font on the left?"
 
-## Exit Ticket!
-
-+ Rip out a half sheet of paper, or grab a notecard from the instructor.
-+ Write your name and answer the question below.
-+ Turn in before you leave.
-
-"Describe the process in which we 'look for evidence' with a simulation based method."
-
 ## To do:
 
++ **Print/Download Chapter 2 Course Notes**
+  + For class Tuesday 10/1
 + **Homework 1: Can chimpanzees solve problems?**
-  + Due Wednesday 9/27 at 11:59pm
-
-+ **Create a FREE posit cloud account** following the first part of the instructions on Canvas.
-  + Make sure you remember your login and password.
-  + Bring your computer FULLY charged on Thursday!
+  + Due Thursday 10/3 at 11:59pm
++ **Review notes for Quiz 1**
+  + Friday 9/4
   
-+ **Print/Download Chapter 2 Course Notes**
-  + For class Friday 9/29
-+ **Review notes for Quiz**
-  + Friday 9/29
-  
-## Thursday, September 28th
-### Today we will...
+<!-- ## Tuesday, October 1st -->
 
-+ Introduce Brandon Kim - 4th year stats major
-+ Lab 1: Intro to Posit Cloud
+<!-- + Ch. 2 -- Setting up Hypotheses -->
 
-## To do:
+<!-- ## To do: -->
 
-+ **Lab 1: Intro to Posit Cloud**
-  + Due Monday 10/2 at 11:59pm
-+ **Print/Download Chapter 2 Course Notes**
-  + For class Friday 9/29
-+ **Review notes for Quiz on Friday**
-  + In-class Friday 9/29
+<!-- + **Print/Download Chapter 2 Course Notes** -->
+<!--   + For class Tuesday 10/1 -->
+<!-- + **Homework 1: Can chimpanzees solve problems?** -->
+<!--   + Due Thursday 10/3 at 11:59pm -->
+<!-- + **Review notes for Quiz 1** -->
+<!--   + Friday 9/4 -->
 
-## Friday, September 29th
-### Today we will...
+<!-- ## Thursday, October 3rd -->
+<!-- ### Today we will... -->
 
-+ Quiz 1 (20 minutes to complete)
-+ Start Ch. 2 Notes
+<!-- + Lab 1: Working with Data in R -->
 
-## To do:
+<!-- ## To do: -->
 
-+ **Lab 1: Intro to Posit Cloud**
-  + Due Monday 10/2 at 11:59pm
+<!-- + **Lab 1: Working with Data in R** -->
+<!--   + Due Monday 10/7 at 11:59pm -->
+<!-- + **Review notes for Quiz 1** -->
+<!--   + In-class Friday 9/29 -->
+
+<!-- ## Friday, October 4th -->
+<!-- ### Today we will... -->
+
+<!-- + Quiz 1 (20 minutes to complete) -->
+<!-- + Ch. 2 -- Evaluating evidence using p-values -->
+
+<!-- ## To do: -->
+
+<!-- + **Lab 1: Working with Data in R** -->
+<!--   + Due Monday 10/7 at 11:59pm -->
+<!-- + **Work on Examples 2.1 & 2.2** -->
+<!--   + Will be reviewed first half of class on Monday -->

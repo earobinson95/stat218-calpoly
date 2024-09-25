@@ -68,6 +68,16 @@ Logistics:
 + Exchange contact information (email, discord, text, etc.).
 + Labs will *typically* be started in class on Thursdays and due Monday nights. Discuss in what modality you might meet outside of class to finish labs (if necessary) -- Zoom, meet in Union, meet in Dorm general space, etc.
 
+## Introduction to R/RStudio/Posit
+
++ `R` is the coding language
++ `RStudio` is the integrated development environment (software that helps us write the code)
++ `Posit` is a company that oversees RStudio and offers a browser-based version (post Cloud)
+
+## RStudio Interface
+
+## Quarto Documents
+
 ## Lab 0: Setting up posit Cloud
 
 COMING SOON
@@ -77,3 +87,5 @@ COMING SOON
   + Due Thursday 9/26 at 11:59pm
 + **Print/Download Chapter 1 Course Notes**
   + For class Friday 9/27
++ **Lab 0: Setting up posit Cloud**
+  + Due (as groups) Monday 9/30 at 11:59pm
