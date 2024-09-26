@@ -54,9 +54,10 @@ format:
 ## Thursday, Sept. 26 -- Today we will...
 
 + If you haven't:
-  + join the posit Cloud workspace
-  + purchase student subscription
+  + join the posit Cloud *Master* workspace
+  + purchase student subscription ($5/mo)
 + Meeting your group
++ Intro to R/RStudio/Quarto/Posit
 + Lab 0: Setting up posit Cloud
 
 ## Meet your group!
@@ -68,19 +69,159 @@ Logistics:
 + Exchange contact information (email, discord, text, etc.).
 + Labs will *typically* be started in class on Thursdays and due Monday nights. Discuss in what modality you might meet outside of class to finish labs (if necessary) -- Zoom, meet in Union, meet in Dorm general space, etc.
 
-## Introduction to R/RStudio/Posit
+## Introduction to Tools
 
-+ `R` is the coding language
++ `R` is a programming language designed originally for *statistical analyses*.
 + `RStudio` is the integrated development environment (software that helps us write the code)
 + `Posit` is a company that oversees RStudio and offers a browser-based version (post Cloud)
++ `Quarto` is the collaborative document you will actually work in. Think Google doc with a fancy calculator built in.
 
-## RStudio Interface
+## R -- Packages and Functions
 
-## Quarto Documents
+Just like operations such as `+` and `-` on a calculator, `R` contains **functions** that accomplish certain tasks such as:
 
-## Lab 0: Setting up posit Cloud
++ read in data,
++ calculate a mean,
++ create a graph, and
++ conduct a statistical analysis.
 
-COMING SOON
+::: fragment
+
+The heart and soul of **R** are **packages**.
+
++ These are "extra" sets of code that add **new functions** to R when installed.
+
+:::
+
+## What is RStudio?
+
+**RStudio** is an IDE (*Integrated Developer Environment*).
+
++ This means it is an application that makes it easier for you to interact with **R**.
+
+```{r}
+#| fig-align: center
+#| out-width: 75%
+#| echo: false
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png")
+```
+
+##
+
+```{r, echo = FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("https://srvanderplas.github.io/stat-computing-r-python/images/tools/Rstudio-important-buttons.png")
+```
+
+## Notebooks
+
+Notebooks are an implementation of **literate programming**.
+
++ They allow you to integrate code, output, text, images, etc. into a single document.
++ E.g.,
+
+  + R Markdown notebook
+  + **Quarto notebook**
+  + Jupyter notebook
+
+**Reproducibility!**
+
+
+## What is Markdown?
+
+**Markdown** (without the "R") is a *markup language*.  
+
++ It uses special symbols and formatting to make pretty documents.
+
++ Markdown files have the **.md** extension.
+
+
+##
+
+<center>
+
+![](https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png)
+</center>
+
+
+## Quarto Formats
+
+Quarto makes moving between outputs straightforward.
+
++ All that needs to change between these formats is a few lines in the front matter (YAML)!
+
+**Document**
+
+``` yaml
+title: "Lab 0"
+author: "Dr. Robinson"
+date: "9/26/2024"
+format: pdf
+```
+
+
+## Quarto Components
+
+![](images/quarto_sections.jpeg){width="80%"}
+
+
+## Markdown in Quarto
+
+A few useful tips for formatting the **Markdown** text in your document:
+
++ \*text\* -- makes italics
++ \*\*text\*\* -- makes bold text
++ \# -- makes headers
++ !\[ \]( ) -- includes images or HTML links
++ \< \> -- embeds URLs
+
+
+## R Code Options in Quarto
+
+**R code chunk** options are included at the top of each code chunk, prefaced with a #| (hashpipe).
+
++ These options control how the following code is run and reported in the final Quarto document.
+
+
+##
+
+<center>
+
+![](images/code_options.png)
+
+</center>
+
+
+## 
+
+<center>
+
+![](images/quarto_code_options.png)
+
+</center>
+
+
+## Rendering your Quarto Document
+
+To take your *.qmd* file and make it look pretty, you have to **render** it.
+
+<center>
+
+![](images/render.png)
+
+![](images/render_on_save.png)
+
+</center>
+
+## When you click **Render**...
+
+-   Your file is saved.
+-   The R code written in your *.qmd* file gets run **in order**.
+    -   It starts from scratch, even if you previously ran some of the code.
+-   A new file is created.
+    -   If your Quarto file is called "Lab0.qmd", then a file called "Lab1.pdf" will be created.
+    -   This will be saved in the bottom right quadrant (Files tab); you will export this from Posit Cloud to your computer.
+
+# Lab 0: Setting up posit Cloud
 
 ## To do:
 + **Homework 0: Syllabus + Learning Community**
@@ -89,3 +230,5 @@ COMING SOON
   + For class Friday 9/27
 + **Lab 0: Setting up posit Cloud**
   + Due (as groups) Monday 9/30 at 11:59pm
++ **Print/Download Chapter 2 Course Notes**
+  + For class Tuesday 10/1

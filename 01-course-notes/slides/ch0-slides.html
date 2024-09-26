@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="ch0-slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="ch0-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -415,10 +480,11 @@
 <ul>
 <li>If you haven’t:
 <ul>
-<li>join the posit Cloud workspace</li>
-<li>purchase student subscription</li>
+<li>join the posit Cloud <em>Master</em> workspace</li>
+<li>purchase student subscription ($5/mo)</li>
 </ul></li>
 <li>Meeting your group</li>
+<li>Intro to R/RStudio/Quarto/Posit</li>
 <li>Lab 0: Setting up posit Cloud</li>
 </ul>
 </section>
@@ -431,9 +497,160 @@
 <li>Labs will <em>typically</em> be started in class on Thursdays and due Monday nights. Discuss in what modality you might meet outside of class to finish labs (if necessary) – Zoom, meet in Union, meet in Dorm general space, etc.</li>
 </ul>
 </section>
-<section id="lab-0-setting-up-posit-cloud" class="slide level2">
-<h2>Lab 0: Setting up posit Cloud</h2>
-<p>COMING SOON</p>
+<section id="introduction-to-tools" class="slide level2">
+<h2>Introduction to Tools</h2>
+<ul>
+<li><code>R</code> is a programming language designed originally for <em>statistical analyses</em>.</li>
+<li><code>RStudio</code> is the integrated development environment (software that helps us write the code)</li>
+<li><code>Posit</code> is a company that oversees RStudio and offers a browser-based version (post Cloud)</li>
+<li><code>Quarto</code> is the collaborative document you will actually work in. Think Google doc with a fancy calculator built in.</li>
+</ul>
+</section>
+<section id="r-packages-and-functions" class="slide level2">
+<h2>R – Packages and Functions</h2>
+<p>Just like operations such as <code>+</code> and <code>-</code> on a calculator, <code>R</code> contains <strong>functions</strong> that accomplish certain tasks such as:</p>
+<ul>
+<li>read in data,</li>
+<li>calculate a mean,</li>
+<li>create a graph, and</li>
+<li>conduct a statistical analysis.</li>
+</ul>
+<div class="fragment">
+<p>The heart and soul of <strong>R</strong> are <strong>packages</strong>.</p>
+<ul>
+<li>These are “extra” sets of code that add <strong>new functions</strong> to R when installed.</li>
+</ul>
+</div>
+</section>
+<section id="what-is-rstudio" class="slide level2">
+<h2>What is RStudio?</h2>
+<p><strong>RStudio</strong> is an IDE (<em>Integrated Developer Environment</em>).</p>
+<ul>
+<li>This means it is an application that makes it easier for you to interact with <strong>R</strong>.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://srvanderplas.github.io/stat-computing-r-python/images/tools/Rstudio-important-buttons.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="notebooks" class="slide level2">
+<h2>Notebooks</h2>
+<p>Notebooks are an implementation of <strong>literate programming</strong>.</p>
+<ul>
+<li><p>They allow you to integrate code, output, text, images, etc. into a single document.</p></li>
+<li><p>E.g.,</p>
+<ul>
+<li>R Markdown notebook</li>
+<li><strong>Quarto notebook</strong></li>
+<li>Jupyter notebook</li>
+</ul></li>
+</ul>
+<p><strong>Reproducibility!</strong></p>
+</section>
+<section id="what-is-markdown" class="slide level2">
+<h2>What is Markdown?</h2>
+<p><strong>Markdown</strong> (without the “R”) is a <em>markup language</em>.</p>
+<ul>
+<li><p>It uses special symbols and formatting to make pretty documents.</p></li>
+<li><p>Markdown files have the <strong>.md</strong> extension.</p></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<center>
+<img data-src="https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png">
+</center>
+</section>
+<section id="quarto-formats" class="slide level2">
+<h2>Quarto Formats</h2>
+<p>Quarto makes moving between outputs straightforward.</p>
+<ul>
+<li>All that needs to change between these formats is a few lines in the front matter (YAML)!</li>
+</ul>
+<p><strong>Document</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Lab 0"</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dr. Robinson"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"9/26/2024"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pdf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quarto-components" class="slide level2">
+<h2>Quarto Components</h2>
+<p><img data-src="images/quarto_sections.jpeg" style="width:80.0%"></p>
+</section>
+<section id="markdown-in-quarto" class="slide level2">
+<h2>Markdown in Quarto</h2>
+<p>A few useful tips for formatting the <strong>Markdown</strong> text in your document:</p>
+<ul>
+<li>*text* – makes italics</li>
+<li>**text** – makes bold text</li>
+<li># – makes headers</li>
+<li>![ ]( ) – includes images or HTML links</li>
+<li>&lt; &gt; – embeds URLs</li>
+</ul>
+</section>
+<section id="r-code-options-in-quarto" class="slide level2">
+<h2>R Code Options in Quarto</h2>
+<p><strong>R code chunk</strong> options are included at the top of each code chunk, prefaced with a #| (hashpipe).</p>
+<ul>
+<li>These options control how the following code is run and reported in the final Quarto document.</li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<center>
+<p><img data-src="images/code_options.png"></p>
+</center>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<center>
+<p><img data-src="images/quarto_code_options.png"></p>
+</center>
+</section>
+<section id="rendering-your-quarto-document" class="slide level2">
+<h2>Rendering your Quarto Document</h2>
+<p>To take your <em>.qmd</em> file and make it look pretty, you have to <strong>render</strong> it.</p>
+<center>
+<p><img data-src="images/render.png"></p>
+<p><img data-src="images/render_on_save.png"></p>
+</center>
+</section>
+<section id="when-you-click-render" class="slide level2">
+<h2>When you click <strong>Render</strong>…</h2>
+<ul>
+<li>Your file is saved.</li>
+<li>The R code written in your <em>.qmd</em> file gets run <strong>in order</strong>.
+<ul>
+<li>It starts from scratch, even if you previously ran some of the code.</li>
+</ul></li>
+<li>A new file is created.
+<ul>
+<li>If your Quarto file is called “Lab0.qmd”, then a file called “Lab1.pdf” will be created.</li>
+<li>This will be saved in the bottom right quadrant (Files tab); you will export this from Posit Cloud to your computer.</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="lab-0-setting-up-posit-cloud" class="title-slide slide level1 center">
+<h1>Lab 0: Setting up posit Cloud</h1>
+
 </section>
 <section id="to-do-2" class="slide level2">
 <h2>To do:</h2>
@@ -446,11 +663,19 @@
 <ul>
 <li>For class Friday 9/27</li>
 </ul></li>
+<li><strong>Lab 0: Setting up posit Cloud</strong>
+<ul>
+<li>Due (as groups) Monday 9/30 at 11:59pm</li>
+</ul></li>
+<li><strong>Print/Download Chapter 2 Course Notes</strong>
+<ul>
+<li>For class Tuesday 10/1</li>
+</ul></li>
 </ul>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -662,6 +887,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
