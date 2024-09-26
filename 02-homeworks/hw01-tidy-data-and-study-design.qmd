@@ -16,6 +16,7 @@ format:
           \fancyfoot[C]{\thepage}
   docx:
     toc: false
+    prefer-html: true
 execute:
   echo: false
 ---
@@ -24,7 +25,7 @@ execute:
 
 a.	What are the observational units here?
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 b.	For each of the following, specify whether or not it is a legitimate variable for the observational units you specified in part a.
 
@@ -48,17 +49,25 @@ b.	For each of the following, specify whether or not it is a legitimate variable
 
 \vspace{0.1in}
 
-c. Complete a possible data set in which the information could be stored. Label the columns. How many rows would the data set contain?
+\newpage
+
+c. Complete the top 6 rows of a possible data set in which the information could be stored. Label the columns. How many rows would the full data set contain?
+
+```{r}
+#| echo: true
+#| eval: false
+head(hike_data)
+```
 
 ```{r}
 #| fig-pos: "H"
 options(knitr.kable.NA = '')
-tidyr::tibble("____________" = rep(NA, 16),
-       "______________" = rep(NA, 16),
-       "___________" = rep(NA, 16),
-       "_____________" = rep(NA, 16),
-       "__________" = rep(NA, 16),
-       "_______________" = rep(NA, 16)
+tidyr::tibble("_________" = rep(NA, 6),
+       "___________" = rep(NA, 6),
+       "________" = rep(NA, 6),
+       "__________" = rep(NA, 6),
+       "_______" = rep(NA, 6),
+       "____________" = rep(NA, 6)
        ) |> 
   knitr::kable() |> 
   kableExtra::kable_classic() |> 
@@ -78,45 +87,49 @@ This process is repeated a total of 36 times, and it is noted whether the subjec
 
 a.	What is the expected value of the number of correct answers a subject would give if they were truly suffering from memory loss and were guessing when presented with the second card in each of the 36 trials? Answer this question with a single value, not a range of values. *Careful!*
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 b. Sketch a stacked bar chart to display the results from the patient suspected of faking their memory loss (our observed data) and next to it, sketch a stacked bar chart to display what we would expect to see if the patient truely was suffering from memory loss.
 
 \vspace{3in}
 
-c.	Now, set up a simulation study that would help us understand what outcomes (for the number of correct answers) are expected by chance if the patient is really guessing. Conduct 100 runs of the simulation using the `Online Simulation Applet` for `One Proportion Inference` (<http://www.rossmanchance.com/applets/2021/oneprop/OneProp.htm>), and copy/paste your simulation setup below.
+c.	Now, set up a simulation study that would help us understand what outcomes (for the number of correct answers) are expected by chance if the patient is really guessing. Conduct 100 runs of the simulation using the `Online Simulation Applet` for `One Proportion Inference` (<http://www.rossmanchance.com/applets/2021/oneprop/OneProp.htm>).
 
 + What are the two possible outcomes on each of the trials?
 + What is the probability that the patient selects one of the letters that were on the original card under the assumption that the patient has memory loss?  Change your `Probability of heads` accordingly.
 + How many trials were conducted in this study?  Keep this value in mind when setting the `Number of tosses` value.
 
+  Copy/paste/sketch your simulation setup below.
+
+\vspace{1.5in}
+
 d.	Carry out a simulation study using the applet to determine what outcomes (for the number of correct answers) are expected by chance if the patient is really guessing. In the end, you should have a graph showing the results of 100 runs of the simulation. Copy and paste (or sketch) this dot plot below. 
 
-\vspace{2in}
+\vspace{3in}
 
 e. Why do we need to repeat the set of 36 "coin tosses" 100 times? Why not just look at one set of "36 coin tosses"?
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 f.	Clearly describe what each dot on the dot plot summarizing your simulated results represents. 
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 g.	Recall that in this study, the patient who is suspected of faking their memory loss gave a correct answer in 21 of the 36 trials. Based on the results of your simulation study, does this outcome provide statistical evidence that this patient is faking their memory loss by answering wrong on purpose? Explain your reasoning, and be sure to use the results of the simulation study in your explanation.
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 h. Suppose that this patient had answered 27 out of 36 trials correctly. Based on the results of your simulation study, does this outcome provide statistical evidence that this patient is faking their memory loss by answering wrong on purpose? Explain your reasoning, and be sure to use the results of the simulation study in your explanation.
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 i. Can we use the results from this patient and simulation study to make claims about whether or not their sibling has memory loss? Why or why not?
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 ::: callout-caution
 ## Assignment credit
 1. Complete the homework quiz on Canvas (2 attempts; keeps average score).
-2. Upload completed assignment (pdf, take scan on phone, etc.) to the assignment portal on Canvas to be checked for intelectual engagement.
+2. Upload completed assignment (pdf, take scan on phone, etc.) to the assignment portal on Canvas to be checked for intellectual engagement.
 :::
 
