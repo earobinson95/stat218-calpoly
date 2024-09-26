@@ -1,0 +1,125 @@
+---
+title: "R Lab 0: Getting Started with Posit Cloud!"
+author: "Grading Rubric"
+format: html
+editor: source
+embed-resources: true
+execute:
+  echo: true
+---
+
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Criteria                                                          | Look for                                                                                                                          |
++===================================================================+===================================================================================================================================+
+| Q1: Setup + Group Info                                            | Edit YAML (author/group roles, date)                                                                                              |
+|                                                                   |                                                                                                                                   |
+|                                                                   | All individuals added their names (should be 4 for most, a few 3's and two groups of 2)                                           |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q2/3: packages \[library() + tidyverse\]                          | loads package                                                                                                                     |
+|                                                                   |                                                                                                                                   |
+|                                                                   | collection of packages                                                                                                            |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q4: Rendering                                                     | `#| include = false` hides the code from showing in the rendered pdf                                                              |
+|                                                                   |                                                                                                                                   |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q5: head()                                                        | prints top 6 rows of the data set                                                                                                 |
+|                                                                   |                                                                                                                                   |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Appearance (names/roles, dates, output, can view on canvas, etc.) | Filled out names and roles, dates, and can view on canvas                                                                         |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+## Setting up the posit Cloud lab environment
+
+-   Assign group roles for this week (they will rotate!)
+-   The Recorder should open the assignment via the Canvas link.
+-   The Recorder then moves the assignment from the class MASTER workspace to the GROUP workspace.
+-   Now everyone should be able to access the assignment via the GROUP workspace.
+-   Click "follow cursor" on the top right icons to live collaborate.
+
+1.  **Type your OWN name below to show you can all collaborate on the assignment.**
+
+First Member, Second Member, Third Member, Fourth Member (might be only 3 members; I think two groups had only 2 members)
+
+## Quarto Text Formatting
+
+This is a Quarto document. Quarto is a simple formatting syntax for authoring HTML, PDF, and Microsoft Word documents.
+
+The document may look a bit different that you are used to, but we will break it down!
+
+Section headers are defined with hashtags (#), where one \# is the largest header, two \## is the second largest and so on.
+
+You can make words boldface with two \*\* (like **so**).
+
+You can make words italicized with one \* (like *this*).
+
+You can make lists like this:
+
+-   item 1
+-   item 2
+-   item 3
+
+(Notice you need to have a blank line before the first item of your list!)
+
+<!-- This is a Quarto comment. It WILL NOT show in your knitted document. -->
+
+<!-- Comments are great ways to leave yourself notes inside your Quarto
+document that no one can see!  -->
+
+## R Code
+
+You can differentiate the R code within an Quarto file from the body of the document, from the three tickmarks (\`\`\`) they start and end with.
+
+Here is an example of an R code chunk:
+
+```{r setup}
+#| include: false
+
+# This is an R comment. R knows this IS NOT code because it has a # in front! 
+
+# Code to load in packages we need
+library(tidyverse)
+
+```
+
+Notice that after the \`\`\` you see a curly brace with an "r" in it ({r}), this indicates to RMarkdown that the code inside of that code chunk is R code (not Python code or another type of code).
+
+Also, the "setup" after the "r" is the code chunk's name. It is good practice to name your code chunks based on the action they perform. It makes it easier to navigate to them in the navigation pane.
+
+2.  **What does the library() function do?**
+
+    `library` is a function that loads a package.
+
+3.  **What is the tidyverse?**
+
+    The `tidyverse` is a collection of R packages designed for data science.
+
+## Rendering
+
+When you click the **Render** button, a document will be generated that includes both contents as well as the output of any embedded R code chunks within the document.
+
+4.  **Why do you not see the above code chunk (named `setup`) when you render the document?**
+
+    The setup code chunk includes an option `#| include = false` which prevents code and results from appearing in the rendered file.
+
+## Including Code Output
+
+You can include code output in your rendered document:
+
+```{r hearing-loss}
+head(mpg)
+```
+
+5.  **What do you think the `head()` function does?** *(Hint: What kind of output does it give you?)*
+
+    The `head` function prints out the first 6 rows of the data set.
+
+## Submitting your lab to Canvas
+
+See Canvas resources modules for tutorials.
+
+-   Render the final completed assignment (double check to see that it includes your answers).
+-   Export the pdf from posit Cloud and save it to your computer file folders.
+-   Double check your file again.
+-   Submit to the Canvas portal.
+
+

@@ -1,0 +1,17 @@
+﻿Question,Question_Text,Crime_Scene_Answer,Suspect_Response,Outcome,Time_to_Response_seconds,Action_During_Response
+1,One of the fires was started using gasoline.,F,F,Correct,30,Eye contact
+2,Matches were used to set the fires.,T,T,Correct,12,Scratching
+3,The trash was on the curb in front of the first house that caught on fire.,F,T,Incorrect,38,Shaking
+4,There was a doghouse in the backyard at the scene of the second fire.,F,F,Correct,29,Scratching
+5,The residence of the third fire had off-street parking.,T,T,Correct,14,Shaking
+6,The second residence had a screened porch.,T,F,Incorrect,45,Shaking
+7,The suspected entered the first residence through the kitchen window.,T,T,Correct,22,Scratching
+8,The suspect left a flashlight behind at the scene of the second fire.,F,F,Correct,24,Eye contact
+9,All three fires took place on Tuesdays.,F,F,Correct,15,Scratching
+10,The porch light was on at the residence where the first fire took place.,T,T,Correct,32,Scratching
+11,The third fire was started in the garage.,F,F,Correct,20,Eye contact
+12,There was a dog barking at the house next door to the third fire.,T,T,Correct,18,Scratching
+13,The suspect wore work boots at the scene of the first fire.,T,F,Incorrect,56,Eye contact
+14,The home security system was triggered when the suspect fled the scene of the third fire.,F,F,Correct,40,Eye contact
+15,The lock on the back door at the first residence was broken.,F,F,Correct,44,Scratching
+16,Multiple fires were set at the second residence.,F,F,Correct,12,Eye contact
