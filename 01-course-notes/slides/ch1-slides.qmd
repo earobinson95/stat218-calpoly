@@ -13,18 +13,23 @@ format:
 + Example 1.1: Alleged Hearing Loss
 + Example 1.2: Helper vs. Hinderer
 
+::: callout-warning
+#### Note that
+I am traveling to MN over the weekend for a wedding. I should be back Sunday evening, but watch Canvas announcements in case my flights get severely messed up.
+:::
+
 ## To do:
 
++ **Lab 0: Setting up posit Cloud**
+  + Due (as groups) Monday 9/30 at 11:59pm
 + **Print/Download Chapter 2 Course Notes**
   + For class Tuesday 10/1
-+ **Homework 1: Can chimpanzees solve problems?**
++ **Homework 1: Tidy Data and Simulation Studies**
   + Due Thursday 10/3 at 11:59pm
   
 ::: callout-warning
 Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
 :::
-  
-*Note: I am traveling to MN over the weekend for a wedding. I should be back Sunday evening, but watch Canvas announcements in case my flights get severely messed up.*
 
 ## Monday, September 30th
 ### Today we will...
@@ -32,22 +37,26 @@ Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
 + Recap basic statistical terminology
 + Example 1.3: Are women passed over for managerial training? (in groups)
 + Example 1.4: Font Preferences (in groups)
-+ **Exit ticket!**
+<!-- + **Exit ticket!** -->
 
-## Exit Ticket! `join.pd`
+<!-- ## Exit Ticket! `join.pd` -->
 
-**Example 1.4: Font Preferences**
+<!-- **Example 1.4: Font Preferences** -->
 
-"Why was it important for the researchers to present balance out the order in which the fonts were presented across the study? For example, how would the study results have been affected if the researchers always presented the Signet font on the left?"
+<!-- "Why was it important for the researchers to present balance out the order in which the fonts were presented across the study? For example, how would the study results have been affected if the researchers always presented the Signet font on the left?" -->
 
 ## To do:
 
++ **Lab 0: Setting up posit Cloud**
+  + Due (as groups) Monday 9/30 at 11:59pm
 + **Print/Download Chapter 2 Course Notes**
   + For class Tuesday 10/1
-+ **Homework 1: Can chimpanzees solve problems?**
++ **Homework 1: Tidy Data and Simulation Studies**
   + Due Thursday 10/3 at 11:59pm
 + **Review notes for Quiz 1**
   + Friday 9/4
+  
+*Remember to come with your computer charged for lab Thurs!*
   
 <!-- ## Tuesday, October 1st -->
 
