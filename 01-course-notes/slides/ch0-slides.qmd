@@ -73,7 +73,7 @@ Logistics:
 
 + `R` is a programming language designed originally for *statistical analyses*.
 + `RStudio` is the integrated development environment (software that helps us write the code)
-+ `Posit` is a company that oversees RStudio and offers a browser-based version (post Cloud)
++ `Posit` is a company that oversees RStudio and offers a browser-based version (posit Cloud)
 + `Quarto` is the collaborative document you will actually work in. Think Google doc with a fancy calculator built in.
 
 ## R -- Packages and Functions
@@ -218,7 +218,7 @@ To take your *.qmd* file and make it look pretty, you have to **render** it.
 -   The R code written in your *.qmd* file gets run **in order**.
     -   It starts from scratch, even if you previously ran some of the code.
 -   A new file is created.
-    -   If your Quarto file is called "Lab0.qmd", then a file called "Lab1.pdf" will be created.
+    -   If your Quarto file is called "Lab0.qmd", then a file called "Lab0.pdf" will be created.
     -   This will be saved in the bottom right quadrant (Files tab); you will export this from Posit Cloud to your computer.
 
 # Lab 0: Setting up posit Cloud
