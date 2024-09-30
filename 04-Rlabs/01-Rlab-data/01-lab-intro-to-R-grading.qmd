@@ -1,0 +1,172 @@
+---
+title: "R Lab 1: Welcome to Posit Cloud!"
+author: "Grading Rubric"
+format: html
+editor: visual
+embed-resources: true
+execute:
+  echo: true
+---
+
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Criteria                                                          | Look for                                                                                                                          |
++===================================================================+===================================================================================================================================+
+| Q1/2: packages \[library() + tidyverse\]                          | loads package                                                                                                                     |
+|                                                                   |                                                                                                                                   |
+|                                                                   | collection of packages                                                                                                            |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q3/9: hidden code chunk + #\|echo: false options                  | #\| include = false                                                                                                               |
+|                                                                   |                                                                                                                                   |
+|                                                                   | echo: hides code + keeps output                                                                                                   |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q4/5: head() + preview arson data                                 | prints top 6 rows                                                                                                                 |
+|                                                                   |                                                                                                                                   |
+|                                                                   | head()/glimpse()/names()                                                                                                          |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Q6/7/8: observations + variables&types + data dimensions          | 16 obs x 7 variables                                                                                                              |
+|                                                                   |                                                                                                                                   |
+|                                                                   | obs - question                                                                                                                    |
+|                                                                   |                                                                                                                                   |
+|                                                                   | vars + type - question (C), text (C), crime scene answer (C), suspect response (C), outcome (C), time to response (N), action (C) |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Appearance (names/roles, dates, output, can view on canvas, etc.) | Filled out names and roles, dates, and can view on canvas                                                                         |
++-------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+## Quarto Text Formatting
+
+This is a Quarto document. Quarto is a simple formatting syntax for authoring HTML, PDF, and Microsoft Word documents.
+
+The document may look a bit different that you are used to, but we will break it down!
+
+Section headers are defined with hashtags (#), where one \# is the largest header, two \## is the second largest and so on.
+
+You can make words boldface with two \*\* (like **so**).
+
+You can make words italicized with one \* (like *this*).
+
+You can make lists like this:
+
+-   item 1
+-   item 2
+-   item 3
+
+(Notice you need to have a blank line before the first item of your list!)
+
+<!-- This is a Quarto comment. It WILL NOT show in your knitted document. -->
+
+```{=html}
+<!-- Comments are great ways to leave yourself notes inside your Quarto
+document that no one can see!  -->
+```
+## R Code
+
+You can differentiate the R code within an Quarto file from the body of the document, from the three tickmarks (\`\`\`) they start and end with.
+
+Here is an example of an R code chunk:
+
+```{r setup}
+#| include: false
+
+# This is an R comment. R knows this IS NOT code because it has a # in front! 
+
+# Code to load in packages we need
+library(tidyverse)
+
+```
+
+Notice that after the \`\`\` you see a curly brace with an "r" in it ({r}), this indicates to RMarkdown that the code inside of that code chunk is R code (not Python code or another type of code).
+
+Also, the "setup" after the "r" is the code chunk's name. It is good practice to name your code chunks based on the action they perform. It makes it easier to navigate to them in the navigation pane.
+
+1.  **What does the library() function do?**
+
+    `library` is a function that loads a package.
+
+2.  **What is the tidyverse?**
+
+    The `tidyverse` is a collection of R packages designed for data science.
+
+## Rendering
+
+When you click the **Render** button, a document will be generated that includes both contents as well as the output of any embedded R code chunks within the document.
+
+3.  **Why do you not see the above code chunk (named `setup`) when you render the document?**
+
+    The setup code chunk includes an option `#| include = false` which prevents code and results from appearing in the rendered file.
+
+## Including Code Output
+
+You can include code output in your rendered document:
+
+```{r hearing-loss}
+head(mpg)
+```
+
+4.  **What do you think the `head()` function does?** *(Hint: What kind of output does it give you?)*
+
+    The `head` function prints out the first 6 rows of the data set.
+
+## Loading Data into `R`
+
+You can load data files into R using functions from different packages. You will learn that the function you use depends on what format the data are in. Today, we will work with data that are stored in a Comma Separated Values file (a CSV). For this format of data, we will use the `read_csv()` function to read in our data.
+
+The data are located in the *data* folder of your project. To load in the data, we need to specify the "path" to the data, or where R needs to look for the data. I'll walk you through what the code below is doing.
+
+-   `arson_data` is the name of the object we are storing the data set into. This is the name R knows the data set by.
+-   The `<-` "assigns" the output of the `read_csv()` function into the `arson` object
+-   `read_csv()` is a function that reads in our csv data file
+-   `"data"` is the name of the sub-folder the data live in (look in the bottom right of your RStudio IDE)
+-   `"arson.csv"` is the name of the data set. This is the name Posit Cloud's data sub-folder knows the data set by.
+
+```{r read-data}
+#| include: false
+
+arson_data <- read_csv("data/arson.csv")
+```
+
+5.  **Write code to preview the observed arson data set.**
+
+```{r arson-data}
+# Your code for question 5 goes below this line!
+head(arson_data)
+glimpse(arson_data)
+names(arson_data)
+```
+
+6.  **What are the observations in this data set?**
+
+    A question given to the suspect.
+
+7.  **How many observations are there in the data set?** *Hint: you can use code to find this or look in the top right environment.*
+
+    16 questions (rows in the data set)
+
+8.  **What are the variables in this data set? What are their data types?**
+
+    Question (C), Question Text (C), Crime_Scene_Answer (C), Suspect_Response (C), Outcome (C), Time_to_Response (N), Action_During_Response (C)
+
+9.  **How many variables are there in the data set?** *Hint: you can use code to find this or look in the top right environment.*
+
+    7 Variables
+
+## Including Plots
+
+You can also embed plots in the rendered document. Here is an example of a plot:
+
+```{r plot}
+#| echo: false 
+
+ggplot(data = arson_data,
+       aes(x = Outcome,
+           fill = Outcome)
+       ) + 
+  geom_bar(stat = "count") +
+  labs(title = "Arson Suspect Responses",
+       x = "Outcome",
+       y = "Number of Questions"
+       )
+```
+
+8.  **What do you think the `#| echo: false` option does in the above code chunk?**
+
+    Prevents code, but not results from appearing in the rendered file.

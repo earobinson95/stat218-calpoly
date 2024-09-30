@@ -1,6 +1,6 @@
 ---
 title: "Quiz 1: Statistical Thinking"
-date: "Friday, September 29, 2023"
+date: "Friday, October 4, 2024"
 author: "Name: ____________________________"
 embed-resources: true
 format:
@@ -18,6 +18,60 @@ format:
 execute:
   echo: false
 ---
+
+8.	Suppose you want to investigate the question, “What percent of Americans support stronger gun laws?” 
+Identify the observational unit and variable of interest. (3 pts)
+
+a.	Observational unit = opinion on gun laws, variable = number of people who support stronger gun laws
+b.	Observational unit = opinion on gun laws, variable = political affiliation
+c.	Observational unit = an American, variable = opinion on gun laws
+d.	Observational unit = an American, variable = number of people who support stronger gun laws
+
+
+9.	A student participates in a Coke versus Pepsi taste test. She correctly identifies which soda is which five times out of six tries. She claims that this proves that she can reliably tell the difference between the two soft drinks. You have studied statistics and you want to determine the probability of anyone getting at least five right out of six tries just by chance alone. Which of the following would provide an accurate estimate of that probability? (3 pts)
+a.	Have the student repeat this experiment many times and calculate the percentage of times she correctly distinguishes between the brands. 
+b.	Simulate this on the computer with a 50% chance of guessing the correct soft drink on each try, and calculate the percent of times there are five or more correct guesses out of six trials.
+c.	Repeat this experiment with a very large sample of people and calculate the percentage of people who make five correct guesses out of six tries. 
+d.	All of the methods listed above would provide an accurate estimate of the probability.
+
+Questions 24 - 27 refer to the following scenario. Researchers carried out a study to investigate whether two-year-old children learn words through overhearing the conversations of others. In this study, the child sat and watched while the experimenter introduced four new objects to another adult. All four objects were originally placed in a bucket so that they were hidden from sight. One of the four objects was considered the “target” object, and the other three were considered “neutral” objects. For each of the three neutral objects, the researcher would say, “I’ll show you this one” and then pull it out the bucket. However, before introducing the target object to the other adult, the researcher would say, “I’ll show you the toma.” After the child had overheard this conversation between the researcher and the other adult, the researcher presented all four objects to the child and asked him or her to find the “toma.” This was repeated for each of 12 two-year-old subjects, and the researchers kept track of how many could correctly identify the target object.
+Research Question:  Is there evidence that children learn new words through overhearing? In other words, is there evidence that more two-year-olds are correctly identifying the target object than we would expect by chance? 
+
+24.	Which of the following gives the best description of the population of interest? (3 pts)
+a.	The 12 two-year-olds observed in this study
+b.	The 10 two-year-olds that correctly identified the target object
+c.	The true proportion of all two-year-olds that would correctly identify the target object
+d.	All two-year-olds
+
+
+25.	Suppose the researchers will conduct a simulation study in Tinkerplots to get an idea of what outcomes to anticipate if the children are really not able to learn new words through overhearing and are simply guessing when asked to find the target object. Which of the following spinners should the researchers use? (3 pts)
+
+a.	 	b.  
+
+c.     	d.  
+
+26.	Suppose the researchers carried out 100 simulated trials of the experiment, and the number of children that correctly identified the target object when guessing was recorded for each simulated trial. The results are summarized below.
+
+ 
+
+
+Answer the following true/false questions by circling the correct response. (2 pts each)
+
+
+An observed outcome of 2 students identifying the correct item would provide evidence that children are learning new words from overhearing because this outcome occurred quite often in the simulation study.
+	TRUE     FALSE
+
+An observed outcome of 10 students identifying the correct item would not provide evidence that children are learning new words from overhearing because this outcome never occurred in the simulation study.
+	TRUE     FALSE
+
+
+
+
+
+
+
+
+
 
 1. In a study conducted by researchers at the Marine Biology Institute in Monterey, California, a dolphin named Luna was the focus of an investigation into whether bottlenose dolphins demonstrated the ability to identify edible fish species, herring, based on their distinct vocalizations. The researchers conducted a series of trials using underwater recordings of fish vocalizations.
 
