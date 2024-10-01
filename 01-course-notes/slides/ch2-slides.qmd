@@ -6,71 +6,96 @@ format:
     theme: simple
 ---
 
-## Monday, October 2nd
-### Today we will...
+## Tuesday, October 1st
 
-+ Review setting up hypotheses
-+ Evaluating evidence using p-values
-+ Theoretical approach to p-values
-+ Example 2.1 & 2.2 (In groups for Tuesday Class Participation)
++ Ch. 2 -- Setting up Hypotheses
 
 ## To do:
 
-+ **Lab 1: Intro to Posit Cloud**
-  + Due Monday 10/2 at 11:59pm
++ **Homework 1: Tidy Data and Simulation Studies**
+  + Due Thursday 10/3 at 11:59pm
++ **Review notes for Quiz 1**
+  + Friday 9/4
   
-+ **Example 2.1 & 2.2**
-  + Checked for class participation credit on Tuesday
-  
-+ **Homework 2: Can Marine sniff out cancer?**
-  + Due Wednesday 10/4 at 11:59pm
+*Bring your computer charged for lab on Thursday!*
 
-
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-
-## Tuesday, October 3rd
+## Thursday, October 3rd
 ### Today we will...
 
-+ Check Examples 2.1 & 2.2 (Big Picture Questions?)
-+ Introduce Confidence Intervals
-
-## To do:
-  
-+ **Homework 2: Can Marine sniff out cancer?**
-  + Due Wednesday 10/4 at 11:59pm
-  
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-  
-## Thursday, September 28th
-### Today we will...
-
-+ Lab 2: What Impacts Strength of Evidence
++ Lab 1: Working with Data in R
 
 ## To do:
 
-+ **Lab 2: What Impacts Strength of Evidence?**
-  + Due Monday 10/9 at 11:59pm
-  
-+ **Print/Download Chapter 3 Course Notes**
-  + For class Monday 10/9
++ **Homework 1: Tidy Data and Simulation Studies**
+  + Due Thursday 10/3 at 11:59pm
++ **Lab 1: Working with Data in R**
+  + Due Monday 10/7 at 11:59pm
++ **Review notes for Quiz 1**
+  + In-class Friday 9/29
 
-## Friday, September 29th
+## Friday, October 4th
 ### Today we will...
 
-+ **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?"
-+ Meaning of 95% confidence interval
-+ Review hypothesis testing & confidence intervals
++ Quiz 1 (20 minutes to complete)
++ Ch. 2 -- Evaluating evidence using p-values
 
 ## To do:
 
-+ **Lab 2: What Impacts Strength of Evidence?**
-  + Due Monday 10/9 at 11:59pm
-  
-+ **Print/Download Chapter 3 Course Notes**
-  + For class Monday 10/9
++ **Lab 1: Working with Data in R**
+  + Due Monday 10/7 at 11:59pm
+
+<!-- ## Monday, October 7th -->
+<!-- ### Today we will... -->
+
+<!-- + Examples 2.1 & 2.2 (In groups) -->
+
+<!-- ## To do: -->
+
+<!-- + **Homework 2: XXX?** -->
+<!--   + Due Thursday 10/10 at 11:59pm -->
+
+<!-- ## Tuesday, October 8th -->
+<!-- ### Today we will... -->
+
+<!-- + Introduce Confidence Intervals -->
+
+<!-- ## To do: -->
+
+<!-- + **Homework 2: XXX?** -->
+<!--   + Due Thursday 10/10 at 11:59pm -->
+
+<!-- ## Thursday, September 28th -->
+<!-- ### Today we will... -->
+
+<!-- + Lab 2: What Impacts Strength of Evidence -->
+
+<!-- ## To do: -->
+
+<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
+<!--   + Due Monday 10/9 at 11:59pm -->
+
+<!-- + **Print/Download Chapter 3 Course Notes** -->
+<!--   + For class xxx -->
+
+
+
+
+
+
+
+<!-- ## Friday, September 29th -->
+<!-- ### Today we will... -->
+
+<!-- + **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?" -->
+<!-- + Meaning of 95% confidence interval -->
+<!-- + Review hypothesis testing & confidence intervals -->
+
+<!-- ## To do: -->
+
+<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
+<!--   + Due Monday 10/9 at 11:59pm -->
+
+<!-- + **Print/Download Chapter 3 Course Notes** -->
+<!--   + For class Monday 10/9 -->
   
   
