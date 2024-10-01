@@ -186,7 +186,7 @@ First, note that in our three examples, we examined different parts of the distr
 | \                                       | \              | \                  |
 +-----------------------------------------+----------------+--------------------+
 | Is there statistical evidence for sex   | H~0~:          | Lower-tailed Test  |
-| sex discrimination against females?     | \              | \                  |
+| discrimination against females?         | \              | \                  |
 | \                                       | \              | \                  |
 | \                                       | \              | \                  |
 | \                                       | H~A~:          |                    |
