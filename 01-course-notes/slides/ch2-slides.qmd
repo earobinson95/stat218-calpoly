@@ -38,6 +38,7 @@ format:
 
 + Quiz 1 (20 minutes to complete)
 + Ch. 2 -- Evaluating evidence using p-values
++ Examples 2.1 + 2.2 Practice (in groups)
 
 ## 
 
@@ -64,6 +65,8 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ### Today we will...
 
 + Examples 2.1 & 2.2 (In groups)
++ Theoretical p-values
++ Start Confidence Intervals
 
 ## To do:
 
