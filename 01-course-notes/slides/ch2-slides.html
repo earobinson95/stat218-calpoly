@@ -382,6 +382,31 @@
 <li>Ch. 2 – Evaluating evidence using p-values</li>
 </ul>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it."></p>
+<figcaption>R Knowledge Rollercoaster by Allison Horst</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="lets-all-take-a-deep-breath." class="title-slide slide level1 center">
+<h1>Let’s all take a deep breath.</h1>
+
+</section>
+<section id="quiz-1-statistical-thinking" class="slide level2">
+<h2>Quiz 1: Statistical Thinking</h2>
+<ul>
+<li>You have 20 minutes to complete the quiz.</li>
+<li>Please wait quietly for others to finish.</li>
+</ul>
+</section>
 <section id="to-do-2" class="slide level2">
 <h2>To do:</h2>
 <ul>
@@ -390,40 +415,82 @@
 <li>Due Monday 10/7 at 11:59pm</li>
 </ul></li>
 </ul>
-<!-- ## Monday, October 7th -->
-<!-- ### Today we will... -->
-<!-- + Examples 2.1 & 2.2 (In groups) -->
-<!-- ## To do: -->
-<!-- + **Homework 2: XXX?** -->
-<!--   + Due Thursday 10/10 at 11:59pm -->
-<!-- ## Tuesday, October 8th -->
-<!-- ### Today we will... -->
-<!-- + Introduce Confidence Intervals -->
-<!-- ## To do: -->
-<!-- + **Homework 2: XXX?** -->
-<!--   + Due Thursday 10/10 at 11:59pm -->
-<!-- ## Thursday, September 28th -->
-<!-- ### Today we will... -->
-<!-- + Lab 2: What Impacts Strength of Evidence -->
-<!-- ## To do: -->
-<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
-<!--   + Due Monday 10/9 at 11:59pm -->
-<!-- + **Print/Download Chapter 3 Course Notes** -->
-<!--   + For class xxx -->
-<!-- ## Friday, September 29th -->
-<!-- ### Today we will... -->
+</section>
+<section id="monday-october-7th" class="slide level2">
+<h2>Monday, October 7th</h2>
+<h3 id="today-we-will-2">Today we will…</h3>
+<ul>
+<li>Examples 2.1 &amp; 2.2 (In groups)</li>
+</ul>
+</section>
+<section id="to-do-3" class="slide level2">
+<h2>To do:</h2>
+<ul>
+<li><strong>Homework 2: XXX?</strong>
+<ul>
+<li>Due Thursday 10/10 at 11:59pm</li>
+</ul></li>
+</ul>
+</section>
+<section id="tuesday-october-8th" class="slide level2">
+<h2>Tuesday, October 8th</h2>
+<h3 id="today-we-will-3">Today we will…</h3>
+<ul>
+<li>Confidence Intervals</li>
+</ul>
+</section>
+<section id="to-do-4" class="slide level2">
+<h2>To do:</h2>
+<ul>
+<li><strong>Homework 2: XXX?</strong>
+<ul>
+<li>Due Thursday 10/10 at 11:59pm</li>
+</ul></li>
+<li><strong>Print/Download Chapter 3 Course Notes</strong>
+<ul>
+<li>For class Friday</li>
+</ul></li>
+</ul>
+</section>
+<section id="thursday-september-28th" class="slide level2">
+<h2>Thursday, September 28th</h2>
+<h3 id="today-we-will-4">Today we will…</h3>
+<ul>
+<li>Lab 2: What Impacts Strength of Evidence</li>
+</ul>
+</section>
+<section id="to-do-5" class="slide level2">
+<h2>To do:</h2>
+<ul>
+<li><strong>Lab 2: What Impacts Strength of Evidence?</strong>
+<ul>
+<li>Due Monday 10/9 at 11:59pm</li>
+</ul></li>
+<li><strong>Print/Download Chapter 3 Course Notes</strong>
+<ul>
+<li>For class Friday</li>
+</ul></li>
+</ul>
+</section>
+<section id="friday-september-29th" class="slide level2">
+<h2>Friday, September 29th</h2>
+<h3 id="today-we-will-5">Today we will…</h3>
 <!-- + **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?" -->
 <!-- + Meaning of 95% confidence interval -->
 <!-- + Review hypothesis testing & confidence intervals -->
-<!-- ## To do: -->
-<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
-<!--   + Due Monday 10/9 at 11:59pm -->
-<!-- + **Print/Download Chapter 3 Course Notes** -->
-<!--   + For class Monday 10/9 -->
+</section>
+<section id="to-do-6" class="slide level2">
+<h2>To do:</h2>
+<ul>
+<li><strong>Lab 2: What Impacts Strength of Evidence?</strong>
+<ul>
+<li>Due Monday 10/9 at 11:59pm</li>
+</ul></li>
+</ul>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -635,6 +702,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

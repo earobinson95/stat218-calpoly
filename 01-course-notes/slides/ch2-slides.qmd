@@ -39,63 +39,73 @@ format:
 + Quiz 1 (20 minutes to complete)
 + Ch. 2 -- Evaluating evidence using p-values
 
+## 
+
+```{r}
+#| fig-cap: "R Knowledge Rollercoaster by Allison Horst"
+#| fig-alt: "An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it."
+
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/r_rollercoaster.png")
+```
+
+# Let's all take a deep breath.
+
+## Quiz 1: Statistical Thinking
+
++ You have 20 minutes to complete the quiz.
++ Please wait quietly for others to finish.
+
 ## To do:
 
 + **Lab 1: Working with Data in R**
   + Due Monday 10/7 at 11:59pm
+  
+## Monday, October 7th
+### Today we will...
 
-<!-- ## Monday, October 7th -->
-<!-- ### Today we will... -->
++ Examples 2.1 & 2.2 (In groups)
 
-<!-- + Examples 2.1 & 2.2 (In groups) -->
+## To do:
 
-<!-- ## To do: -->
++ **Homework 2: XXX?**
+  + Due Thursday 10/10 at 11:59pm
 
-<!-- + **Homework 2: XXX?** -->
-<!--   + Due Thursday 10/10 at 11:59pm -->
+## Tuesday, October 8th
+### Today we will...
 
-<!-- ## Tuesday, October 8th -->
-<!-- ### Today we will... -->
++ Confidence Intervals
 
-<!-- + Introduce Confidence Intervals -->
+## To do:
 
-<!-- ## To do: -->
++ **Homework 2: XXX?**
+  + Due Thursday 10/10 at 11:59pm
++ **Print/Download Chapter 3 Course Notes**
+  + For class Friday
 
-<!-- + **Homework 2: XXX?** -->
-<!--   + Due Thursday 10/10 at 11:59pm -->
+## Thursday, September 28th
+### Today we will...
 
-<!-- ## Thursday, September 28th -->
-<!-- ### Today we will... -->
++ Lab 2: What Impacts Strength of Evidence
 
-<!-- + Lab 2: What Impacts Strength of Evidence -->
+## To do:
 
-<!-- ## To do: -->
++ **Lab 2: What Impacts Strength of Evidence?**
+  + Due Monday 10/9 at 11:59pm
 
-<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
-<!--   + Due Monday 10/9 at 11:59pm -->
-
-<!-- + **Print/Download Chapter 3 Course Notes** -->
-<!--   + For class xxx -->
-
-
-
-
++ **Print/Download Chapter 3 Course Notes**
+  + For class Friday
 
 
-
-<!-- ## Friday, September 29th -->
-<!-- ### Today we will... -->
+## Friday, September 29th
+### Today we will...
 
 <!-- + **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?" -->
 <!-- + Meaning of 95% confidence interval -->
 <!-- + Review hypothesis testing & confidence intervals -->
 
-<!-- ## To do: -->
+## To do:
 
-<!-- + **Lab 2: What Impacts Strength of Evidence?** -->
-<!--   + Due Monday 10/9 at 11:59pm -->
++ **Lab 2: What Impacts Strength of Evidence?**
+  + Due Monday 10/9 at 11:59pm
 
-<!-- + **Print/Download Chapter 3 Course Notes** -->
-<!--   + For class Monday 10/9 -->
-  
-  
+
