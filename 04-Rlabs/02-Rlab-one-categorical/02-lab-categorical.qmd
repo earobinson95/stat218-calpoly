@@ -8,7 +8,7 @@ author:
   - "Resource Manager: NAME HERE"
 date: "DATE HERE"
 format: pdf
-editor: visual
+editor: source
 execute:
   echo: true
   error: true
@@ -36,7 +36,7 @@ Your answer goes here.
 
 Let's start by exploring how many matches in our data set were won by each uniform color
 
-2.  **Create a *frequency bar plot* of the variable `color`.**
+2.  **Create a *frequency bar plot* of the variable `won`.**
 
 **Step 1:** Set-up the data and the variable(s) of interest
 
@@ -134,7 +134,9 @@ Research Question: Do competitors that wear red uniforms win a *majority* of the
 
 -   Alternative:
 
-9.  **Check the conditions for using the normal approximation method to test our hypotheses.**
+9.  **Check the conditions for using the binomial distribution method to test our hypotheses.**
+
+Your answer goes here.
 
 10. **Run the code below. Based on the output, what decision do you make about your hypotheses? Justify your answer using the p-value.**
 
@@ -143,6 +145,8 @@ binom.test(x = 248, n = 457, p = 0.5, alternative = "greater")
 ```
 
 11. **Write a conclusion in context of the scenario.**
+
+Your answer goes here.
 
 # Scenario Two: One Sided vs. Two Sided
 
@@ -162,6 +166,8 @@ Research Question: Does one color win more often than the other?
 
 14. **Compare to scenario one (original). How is the p-value different? What is similar and what is different about the hypothesis? Are the conclusions the same?**
 
+Your answer goes here.
+
 ::: callout-note
 ## Key Idea
 
@@ -177,13 +183,17 @@ Research Question: Do competitors that wear red uniforms win a majority of the t
 
 15. **How does the distance between our observed statistic and hypothesized null change? Might be helpful to draw a picture.**
 
-16. **Run the code below. What is our p-value?**
+Your answer goes here.
+
+16. **Complete and run the code below. What is our p-value?**
 
 ```{r binom-test-3}
 binom.test(x = ____, n = 457, p = 0.5, alternative = "greater")
 ```
 
 17. **Is your p-value larger or smaller than your original one? Explain why this makes sense.**
+
+Your answer goes here.
 
 ::: callout-note
 ### Key Idea
@@ -210,13 +220,15 @@ boxing <- athletes |>
 head(boxing)
 ```
 
-19. **Run the code below to test our hypothesis.**
+19. **Complete and run the code below to test our hypothesis.**
 
 ```{r binom-test-4}
 binom.test(x = _____, n = ______, p = 0.5, alternative = "greater")
 ```
 
 20. **Compare to the original scenario. Note the probability of success. Is the p-value larger or smaller?**
+
+Your answer goes here.
 
 ::: callout-note
 ## Key Idea

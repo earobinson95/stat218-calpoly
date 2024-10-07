@@ -38,7 +38,6 @@ format:
 
 + Quiz 1 (20 minutes to complete)
 + Ch. 2 -- Evaluating evidence using p-values
-+ Examples 2.1 + 2.2 Practice (in groups)
 
 ## 
 
@@ -64,14 +63,19 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## Monday, October 7th
 ### Today we will...
 
-+ Examples 2.1 & 2.2 (In groups)
-+ Theoretical p-values
-+ Start Confidence Intervals
+
++ P3: Entry Ticket
+  + Visit **joinpd.com** and enter the code on the board
+  + *In your own words, what is a p-value, and how do we use it in hypothesis testing? Briefly explain what it tells us and how it affects decisions about a null hypothesis.*
++ Examples 2.1 & 2.2 (in groups)
++ Exact Binomial p-values
 
 ## To do:
 
-+ **Homework 2: XXX?**
++ **Homework 2: Can dogs sniff out cancer?**
   + Due Thursday 10/10 at 11:59pm
++ **Review for Quiz 2: Basics of Hypothesis Testing**
+  + In-class Tuesday 10/15
 
 ## Tuesday, October 8th
 ### Today we will...
@@ -80,10 +84,14 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 
 ## To do:
 
-+ **Homework 2: XXX?**
++ **Homework 2: Can dogs sniff out cancer?**
   + Due Thursday 10/10 at 11:59pm
 + **Print/Download Chapter 3 Course Notes**
   + For class Friday
++ **Review for Quiz 2: Basics of Hypothesis Testing**
+  + In-class Tuesday 10/15
+  
+*Bring computers charged for class Thursday.*
 
 ## Thursday, September 28th
 ### Today we will...
@@ -92,15 +100,23 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 
 ## To do:
 
++ **Homework 2: Can dogs sniff out cancer?**
+  + Due Thursday 10/10 at 11:59pm
 + **Lab 2: What Impacts Strength of Evidence?**
   + Due Monday 10/9 at 11:59pm
-
 + **Print/Download Chapter 3 Course Notes**
   + For class Friday
++ **Review for Quiz 2: Basics of Hypothesis Testing**
+  + In-class Tuesday 10/15
 
 
 ## Friday, September 29th
 ### Today we will...
+
+TBD... 
+
++ Finish Confidence Intervals
++ Start Ch. 3 Notes
 
 <!-- + **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?" -->
 <!-- + Meaning of 95% confidence interval -->
@@ -110,5 +126,6 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 
 + **Lab 2: What Impacts Strength of Evidence?**
   + Due Monday 10/9 at 11:59pm
-
++ **Review for Quiz 2: Basics of Hypothesis Testing**
+  + In-class Tuesday 10/15
 
