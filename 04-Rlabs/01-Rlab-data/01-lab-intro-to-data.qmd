@@ -15,25 +15,24 @@ execute:
 ```{r}
 #| label: setup
 #| include: false
-library(readr)
-library(ggplot2)
+library(tidyverse)
 ```
 
 ## Remember -- Question the Arson
 
-You can load data files into R using functions from different packages. Typically, we will work with data that are stored in a Comma Separated Values file (a .csv). For this format of data, we will use the `read_csv()` function to read in our data.
+You can read data files into R using functions from different packages. Typically, we will work with data that are stored in a Comma Separated Values file (a .csv). For this format of data, we will use the `read_csv()` function to read in our data.
 
-The data are located in the *data* folder of your project (see bottom right files tab). To load in the data, we need to specify the "path" to the data, or where R needs to look for the data. I'll walk you through what the code below is doing.
+The data are located in the *data* folder of your project (see bottom right files tab). To read in the data, we need to specify the "path" to the data, or where R needs to look for the data. I'll walk you through what the code below is doing.
 
 -   `arson_data` is the name of the object we are storing the data set into. This is the name R knows the data set by.
--   The `<-` "assigns" the output of the `read_csv()` function into the `arson` object
+-   The `<-` "assigns" the output of the `read_csv()` function into the `arson_data` object
 -   `read_csv()` is a function that reads in our csv data file
 -   `"data"` is the name of the sub-folder the data live in (look in the bottom right of your RStudio IDE)
 -   `"arson.csv"` is the name of the data set. This is the name Posit Cloud's data sub-folder knows the data set by.
 
 ```{r}
 #| label: read-data
-#| include: false
+
 arson_data <- read_csv("data/arson.csv")
 ```
 
@@ -85,13 +84,15 @@ ggplot(data = arson_data,
 
 ## Childcare Costs in San Luis Obispo
 
-6. **Load in and preview the SLO childcare data set in the following code chunk. You may need to look in the data folder to find the name of the .csv file.**
+6. **Read in and preview the SLO childcare data set in the following code chunk. You may need to look in the data folder to find the name of the .csv file.**
 
 ```{r}
-# Write your code below this line.
+# Write your code to read in the data set below this line.
 
 
-# You may choose to write more code below this line to help you answer the next couple of questions.
+# Write code to preview the data set below this line.
+
+
 ```
 
 7. **What are the observational units in this data set?**

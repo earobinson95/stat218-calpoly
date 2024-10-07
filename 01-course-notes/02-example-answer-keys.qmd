@@ -4,17 +4,6 @@ embed-resources: true
 format:
   html:
     toc: true
-  pdf:
-    keep-tex: false    
-    include-in-header:
-      text: |
-          \usepackage{fancyhdr}
-          \pagestyle{fancy}
-          \fancyhf{}
-          \fancyhead[R]{Chapter 0: Welcome to Stat 218 - Applied Statistics for Life Science}
-          \fancyfoot[C]{\thepage}
-  docx:
-    toc: false
 prefer-html: true
 bibliography: references.bib
 reference-location: section
@@ -72,7 +61,7 @@ A 28-year-old developed pain involving the spine and the left side of her body a
 
 <span style="color:blue;">Null: the proportion of all possible stimuli trials the 28 year old would answer correctly is equal to 0.5.</span>
 
-<span style="color:blue;">Alternative: the proportion of all possible stimuli trials the 28 year old would answer correctly is greater than 0.5.</span>
+<span style="color:blue;">Alternative: the proportion of all possible stimuli trials the 28 year old would answer correctly is less than 0.5.</span>
 
 \vspace{0.15in}
 
@@ -80,7 +69,7 @@ A 28-year-old developed pain involving the spine and the left side of her body a
 
 <span style="color:blue;">$H_0: \pi = 0.5$</span>
 
-<span style="color:blue;">$H_A: \pi > 0.5$</span>
+<span style="color:blue;">$H_A: \pi < 0.5$</span>
 
 + Estimate p-value (Carry out the simulation study to investigate this p-value, sketch or paste your simulation results here)
 
@@ -90,11 +79,13 @@ A 28-year-old developed pain involving the spine and the left side of her body a
 knitr::include_graphics("02-images/example-2.1-sim.png")
 ```
 
-\hfill Use the simulation results to estimate the p-value: <span style="color:blue;"><0.001 (note that when we never have a simulation set as extreme or more extreme than what we observed, the p-value is "0", very very small!)</span>
+\hfill Use the simulation results to estimate the p-value: <span style="color:blue;"><0.001  < 0.05 -> Reject the Null </span>
+
+<span style="color:blue;">(note that when we never have a simulation set as extreme or more extreme than what we observed, the p-value is "0", very very small!)</span>
   
 + Conclusion:
 
-<span style="color:blue;">We have strong evidence to conclude the 28 year-old is intentionally answering incorrectly for for all possible stimuli (p-value < 0 .0001 ).</span>
+<span style="color:blue;">At an $\alpha = 0.05$, we have evidence to conclude the 28 year-old is intentionally answering incorrectly for for all possible stimuli (p < 0 .0001 ).</span>
 
 \vspace{0.8in}
 
@@ -147,10 +138,10 @@ Suppose a commonly prescribed drug for relieving nervous tension is believed to 
 knitr::include_graphics("02-images/example-2.2-sim.png")
 ```
 
-\hfill Use the simulation results to estimate the p-value: <span style="color:blue;">0.03</span>
+\hfill Use the simulation results to estimate the p-value: <span style="color:blue;">0.03 < 0.05 -> Reject the Null</span>
 
   
 + Conclusion:
 
-<span style="color:blue;">We have strong evidence to conclude the proportion of all adults who receive relief from nervous tension is greater than 0.7 (p-value = 0.03).</span>
+<span style="color:blue;">At an $\alpha = 0.05$, we have evidence to conclude the proportion of all adults who receive relief from nervous tension is greater than 0.70 (p = 0.03).</span>
 

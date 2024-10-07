@@ -186,7 +186,7 @@ First, note that in our three examples, we examined different parts of the distr
 | \                                       | \              | \                  |
 +-----------------------------------------+----------------+--------------------+
 | Is there statistical evidence for sex   | H~0~:          | Lower-tailed Test  |
-| discrimination against females?         | \              | \                  |
+| discrimination against women?           | \              | \                  |
 | \                                       | \              | \                  |
 | \                                       | \              | \                  |
 | \                                       | H~A~:          |                    |
@@ -315,11 +315,11 @@ Next, we will review the steps involved in a formal hypothesis test for each of 
 +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Research Question                 | Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?                                                                                           |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                                                                      |
 | Hypotheses                        | H~0~: There is no preference for one toy over the other in the population of all 10-month-olds; that is, the probability a 10-month-old selects the helper toy is 50%. |
 | \                                 | \                                                                                                                                                                      |
-| \                                 | \                                                                                                                                                                      |
-| \                                 | \                                                                                                                                                                      |
 | \                                 | H~A~: The majority of all 10-month-old infants prefer the helper toy; that is, the probability a 10-month-old selects the helper toy is greater than 50%.              |
+| \                                 | \                                                                                                                                                                      |
 +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | p-value estimated from simulation | \                                                                                                                                                                      |
 | \                                 | \                                                                                                                                                                      |
@@ -335,13 +335,13 @@ Next, we will review the steps involved in a formal hypothesis test for each of 
 **Are Women Passed Over for Managerial Training?**
 
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| Research Question                 | Is there statistical evidence of sex discrimination against females?                                               |
+| Research Question                 | Is there statistical evidence of sex discrimination against women?                                                    |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                     |
 | Hypotheses                        | H~0~: The selection process is fair; that is, the probability a woman is selected is 60%.                             |
 | \                                 | \                                                                                                                     |
-| \                                 | \                                                                                                                     |
-| \                                 | \                                                                                                                     |
 | \                                 | H~A~: The selection process is biased against females; that is, the probability a woman is selected is less than 60%. |
+| \                                 | \                                                                                                                     |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 | p-value estimated from simulation | \                                                                                                                     |
 | \                                 | \                                                                                                                     |
@@ -357,11 +357,11 @@ Next, we will review the steps involved in a formal hypothesis test for each of 
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Research Question                 | Do the majority of all consumers prefer one font over the other?                                                                                                      |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                                                                     |
 | Hypotheses                        | H~0~: There is no preference for one font over the other in the population of all consumers; that is, the probability of a consumer selecting the Signet font is 50%. |
 | \                                 | \                                                                                                                                                                     |
-| \                                 | \                                                                                                                                                                     |
-| \                                 | \                                                                                                                                                                     |
 | \                                 | H~A~: The majority of all consumers would pick one font over the other; that is, the probability of a consumer selecting the Signet font is different from 50%.       |
+| \                                 | \                                                                                                                                                                     |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | p-value estimated from simulation | \                                                                                                                                                                     |
 | \                                 | \                                                                                                                                                                     |
