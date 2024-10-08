@@ -63,12 +63,10 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## Monday, October 7th
 ### Today we will...
 
-
 + P3: Entry Ticket
   + Visit **joinpd.com** and enter the code on the board
   + *In your own words, what is a p-value, and how do we use it in hypothesis testing? Briefly explain what it tells us and how it affects decisions about a null hypothesis.*
 + Examples 2.1 & 2.2 (in groups)
-+ Exact Binomial p-values
 
 ## To do:
 
@@ -80,7 +78,9 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## Tuesday, October 8th
 ### Today we will...
 
-+ Confidence Intervals
++ Questions on Examples 2.1 & 2.2
++ Theoretical p-values
++ Start Confidence Intervals
 
 ## To do:
 
