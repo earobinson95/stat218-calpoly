@@ -85,7 +85,7 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## To do:
 
 + **Homework 2: Can dogs sniff out cancer?**
-  + Due Thursday 10/10 at 11:59pm
+  + Due **SUNDAY 10/13** at 11:59pm
 + **Print/Download Chapter 3 Course Notes**
   + For class Friday
 + **Review for Quiz 2: Basics of Hypothesis Testing**
@@ -101,7 +101,7 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## To do:
 
 + **Homework 2: Can dogs sniff out cancer?**
-  + Due Thursday 10/10 at 11:59pm
+  + Due **SUNDAY 10/13** at 11:59pm
 + **Lab 2: What Impacts Strength of Evidence?**
   + Due Monday 10/9 at 11:59pm
 + **Print/Download Chapter 3 Course Notes**
