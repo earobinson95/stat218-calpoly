@@ -113,10 +113,7 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 ## Friday, September 29th
 ### Today we will...
 
-TBD... 
-
 + Finish Confidence Intervals
-+ Start Ch. 3 Notes
 
 <!-- + **Entry Ticket** "What is one concept about hypothesis testing and confidence intervals you have a question about?" -->
 <!-- + Meaning of 95% confidence interval -->
@@ -124,8 +121,11 @@ TBD...
 
 ## To do:
 
++ **Homework 2: Can dogs sniff out cancer?**
+  + Due **SUNDAY 10/13** at 11:59pm
 + **Lab 2: What Impacts Strength of Evidence?**
   + Due Monday 10/9 at 11:59pm
 + **Review for Quiz 2: Basics of Hypothesis Testing**
   + In-class Tuesday 10/15
+
 

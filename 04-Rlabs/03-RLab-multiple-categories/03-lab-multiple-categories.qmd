@@ -8,7 +8,7 @@ author:
   - "Resource Manager: NAME HERE"
 date: "DATE HERE"
 format: pdf
-editor: visual
+editor: source
 execute:
   echo: true
   error: true
@@ -25,9 +25,14 @@ library(tidyverse)
 
 The accuracy of a census report for a city in southern California was questioned by some government officials. A random sample of 1,215 people living in the city was used to check the census report. The census results (expected probabilities) are given below:
 
-|                   | Black | Asian | Anglo | Latino/Latina | Indigenous | All others |
-|-------------------|-------|-------|-------|---------------|------------|------------|
-| **Census Result** | 10%   | 3%    | 38%   | 41%           | 6%         | 2%         |
+**Census Results**
+
++ Black: 10%
++ Asian: 3%
++ Anglo: 38%
++ Latino/Latina: 41%
++ Indigenous: 6%
++ All others: 2%
 
 **Research question:** Do the counts obtained via the random sample call into question the accuracy of the census report?
 
@@ -69,9 +74,16 @@ ________ <- read_csv("data/________.csv")
 
 8.  **How many of the 1,215 people do we expect to see of each ethnic origin if the results of the census are accurate?**
 
-    |                    | Black | Asian | Anglo | Latino/Latina | Indigenous | All others |
-    |--------------------|-------|-------|-------|---------------|------------|------------|
-    | **Expected Count** |       |       |       |               |            |            |
+**Expected Counts**
+
++ Black: _____
++ Asian: _____
++ Anglo: _____
++ Latino/Latina: _____
++ Indigenous: _____
++ All others: _____
+
+*Note: we use the expected counts to check our conditions. We could have just checked the category with the smallest expected proportion.*
 
 9.  **Check the conditions for using the Chi-square distribution to test our hypotheses.**
 
@@ -80,15 +92,10 @@ ________ <- read_csv("data/________.csv")
 10. **Carry out the Chi-square Goodness of Fit Test and find the p-value for investigating this research question.**
 
 ```{r chisq-goodness-of-fit}
+# CAUTION: Pay close attention to the order in the p = c() input.
 chisq_test(x = ________,
            response = _________,
-           p = c("________" = ____,
-                 "________" = ____,
-                 "________" = ____,
-                 "________" = ____,
-                 "________" = ____,
-                 "________" = ____,
-           )
+           p = c(____,____,____,____,____,____)
   
 )
 ```
@@ -97,6 +104,7 @@ chisq_test(x = ________,
 
     Answer goes here.
 
-12. **Write a conclusion in the context of the research question.**
+12. **At an $\alpha = 0.05$, write a conclusion in the context of the research question.**
 
     Answer goes here.
+
