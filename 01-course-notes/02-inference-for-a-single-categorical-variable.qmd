@@ -479,7 +479,7 @@ knitr::include_graphics("02-images/helper-hinderer-sim1.png")
 knitr::include_graphics("02-images/helper-hinderer-sim2.png")
 ```
 
-+ Conclusion: We do have evidence that all 10-month-old infants prefer the helper toy. 
++ Conclusion: At an $\alpha = 0.05$, we have evidence to conclude the proportion of all 10-month-old infants that prefer the helper toy is greater than 0.5 (p = 0.002). 
 
 Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a simulation study with only 100 (or 1000) repetitions to *estimate* the p-value, we would ideally like to simulate this experiment over and over again, say an *infinite* number of times. This would provide us with the theoretical probabilities of interest so that can get exact p-values instead of an estimate of the p-value.
 
@@ -677,10 +677,6 @@ A formal approach to calculating a confidence interval involves identifying the 
 
 \vspace{0.8in}
 
-11. How do we interpret the meaning of the lower and upper endpoints when the outcomes are measured as proportions instead of as counts?
-
-\vspace{0.8in}
-
 \newpage
 
 #### Approach 2: Binomial
@@ -709,7 +705,7 @@ acupuncture_binom |>
 ```
 
 
-12.	Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
+11.	Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
 
 \vspace{0.5in}
 
@@ -756,20 +752,20 @@ To calculate the endpoints for a 95% confidence interval constructed using norma
 
 \newpage
 
-13.	Start with the **point estimate**, $\hat \pi$:
+12.	Start with the **point estimate**, $\hat \pi$:
 
 \vspace{0.2in}
 
-14.	Calculate the **standard error** associated with this point estimate:
+13.	Calculate the **standard error** associated with this point estimate:
 
 $$\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
 
 
-15.	Calculate the **margin of error**: This is defined as 1.96 standard errors for a 95\% confidence interval.  *(This is discussed more on the next page)*.
+14.	Calculate the **margin of error**: This is defined as 1.96 standard errors for a 95\% confidence interval.  *(This is discussed more on the next page)*.
 
 $$1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
 
-16.	Find the **endpoints** of the confidence interval:
+15.	Find the **endpoints** of the confidence interval:
 
 Lower endpoint = $\hat \pi - 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$
 
@@ -800,12 +796,12 @@ acupuncture_norm |>
 ```
 
 
-17.	What is the 95% confidence interval based on the normal theory approach for this problem?
+16.	What is the 95% confidence interval based on the normal theory approach for this problem?
 
 \vspace{0.5in}
 
 
-18.	What is the interpretation of this confidence interval?
+17.	What is the interpretation of this confidence interval?
 
 \vspace{0.8in}
 
@@ -872,7 +868,7 @@ This distribution is not approximated well by a bell-shaped curve. If we encount
 One rule of thumb is that as long as there are 10 "successes" and 10 "failures", the normal approximation should work reasonably well.
 :::
 
-19. Check this condition for the Acupuncture example.  Does the Wald interval seem to be appropriate here?
+18. Check this condition for the Acupuncture example.  Does the Wald interval seem to be appropriate here?
 
 \vspace{0.8in}
 

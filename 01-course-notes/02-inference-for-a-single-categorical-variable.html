@@ -3370,7 +3370,7 @@ Upper-tailed Test<br>
 </td>
 </tr>
 <tr class="even">
-<td>Is there statistical evidence for sex sex discrimination against females?<br>
+<td>Is there statistical evidence for sex discrimination against women?<br>
 <br>
 <br>
 <br>
@@ -3602,15 +3602,15 @@ General guidelines
 <td>Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?</td>
 </tr>
 <tr class="even">
-<td>Hypotheses<br>
-<br>
+<td><br>
+Hypotheses<br>
 <br>
 <br>
 </td>
-<td>H<sub>0</sub>: There is no preference for one toy over the other in the population of all 10-month-olds; that is, the probability a 10-month-old selects the helper toy is 50%.<br>
-<br>
-<br>
-H<sub>A</sub>: The majority of all 10-month-old infants prefer the helper toy; that is, the probability a 10-month-old selects the helper toy is greater than 50%.</td>
+<td><br>
+H<sub>0</sub>: There is no preference for one toy over the other in the population of all 10-month-olds; that is, the probability a 10-month-old selects the helper toy is 50%.<br>
+H<sub>A</sub>: The majority of all 10-month-old infants prefer the helper toy; that is, the probability a 10-month-old selects the helper toy is greater than 50%.<br>
+</td>
 </tr>
 <tr class="odd">
 <td>p-value estimated from simulation<br>
@@ -3642,18 +3642,18 @@ H<sub>A</sub>: The majority of all 10-month-old infants prefer the helper toy; t
 <tbody>
 <tr class="odd">
 <td>Research Question</td>
-<td>Is there statistical evidence of sex discrimination against females? |</td>
+<td>Is there statistical evidence of sex discrimination against women?</td>
 </tr>
 <tr class="even">
-<td>Hypotheses<br>
-<br>
+<td><br>
+Hypotheses<br>
 <br>
 <br>
 </td>
-<td>H<sub>0</sub>: The selection process is fair; that is, the probability a woman is selected is 60%.<br>
-<br>
-<br>
-H<sub>A</sub>: The selection process is biased against females; that is, the probability a woman is selected is less than 60%.</td>
+<td><br>
+H<sub>0</sub>: The selection process is fair; that is, the probability a woman is selected is 60%.<br>
+H<sub>A</sub>: The selection process is biased against females; that is, the probability a woman is selected is less than 60%.<br>
+</td>
 </tr>
 <tr class="odd">
 <td>p-value estimated from simulation<br>
@@ -3687,15 +3687,15 @@ H<sub>A</sub>: The selection process is biased against females; that is, the pro
 <td>Do the majority of all consumers prefer one font over the other?</td>
 </tr>
 <tr class="even">
-<td>Hypotheses<br>
-<br>
+<td><br>
+Hypotheses<br>
 <br>
 <br>
 </td>
-<td>H<sub>0</sub>: There is no preference for one font over the other in the population of all consumers; that is, the probability of a consumer selecting the Signet font is 50%.<br>
-<br>
-<br>
-H<sub>A</sub>: The majority of all consumers would pick one font over the other; that is, the probability of a consumer selecting the Signet font is different from 50%.</td>
+<td><br>
+H<sub>0</sub>: There is no preference for one font over the other in the population of all consumers; that is, the probability of a consumer selecting the Signet font is 50%.<br>
+H<sub>A</sub>: The majority of all consumers would pick one font over the other; that is, the probability of a consumer selecting the Signet font is different from 50%.<br>
+</td>
 </tr>
 <tr class="odd">
 <td>p-value estimated from simulation<br>
@@ -3819,7 +3819,7 @@ H<sub>A</sub>: The majority of all consumers would pick one font over the other;
 </div>
 </div>
 <ul>
-<li>Conclusion: We do have evidence that all 10-month-old infants prefer the helper toy.</li>
+<li>Conclusion: At an <span class="math inline">\(\alpha = 0.05\)</span>, we have evidence to conclude the proportion of all 10-month-old infants that prefer the helper toy is greater than 0.5 (p = 0.002).</li>
 </ul>
 <p>Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a simulation study with only 100 (or 1000) repetitions to <em>estimate</em> the p-value, we would ideally like to simulate this experiment over and over again, say an <em>infinite</em> number of times. This would provide us with the theoretical probabilities of interest so that can get exact p-values instead of an estimate of the p-value.</p>
 <p>The following graphic shows what the null sampling distribution would look like if we kept repeating the simulation study over and over again, each time counting and plotting the number of infants that chose the helper toy (assuming there was no real preference in the population of all infants). This is known as the <strong>binomial distribution</strong>.</p>
@@ -4006,9 +4006,6 @@ Definition
 <ol start="10" type="1">
 <li>What information does this range of values really provide us?</li>
 </ol>
-<ol start="11" type="1">
-<li>How do we interpret the meaning of the lower and upper endpoints when the outcomes are measured as proportions instead of as counts?</li>
-</ol>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="approach-2-binomial" class="level4">
@@ -4024,7 +4021,7 @@ Definition
 </div>
 </div>
 </div>
-<ol start="12" type="1">
+<ol start="11" type="1">
 <li>Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.</li>
 </ol>
 </section>
@@ -4045,18 +4042,18 @@ Definition
 </div>
 <p>To calculate the endpoints for a 95% confidence interval constructed using normal theory methods, we find the values on the x-axis of the above graph that separate the middle 95% from the rest. This is done using the following steps:</p>
 <div style="page-break-after: always;"></div>
-<ol start="13" type="1">
+<ol start="12" type="1">
 <li>Start with the <strong>point estimate</strong>, <span class="math inline">\(\hat \pi\)</span>:</li>
 </ol>
-<ol start="14" type="1">
+<ol start="13" type="1">
 <li>Calculate the <strong>standard error</strong> associated with this point estimate:</li>
 </ol>
 <p><span class="math display">\[\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =\]</span></p>
-<ol start="15" type="1">
+<ol start="14" type="1">
 <li>Calculate the <strong>margin of error</strong>: This is defined as 1.96 standard errors for a 95% confidence interval. <em>(This is discussed more on the next page)</em>.</li>
 </ol>
 <p><span class="math display">\[1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =\]</span></p>
-<ol start="16" type="1">
+<ol start="15" type="1">
 <li>Find the <strong>endpoints</strong> of the confidence interval:</li>
 </ol>
 <p>Lower endpoint = <span class="math inline">\(\hat \pi - 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=\)</span></p>
@@ -4076,10 +4073,10 @@ Definition
 </div>
 </div>
 </div>
-<ol start="17" type="1">
+<ol start="16" type="1">
 <li>What is the 95% confidence interval based on the normal theory approach for this problem?</li>
 </ol>
-<ol start="18" type="1">
+<ol start="17" type="1">
 <li>What is the interpretation of this confidence interval?</li>
 </ol>
 <div style="page-break-after: always;"></div>
@@ -4148,7 +4145,7 @@ Conditions for One Proportion Normal Approximation
 <p>One rule of thumb is that as long as there are 10 “successes” and 10 “failures”, the normal approximation should work reasonably well.</p>
 </div>
 </div>
-<ol start="19" type="1">
+<ol start="18" type="1">
 <li>Check this condition for the Acupuncture example. Does the Wald interval seem to be appropriate here?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
