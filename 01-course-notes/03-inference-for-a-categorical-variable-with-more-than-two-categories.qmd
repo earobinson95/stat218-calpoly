@@ -96,9 +96,21 @@ Fires are reported by month, so we will use the following definitions for the Se
 -   `Spring`: March, April, and May
 -   `Summer`: June, July, and August
 
-Using the data, we can determine the proportion of fires occurring in each season are given below:
+Using the data, we can determine the proportion of fires occurring in each season across all of California. These proportions are given below:
 
 <!-- Note to self... the spinner won't allow less than 5% for one category... so, I guess we adjust even though I don't want to. I like the spinner. -->
+
+```{r}
+#| echo: true
+#| eval: false
+fire_incidents |> # <1>
+  count(Season) |>  # <2>
+  adorn_percentages(denominator = "all") # <3>
+```
+
+1.  Start with the original `fire_incidents` data set (all of California), then
+2.  count the number of total fires occurring in each season, finally
+3.  use the `adorn_percentages()` function to convert the counts to proportions (note: adds to about 1; aka 100\%).
 
 ```{r}
 #| echo: false
@@ -117,19 +129,9 @@ fire_incidents |>
   mutate(Prop = round(Prop, 3))
 ```
 
-```{r}
-#| echo: true
-#| eval: false
-fire_incidents |> # <1>
-  count(Season) |>  # <2>
-  adorn_percentages(denominator = "all") # <3>
-```
-
-1.  Start with the original `fire_incidents` data set (all of California), then
-2.  count the number of total fires occurring in each season, finally
-3.  use the `adorn_percentages()` function to convert the counts to proportions (note: adds to about 1; aka 100\%).
-
 The fire chief reported a total of 146 fires occurred in Riverside county between 2013 and 2020.
+
+\newpage
 
 ::: callout
 The code below shows how we can get only the fires in Riverside county from the original data set and save it to a data set named `riverside_incidents`
@@ -139,12 +141,17 @@ The code below shows how we can get only the fires in Riverside county from the 
 riverside_incidents <- # <1>
   fire_incidents |> # <2>
   filter(Counties == "Riverside") # <3>
+
+head(riverside_incidents) #<4>
 ```
 
 1.  Create a new subset of data called `riverside_incidents`.
 2.  Start with the original `fire_incidents` data set, then
 3.  filter the data set to include only Riverside county.
+4.  Preview the top 6 rows of the `riverside_incidents` data set.
 :::
+
+\newpage
 
 +------------------------+--------------------------------------------------------------------------------------------+
 | Setup                  | **Population** All potential fires that could occur in Riverside.                          |
@@ -177,7 +184,7 @@ riverside_incidents <- # <1>
 |                        | is equal to the proportion in all of California.                                           |
 |                        |\                                                                                           |
 |                        | ($\pi_\text{fall}$ = _____; $\pi_\text{winter}$ = _____;                                   |
-|                        | $\pi_\text{spring}$ = _____; $\pi_\text{summer}$ = _____)                                  |
+| \                      | $\pi_\text{spring}$ = _____; $\pi_\text{summer}$ = _____)                                  |
 |                        |\                                                                                           |
 |                        |\                                                                                           |
 |                        | $H_A$: The proportion of fires occurring in each season in Riverside County                |
@@ -188,7 +195,9 @@ riverside_incidents <- # <1>
 |                        |\                                                                                           |
 +------------------------+--------------------------------------------------------------------------------------------+
 
-The approach we take here to address the research question is very similar to what we have done previously. We will *assume* the fire patterns are occurring equally across the four seasons (i.e., that the null hypothesis is true) and then get a good idea of what outcomes we would expect to see if this were really the case. Then, we will check to see if the observed outcomes given in the data are consistent (or inconsistent) with what we expected to see under the null hypothesis. If the observed data are inconsistent with the outcomes expected under the null, then we have sufficient statistical evidence to say the number of fires vary across the four seasons.
+The approach we take here to address the research question is very similar to what we have done previously. We will *assume* the the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California (i.e., that the null hypothesis is true) and then get a good idea of what outcomes we would expect to see if this were really the case. Then, we will check to see if the observed outcomes given in the data are consistent (or inconsistent) with what we expected to see under the null hypothesis. If the observed data are inconsistent with the outcomes expected under the null, then we have sufficient statistical evidence to say the number of fires vary across the four seasons.
+
+\newpage
 
 1.  Find the expected number of fires in Riverside for each season under the assumption that fires are occurring with equal proportion to all of California. How did you obtain these values?
 
@@ -203,8 +212,6 @@ The approach we take here to address the research question is very similar to wh
 |                | \      |        |        |        |        |
 +----------------+--------+--------+--------+--------+--------+
 
-\vspace{0.5in}
-
 Note that we must allow for some slight variations in the fire patterns over the four seasons because we do not anticipate the numbers to come out exactly at the expected number for each season. Over repeated samples, slight variations will occur in the fire patterns. We could use simulation to give us an idea of how much deviation from the expected counts we should anticipate.
 
 2.  We will use an adjustable spinner to simulate the variations we would expect to see *under* the assumption that the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California.
@@ -214,7 +221,7 @@ Note that we must allow for some slight variations in the fire patterns over the
 -   Click the edges of the spinner and drag to set equal to the proportions given for seasons in all of California. *Hint: Start by shrinking the blue region, then yellow, followed by the cyan, and finally enlarge the red area. Don't get frustrated getting exact.*
 
 ```{r}
-#| out-width: 70%
+#| out-width: 65%
 #| fig-align: center
 #| fig-pos: "H"
 knitr::include_graphics("03-images/spinner-setup.png")
@@ -243,23 +250,14 @@ Why is do we want to set this to 146? Explain.
 |                      |\       |        |        |        |        |
 +----------------------+--------+--------+--------+--------+--------+
 
-\vspace{0.5in}
-
 Next, consider the actual fire statistics for Riverside County between 2013 and 2020.
 
 **Observed data from Riverside County**
 
 ::: callout
 ```{r}
-#| echo: false
-#| eval: true
-riverside_incidents |>
-  count(Season)
-```
-
-```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 riverside_incidents |> # <1>
   count(Season) # <2>
 ```
@@ -488,8 +486,9 @@ sim |>
   # theme(aspect.ratio = 2) +
   theme_test() +
   coord_cartesian(ylim = c(0,1)) +
-  labs(title = "Simulated under the assumption that the seasonal distribution of fire\nin Riverside County matches the seasonal distribution of fires across California", 
-       x = "Sum of Squared Distances")
+  labs(title = "Simulated under the assumption that the seasonal distribution of fires \nin Riverside County matches the seasonal distribution of fires across California", 
+       x = "Sum of Squared Distances") +
+  theme(plot.title = element_text(size = 9))
 ```
 
 12. What is the approximate p-value from the above graph? What is the appropriate statistical decision for our research question?
@@ -525,14 +524,14 @@ $$\text{Test Statistic} = \sum \frac{(\text{Observed} - \text{Expected})^2}{\tex
 
 13. The **Test Statistic** for this analysis would be:
 
-\vspace{0.8in}
+\vspace{0.5in}
 
 Similar to what we have done in the past, now we must determine whether or not the **Test Statistic** from the observed data would be considered "unusual" under the null hypothesis.
 
 14. Return to your simulation from the spinner, and calculate the **Test Statistic** for the data simulated *under* the assumption that the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California. Add a dot to the plot below. Now, add your group member's dots.
 
 ```{r}
-#| out-width: 100%
+#| out-width: 90%
 #| fig-align: center
 #| fig-pos: "H"
 knitr::include_graphics("03-images/fire-chisq-sketch.png")
@@ -558,7 +557,7 @@ The following graph shows the test statistic computed for 100 simulations carrie
 knitr::include_graphics("03-images/fire-chisq-sim-applet.png")
 ```
 
-15. The Test Statistic for the observed data from our 146 fires in Riverside County is $X^2=17.98$. Is this value consistent with results we would expect to see if Fires are equally dispersed over the four seasons? Explain.
+15. The Test Statistic for the observed data from our 146 fires in Riverside County is $X^2=17.98$. Is this value consistent with results we would expect to see if the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California? Explain.
 
 \vspace{0.8in}
 
@@ -601,12 +600,18 @@ The function `chisq_test()` from the `infer` package will conduct a Chi-square G
 
 ```{r}
 #| echo: true
-library(infer)
-chisq_test(x = riverside_incidents,
-           response = Season,
-           p = c(0.219, 0.112, 0.596, 0.073) # note this goes in alphabetical order (Fall, Spring, Summer, Winter)
-           )
+library(infer) # <1>
+chisq_test(x = riverside_incidents, # <2>
+           response = Season, # <3>
+           p = c(0.219, 0.112, 0.596, 0.073) # <4>
+           ) # <5>
 ```
+
+1. Load the `infer` package.
+2. For the `chisq_test()` function, provide the data set input `x = `, and
+3. indicate the variable of interest in `response = `.
+4. Then provide the *expected* probabilities **in alphabetical order** for `p = c()`.
+5. Ensure you close the function `()`
 
 18. From the output above, identify your observed Chi-square test statistic with the degrees of freedom ($\chi_{df}^2)$, and the associated p-value.
 
@@ -615,6 +620,8 @@ chisq_test(x = riverside_incidents,
 19. State a conclusion for your research question.
 
 \vspace{0.8in}
+
+\newpage
 
 ::: callout-warning
 ## Conditions for using the Chi-square Goodness of Fit Test
@@ -634,7 +641,7 @@ If the condition about expected cell counts is violated, we are forced to use th
 
 -   Independent observations?
 
-\vspace{0.3in}
+\vspace{0.8in}
 
 -   "Large enough" sample size?
 
