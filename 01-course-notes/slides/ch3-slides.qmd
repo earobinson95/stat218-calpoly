@@ -6,85 +6,66 @@ format:
     theme: simple
 ---
 
-## Monday, October 9th
+## Monday, October 14th
 ### Today we will...
 
-Start Ch. 3 Notes (Example 3.1)
-
-+ Setup single categorical variable with more than 2 categories
-+ Simulate outcomes and summarize with a single measure
-
-## Adjustable Spinner
-
-<https://www.nctm.org/adjustablespinner>
-
-```{r}
-#| fig-align: center
-#| out-width: 40%
-knitr::include_graphics("images/adjustable-spinner.PNG")
-```
++ Start Ch. 3 Notes
+  + Setup Example 3.1
+  + Simulate outcomes and summarize
+  
+**New groups! Share what makes it feel like fall to you.**
 
 ## To do:
 
 + **Lab 2: What Impacts Strength of Evidence?**
-  + Due TONIGHT at 11:59pm
+  + Due TONIGHT 10/14 at 11:59pm
+  
++ **Quiz 2: Statistical Inference for Single Proportions**
+  + In class Tuesday 10/15
   
 + **Homework 3: Which cow breeds have mastitis?**
-  + Due Thursday 10/12 at 11:59pm
+  + Due Thursday 10/17 at 11:59pm
 
-
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-
-## Tuesday, October 10th
+## Tuesday, October 15th
 ### Today we will...
 
-Finish Ch. 3 Notes (Example 3.1)
-
-+ Introduce Chi-square test statistic
-+ Chi-square distribution
++ Quiz 2 (15 minutes)
++ Finish Ch. 3 Notes
+  + Introduce Chi-square test statistic
+  + Chi-square distribution
 
 ## To do:
   
 + **Homework 3: Which cow breeds have mastitis?**
-  + Due Thursday 10/12 at 11:59pm
-
-+ **Quiz 2: Statistical Inference for Single Proportions**
-  + In class Friday 10/13
+  + Due Thursday 10/17 at 11:59pm
   
 + **Print/Download Chapter 4 Course Notes**
-  + For class Friday 10/13
+  + For class Friday 10/18
 
+*Bring computer charged for class on Thursday.*
   
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-  
-## Thursday, October 12th
+## Thursday, October 17th
 ### Today we will...
 
 + Lab 3: Is the census report accurate?
-+ Participation Ticket: Tell me your group role this week when I come around during lab work time.
++ *Participation (P4): Tell me your group role this week when I come around during lab work time.*
 
 ## To do:
   
 + **Homework 3: Which cow breeds have mastitis?**
-  + Due Thursday 10/12 at 11:59pm
+  + Due TONIGHT 10/17 at 11:59pm
   
 + **Lab 3: Is the census report accurate?**
-  + Due Monday 10/16 at 11:59pm
-  
-+ **Quiz 2: Statistical Inference for Single Proportions**
-  + In class Friday 10/13
+  + Due Monday 10/21 at 11:59pm
   
 + **Print/Download Chapter 4 Course Notes**
-  + For class Friday 10/13
+  + For class Friday 10/18
 
-## Friday, October 13th
+## Friday, October 18th
 ### Today we will...
 
-+ Quiz 2: Statistical Inference for Single Proportions
++ *Entry Ticket (P5): What is one concept you have a question about?*
++ Finish anything to do with chi-square/lab
 + Ch. 4 Notes
   + Explanatory and Response Variables
   + Visualizing and Summarizing Two Variables
@@ -92,6 +73,8 @@ Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
 ## To do:
 
 + **Lab 3: Is the census report accurate?**
-  + Due Monday 10/16 at 11:59pm
+  + Due Monday 10/21 at 11:59pm
++ **Study for Midterm Exam 1**
+  + In class Tuesday 10/22
   
   
