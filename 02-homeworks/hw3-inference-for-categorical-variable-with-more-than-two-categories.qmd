@@ -132,7 +132,7 @@ Consider the following table. The first row of this table contains the Observed 
 
 12. Conduct 1000 replications via the `Online Simulation Applets` \> `Goodness of Fit` to create a simulated distribution of the test statistic under the assumption that cows with mastitis do not deviate from the overall breed patterns in dairy farmer Selberg's herd. *(Hint: you will need to change the hypothesized probabilities in the applet)*. 
 
-> The breed data can be found at <https://raw.githubusercontent.com/earobinson95/stat218-calpoly-f2023/main/02-homeworks/data/mastitis_breeds.csv>
+> The breed data can be found at <https://raw.githubusercontent.com/earobinson95/stat218-calpoly/main/02-homeworks/data/mastitis_breeds.csv>
 
 ::: callout-warning
 Watch the ordering of the categories when setting up your hypothesized probabilities.
@@ -169,10 +169,7 @@ Recall that in practice, statisticians conduct a Goodness of Fit test using the 
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c("BrownSwiss" = 0.28,
-                 "DutchBelted" = 0.04,
-                 "Holstein" = 0.45,
-                 "Jersey" = 0.23)
+           p = c(0.28, 0.04, 0.45, 0.23)
            )
 ```
 
@@ -183,10 +180,7 @@ chisq_test(mastitis,
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c("BrownSwiss" = 0.25,
-                 "DutchBelted" = 0.25,
-                 "Holstein" = 0.25,
-                 "Jersey" = 0.25)
+           p = c(0.25, 0.25, 0.25, 0.25)
            )
 ```
 
@@ -197,10 +191,7 @@ chisq_test(mastitis,
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c("BrownSwiss" = 0.17,
-                 "DutchBelted" = 0.10,
-                 "Holstein" = 0.40,
-                 "Jersey" = 0.33)
+           p = c(0.17, 0.10, 0.40, 0.33)
            )
 ```
 
