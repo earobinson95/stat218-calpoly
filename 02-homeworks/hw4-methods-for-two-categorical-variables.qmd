@@ -1,6 +1,6 @@
 ---
 title: "Homework 4: Fatal Injuries in the Iliad"
-subtitle: "Chi-square Test"
+subtitle: "Chi-square Test of Independence"
 embed-resources: true
 format:
   html:
@@ -12,7 +12,7 @@ format:
           \usepackage{fancyhdr}
           \pagestyle{fancy}
           \fancyhf{}
-          \fancyhead[R]{Homework 3: Which cow breeds have mastitis?}
+          \fancyhead[R]{Homework 4: Fatal Injuries in the Iliad}
           \fancyfoot[C]{\thepage}
   docx:
     toc: false
@@ -54,7 +54,7 @@ head(iliad)
 
 \vspace{0.6in}
 
-2. How would you describe the orientation of this bar plot? \hspace{0.1in} Filled \hspace{0.1in} Stacked \hspace{0.1in} Dodged
+2. How would you describe the position of this bar plot? \hspace{0.1in} Filled \hspace{0.1in} Stacked \hspace{0.1in} Dodged
 
 ```{r}
 #| out-width: 70%
@@ -64,7 +64,7 @@ ggplot(data = iliad,
        mapping = aes(x = InjurySite,
                      fill = Lethal)
        ) +
-  geom_bar(stat = "count", position = "stack") +
+  geom_bar(stat = "count", position = "fill") +
   labs(title = "Outcomes for character's injured in the Iliad",
        x = "Location of Injury",
        y = "Number of Characters")
@@ -115,10 +115,12 @@ $$\hat p_{\text{fatal|limb}} =$$
 
 9. In the table below, fill in the *expected* counts. 
 
-| Lethal   | Body | Head/neck | Limb | Unknown |
-|----------|------|-----------|------|---------|
-| Fatal    |      |           |      |         |
-| Nonfatal |      |           |      |         |
+|          | Fatal | Nonfatal |
+|----------|-------|----------|
+| Body     |       |          |
+| Head/neck|       |          |
+| Limb     |       |          |
+| Unknown  |       |          |
 
 \vspace{1in}
 
@@ -153,7 +155,7 @@ iliad |>
 
 \vspace{1in}
 
-12. Is it appropriate to conduct a Chi-square Test using the Chi-square distribution to test our research question?
+12. Is it appropriate us the Chi-square distribution to test our research question?
 
 \vspace{1in}
 
@@ -170,14 +172,18 @@ a.
 #| echo: true
 chisq_test(x = iliad,
            response = Lethal,
-           explanatory = InjurySite)
+           explanatory = InjurySite,
+           correct = FALSE
+           )
 ```
 
 b.
 ```{r}
 #| echo: true
 chisq_test(x = iliad,
-           response = Lethal)
+           response = Lethal,
+           correct = FALSE
+           )
 ```
 
 c.
@@ -185,13 +191,15 @@ c.
 #| echo: true
 chisq_test(x = iliad,
            response = Lethal,
-           p = c("Fatal" = 0.84,
-                 "Nonfatal" = 0.16
-                 )
+           p = c(0.84,0.16)
 )
 ```
 
-19. Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language.
+19. Write a conclusion and make sure to include your evidence.
+
+\vspace{2in}
+
+20. Based on the study design and data collection method, what conclusions can we draw regarding the relationship between injury location and fatal outcomes? Can these findings be generalized to a broader population? Explain why or why not.
 
 \vspace{2in}
 
