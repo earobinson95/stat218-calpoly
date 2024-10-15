@@ -75,90 +75,40 @@ When we analyze data on two variables, our first step is to distinguish between 
 -   **Explanatory (or predictor) variable:** This defines the groups to be compared.
 :::
 
-1.  What are the variables in the MythBusters Yawning experiment? Are they categorical or numerical?
+1.  What are the variables in the MythBusters Yawning experiment? Are they categorical or numerical? Which is the response variable? Which is the explanatory variable?
 
-\vspace{0.8in}
-
-2.  Which is the response variable? Which is the explanatory variable?
-
-\vspace{0.8in}
+\vspace{2in}
 
 ::: callout-note
 ### Descriptive Methods for Two Categorical Variables:
 
--   A **contingency table** shows the joint frequencies of two categorical variables. The rows of the table denote the categories of the explanatory variable, and the columns denote the categories of the response variable.
-
--   A **bar plot** gives a visual representation of the relationship between two categorical variables. A bar plot graphically presents the information given in the contingency table. We can create three types of bar plots -- stacked, dodged, or filled.
-:::
-
-Previously, we saw how we can summarize the counts from our data set using `count(VARIABLE)`. This is helpful, but notice we get one column for each count. It is easier to understand the relationship between the explanatory and response variables if we arrange our counts into a contingency table.
-
-```{r}
-#| echo: true
-myth_busters |> # <1>
-  count(seeding, action) # <2>
-```
-
-1.  Start with the `myth_busters` data set
-2.  Count the number of subjects in each seeding group and yawn action combination
-
-```{r}
-#| echo: true
-library(janitor)
-myth_busters |> 
-  count(seeding, action) |> 
-  pivot_wider(names_from = action,  # <3>
-              values_from = n) |>   # <3>
-  adorn_totals(where = c("row", "col")) # <4>
-```
-
-3.  Convert the summary table to a contingency table format with the response (`action`) being "pivoted" to the columns and the values for each cell coming from the summarized count (`n`)
-4.  Calculate the total counts across both the rows and the columns
+-   A **bar plot** gives a visual representation of the relationship between two categorical variables. A bar plot graphically presents the information given in the contingency table. The x-axis of the graph denotes the categories of the *explanatory variable*, and the *fill* color denotes the categories of the *response variable*. We can create three types of bar plots -- filled (my fav!), stacked, or dodged.
 
 \vspace{0.1in}
 
-3.  Find the proportion that yawn in the Seeded group.
+-   A **contingency table** shows the joint counts (aka frequencies) of two categorical variables. The *rows* of the table denote the categories of the *explanatory variable*, and the *columns* denote the categories of the *response variable*.
 
-\vspace{0.8in}
-
-4.  Find the proportion that yawn in the Not Seeded group.
-
-\vspace{0.8in}
-
-We could instead obtain our observed proportion that yawn (and did not yawn) for each group using `adorn_percentages()`.
-
-```{r}
-#| echo: true
-myth_busters |> 
-  count(seeding, action) |> 
-  pivot_wider(names_from = action,
-              values_from = n) |>
-  adorn_totals(where = c("row", "col")) |> 
-  adorn_percentages(denominator = "row") # <5>
-```
-
-5.  Calculate the observed proportions based on the "row" totals (number of subjects in each seeding group).
-
-\vspace{0.2in}
+:::
 
 ```{r}
 #| echo: true
 #| eval: false
 ggplot(data = myth_busters, # <1>
        mapping = aes(x = seeding,  # <2>
-                     fill = action)) +  # <3>
+                     fill = action # <3>
+                     )
+       ) + 
   geom_bar(position = "fill") +  # <4>
   labs(title = "Filled bar plot",  # <5>
        x = "Seeding Group",
-       y = "Proportion of Subjects"
-       )
+       y = "Proportion of Subjects")
 ```
 
 1.  Tell your plot which data set to get the information from.
-2.  Tell the plot which variable you want on the x-axis (typically explanatory)
-3.  Tell the plot which variable you want to color by (typically response)
-4.  Create the bars and indicate "fill", "stack", or "dodge"
-5.  Provide appropriate plot titles and axis labels
+2.  Tell the plot which variable you want on the x-axis (typically explanatory).
+3.  Tell the plot which variable you want to color by (typically response).
+4.  Create the bars and indicate `position = ` -- "fill", "stack", or "dodge".
+5.  Provide appropriate plot titles and axis labels.
 
 ```{r}
 #| echo: false
@@ -196,22 +146,67 @@ g_dodge <- ggplot(data = myth_busters,
 g_fill + g_stack + g_dodge
 ```
 
-### Chi-square Test Statistic
+Previously, we saw how we can summarize the counts from our data set using `count(VARIABLE)`. This is helpful, but notice we get one column for each count.
 
-The above descriptive analysis tells us what we have learned about the 50 subjects in the study. Can we make any inferences beyond what happened in the study (i.e., general statements about the population)? Similar to what we did last week with one categorical variable, we will be performing a Chi-Squared test to compare what we observed in the data to what we would have expected to see under the assumption that yawn seeding has no relationship with yawn action (if the null hypothesis is true).
+```{r}
+#| echo: true
+myth_busters |> # <1>
+  count(seeding, action) # <2>
+```
 
-5.  Write the parameters of interest for this study.
+1.  Start with the `myth_busters` data set
+2.  Count the number of subjects in each seeding group and yawn action combination
 
-\vspace{1.2in}
+It is easier to understand the relationship between the explanatory and response variables if we arrange our counts into a contingency table:
 
-6.  Write the null and alternative hypotheses for this study. Recall, the Chi-square procedure can be used for ONLY TWO-SIDED TESTS!
+```{r}
+#| echo: true
+library(janitor)  # <1>
 
-\vspace{1.2in}
+myth_busters |> # <2>
+  tabyl(seeding, action) |>  # <3>
+  adorn_totals(where = c("row", "col"))  # <4>
+```
+
+1. Load the `janitor` package to access specific functions.
+2. Start with the `myth_busters` data set.
+3. Use the `tabyl` function to count the number of subjects in each seeding group and yawn action combination, and arrange in a contingency table format.
+4. Use the `adorn_totals()` function to add total counts to the contingency table.
+
+\vspace{0.1in}
+
+2.  Find the proportion that yawn in the Seeded group.
+
+\vspace{0.5in}
+
+3.  Find the proportion that yawn in the Control group.
+
+\vspace{0.5in}
+
+We could instead obtain our observed proportion that yawn (and did not yawn) for each group using `adorn_percentages()`.
+
+```{r}
+#| echo: true
+myth_busters |> 
+  tabyl(seeding, action) |> 
+  adorn_totals(where = c("row", "col")) |> 
+  adorn_percentages(denominator = "row") # <5>
+```
+
+5.  Calculate the observed proportions based on the "row" totals (number of subjects in each seeding group).
+
+### Chi-square Test of Independence
+
+The above descriptive analysis tells us what we have learned about the 50 subjects in the study. Can we make any inferences beyond what happened in the study (i.e., general statements about the population)? Similar to what we did in Chapter 3 with the Chi-square Goodness of Fit Test for one categorical variablewith more than two groups, we will be simulating and calculating a Chi-Squared Test Statistic to compare what we observed in the data to what we would have expected to see under the assumption that yawn seeding has no relationship with yawn action (i.e., if the null hypothesis is true).
+
+4.  Write the null and alternative hypotheses for this study.
+
+\vspace{1.5in}
 
 ::: callout-note
 ### Expected Counts under $H_0$
 
-The Chi-Squared statistic ($X^2$) has exactly the same formula to what we used last week. The only aspect that changes is how we get each cell's expected count.
+The Chi-Squared Test Statistic ($X^2$) has exactly the same formula to what we used last week. The only aspect that changes is how we get each cell's expected count.
 
 To find the expected count for each cell in our two variable table, we use three pieces of information:
 
@@ -224,9 +219,9 @@ We find the expected value of a cell using the following formula:
 $$\frac{\text{row}_i\text{ total} \times \text{column}_j\text{ total}}{\text{total sample size}}.$$
 :::
 
-Once we have each of these, we can create a table of what frequencies we would have expected under the assumption there is not relationship with yawn action (if $H_0$ was true).
+Once we have each of these, we can create a table of what counts we would have expected *under* the assumption there is no relationship between seeding group and yawn action (i.e., if the null is true).
 
-6.  Complete the table of Expected counts.
+5.  Complete the table of Expected counts.
 
 **Observed counts**
 
@@ -266,17 +261,21 @@ $$
 X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.48}+\frac{(11-9.52)^2}{9.52}=0.999
 $$
 
-#### Conducting a Simulation Study
+\newpage
 
-We will answer the research question by replicating the experiment over and over again, but in a situation where we assume that yawn seeding has no relationship with yawn action (the null model). We'll start with 14 yawners and 36 non-yawners, and we'll randomly assign 34 of these 50 subjects to the seeded group and the remaining 16 to the non-seeded group.
+#### Conducting a Simulation Study with Two Variables
 
-6.  Note that we could use cards to replicate this experiment:
+We will answer the research question by replicating the experiment over and over again, but *under* the assumption that yawn seeding has no relationship with yawn action (i.e., the null is true). We'll start with 14 yawners and 36 non-yawners, and we'll randomly assign 34 of these 50 subjects to the seeded group and the remaining 16 to the non-seeded group.
 
 **Step 1:** Write the action (yawned/ did not yawn) and the seeding (seeded with a yawn / not seeded with a yawn) on \_\_\_\_\_\_\_ cards.
 
-**Step 2:** Assume the null hypothesis is true (no relationship) and \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+**Step 2:** Assume the null hypothesis is true (no relationship) and
 
-**Step 3:** Create a new dataset that could have happened if $H_0$ was true by \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Step 3:** Create a new dataset that could have happened if $H_0$ was true by
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
 
 **Step 4:** Construct the contingency table of your simulated counts from the shuffled/randomly matched cards to show the number of yawners and non-yawners in each seeding group.
 
@@ -296,7 +295,7 @@ We will answer the research question by replicating the experiment over and over
 | Total               | 36           | 14           | 50           |
 +---------------------+--------------+--------------+--------------+
 
-Divide your simulated counts by the row totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?
+6. Divide your simulated counts by the row totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?
 
 ```{r}
 #| out-width: 80%
@@ -320,13 +319,13 @@ knitr::include_graphics("04-images/yawn-bar-sketch.png")
 knitr::include_graphics("04-images/yawn-dot-sketch.png")
 ```
 
-7.  How does the observed test statistic compare to the simulated test statistics by your group members? Does this provide evidence for the alternative? Explain.
+7.  How does the observed test statistic compare to the simulated test statistics by your group members? Does this provide evidence for or against the alternative? Explain.
 
 \vspace{0.8in}
 
 We can conduct a large scale simulation using `Online Simulation Applets` \> `Two-way Tables`.
 
--   Clear \> Copy/Paste in the data <https://github.com/earobinson95/stat218-calpoly-f2023/blob/main/01-course-notes/data/myth-yawns.csv>
+-   Clear \> Copy/Paste in the data <https://raw.githubusercontent.com/earobinson95/stat218-calpoly/refs/heads/main/01-course-notes/data/myth-yawns.csv>
 -   Click `Use Data`
 -   Click `Show Shuffle Options`
 -   Change `Statistic` to $X^2$.
@@ -339,44 +338,45 @@ We can conduct a large scale simulation using `Online Simulation Applets` \> `Tw
 knitr::include_graphics("04-images/yawn-sim.PNG")
 ```
 
-10. What does each "dot" on the above plot represent?
+8. What does each "dot" on the above plot represent?
 
 \vspace{0.8in}
 
-11. How often did we see results at least as extreme as the observed test statistic under assumption the null is true? Estimate the p-value from the simulation. What decision would you make about the research question?
+9. How often did we see results at least as extreme as the observed test statistic under assumption the null is true? Estimate the p-value from the simulation. What decision would you make about the research question?
 
 \vspace{0.8in}
 
-12. State your conclusion in terms of the research question.
+10. State your conclusion in terms of the research question.
 
 \vspace{0.8in}
 
 #### Using The Chi-Square Distribution
 
-Recall the Chi-square distribution can be used to approximate our simulated sampling distribution of the test statistic to test for a relationship between the explanatory and response variables. The Chi-square distribution takes on only positive numbers. In addition, this distribution is indexed by its degrees of freedom (or df).
+Recall the Chi-square distribution can be used to approximate our simulated null sampling distribution of the test statistic to test for a relationship between the explanatory and response variables. The Chi-square distribution takes on only positive numbers. In addition, this distribution is indexed by its degrees of freedom (or df).
 
 ::: callout-note
-## Degrees of Freedom (df) for the Chi-Square Test:
-
-For this test, this is given by df = (rows - 1)(columns - 1).
+## Degrees of Freedom (df) for the Chi-Square Test of Independence:
+When the null hypothesis is true, the test-statistic follows the Chi-square distribution with df = (rows - 1)(columns - 1).
 :::
-
-In other words, when the null hypothesis is true, the test-statistic follows the chi-square distribution with df = (rows - 1)(columns - 1).
 
 The R code below would be used to conduct a Chi-square Test for the Myth Busters study:
 
 ```{r}
 #| echo: true
 #| warning: true
-library(infer)
-chisq_test(x = myth_busters,
-           response = action,
-           explanatory = seeding,
-           correct = FALSE
+library(infer) # <1>
+chisq_test(x = myth_busters, # <2>
+           explanatory = seeding, # <3>
+           response = action, # <4>
+           correct = FALSE  # <5>
            )
 ```
 
-\newpage
+1. Load the `infer` package to access specific functions.
+2. Use the `chisq_test()` function and denote the data set `x = `.
+3. Specify the `explanatory = ` variable name,
+4. and the `response = ` variable name.
+5. We will not talk about corrections, but the default is `TRUE` and we want `FALSE`.
 
 ::: callout-note
 ### Conditions for conducting a Chi-square Test:
@@ -390,9 +390,9 @@ In order for the $\chi^2$ distribution to be a good approximation of the samplin
 If the condition about expected cell counts is violated, we are forced to use the simulation-based method.
 :::
 
-13. Check the conditions for using a Chi-square distribution to analyze the Myth Buster's study. Is it appropriate to conduct a Chi-square Test?
+11. Check the conditions for using a Chi-square distribution to analyze the Myth Buster's study. Is it appropriate to conduct a Chi-square Test?
 
-\vspace{0.8in}
+\vspace{1.5in}
 
 Notice the plot below shows the Chi-square distribution is not a very good approximation of our simulated sampling distribution of our test statistic. Therefore, we want to be cautious about using the theory-based Chi-square Test.
 
@@ -403,39 +403,48 @@ Notice the plot below shows the Chi-square distribution is not a very good appro
 knitr::include_graphics("04-images/yawn-chisq-approx.PNG")
 ```
 
+```{r}
+#| echo: true
+#| warning: true
+library(infer)
+chisq_test(x = myth_busters,
+           explanatory = seeding,
+           response = action,
+           correct = FALSE,
+           simulate.p.value = TRUE # <6>
+           )
+```
+
+6. In order to conduct a *simulation* instead, specify `simulate.p.value = TRUE`. Notice we no longer have `chisq_df`.
+
 ## Example 4.2: Vested Interest and Task Performance
 
 *This example is from Investigating Statistical Concepts, Applications, and Methods by Beth Chance and Allan Rossman. 2006. Thomson-Brooks/Cole.*
 
 "A study published in the Journal of Personality and Social Psychology (Butler and Baumeister, 1998) investigated a conjecture that having an observer with a vested interest would decrease subjects' performance on a skill-based task. Subjects were given time to practice playing a video game that required them to navigate an obstacle course as quickly as possible. They were then told to play the game one final time with an observer present. Subjects were randomly assigned to one of two groups. One group (A) was told that the participant and observer would each win \$3 if the participant beat a certain threshold time, and the other group (B) was told only that the participant would win the prize if the threshold were beaten. The threshold was chosen to be a time that they beat in 30% of their practice turns. The following results are very similar to those found in the experiment: 3 of the 12 subjects in group A beat the threshold, and 8 of 12 subjects in group B achieved success."
 
-|                         |                    |                       |       |
-|-------------------------|:------------------:|:---------------------:|:-----:|
-|                         | A: Vested Interest | B. No Vested Interest | Total |
-| Achieved Success        |         3          |           8           |  11   |
-| Did not achieve success |         9          |           4           |  13   |
-| Total                   |         12         |          12           |  24   |
+|                         | Achieved Success | Did not achieve success | Total |
+|-------------------------|:----------------:|:-----------------------:|:-----:|
+| A: Vested Interest      |        3         |            9            |  12   |
+| B. No Vested Interest   |        8         |            4            |  12   |
+| Total                   |       11         |           13            |  24   |
 
 **Research Question:** Does whether the observer has a vested interest or not have an impact on performance on a skill-based task?
 
-1.  What are the variables in the study? Are they categorical or numerical?
+1.  What are the variables in the study? Are they categorical or numerical? Which is the explanatory variable? Which is the response variable?
 
 \vspace{0.8in}
 
-2.  Which is the response variable? Which is the explanatory variable?
-
-\vspace{0.8in}
-
-3.  Convert the research question into your null and alternative hypotheses.
+2.  Convert the research question into your null and alternative hypotheses.
 
 \vspace{1.2in}
 
 
-4. Is it appropriate to conduct a Chi-square Test or do we need to use simulation? *Hint: For the large sample size condition, you only need to calculate the Expected Count for the row and column combination with the lowest totals, not all cells.*
+3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
 
 \vspace{0.8in}
 
-5.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
+4.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
 
 ```{r}
 #| out-width: 50%
@@ -445,9 +454,9 @@ knitr::include_graphics("04-images/vested-interest-sim.PNG")
 
 \vspace{0.8in}
 
-6.  Write a conclusion in terms of the original research question.
+5.  Write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.
 
-\vspace{1.2in}
+\vspace{1.5in}
 
 ## Example 4.3 High-Salt Diets and Cardiovascular Disease
 
@@ -462,23 +471,19 @@ Suppose a retrospective study is carried out among men aged 50-54 in a specific 
 
 **Research Question:** Is there an association between the cause of death and salt diet? In other words, is the proprtion of the CVD group which has a high-salt diet different from the proportion of the Non-CVD group which has a high-salt diet?
 
-1.  What are the variables in the study? Are they categorical or numerical?
+1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable?
 
 \vspace{0.8in}
 
-2.  Which is the response variable? Which is the explanatory variable?
-
-\vspace{0.8in}
-
-3.  Convert the research question into your null and alternative hypotheses.
+2.  Convert the research question into your null and alternative hypotheses.
 
 \vspace{1.2in}
 
-4. Is it appropriate to conduct a Chi-square Test or do we need to use simulation?
+3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
 
 \vspace{0.8in}
 
-5.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
+4.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
 
 ```{r}
 #| out-width: 50%
@@ -488,34 +493,35 @@ knitr::include_graphics("04-images/cvd-sim.PNG")
 
 \vspace{0.8in}
 
-6.  Write a conclusion in terms of the original research question.
+5.  Write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.
 
-\vspace{1.2in}
+\vspace{1.5in}
 
 ## Observational Studies vs. Designed Experiments
 
-Reconsider the "Vested Interest and Task Performance" example. Fisher's exact test provided evidence that the proportion of successes was in fact smaller for the vested interest group (p-value = .0498). Now, the question is this: can we conclude that having a vested interest really is the cause of the decreased performance? Similarly, consider the "High-Salt Diet and Cardiovascular Disease" example. If this would have yielded a statistically significant result, would it have been fair to conclude that high-salt diets cause cardiovascular disease based on this study? The answer to these questions lies in how the data were collected; i.e., we must first determine whether the study was a designed experiment or an observational study.
+Let’s reconsider the "Vested Interest and Task Performance" example. Our simulated results showed an association between the group (vested interest vs. no vested interest) and task performance (Acheieved Success vs Did not achieve success). But can we confidently say that having a vested interest causes the difference in performance? Similarly, in the "High-Salt Diet and Cardiovascular Disease" example, if there were evidence to reject the null, could we conclude that high-salt diets cause cardiovascular disease? The answer depends on the study's design—whether it was a designed experiment or an observational study.
 
 ::: callout-note
-## Observational Study vs Designed Experiment
+## Definitions
+-   An **observational study** involves collecting and analyzing data without manipulating or randomly assigning treatments. The data exists naturally, and we can only identify *associations* between variables.
 
--   An **observational study** involves collecting and analyzing data *without randomly assigning treatments* to observations.
-
--   On the other hand, in a **designed experiment**, a *treatment is randomly assigned* on individual observations in order to observe whether the treatment *causes* a change in the response.
-
+-   A **designed experiment**, however, involves randomly assigning treatments or groups to individuals to investigate whether the treatment *causes* a change in the response variable. The study is manipulated to control other variables.
 :::
 
 ::: callout-tip
 ## Key statistical idea:
+In **observational studies**, we can only establish that an *association* exists between the explanatory and response variables. This is because other uncontrolled factors, or confounding variables, could influence the response. Since these factors aren’t balanced between groups, they might explain the observed differences.
 
-**Observational studies** establish only that an **association exists** between the variables under study. With observational studies, it is always possible that there are other lurking variables not controlled for in the study that may be impacting the response. Since we can't be certain these other factors are balanced out between treatment groups, it is possible that these other factors could explain the difference between treatment groups.
+\vspace{0.1in}
 
-With **designed experiments**, there still may be lurking variables not specifically controlled for in the study; however, the **random assignment** of treatments used by researchers in a designed experiment should balance out between the treatment groups any other factors that might be related to the response variable. In a sense, we control for these other lurking variables by balancing their effects between the two groups via random assignment. Therefore, designed experiments can be used to establish a **cause-and-effect** relationship if the results are significant.
+In **designed experiments**, *random assignment* helps balance confounding variables across treatment groups, controlling for their influence. Therefore, designed experiments can provide evidence of a *cause-and-effect* relationship.
 :::
 
-Note that the *"Vested Interest and Task Performance"* study is an example of a designed experiment since participants were randomly assigned to the two groups. We were trying to show that having a vested interest caused a decreased task performance. The small p-value rules out observing the decreased performance in the vested interest group simply by chance, and the randomization of subjects to treatment groups should have balanced out any other factors that might explain the difference. So, the most likely explanation left is that having a vested interest really does decrease task performance.
+In the *"Vested Interest and Task Performance"* study, participants were randomly assigned to groups, making this a designed experiment. The randomization likely balanced out other factors that could influence performance, meaning the reduced performance in the vested interest group is most likely *caused* by the vested interest itself.
 
-In the *"High-salt and Cardiovascular Disease"* study, however, there could be other factors that explain the outcome. For example, it's reasonable to assume that those with high-salt diets are less health conscious and tend to exercise less. Maybe the proportion with CVD is higher in this group because they exercise less!
+\vspace{0.1in}
+
+In contrast, the *"High-Salt Diet and Cardiovascular Disease"* study is an observational study. Other factors, like overall health behaviors (e.g., exercise habits), could explain the *association* between a high-salt diet and cardiovascular disease. Therefore, we can’t confidently conclude causation from this study.
 
 ## Example 4.4: Alcoholism and Depression
 
@@ -550,46 +556,56 @@ alcoholism <- read_csv("data/alcoholism.csv")
 
 ```{r}
 alcoholism |> 
-  count(group, alcoholism) |> 
-  pivot_wider(names_from = alcoholism,
-              values_from = n) |> 
+  tabyl(group, alcoholism) |>
   adorn_totals(where = c("row", "col")) |> 
   knitr::kable()
 ```
 
-1.  What are the variables in the study? Are they categorical or numerical?
+1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable?
 
 \vspace{0.8in}
 
-2.  Which is the response variable? Which is the explanatory variable?
-
-\vspace{0.8in}
-
-3.  Identify the proportion of families afflicted by Alcoholism in both groups.
+2.  Identify the proportion of families afflicted by Alcoholism in both groups.
 
 \vspace{1.2in}
 
-4.  Convert the research question into your null and alternative hypotheses.
+3.  Convert the research question into your null and alternative hypotheses.
 
 \vspace{1.2in}
 
-5. Is it appropriate to conduct a Chi-square Test or do we need to use simulation?
+4. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
 
 \vspace{0.8in}
 
 
-6.  Is there evidence there a relationship between unipolar depression in females and alocholism in the family? Use the R output to answer this question. Make sure to use the observed test statistic, df, and p-value in your conclusion.
+5.  Is there evidence there a relationship between unipolar depression in females and alocholism in the family? Use the R output to answer this question. Make sure to include evidence in your conclusion.
 
 ```{r}
+#| echo: true
 library(infer)
 chisq_test(alcoholism,
            response = alcoholism,
            explanatory = group,
-           correct = FALSE)
+           correct = FALSE
+           )
 ```
 
 \vspace{1.2in}
 
-7.  Can we say that having unipolar depression *causes* alcoholism? Explain your reasoning.
+6.  Can we say that having unipolar depression *causes* alcoholism? Explain your reasoning.
 
 \vspace{1.2in}
+
+\newpage
+
+::: callout-tip
+## Key statistical idea: Scope of Inference
+
+
+The **scope of inference** in a study refers to what conclusions can be drawn based on how the data were collected. If a study uses random assignment, it allows for causal conclusions because differences in outcomes can be attributed to the treatment or group. However, random sampling allows for results to be generalized to the broader population. Without random assignment, we can only infer associations, not causation, and without random sampling, the findings can only be applied to the specific sample studied, limiting generalizability.
+
+```{r}
+knitr::include_graphics("04-images/scope-of-inference.png")
+```
+
+:::
