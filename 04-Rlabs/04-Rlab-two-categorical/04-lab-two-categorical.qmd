@@ -1,6 +1,6 @@
 ---
-title: "R Lab 4: Nightlight use and myopia"
-subtitle: "Chi-square Test"
+title: "R Lab 4: Nightlight Use and Myopia"
+subtitle: "Chi-square Test of Independence"
 author:
   - "Team Captain: NAME HERE"
   - "Facilitator: NAME HERE"
@@ -8,7 +8,7 @@ author:
   - "Resource Manager: NAME HERE"
 date: "DATE HERE"
 format: pdf
-editor: visual
+editor: source
 execute:
   echo: true
   error: true
@@ -33,11 +33,14 @@ In this study, there were two variables studied:
 
 **1. Which variable is the explanatory variable? Which is the response variable?**
 
-**2. Read in the data and print out the top 6 rows. What is the observational unit for this study?**
+Answer goes here.
+
+**2. Read in the data and write code to print out the top 6 rows. What is the observational unit for this study?**
 
 ```{r}
 # read in data
 myopia <- read_csv("data/ChildrenLightSight.csv")
+
 # print top 6 rows
 
 ```
@@ -57,55 +60,63 @@ ggplot(data = myopia,
   labs(x = "______________", 
        y = "______________", 
        title = "______________")
-
 ```
 
-**4. The code above creates the filled bar plot. What part of the code would change if you wanted to create a stacked or dodged bar plot instead?**
-
-**5. Fill in the code below to generate a contingency table of the counts.**
+**4. Fill in the code below to generate a contingency table of the counts.**
 
 ```{r contingency-table}
 myopia |>  
-  count(____, ____) |> 
-  pivot_wider(names_from = Sight, values_from = n) |> 
+  tabyl(____, ____) |>
   adorn_totals(where = c("row", "col"))
 ```
 
-**6. How many children slept with a nightlight?**
+**5. How many children slept with a nightlight?**
 
-**7. How many children who slept with a nightlight have normal levels of Myopia?**
+Answer goes here.
 
-**8. What proportion of children who slept with a nightlight have normal levels of Myopia?** *You may choose to use the code chunk below as a calculator.*
+**6. How many children who slept with a nightlight have normal levels of Myopia?**
+
+Answer goes here.
+
+**7. What proportion of children who slept with a nightlight have normal levels of Myopia?** *You may choose to use the code chunk below as a calculator.*
+
+Answer goes here.
 
 ```{r}
-
+2 + 2
 ```
 
-**9. Fill in the code below to generate a contingency table of the *proportions*.**
+**8. Fill in the code below to generate a contingency table of the *proportions*.**
 
 ```{r}
 myopia |>  
-  count(Light, Sight) |>  
-  pivot_wider(names_from = Sight, 
-              values_from = n
-              ) |> 
+  tabyl(_____, _____) |> 
   adorn_totals(where = c("row", "col")) |> 
   adorn_percentages(denominator = "____") 
 ```
 
-**10. Using the filled bar plot and the proportion contingency table above, do you think the proportion of all people with Myopia differs between the different levels of light? Explain your answer.**
+**9. Using the filled bar plot and the proportion contingency table above, do you think there is an association between the level of light and the presence of Myopia? Explain your answer.**
 
-**11. Write out the null and alternative hypotheses to test whether the level of light is associated with the presence of Myopia.**
+Answer goes here.
 
-**12. Check the conditions necessary to use the Chi-square distribution to test our hypotheses.**
+**10. Write out the null and alternative hypotheses to test whether the level of light is associated with the presence of Myopia.**
 
-**13. Complete the code below to conduct a Chi-square Test.**
+Answer goes here.
+
+**11. Check the conditions necessary to use the Chi-square distribution to test our hypotheses.**
+
+Answer goes here.
+
+**12. Complete the code below to conduct a Chi-square Test of Independence.**
 
 ```{r}
 chisq_test(x = myopia,
+           explanatory = _______,
            response = __________,
-           explanatory = _______
+           correct = FALSE,
+           simulate.p.value = ______
            )
 ```
 
-**14. Write a conclusion in context of the study. Make sure to cite the test statistic, degrees of freedom, and p-value.**
+**13. Write a conclusion in context of the study. Make sure to include your evidence.**
+

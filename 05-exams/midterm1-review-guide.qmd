@@ -25,34 +25,50 @@ execute:
   message: false
 ---
 
+::: callout
+## Exam Office Hours (Dr. Robinson's office: 25-103)
+
+4 office hours on Monday, Oct. 21st:
+
++ 10:10am - 12pm
++ 4:10pm - 6pm
+
+No office hours on Thursday, Oct. 24th.
+:::
+
 # What to Expect
 
 -   You may bring an $8 \frac{1}{2} \times 11$ standard sheet of notes (both sides). I will not provide you with formulas, so put what you think you need on here.
   + You will turn this in with your exam.
 -   You may bring any calculator to use. I will have a handful of simple calculators. You may **not** use your phone as a calculator.
--   The exam is mostly multiple choice, but will have a couple of short answer questions mixed in.
+-   The exam is mostly multiple choice, but will have a handful of short answer questions mixed in.
 - You will have 50 minutes to complete the exam. It took me approximately 15 minutes to complete.
 
 ::: callout-tip
 ## Canvas Discussion Board
-Post any logistic or studying questions on the Canvas discussion board. I will be out of town this weekend, so please respond to each other!
+Post any logistic or studying questions on the Canvas discussion board. Please respond to each other!
+
+\vspace{0.1in}
+
+Solutions to the review will *not* be posted.
 :::
 
 # Key Concepts to Review
 
-\*Note: this may not be an exhaustive list. You should review all of your notes, assignments, labs, and quizzes from Chapters 1 - 4.
+\*Note: this may not be an exhaustive list. You should review all of your notes, assignments, labs, and quizzes from Chapters 1 - 3.
 
--   Identifying pieces of a data set: observation, variable, sample size, etc.
+-   Identifying pieces of a data set: population, observation, variable of interest, sample size, etc.
 -   Parameter vs Statistic
 -   What impacts strength of evidence? How does this relate to the size of the p-value?
 -   How do you interpret the p-value? Can you do this for various scenarios?
+-   Who can you generalize the results of the study to?
 -   Confidence intervals for a single proportion.
     -   All confidence levels.
     -   How does this relate to hypotheses testing?
+    -   What impacts the width of confidence intervals?
 -   Work through hypotheses testing for the following types of scenarios:
     -   One categorical variable with two outcomes (single proportion)
-    -   One categorical variable with multiple categories (chi-square goodness of fit)
-    -   Two categorical variables with multiple categories (chi-square test)
+    -   One categorical variable with multiple categories (Chi-square Goodness of Fit)
 
 \newpage
 
@@ -96,6 +112,8 @@ The negatives come in at 22%, and the p-value obtained is 0.08.
 
 2.  A large university is curious if they should build another cafeteria. They plan to survey their students to see if there is strong evidence that the proportion interested in a meal plan is higher than 40%, in which case they will consider building a new cafeteria.
 
+> In a random sample of 200 students, 95 expressed interest in a meal plan.
+
 i.  State the parameter of interest.
 
 \vspace{0.8in}
@@ -118,9 +136,6 @@ v.  State a conclusion in context of the research question.
 
 3.  A random sample of 200 students is surveyed on a university campus. They are asked if they use a laptop in class to take notes. Suppose that based on the survey, 70 of the 200 students responded "yes." Your goal is to estimate the true proportion of all students on this campus who use a laptop to take notes.
 
-```{=html}
-<!-- -->
-```
 (i) Find the observed statistic (also called the point estimate).
 
 \vspace{1.2in}
@@ -144,15 +159,13 @@ v.  State a conclusion in context of the research question.
 
 3.  Suppose that 500 Cal Poly students were surveyed to find a 95% confidence interval for the proportion of all Cal Poly students who have cheated on a test. Answer the following questions by circling your response.
 
-<!-- -->
-
 (i) TRUE / FALSE: The population proportion (i.e., the proportion of all Cal Poly students who have cheated on a test) will definitely be contained in the confidence interval.
 
 (ii) TRUE / FALSE: The sample proportion (i.e., the sample statistic) will definitely be contained in this confidence interval.
 
 (iii) TRUE / FALSE: This confidence interval can be used only to describe the 500 students who were surveyed; it cannot be used to make a statement about all Cal Poly students.
 
-(iv) TRUE / FALSE: If a 90% confidence interval were constructed instead of a 95% confidence interval, the margin of error would be smaller and the interval would be narrower.
+(iv) TRUE / FALSE: If a 90% confidence interval were constructed instead of a 95% confidence interval, would you expect the width of the confidence interval to increase or decrease?
 
 \vspace{0.2in}
 
@@ -184,7 +197,7 @@ A summary table of the observed counts is included below:
 
 | Fall          | Spring          | Summer         | Winter          |
 |---------------|-----------------|----------------|-----------------|
-| $\pi_{fall}=$ \hspace{0.1in}| $\pi_{spring}=$ \hspace{0.1in}| $\pi_{summer}$ \hspace{0.1in}| $\pi_{winter}=$ \hspace{0.1in}|
+| $\pi_{fall}=$ \hspace{0.1in}| $\pi_{spring}=$ \hspace{0.1in}| $\pi_{summer}=$ \hspace{0.1in}| $\pi_{winter}=$ \hspace{0.1in}|
 
 (ii) If the table above represents what is assumed to be true under $H_0$, state the alternative hypothesis using words (what would the null be in words?).
 
@@ -211,11 +224,7 @@ A summary table of the observed counts is included below:
 #| echo: true
 chisq_test(x = cold_data,
            response = _________,
-           p = c("fall" = ______,
-                 "spring" = ______,
-                 "summer" = ______,
-                 "winter" = ______
-           )
+           p = c( ______, ______, ______, ______)
 )
 ```
 
@@ -226,73 +235,73 @@ chisq_test(x = cold_data,
 
 \vspace{1.8in}
 
-7.  In a [recent study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9831139/) conducted in the United Kingdom, researchers gathered data on 6,705 children to investigate the potential relationship between a mother's exposure to cats during pregnancy and the occurrence of psychotic episodes in their children. The study included two groups: one consisting of 4,746 children whose mothers did not have cats while pregnant and another group of 1,959 children whose mothers did have cats during pregnancy.
+<!-- 7.  In a [recent study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9831139/) conducted in the United Kingdom, researchers gathered data on 6,705 children to investigate the potential relationship between a mother's exposure to cats during pregnancy and the occurrence of psychotic episodes in their children. The study included two groups: one consisting of 4,746 children whose mothers did not have cats while pregnant and another group of 1,959 children whose mothers did have cats during pregnancy. -->
 
-Among the group of 4,746 children with no maternal cat exposure, 536 children experienced one or more psychotic episodes during the course of the study. In contrast, among the 1,959 children whose mothers had cats during pregnancy, 240 children had one or more psychotic episodes.
+<!-- Among the group of 4,746 children with no maternal cat exposure, 536 children experienced one or more psychotic episodes during the course of the study. In contrast, among the 1,959 children whose mothers had cats during pregnancy, 240 children had one or more psychotic episodes. -->
 
-**Research Question:** Does the psychotic episode rate differ between children who's moms did have cats while pregnant and those who's moms did not?
+<!-- **Research Question:** Does the psychotic episode rate differ between children who's moms did have cats while pregnant and those who's moms did not? -->
 
-(i) Create a contingency table of counts based on the data obtained in this study.
+<!-- (i) Create a contingency table of counts based on the data obtained in this study. -->
 
-\vspace{2in}
+<!-- \vspace{2in} -->
 
-(ii) Find the observed proportion of children who's moms did not have cats while pregnant that had one or more psychotic episode.
+<!-- (ii) Find the observed proportion of children who's moms did not have cats while pregnant that had one or more psychotic episode. -->
 
-\vspace{1in}
+<!-- \vspace{1in} -->
 
-(iii) Find the observed proportion of children who's moms did have cats while pregnant that had one or more psychotic episode.
+<!-- (iii) Find the observed proportion of children who's moms did have cats while pregnant that had one or more psychotic episode. -->
 
-\vspace{1in}
+<!-- \vspace{1in} -->
 
-The following output was obtained from a chi-square test to investigate this question.
+<!-- The following output was obtained from a chi-square test to investigate this question. -->
 
-```{r simulate-data}
-#| echo: false
-library(tidyverse)
+<!-- ```{r simulate-data} -->
+<!-- #| echo: false -->
+<!-- library(tidyverse) -->
 
-set.seed(56156)
-cats <- tibble(combo = c(rep("nocats-psychotic", 536),
-                                 rep("nocats-nopsychotic", 4746-536),
-                                 rep("cats-psychotic", 240),
-                                 rep("cats-nopsychotic", 1959-240)
-                                 )
-                 
-) |> 
-  separate_wider_delim(cols = combo, names =  c("cats", "psychotic"), delim = "-")
-```
+<!-- set.seed(56156) -->
+<!-- cats <- tibble(combo = c(rep("nocats-psychotic", 536), -->
+<!--                                  rep("nocats-nopsychotic", 4746-536), -->
+<!--                                  rep("cats-psychotic", 240), -->
+<!--                                  rep("cats-nopsychotic", 1959-240) -->
+<!--                                  ) -->
 
-```{r}
-#| echo: true
-library(infer)
-chisq_test(x = cats,
-           response = psychotic,
-           explanatory = cats)
-```
+<!-- ) |>  -->
+<!--   separate_wider_delim(cols = combo, names =  c("cats", "psychotic"), delim = "-") -->
+<!-- ``` -->
 
-\vspace{1.2in}
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- library(infer) -->
+<!-- chisq_test(x = cats, -->
+<!--            response = psychotic, -->
+<!--            explanatory = cats) -->
+<!-- ``` -->
 
-(v) Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language.
+<!-- \vspace{1.2in} -->
 
-\vspace{1.2in}
+<!-- (v) Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language. -->
 
-8.  Ten mice (6--8 weeks old) were randomly assigned to one of two groups; five were exposed to simulated environmental tobacco smoke for 6 h/day, 5 days/week for 5 months. The other 5 mice were kept in clean air during this time period. Then, all of the mice were allowed to recover for a further 4 months in filtered air before being killed for analysis of lung tumor incidence. The results are shown below.
+<!-- \vspace{1.2in} -->
 
-    |             | **Tumor** | No Tumor | Total |
-    |-------------|-----------|----------|-------|
-    | **Treated** | 4         | 1        | 5     |
-    | **Control** | 2         | 3        | 5     |
-    | **Total**   | 6         | 4        | 10    |
+<!-- 8.  Ten mice (6--8 weeks old) were randomly assigned to one of two groups; five were exposed to simulated environmental tobacco smoke for 6 h/day, 5 days/week for 5 months. The other 5 mice were kept in clean air during this time period. Then, all of the mice were allowed to recover for a further 4 months in filtered air before being killed for analysis of lung tumor incidence. The results are shown below. -->
 
-**Research question:** Does the proportion of mice that develop a lung tumor differ between those exposed to tobacco smoke and the control group?
+<!--     |             | **Tumor** | No Tumor | Total | -->
+<!--     |-------------|-----------|----------|-------| -->
+<!--     | **Treated** | 4         | 1        | 5     | -->
+<!--     | **Control** | 2         | 3        | 5     | -->
+<!--     | **Total**   | 6         | 4        | 10    | -->
 
-(i) Convert the Research Question into $H_0$ and $H_A$.
+<!-- **Research question:** Does the proportion of mice that develop a lung tumor differ between those exposed to tobacco smoke and the control group? -->
 
-\vspace{1.2in}
+<!-- (i) Convert the Research Question into $H_0$ and $H_A$. -->
 
-(iii). What proportions would you compare to answer the research question?
+<!-- \vspace{1.2in} -->
 
-\vspace{1.2in}
+<!-- (iii). What proportions would you compare to answer the research question? -->
 
-(ii). Would it be appropriate to use the chi-square distribution to test the hypotheses? Explain.
+<!-- \vspace{1.2in} -->
 
-\vspace{1.2in}
+<!-- (ii). Would it be appropriate to use the chi-square distribution to test the hypotheses? Explain. -->
+
+<!-- \vspace{1.2in} -->
