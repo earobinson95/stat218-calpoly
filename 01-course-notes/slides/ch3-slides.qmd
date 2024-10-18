@@ -65,12 +65,22 @@ format:
 ## Friday, October 18th
 ### Today we will...
 
-+ *Entry Ticket (P5): What is one concept you have a question about?*
-  + joinpd.com
++ *Entry Ticket (P5): What is one concept you have a question about?* -- [joinpd.com](https://app.peardeck.com/join)
++ Policy Reminder
 + Ch. 4 Notes
   + Explanatory and Response Variables
   + Visualizing and Summarizing Two Variables
 + Lab 3 + Homework 3 work time
+
+## Policy Reminder
+
++ Participation (5%) -- drop 3 lowest ("sick days")
+  + Expectation to come to class and arrive on time
++ Grace Days -- 24 hours to turn an Assignments, Lab, or Quiz late
+  + Canvas deducts 20% per day after this
++ You should get 2 attempts at Canvas Homework Quizzes
+
+*Be double checking your grades! These are your responsibility to keep track of and letting me know if something does not look right. I will make mistakes.*
 
 ## To do:
 
