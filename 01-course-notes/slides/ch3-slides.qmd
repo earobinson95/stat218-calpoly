@@ -47,13 +47,14 @@ format:
 ## Thursday, October 17th
 ### Today we will...
 
++ Finish Ch. 3 Chi-square Goodness of Fit Test
 + Lab 3: Is the census report accurate?
 + *Participation (P4): Tell me your group role this week when I come around during lab work time.*
 
 ## To do:
   
 + **Homework 3: Which cow breeds have mastitis?**
-  + Due TONIGHT 10/17 at 11:59pm
+  + Due Friday 10/18 at 11:59pm
   
 + **Lab 3: Is the census report accurate?**
   + Due Monday 10/21 at 11:59pm
@@ -65,16 +66,20 @@ format:
 ### Today we will...
 
 + *Entry Ticket (P5): What is one concept you have a question about?*
-+ Finish anything to do with chi-square/lab
+  + joinpd.com
 + Ch. 4 Notes
   + Explanatory and Response Variables
   + Visualizing and Summarizing Two Variables
++ Lab 3 + Homework 3 work time
 
 ## To do:
 
++ **Homework 3: Which cow breeds have mastitis?**
+  + Due TONIGHT 10/18 at 11:59pm
 + **Lab 3: Is the census report accurate?**
   + Due Monday 10/21 at 11:59pm
 + **Study for Midterm Exam 1**
   + In class Tuesday 10/22
+  + See Canvas for "What to Expect + Review Guide"
   
   
