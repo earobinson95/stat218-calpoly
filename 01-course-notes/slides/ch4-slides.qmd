@@ -1,5 +1,6 @@
 ---
 title: "Chapter 4: Inference for Two Categorical Variables"
+subtitle: "Chi-square Test of Independence"
 format: 
   revealjs:
     auto-stretch: false
@@ -7,91 +8,69 @@ format:
 embed-resources: true
 ---
 
-## Monday, October 16th
+## Monday, October 21st
 ### Today we will...
 
-+ Review explanatory/response variables
-+ Simulation for Example 4.1
++ Review
+  + Explanatory/Response Variables
+  + Descriptive Methods
++ Example 4.1: Is Yawning Contagious?
+  + Hand-simulation
+  + Chi-square Test of Independence
+
+::: callout-caution
+### Office Hours
+
+Monday 10:10am-12pm + 4:10pm-6pm
+
+*No office hours on Thursday*
+
+:::
 
 ## To do:
 
 + **Lab 3: Chi-square Goodness of Fit Test**
   + Due TONIGHT at 11:59pm
-  
-+ **Homework 4: Fatal Injuries in the Iliad**
-  + Due Thursday 10/19 at 11:59pm
 
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-
-## Tuesday, October 17th
-### Today we will...
-
-+ Chi-square test for Example 4.1
-+ Examples 4.2 & 4.3 (in groups)
-
-::: callout-caution
-### Wednesday Office Hours
-
-Moved to 11:30am - 12:20pm. I have a dentist appointment.
-
-*(Original 1:10pm - 2pm)*
-
-:::
-
-## To do:
-  
-+ **Homework 4: Fatal Injuries in the Iliad**
-  + Due Thursday 10/19 at 11:59pm
-
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
-  
-  
-::: callout-caution
-### Wednesday Office Hours
-
-Moved to 11:30am - 12:20pm. I have a dentist appointment.
-
-*(Original 1:10pm - 2pm)*
-
-:::
-
-## Thursday, October 19th
-### Today we will...
-
-+ Lab 4: Nightlight use and myopia
-
-## To do:
-  
-+ **Homework 4: Fatal Injuries in the Iliad**
-  + Due Thursday 10/12 at 11:59pm
-  
-+ **Lab 4: Nightlight use and myopia**
-  + Due Monday 10/23 at 11:59pm
-  
-## Friday, October 20th
-### Today we will...
-
-+ Review Examples 4.2 and 4.3
-+ Observation vs Experiment
-+ Discuss upcoming exam expectations
-+ Exit Ticket: Concept review
-
-## To do:
-
-::: callout
-### Exit Ticket
-
-What is a concept you would like to review on Monday before the Midterm?
-:::
-
-+ **Lab 4: Nightlight use and myopia**
-  + Due Monday 10/23 at 11:59pm
-  
 + **Study for Midterm Exam 1**
-  + In-class, Tuesday 10/24
+  + In-class, Tuesday 10/22
   + You may use a calculator, and one (8.5" x 11") sheet of notes (front and back). You must turn in your note sheet with your exam.
+
+## Tuesday, October 22nd
+
++ **Midterm Exam 1**
+  + You may use a calculator, and one (8.5" x 11") sheet of notes (front and back). You must turn in your note sheet with your exam.
+  + You have 50 minutes to complete the exam.
+  + Please *quietly* bring up your exam when you are finished. You may then leave.
+
+## Thursday, October 24th
+### Today we will...
+
++ Review
+  + Explanatory/Response Variables
+  + Chi-square Test of Independence
++ Examples 4.2 & 4.3 (in groups)
++ *P6: Exit Ticket*
+
+## To do:
   
++ **Homework 4: Fatal Injuries in the Iliad**
+  + Due Thursday 10/31 at 11:59pm
++ **Print Ch. 5 Notes**
+  + For Class on Monday 10/28
+  
+## Friday, October 25th
+### Today we will...
+
++ Review:
+  + Examples 4.2 & 4.3
++ Observation vs Experiment
++ Example 4.4
++ Scope of Inference
+
+## To do:
+
++ **Homework 4: Fatal Injuries in the Iliad**
+  + Due Thursday 10/31 at 11:59pm
++ **Print Ch. 5 Notes**
+  + For Class on Monday 10/28

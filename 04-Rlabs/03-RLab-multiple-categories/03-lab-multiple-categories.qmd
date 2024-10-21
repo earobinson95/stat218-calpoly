@@ -21,6 +21,7 @@ execute:
 ```{r setup}
 # Load in the packages necessary for our analysis: tidyverse, infer
 library(tidyverse)
+library(infer)
 ```
 
 The accuracy of a census report for a city in southern California was questioned by some government officials. A random sample of 1,215 people living in the city was used to check the census report. The census results (expected probabilities) are given below:
@@ -39,64 +40,87 @@ The accuracy of a census report for a city in southern California was questioned
 1.  **Read in the data and call it `ca_sample`. Additionally, print the top 6 rows to inspect your data.**
 
 ```{r read-data}
-________ <- read_csv("data/________.csv")
+ca_sample <- read_csv("data/census_sample.csv")
 ```
 
 2.  **What is the observational unit for this study?**
 
-    Answer goes here.
+    A resident of the city.
 
 3.  **Create a summary table of the number of individuals in the sample who self-identified with each ethnic `origin`.**
 
 ```{r summary-table}
-
+ca_sample |> 
+  count(origin)
 ```
 
 4.  **Using the skills you learned class last week, create a bar plot of the observed *proportions* of individuals in our sample who self-identified with each ethnic `origin`.**
 
 ```{r bar-plot}
-
+ggplot(data = ca_sample,
+       mapping = aes(x = origin)
+       ) +
+  geom_bar(stat = "count",
+           aes(y = ..prop.., group = 1)
+           ) +
+  labs(title = "Is the census report correct?",
+       x = "Ethnic Origin",
+       y = "Proportion of Residents"
+       )
 ```
 
 5.  **Notice the ordering of origin categories. Why do you think "All others" is first and "Latino/Latina" is last in our list?**
 
-    Answer goes here.
+    Alphabetical order.
 
 6.  **As a statistician, Lily questions the "All others" category. What might be some data and ethical concerns surrounding reporting and aggregating data in this way?**
 
-    Answer goes here.
+    This could unintentionally marginalize certain groups by treating minority groups as "the same". We want to be cautious about the implications of our data.
 
 7.  **Write the null and alternative hypotheses for investigating this research question.**
 
-    Null:
+    Null: The distribution of ethnic origin for individuals in the city matches the distribution of ethnic origin reported by the census.
 
-    Alternative:
+    Alternative: The distribution of ethnic origin for individuals in the city differs from the distribution of ethnic origin reported by the census.
+    
+    
+or...
+
+    Null: The proportions of ethnic origins for all city residents is equal to those reported by the census.
+
+    Alternative: At least one of the proportions of ethnic origins for all city residents is different from that reported by the census.
+
+or... could write out in symbols setting equal to the expected proportions.
 
 8.  **How many of the 1,215 people do we expect to see of each ethnic origin if the results of the census are accurate?**
 
 **Expected Counts**
 
-+ Black: _____
-+ Asian: _____
-+ Anglo: _____
-+ Latino/Latina: _____
-+ Indigenous: _____
-+ All others: _____
++ Black: 121.5
++ Asian: 97.2
++ Anglo: 461.7
++ Latino/Latina: 498.15
++ Indigenous: 72.9
++ All others: 24.3
 
 *Note: we use the expected counts to check our conditions. We could have just checked the category with the smallest expected proportion.*
 
 9.  **Check the conditions for using the Chi-square distribution to test our hypotheses.**
 
-    Answer goes here.
++ Independent Observations: the ethnic origin of one resident does not tell us about the ethnic origin of another resident (assuming separate households/families)
+
++ Expected counts are all greater than 5.
+
+Therefore, conditions are not violated!
 
 10. **Carry out the Chi-square Goodness of Fit Test and find the p-value for investigating this research question.**
 
 ```{r chisq-goodness-of-fit}
 # CAUTION: Pay close attention to the order in the p = c() input.
-chisq_test(x = ________,
-           response = _________,
-           p = c(____,____,____,____,____,____)
-  
+chisq_test(x = ca_sample,
+           response = origin,
+           p = c(0.02,0.38,0.03,0.1,0.06,0.41),
+           correct = FALSE
 )
 ```
 
