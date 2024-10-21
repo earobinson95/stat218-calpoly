@@ -206,9 +206,13 @@ The above descriptive analysis tells us what we have learned about the 50 subjec
 ::: callout-note
 ### Expected Counts under $H_0$
 
-The Chi-Squared Test Statistic ($X^2$) has exactly the same formula to what we used last week. The only aspect that changes is how we get each cell's expected count.
+The Chi-Squared Test Statistic ($X^2$) has exactly the same formula to what we used last week.
 
-To find the expected count for each cell in our two variable table, we use three pieces of information:
+$$
+\text{Test Statistic} =\sum\frac{\text{(Observed - Expected)}^2}{\text{Expected}} 
+$$
+
+The only aspect that changes is how we get each cell's expected count. To find the *expected count* for each cell in our two variable table, we use three pieces of information:
 
 -   the row total for that cell (denoted with an $i$)
 -   the column total for that cell (denoted with a $j$)
@@ -240,7 +244,7 @@ myth_busters |>
 +---------------------+--------------+--------------+--------------+
 |                     | No yawn      | Yawned       | Total        |
 +---------------------+--------------+--------------+--------------+
-| Control             | \            |              | 36           |
+| Control             | \            |              | 16           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
 | Seeded              | \            |              | 34           |
@@ -249,13 +253,7 @@ myth_busters |>
 | Total               | 36           | 14           | 50           |
 +---------------------+--------------+--------------+--------------+
 
-**Chi-Square Test Statistic** Next, we compare each of our observed counts to what we would have expected if $H_0$ was true. We compare how far "off" our observed frequencies are from what was expected using the same formula we saw in Chapter 3.
-
-$$
-\text{Test Statistic} =\sum\frac{\text{(Observed - Expected)}^2}{\text{Expected}} 
-$$
-
-Using the formula above, we can calculate how far "off" each of the cells in our observed table is from what we expected under the assumption there is no relationship between seeding and yawn action.
+**Chi-Square Test Statistic** Next, we compare each of our observed counts to what we would have expected under the assumption there is no relationship between seeding and yawn action.
 
 $$
 X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.48}+\frac{(11-9.52)^2}{9.52}=0.999
@@ -267,26 +265,24 @@ $$
 
 We will answer the research question by replicating the experiment over and over again, but *under* the assumption that yawn seeding has no relationship with yawn action (i.e., the null is true). We'll start with 14 yawners and 36 non-yawners, and we'll randomly assign 34 of these 50 subjects to the seeded group and the remaining 16 to the non-seeded group.
 
-**Step 1:** Write the action (yawned/ did not yawn) and the seeding (seeded with a yawn / not seeded with a yawn) on \_\_\_\_\_\_\_ cards.
+**Step 1:** Write the action (yawned / no yawn) and the seeding (seeded / control) on \_\_\_\_\_\_\_ cards.
 
 **Step 2:** Assume the null hypothesis is true (no relationship) and
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
 
-**Step 3:** Create a new dataset that could have happened if $H_0$ was true by
+**Step 3:** Create a new data set that could have happened if $H_0$ was true by
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
 
-**Step 4:** Construct the contingency table of your simulated counts from the shuffled/randomly matched cards to show the number of yawners and non-yawners in each seeding group.
-
-*Keep in mind the column totals and the row totals will stay the same (there were only 14 people who yawned, and only 34 people who were seeded with a yawn). However, the cell values will change (we won't always have 10 individuals who Yawned from being seeded with a yawn).*
+**Step 4:** Construct the contingency table of your simulated counts from the shuffled/randomly matched cards to show the number of yawners and controls in each seeding group.
 
 **Simulated Counts**
 
 +---------------------+--------------+--------------+--------------+
 |                     | No yawn      | Yawned       | Total        |
 +---------------------+--------------+--------------+--------------+
-| Control             | \            |              | 36           |
+| Control             | \            |              | 16           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
 | Seeded              | \            |              | 34           |
@@ -304,13 +300,13 @@ We will answer the research question by replicating the experiment over and over
 knitr::include_graphics("04-images/yawn-bar-sketch.png")
 ```
 
-**Step 5:** Calculate the $X^2$ text statistic for your simulated counts under the assumption there is no relationship between seeding group and yawn action.
+**Step 5:** Calculate the $X^2$ text statistic for your simulated counts *under* the assumption there is no relationship between seeding group and yawn action.
 
-*Recall our expected counts will be the same for every simulation (and the same as for our observed test statistic calculation.*
+*Recall our expected counts will be the same for every simulation (and the same as for our observed test statistic calculation).*
 
 \vspace{1.3in}
 
-**Step 6:** Plot the simulated $X^2$ test statistic on the dot plot below. Add your group member's dots.
+**Step 6:** Plot the simulated $X^2$ test statistic on the dot plot below.
 
 ```{r}
 #| out-width: 80%
@@ -381,11 +377,10 @@ chisq_test(x = myth_busters, # <2>
 ::: callout-note
 ### Conditions for conducting a Chi-square Test:
 
-In order for the $\chi^2$ distribution to be a good approximation of the sampling distribution under the assumption the null is true, we need to verify two conditions:
+In order for the $\chi^2$ distribution to be a good approximation of the null sampling distribution, we need to verify two conditions:
 
--   The observations are independent
--   We have a "large enough" sample size
-    -   This is checked by verifying there are at least 5 expected counts in each category
+-   Independent observations
+-   Expected counts at least 5 in each category
 
 If the condition about expected cell counts is violated, we are forced to use the simulation-based method.
 :::

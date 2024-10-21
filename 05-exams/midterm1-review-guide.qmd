@@ -101,7 +101,7 @@ The negatives come in at 22%, and the p-value obtained is 0.08.
 > a.  There is an 8% chance that the ads were effective.
 > b.  There is an 8% chance that the ads were not effective.
 > c.  There is an 8% chance that a state resident disapproves of the governor.
-> d.  There is an 8% chance that the poll could have resulted in 28% or fewer negatives even if the ads were not effective.
+> d.  There is an 8% chance that the poll could have resulted in 22% or fewer negatives even if the ads were not effective.
 
 (iv) Suppose instead, our alternative is to test whether the negatives are different from 30%. What would you expect your p-value to be?
 
