@@ -18,6 +18,13 @@ embed-resources: true
   + Hand-simulation
   + Chi-square Test of Independence
 
+## To do:
+
++ **Lab 3: Chi-square Goodness of Fit Test**
+  + Due TONIGHT at 11:59pm
++ [**Study for Midterm Exam 1**](https://earobinson95.github.io/stat218-calpoly/05-exams/midterm1-review-guide.html)
+  + In-class, Tuesday 10/22
+
 ::: callout-caution
 ### Office Hours
 
@@ -26,15 +33,6 @@ Monday 10:10am-12pm + 4:10pm-6pm
 *No office hours on Thursday*
 
 :::
-
-## To do:
-
-+ **Lab 3: Chi-square Goodness of Fit Test**
-  + Due TONIGHT at 11:59pm
-
-+ **Study for Midterm Exam 1**
-  + In-class, Tuesday 10/22
-  + You may use a calculator, and one (8.5" x 11") sheet of notes (front and back). You must turn in your note sheet with your exam.
 
 ## Tuesday, October 22nd
 
