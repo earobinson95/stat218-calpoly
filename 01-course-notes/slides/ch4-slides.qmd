@@ -15,7 +15,7 @@ embed-resources: true
   + Explanatory/Response Variables
   + Descriptive Methods
 + Example 4.1: Is Yawning Contagious?
-  + Hand-simulation
+  + Hand-simulation (in groups)
   + Chi-square Test of Independence
 
 ## To do:
