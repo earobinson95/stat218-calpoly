@@ -24,7 +24,7 @@ execute:
   message: false
 ---
 
-In this chapter, we will consider descriptive methods appropriate for summarizing numerical variables.  
+Now, we will consider descriptive methods appropriate for summarizing numerical variables.  
 
 ## Example 5.1: IMDb Movie Reviews
 
@@ -75,7 +75,7 @@ movie_ratings <- left_join(movie_ids,
 ```
 
 ```{r}
-#| echo: false
+#| echo: true
 head(movie_ratings)
 ```
 
@@ -94,9 +94,12 @@ The `favstats` function from the `mosaic` package will provide us with key summa
 
 ```{r}
 #| echo: true
-library(mosaic)
-favstats(~ averageRating, data = movie_ratings)
+library(mosaic) # <1>
+favstats(~ averageRating, data = movie_ratings) # <2>
 ```
+
+1. Load the `mosaic` package to access the desired functions.
+2. Using the `favstats()` function, designate your `~ variable` and your `data = ` set.
 
 Next, let’s discuss the summary statistics provided in each piece of the output:
 
@@ -189,30 +192,38 @@ In this section, we will discuss common methods for graphing numerical data.  Gr
 
 ### Dotplots
 
-A dotplot will plot a dot for each value in the data set. The code below was used to create a dotplot of the
-`averageRatings` variable from the movies data set. In a dotplot, the quantitative variable goes on the x-axis,
-which is why the code says `x = averageRating` inside of the `aes()` function.
+A dotplot will plot a dot for each value in the data set. The code below was used to create a dotplot of the `averageRatings` variable from the movies data set.
 
 ```{r dotplot-echo}
 #| echo: true
 #| eval: false
-ggplot(data = movie_ratings, 
-       mapping = aes(x = averageRating)) +
-  geom_dotplot(dotsize = 0.5, 
-               method = "histodot") +
-  labs(title = "Score of Movies from 2020", # Title for plot
-       x = "IMDb Score (Average Rating)", # Label for x axis
-       y = "Number of ___________" # Label for y axis
+ggplot(data = movie_ratings, # <1>
+       mapping = aes(x = averageRating) # <2>
        ) +
+  geom_dotplot(dotsize = 0.5,  # <3>
+               method = "histodot"
+               ) +
+  labs(title = "Score of Movies from 2020",  # <4>
+       x = "IMDb Score (Average Rating)",
+       y = "Number of ___________"
+       )
 ```
+
+1. Using the `ggplot()` function, tell R the data set name,
+2. and the `aes(x = ____)` quantitative variable.
+3. The geometric object we want to display is a `geom_dotplot`. We can adjust the `dotsize`.
+4. Don't forget to label your title, x-, and y-axes.
 
 ```{r dotplot-eval}
 #| echo: false
 #| message: false
 #| warning: false
+#| fig-align: center
+#| out-width: 70%
+#| fig-pos: H
 ggplot(data = movie_ratings, 
        mapping = aes(x = averageRating)) +
-  geom_dotplot(dotsize = 0.5, method="histodot") +
+  geom_dotplot(dotsize = 0.5, method = "histodot") +
   labs(title = "Score of Movies from 2020", # Title for plot
        x = "IMDb Score (Average Rating)", # Label for x axis
        y = "Number of ___________" # Label for y axis
@@ -239,6 +250,8 @@ A histogram is created by dividing the range of the data distribution into bins 
 #| echo: false
 #| message: false
 #| warning: false
+#| fig-align: center
+#| out-width: 75%
 ggplot(data = movie_ratings, 
        mapping = aes(x = averageRating)) +
   geom_dotplot(dotsize = 0.5, method="histodot") +
@@ -269,27 +282,30 @@ ggplot(data = movie_ratings,
 ```
 \newpage
 
-To create a histogram of the IMDb scores, all we need to do is change the geometric object we are displaying
-on our plot! In a dotplot we use dots, but in a histogram we use bars. Notice, in the code below there are
-two changes:
-
-+ I am using `geom_histogram()` instead of `geom_dotplot()`
-+ I am specifying how wide the bins of the histogram should be using `binwidth = 0.5`
+To create a histogram of the IMDb scores, all we need to do is change the geometric object we are displaying on our plot! In a dotplot we use dots, but in a histogram we use bars.
 
 ```{r histogram-echo}
 #| eval: false
 #| echo: true
-ggplot(data = movie_ratings, 
-       mapping = aes(x = averageRating)) + 
-  geom_histogram(binwidth = 0.5) +
-  labs(title = "Score of Movies from 2020", # Title for plot
-       x = "IMDb Score (Average Rating)", # Label for x axis
-       y = "Number of Movies" # Label for y axis
+ggplot(data = movie_ratings, # <1>
+       mapping = aes(x = averageRating) # <2>
+       ) + 
+  geom_histogram(binwidth = 0.5) + # <3>
+  labs(title = "Score of Movies from 2020", # <4>
+       x = "IMDb Score (Average Rating)",
+       y = "Number of Movies"
        )
 ```
 
+1. Using the `ggplot()` function, denote your `data = ` set,
+2. and the `x = ` variable you want to explore.
+3. The geometric object we want to plot is `geom_histogram()` and we can specify the `binwidth = `.
+4. Don't forget to add titles, x-, and y-axes labels.
+
 ```{r histogram}
 #| warning: false
+#| fig-align: center
+#| out-width: 75%
 ggplot(data = movie_ratings, 
        mapping = aes(x = averageRating)) + 
   geom_histogram(binwidth = 0.5, fill = "gray", color = "white") +
@@ -328,38 +344,32 @@ The procedure for constructing a boxplot is as follows:
 Any measurement beyond the endpoint of either whisker is classified as a potential outlier (an extreme observation).
 :::
 
-**Summary Statistics**
+**Recall our Summary Statistics**
 
 ```{r}
+#| echo: true
 library(infer)
 favstats(~ averageRating, data = movie_ratings)
 ```
 
-:::: columns
-::: column
+**Bottom 6 and Top 6 Ratings**
 
-**Bottom 6:**
+```{r}
+#| layout-ncol: 2
 
-```{r min}
-movie_ratings |> 
-  select(averageRating) |>  
-  slice_min(order_by = averageRating, n = 6)
-```
-
-:::
-
-::: column
-
-**Top 6:**
-
-```{r max}
+#| tbl-cap: "Top 6 Ratings"
 movie_ratings %>% 
-  select(averageRating) |> 
+  select(Movie, averageRating) |> 
   slice_max(order_by = averageRating, n = 6)
+
+#| tbl-cap: "Bottom 6 Ratings"
+movie_ratings |> 
+  select(Movie, averageRating) |>  
+  slice_min(order_by = averageRating, n = 6) |> 
+  arrange(-averageRating)
 ```
 
-:::
-::::
+\newpage
 
 7. Using the summary statistics (same as we saw earlier) and top/bottom values of the data set provided, sketch a box plot of IMDb scores. *Hint: You will need to determine if there are any outliers.*
 
@@ -371,18 +381,19 @@ knitr::include_graphics("05-images/boxplot.PNG")
 
 8.	Are there any movies that are rated unusually low?  If so, which ones?
 
-\vspace{0.2in}
+\vspace{0.3in}
 
 9.	Are there any movies that are rated unusually high?  If so, which ones?
 
 
-\vspace{0.2in}
+\vspace{0.3in}
 
 ### A Discussion of Skewness
 
 A data distribution is said to be symmetric if it has the same shape on both sides of the center. Skewness measures the amount of asymmetry in a data distribution.
 
-The distribution is said to be skewed to the right if the measurements tend to trail off to the right.  Similarly, a distribution is skewed to the left if the measurements trail off to the left.
+The distribution is said to be *skewed to the right* if the measurements tend to trail off to the right.  Similarly, a distribution is *skewed to the left* if the measurements trail off to the left.
+
 
 ```{r}
 #| out-width: 80%
@@ -391,13 +402,15 @@ knitr::include_graphics("05-images/skewed-sketc.PNG")
 ```
 
 
+\newpage
+
 ::: callout-note
 ## Describing distributions of quantitative variables
 
 When describing distributions of quantitative variables we look at the **shape**, **center**, **spread**, and for **outliers**.
 
-  + There are two measures of center: mean and the median
-  + There are two measures of spread: standard deviation and the interquartile range, IQR = Q3 − Q1.
+  + There are two measures of *center*: mean and the median
+  + There are two measures of *spread*: standard deviation and the interquartile range, IQR = Q3 − Q1.
 :::
 
 10. Compare the three graphs of IMDb scores created above.

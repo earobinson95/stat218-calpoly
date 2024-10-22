@@ -69,8 +69,8 @@ head(nicotine)
 We can summarize the data with:
 
 ```{r}
-#| echo: false
-library(mosaic)
+#| echo: true
+library(mosaic) # <1>
 favstats( ~ time_passed, data = nicotine)
 ```
 
