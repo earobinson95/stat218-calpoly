@@ -157,7 +157,7 @@ v.  State a conclusion in context of the research question.
 
 \newpage
 
-3.  Suppose that 500 Cal Poly students were surveyed to find a 95% confidence interval for the proportion of all Cal Poly students who have cheated on a test. Answer the following questions by circling your response.
+4.  Suppose that 500 Cal Poly students were surveyed to find a 95% confidence interval for the proportion of all Cal Poly students who have cheated on a test. Answer the following questions by circling your response.
 
 (i) TRUE / FALSE: The population proportion (i.e., the proportion of all Cal Poly students who have cheated on a test) will definitely be contained in the confidence interval.
 
@@ -169,7 +169,7 @@ v.  State a conclusion in context of the research question.
 
 \vspace{0.2in}
 
-4.  Suppose a 95% confidence interval constructed from a sample mean is (5.5, 10.5). Circle ALL true statement(s).
+5.  Suppose a 95% confidence interval constructed from a sample mean is (5.5, 10.5). Circle ALL true statement(s).
 
 > a.  A 99% confidence interval constructed from the same sample mean will contain 8.
 > b.  A 99% confidence interval constructed from the same sample mean will NOT contain 8.
@@ -178,14 +178,14 @@ v.  State a conclusion in context of the research question.
 
 \vspace{0.2in}
 
-5.  Suppose that two different surveys were conducted to investigate whether the majority of Minnesotans feel there is a shortage of affordable home options. In Survey A, 344 of 625 (55%) felt there was a shortage of affordable home options. In Survey B, 331 of 625 (53%) said they felt this way. Which survey (A or B) would result in a smaller p-value when testing whether the majority of Minnesotans feel there is a shortage of affordable home options? (3 pts)
+6.  Suppose that two different surveys were conducted to investigate whether the majority of Minnesotans feel there is a shortage of affordable home options. In Survey A, 344 of 625 (55%) felt there was a shortage of affordable home options. In Survey B, 331 of 625 (53%) said they felt this way. Which survey (A or B) would result in a smaller p-value when testing whether the majority of Minnesotans feel there is a shortage of affordable home options? (3 pts)
 
 > a.  The p-values would be the same since both surveys sampled the same number of subjects.
 > b.  There is not enough information given to determine anything about the p-values.
 > c.  Survey A
 > d.  Survey B
 
-6.  A local doctor suspects that there is a seasonal trend in the occurrence of the common cold. She estimates that 40% of the cases each year occur in the winter, 40% in the spring, 10% in the summer and 10% in the fall. A random sample of 1000 patient cases was collected, and the number of cold cases for each season was recorded.
+7.  A local doctor suspects that there is a seasonal trend in the occurrence of the common cold. She estimates that 40% of the cases each year occur in the winter, 40% in the spring, 10% in the summer and 10% in the fall. A random sample of 835 patient cases was collected, and the number of cold cases for each season was recorded.
 
 A summary table of the observed counts is included below:
 
