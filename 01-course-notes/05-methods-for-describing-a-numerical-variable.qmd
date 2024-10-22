@@ -373,7 +373,7 @@ knitr::include_graphics("05-images/boxplot.PNG")
 
 \vspace{0.2in}
 
-9.	Are there any movies that are rated unusually low?  If so, which ones?
+9.	Are there any movies that are rated unusually high?  If so, which ones?
 
 
 \vspace{0.2in}
