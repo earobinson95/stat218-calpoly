@@ -7,40 +7,45 @@ format:
 embed-resources: true
 ---
 
-## Thursday, October 26th
+## Monday, October 28th
 ### Today we will...
 
-::: callout-note
-## NEW GROUPS!
-
-+ Find your new group (see front of room).
-+ Share a food or tradition that reminds you of fall.
-+ Exchange contact information.
-:::
-
-+ Methods for describing a single numerical variable
++ Ch. 5: Describing Numeric Variables (in groups)
 
 ## To do:
+
++ **Homework 4: Fatal Injuries in the Iliad**
+  + Due Thursday 10/31 at 11:59pm
 
 + **Print Chapter 6 Notes**
-  + For class Friday
+  + For class Tuesday
 
-## Friday, October 27th
+## Tuesday, October 29th
 ### Today we will...
 
-::: callout-note
-## NEW GROUPS!
-
-+ Find your new group (see front of room).
-+ Share a food or tradition that reminds you of fall.
-+ Exchange contact information.
-:::
-
 + Distribution of the Sample Mean
-+ Central Limit Theorem
++ Central Limit Theorem *(complete activity for participation credit)*
 
 ## To do:
 
-**Relax!**
++ **Homework 4: Fatal Injuries in the Iliad**
+  + Due Thursday 10/31 at 11:59pm
+  
+*Bring your computers charged for Lab 4 on Thursday.*
+
+## Thursday, October 31st
+### Today we will...
+
++ *Px: Check CLT for completion*
++ Lab 4: Nightlights and Myopia
+  + Chi-square Test of Independence
+
+## To do:
+
++ **Homework 4: Fatal Injuries in the Iliad**
+  + Due TONIGHT 10/31 at 11:59pm
+  
++ **Lab 4: Nightlights and Myopia**
+  + Due Monday 11/4 at 11:59pm
   
   
