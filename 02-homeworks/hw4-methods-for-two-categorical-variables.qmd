@@ -16,9 +16,6 @@ format:
           \fancyfoot[C]{\thepage}
   docx:
     toc: false
-# format: html
-# format: docx
-# format: revealjs
 execute:
   echo: false
   warning: false
