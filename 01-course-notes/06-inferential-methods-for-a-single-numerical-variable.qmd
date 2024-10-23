@@ -24,7 +24,7 @@ execute:
   warning: false
 ---
 
-As seen in Chapters 1-4, research hypotheses involving either a single categorical variable or two categorical variables require us to test claims about proportions. When a research question involves a single numerical variable, however, we end up testing claims about the mean, or average. In this chapter, we will consider inferential methods (hypothesis tests and confidence intervals) for the mean of a single numerical variable. Consider the following example.
+As seen in earlier chapters, research hypotheses involving either a single categorical variable or two categorical variables require us to test claims about population proportions. When a research question involves a single numerical variable, however, we end up testing claims about the population mean (or average) based on a sample. In this chapter, we will consider inferential methods (hypothesis tests and confidence intervals) for the population mean of a single numerical variable. Consider the following example.
 
 ::: callout-note
 ## Notation for Means
@@ -52,8 +52,9 @@ A study conducted by researchers at Pennsylvania State University investigated w
 library(tidyverse)
 library(mosaic)
 library(infer)
+
 set.seed(24)
-nicotine <- tibble(status = "daily smoker",
+nicotine <- tibble(status = "withdrawl",
                    sex = c(rep("male", 12), rep("female", 8)),
                    age = runif(20, min = 25, max = 50),
                    time_passed = rnorm(n = 20, mean = 55.05, sd = 9.32)
@@ -70,19 +71,14 @@ We can summarize the data with:
 
 ```{r}
 #| echo: true
-library(mosaic) # <1>
 favstats( ~ time_passed, data = nicotine)
 ```
 
 and visualize the data with:
 
 ```{r}
-#| echo: false
+#| echo: true
 #| eval: false
-#| fig-height: 4
-#| fig-width: 8
-#| fig-align: center
-library(mosaic)
 ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5) +
@@ -92,7 +88,8 @@ ggplot(data = nicotine,
 ```
 
 ```{r}
-library(mosaic)
+#| fig-align: center
+#| out-width: 70%
 ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
@@ -131,292 +128,172 @@ ggplot(data = nicotine,
 
 ### The Distribution of the Sample Mean
 
-The sample mean is a random quantity; that is, it changes from sample to sample. Therefore, the sample mean actually has its own distribution. This distribution will tell us two things:
+The sample mean is a random quantity that changes from sample to sample. This randomness gives the sample mean its own distribution, called the distribution of the sample mean, which tells us:
 
-+ What values the sample mean can assume
-+ How often it will assume these values
++ The possible values the sample mean can assume.
++ How often each value will occur.
 
-This distribution is referred to as the *distribution of the sample mean*. An understanding of this distribution allows us to make decisions about a population mean for a single numerical variable.
-
-Before we discuss the procedure for inference, let's consider the next example to gain a better understanding of how the distribution of sample means works and how we use this distribution to make a decision concerning our research question.
+Understanding this distribution is key to making decisions about the population mean for a single numerical variable. Let’s explore how sample means behave by simulating repeated samples.
 
 ## Exploring the Distribution of the Sampling Mean
 
-Before we discuss the procedure for inference, let’s consider the next example to gain a better understanding of how the distribution of sample means works and how we use this distribution to make a decision concerning our research question.
+We will use an applet (<https://posit.cloud/spaces/556082/content/9064163>) to simulate drawing random samples from a population and observe the distribution of sample means.
 
-Suppose we set up a hypothetical population of ALL smokers suffering from nicotine withdrawal. This population has been purposefully created so that the mean perceived elapsed time is exactly 45 seconds (i.e., the null is true).
+The goal is to simulate multiple samples of $n = 20$ drawn from a hypothetical population of smokers experiencing nicotine withdrawal.
+
+**Step 1: Population Parameters** We begin by setting up a hypothetical population of **all** smokers suffering from nicotine withdraw. 
+
+In this simulation study, what are the following parameters for your population?
+
+$\mu$ = _____ -- Where does this value of 45 seconds come from? *yours might differ slightly*
+
+\vspace{0.05in}
+
+$\sigma$ = _____
+
+\vspace{0.1in}
+
+What does each dot on this plot represent?
+
+\vspace{0.1in}
+
+**Step 2: Repeated Samples** In practice, we usually don’t know the true population mean ($\mu$). Researchers often take random samples to estimate this mean. In our case, we’ll simulate multiple random samples of 20 subjects.
+
++ *Sample 1:* Click "Draw Samples". Record the sample mean and sample standard deviation:
+
+$\bar x_{sample 1}$ = _____
+
+\vspace{0.05in}
+
+$s_{sample 1}$ = _____
+
+\vspace{0.1in}
+
+What does each dot on this plot represent?
+
+\vspace{0.1in}
+
++ *Sample 2:* Click "Draw Samples" again. Record the new values:
+
+$\bar x_{sample 2}$ = _____
+
+\vspace{0.05in}
+
+$s_{sample 2}$ = _____
+
+\vspace{0.1in}
+
++ *Sample 3:* Click "Draw Samples" once more. Record:
+
+$\bar x_{sample 3}$ = _____
+
+\vspace{0.05in}
+
+$s_{sample 3}$ = _____
+
+\vspace{0.1in}
+
+*Compare:* How do the means and standard deviations from these three samples differ?
+
+**Step 3: Distribution of Sample Means:** Each of these sample means is a single point from the *distribution of sample means*. Let’s now visualize the distribution of sample means:
+
+\vspace{0.05in}
+
+Add a dot on the plot for each sample mean from the three samples you took above.
 
 ```{r}
-#| fig-height: 4
-#| fig-width: 8
 #| fig-align: center
-set.seed(7)
-nicotine_population <- tibble(time_passed = rnorm(n = 1000, mean = 45, sd = 7.3))
-
-ggplot(data = nicotine_population,
-       mapping = aes(x = time_passed)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.1) +
-  geom_vline(xintercept = mean(nicotine_population$time_passed), color = "steelblue", size = 1) +
-  geom_text(aes(label = round(mean(nicotine_population$time_passed), 1), 
-                x = mean(nicotine_population$time_passed), 
-                y = Inf),
-            hjust = -0.5,
-            vjust = 3,
-            color = "steelblue"
-            ) +
-  labs(title = "Distribution of 'all' smokers",
-       x = "Perceived Elapsed Time (seconds)",
-       y = "") +
-  scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
+#| out-width: 80%
+knitr::include_graphics("06-images/dist-of-sample-means-sketch.png")
 ```
 
-5. In this simulation study, what is our value of $\mu$, the true population mean?  
+**Next:** To get a better sense of this distribution, increase the "Number of Samples" to 100 and hit "Draw Samples" to generate more sample means. Record the overall mean and standard deviation from the "Distribution of Sample Means".
 
-\vspace{0.7in}
+\vspace{0.05in}
 
-Note that in reality, the true population mean is usually an unknown quantity which we are trying to estimate.  Since it is not feasible to collect data on the entire population of smokers suffering from nicotine withdrawal, the researchers took a random sample of 20 subjects in order to estimate the average perceived elapsed time.  Let’s see what happens when we take various samples of size 20 from this population.
++ Distribution Mean = _____
++ Distribution SD = _____
 
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-#| fig-align: center
-set.seed(8)
-s1 <- sample(nicotine_population, size = 20)
+\vspace{0.05in}
 
-ggplot(data = s1,
-       mapping = aes(x = time_passed)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.5) +
-  geom_vline(xintercept = mean(s1$time_passed), color = "steelblue", size = 1) +
-  geom_text(aes(label = round(mean(s1$time_passed), 1), 
-                x = mean(s1$time_passed), 
-                y = Inf),
-            hjust = -0.5,
-            vjust = 3,
-            color = "steelblue"
-            ) +
-  labs(title = "Sample 1",
-       x = "Perceived Elapsed Time (seconds)",
-       y = "") +
-  scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
-```
-6. What is the average (or mean) perceived elapsed time of the 20 subjects in this "fake" study?
-
-\vspace{0.7in}
-
-7. Does this necessarily mean that the average perceived elapsed time is greater than 45 seconds for all smokers suffering from nicotine withdrawal?  What would you say to a researcher who tried to use only this sample mean to draw this conclusion?
-
-\vspace{0.7in}
-
-Even though in reality we would carry out a study only once, we will take a sample of 20 subjects from this population over and over again so that we get an idea of how much the sample mean could change from sample to sample. Our second and third random samples of 20 subjects and their sample means are shown below:
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-#| fig-align: center
-set.seed(5)
-s2 <- sample(nicotine_population, size = 20)
-
-ggplot(data = s2,
-       mapping = aes(x = time_passed)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.5) +
-  geom_vline(xintercept = mean(s2$time_passed), color = "steelblue", size = 1) +
-  geom_text(aes(label = round(mean(s2$time_passed), 1), 
-                x = mean(s2$time_passed), 
-                y = Inf),
-            hjust = -0.5,
-            vjust = 3,
-            color = "steelblue"
-            ) +
-  labs(title = "Sample 3",
-       x = "Perceived Elapsed Time (seconds)",
-       y = "") +
-  scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
-```
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-#| fig-align: center
-set.seed(1)
-s3 <- sample(nicotine_population, size = 20)
-
-ggplot(data = s3,
-       mapping = aes(x = time_passed)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.5) +
-  geom_vline(xintercept = mean(s3$time_passed), color = "steelblue", size = 1) +
-  geom_text(aes(label = round(mean(s3$time_passed), 1), 
-                x = mean(s3$time_passed), 
-                y = Inf),
-            hjust = -0.5,
-            vjust = 3,
-            color = "steelblue"
-            ) +
-  labs(title = "Sample 3",
-       x = "Perceived Elapsed Time (seconds)",
-       y = "") +
-  scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
-```
-
-We can start to collect these sample means in a new plot to create the *distribution of sample means*:
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-#| fig-align: center
-#| fig-pos: "H"
-sample_means <- tibble(means = c(mean(s1$time_passed),
-                       mean(s2$time_passed),
-                       mean(s3$time_passed)
-                       ))
-
-ggplot(data = sample_means,
-       mapping = aes(x = means)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.5) +
-  labs(title = "Distribution of Sample Means",
-       x = "Mean of Perceived Elapsed Time (seconds) \n n = 20",
-       y = "") +
-  scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
-```
-To get a really good idea of what values are likely to occur by chance when taking random samples of size 20 from the population, we should take more than just three samples.  The graphic below shows the process we used to create the distribution of sample means and the final plot of the means of 1,000 random samples. 
-
-```{r}
-#| fig-pos: "H"
-set.seed(1)
-sample_means <- tibble(sim = 1:1000,
-                       n = 20) |> 
-  rowwise() |> 
-  mutate(means = mean(sample(nicotine_population$time_passed, size = 20)))
-
-ggplot(data = sample_means,
-       mapping = aes(x = means)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.08) +
-  labs(title = "Distribution of Sample Means",
-       x = "Mean of Perceived Elapsed Time (seconds) \n n = 20",
-       y = "") +
-  scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        )
-```
-
-This is a distribution of sample means.  Recall that these 1000 samples (each consisting of 20 subjects) came from a population with a true mean perceived elapsed time of 45 seconds. So, this distribution gives us a good idea of what sample means from 20 subjects are likely (or unlikely) to occur by chance *if the true mean is 45 seconds*.
-
-Next, note that the researchers wanted to show that the mean perceived elapsed time for smokers suffering from nicotine withdrawal was in fact greater than 45 seconds.  The null and alternative hypotheses to address this research question are given as follows.
-
-> $H_0$:  The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is equal to 45 seconds.
-
-> $H_A$: The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is greater than 45 seconds.
-
-Note that the distribution of sample means was created *assuming the null hypothesis is true*. To test this hypothesis, we compare our actual observed mean to this null distribution. If the sample mean from the actual research study is not likely to occur by chance according to this null model (i.e., if it is an outlier on this null distribution), then we have evidence against the null model and in support of the research question.
-
-8. Recall that in the actual research study, the mean perceived elapsed time for the 20 subjects studied was 52.65 seconds.  Sketch this observed value on the null distribution above.
+What does each dot on this plot represent?
 
 \vspace{0.2in}
 
-There are two explanations for this observed mean of 52.65 seconds: either (1) the true mean perceived elapsed time for smokers suffering from nicotine withdrawal really is greater than 45 seconds, or (2) their time perception is not impaired (i.e., the true mean is actually 45 seconds) and the sample mean was greater than 45 seconds simply because of random chance.
+**Step 4: Hypothesis Testing** The researchers hypothesized that the mean perceived elapsed time for smokers during nicotine withdrawal was greater than 45 seconds. Let’s formally define the hypotheses:
 
-9. Was a sample mean of 52.65 seconds likely to occur by chance if the true population mean is actually 45 seconds?  What does this imply about the research question?
+> $H_0$:  The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is *equal* to 45 seconds.
 
-\vspace{0.8in}
+> $H_A$: The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is *greater* than 45 seconds.
 
-10.	Give an approximate p-value based on this simulation study.
+The "Distribution of Sample Means" assumes the null hypothesis is true. It shows what we expect sample means to look like if the true population mean really is 45 seconds.
 
-\vspace{0.8in}
+**Step 5: Observed Data** Recall, in the actual research study, the mean perceived elapsed time for 20 subjects was 52.65 seconds. Sketch this observed value on the "Distribution of Sample Means" you generated.
 
-## The Central Limit Theorem (CLT)
+Estimate the p-value: Based on the simulation, what is the probability of obtaining a sample mean of 52.65 seconds or greater, assuming the null hypothesis is true?
 
-Note that a statistician would not necessarily carry out a simulation study such as this to answer a research question. Instead, one could use a "short-cut" known as a t-test to investigate a research question concerning a single population mean. This short-cut is a result of something known as the **central limit theorem**, which states the following:
+Estimated p-value = ______
 
-Consider a random sample of n observations from ANY population with mean $\mu$ and standard deviation $\sigma$. When $n$ (the number of subjects in the sample) is sufficiently large, the distribution of sample means will be approximately a NORMAL distribution with a mean of $\mu$ and a standard deviation of $\frac{\sigma}{\sqrt{n}}$. This approximation gets better as the sample size ($n$) increases.
+**Step 6: Understanding the Central Limit Theorem (CLT)**
 
-We can see the Central Limit Theorem applied to the sample means calculated from our hypothetical population from Example 6.2 as follows:
-
--   We see that the distribution of sample means is approximately normal:
-
-```{r}
-#| fig-width: 8
-#| fig-height: 4
-#| fig-align: center
-nicotine_norm <- tibble("x" = seq(35, 55, 0.001),
-                           "dnorm" = dnorm(x, 
-                                           mean = mean(sample_means$means), 
-                                           sd = sd(sample_means$means)
-                           ))
-
-ggplot(data = sample_means,
-       mapping = aes(x = means)) +
-  geom_dotplot(method = "histodot",
-               dotsize = 0.08) +
-  geom_line(data = nicotine_norm,
-            aes(x = x,
-                y = dnorm
-                ),
-            color = "steelblue",
-            size = 1
-            ) +
-  labs(title = "Distribution of Sample Means",
-       x = "Mean of Perceived Elapsed Time (seconds) \n n = 20",
-       y = "") +
-  scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()
-        ) +
-  scale_y_continuous(limits = c(0,0.285))
-```
-
--   We see that this normal distribution is centered at *about* the true population mean, $\mu = 45$.
-
-```{r}
-favstats(~ means, data = sample_means)
-```
-
-
--   The standard deviation of all observations in our hypothetical population is $\sigma =$ `r round(sd(nicotine_population$time_passed), 2)` seconds. According to the central limit theorem, then, the standard deviation of the distribution of sample means is given by
-
-$$\frac{\sigma}{\sqrt n} = \frac{7.17}{\sqrt{20}}=1.60$$
-
-Finally, recall from the previous chapter that given the mean and standard deviation of a distribution, we can determine whether a given observation is an outlier or not based on its position on this distribution. This will help us decide whether the sample mean *actually observed* in the research study is an outlier on the distribution that assumes the null hypothesis is true.
-
-The only question that remains is this: How large does n (the number of subjects in a study) have to be in order for us to use the short-cut provided by the Central Limit Theorem?
+Rather than always using simulations, statisticians rely on a theoretical result called the *Central Limit Theorem (CLT)*. The CLT allows us to make inferences about the population mean without needing to take repeated samples.
 
 ::: callout-note
-### Sample Size for the Central Limit Theorem
+### The Central Limit Theorem (CLT)
 
-For almost all populations, samples of size $n  \ge 30$ subjects will be sufficient to say that the distribution of sample means is approximately normal. However, if the distribution is very skewed, the sample size may have to be much larger than 30 in order for the central limit theorem to apply.
+The Central Limit Theorem (CLT) allows us to approximate the *distribution of sample means* as normal, provided the sample size is large enough.
+
++ **Mean of Sample Means**: The *distribution of sample means* will be centered around the population mean $\mu$. This means that, on average, the sample mean will be a good estimate of the population mean.
+
++ **Standard Error (SE):** The standard deviation of the *distribution of sample means* is called the standard error. It tells us how much the sample means tend to vary from the population mean:
+
+$$SE = \frac{\sigma}{\sqrt{n}}$$
+
++ **When is the CLT valid?** For most situations, the CLT applies well if the sample size is 30 or larger. If the sample size is smaller than 30, the population should be normally distributed. For populations that are strongly skewed or have outliers, larger samples may be necessary for the CLT to hold.
 :::
 
-In summary, we can use the Central Limit Theorem to help us create a procedure for comparing a population mean to some hypothesized null value.
++ Check the Shape:  Does the "Distribution of Sample Means" look approximately normal?
 
-This works because:
+\vspace{0.05in}
 
-+ We know the distribution of sample means will be approximately normal if either (i) the original population is normally distributed, or (ii) our sample size is sufficiently large.
++ Recall from Step 1: The population parameters were $\mu =$ ___ and $\sigma =$ _____.
 
-+ We know the distribution of sample means will be centered at the true population mean (which we can set to some hypothesized value in the null hypothesis).
+\vspace{0.05in}
 
-+ We know that the variability in the distribution of sample means is given by (i.e., the variability decreases as the sample size gets larger, which we can see in the above examples).
++ Calculate the Standard Error (SE): We call the standard deviation of the distribution of sample means the standard error. It represents how much variability we expect in the sample means if we repeatedly take samples from the population.
 
-In the next section, we put all of the pieces together to create what is known as the t-test.
+> $SE = \frac{\sigma}{\sqrt{n}} =$ ______. 
+
+
+**Step 7: Comparing Simulation Results and Theory** 
+
+Compare the values from your simulation with the theoretical values based on the CLT:
+
++ From Step 3: Mean = _____, SD = _____
+
+\vspace{0.05in}
+
++ From Step 6: SE = _____
+
+How does simulated standard deviation compare to the theoretical SE?
+
+\vspace{0.2in}
+
+:::callout-note
+## Key Statistical Concepts
+
+The Central Limit Theorem allows us to estimate the population mean using a single sample, knowing that:
+
+1. The distribution of sample means will be approximately normal if the sample size is large enough.
+
+2. The sample means will be centered around the true population mean, $\mu$.
+
+3. The variability of the sample means is determined by the standard error $\frac{\sigma}{\sqrt{n}}$, which decreases as the sample size increases.
+
+You can access a fun applet for exploring Sampling Distributions and the CLT further at <https://onlinestatbook.com/stat_sim/sampling_dist/index.html>.
+:::
+
+In the next section, we will use the CLT to perform hypothesis tests using a procedure called the t-test.
 
 ## The t-test for a Single Population Mean
 
@@ -428,6 +305,8 @@ favstats( ~ time_passed, data = nicotine)
 ```
 
 ```{r}
+#| fig-align: center
+#| out-width: 70%
 ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
@@ -463,11 +342,11 @@ $$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} =$$
 
 Why use this statistic? Because this quantity measures the position of our observed sample mean on the null model, just like the Z-score discussed in the previous chapter.
 
-$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} = \frac{\text{observed sample mean - mean of the distribution of sample means}}{\text{standard deviation of the distribution of sample means}}$$
+$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} = \frac{\text{observed sample mean - mean of the distribution of sample means}}{\text{standard error}}$$
 
-Note that this is very much like the Z-score, with one minor exception. We don't know the true population standard deviation, σ, so we estimate it with the standard deviation calculated from the 20 observed subjects in the study (this estimate is commonly denoted by s).
+Note that this is very much like the Z-score, with one minor exception. We don't know the true population standard deviation, $\sigma$, so we estimate it with the standard deviation calculated from the 20 observed subjects in the study (this estimate is commonly denoted by $s$).
 
-This t-statistic comes from what is called a t-distribution. The amount of variability in a t-distribution depends on the sample size n (the greater the sample size, the smaller the standard deviation of the distribution of sample means). Therefore, this distribution is indexed by its *degrees of freedom* (df).
+This t-statistic comes from what is called a t-distribution. The amount of variability in a t-distribution depends on the sample size n. Therefore, this distribution is indexed by its *degrees of freedom* (df).
 
 ::: callout-note
 ### Degrees of Freedom for a Single Mean
@@ -478,7 +357,7 @@ For inference on a single mean, $df = n - 1$.
 To find the p-value associated with this test statistic, we must remember that this is an upper-tailed test (we are trying to find evidence that the mean is greater than 45 seconds). So, the p-value will be the probability we would observe a sample mean (or a t-statistic) greater than that obtained in the actual study by chance alone, assuming the null hypothesis is true:
 
 ```{r}
-#| out-width: 60%
+#| out-width: 55%
 #| fig-align: center
 #| fig-pos: "H"
 #| fig-cap: <https://homepage.divms.uiowa.edu/~mbognar/applets/t.html>
@@ -489,15 +368,17 @@ Note that in practice, we can use R to test our research question:
 
 ```{r}
 #| echo: true
-library(infer)
-t_test(x = nicotine,
-       response = time_passed,
-       mu = 45,
-       alternative = "greater"
+
+t_test(x = nicotine, # <1>
+       response = time_passed, # <2>
+       mu = 45, # <3>
+       alternative = "greater", # <4>
        )
 ```
-
-\vspace{0.5in}
+1. Use the `t_test()` function from the `infer` package and designate your `x = ` data set.
+2. Tell the function the `response = ` variable of interest,
+3. and the `mu = ` null value ($\mu_0$).
+4. Specify the direction of the `alternative = ` hypothesis.
 
 **Conclusion**
 
@@ -520,7 +401,7 @@ For Example 6.1, we have a sample size of 20 subjects, which is not sufficiently
 
 \vspace{0.6in}
 
-## Example 6.2: Time Perception for Non-Smokers
+## Example 6.2: Time Perception for Smokers NOT Suffering from Nicotine Withdrawl
 
 For the data given in Example 6.1, we found evidence that the mean perceived elapsed was in fact greater than the actual 45 seconds that had elapsed. This study alone, however, doesn't really say that the nicotine withdrawal was what impaired one's perception of time. Why not?
 
@@ -528,20 +409,19 @@ Suppose that the researchers also studied 22 subjects who were smokers that did 
 
 **Research Question:** Is there evidence the mean perceived elapsed time for all smokers **NOT** suffering from nicotine withdrawal is significantly greater than the actual 45 seconds?
 
-```{r nonsmoker-data}
-library(tidyverse)
+```{r}
 set.seed(24)
-nonsmokers <- tibble(status = "non-smoker",
+nowithdrawl_data <- tibble(status = "no withdrawl",
                    sex = c(rep("male", 12), rep("female", 10)),
                    age = runif(22, min = 25, max = 50),
                    time_passed = rnorm(n = 22, mean = 46.85, sd = 9.35)
                    ) |> 
-  sample(22) |> 
-  select(-orig.id)
+  slice_sample(n = 22)
 ```
 
 ```{r}
-head(nonsmokers)
+#| echo: true
+head(nowithdrawl_data)
 ```
 
 Carry out the formal t-test to address this research question.
@@ -556,17 +436,21 @@ Carry out the formal t-test to address this research question.
 
 \vspace{0.8in}
 
-2.  Check normality assumptions.
+2.  Check normality assumptions for using the CLT.
 
 ```{r}
-favstats( ~ time_passed, data = nonsmokers)
+#| echo: true
+favstats( ~ time_passed, data = nowithdrawl_data)
 ```
+
 ```{r}
-ggplot(data = nonsmokers,
+#| fig-align: center
+#| out-width: 70%
+ggplot(data = nowithdrawl_data,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Non-Smokers",
+  labs(title = "Time Estimation Accuracy from Smokers with No Withdrawl",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```
@@ -585,8 +469,7 @@ knitr::include_graphics("06-images/nonsmoker_tapplet.PNG")
 
 ```{r}
 #| echo: true
-library(infer)
-t_test(x = nonsmokers,
+t_test(x = nowithdrawl_data,
        response = time_passed,
        mu = 45,
        alternative = "greater"
@@ -605,7 +488,7 @@ In **Example 6.1**, we found evidence that the mean perceived elapsed time for s
 
 Recall our discussion of confidence intervals from earlier in the quarter:
 
-This procedure does NOT require any hypotheses concerning our population parameter of interest (the mean, in this case). We will use both our sample data (in particular, the observed mean) and what we know about the distribution of sample means to obtain a range of likely values for our population mean.
+This procedure does NOT require any hypotheses concerning our population parameter of interest (the population mean, in this case). We will use both our sample data (in particular, the observed mean) and what we know about the *distribution of sample means* to obtain a range of likely values for our population mean.
 
 ::: callout-warning
 + A confidence interval allows us to *estimate the population parameter* of interest (recall that the hypothesis test does NOT allow us to do this). Therefore, when available, a confidence interval should always accompany the hypothesis test.
@@ -615,9 +498,13 @@ This procedure does NOT require any hypotheses concerning our population paramet
 
 ## Example 6.3: Estimated Perceived Time from Nicotine Withdrawl
 
-Our goal is to construct a 95\% confidence interval for the mean perceived elapsed time for smokers suffering from nicotine withdrawal (Example 6.1). To do this, we will center our distribution of sample means on the observed mean. Then, we will find the lower and upper endpoints that separate the middle 95\% of the distribution from the rest (since we are constructing a 95\% confidence interval).
+Our goal is to construct a 95\% confidence interval for the mean perceived elapsed time for smokers suffering from nicotine withdrawal (Example 6.1). To do this, we will center our distribution of sample means on the observed sample mean. Then, we will find the lower and upper endpoints that separate the middle 95\% of the distribution from the rest (since we are constructing a 95\% confidence interval).
 
-The formula for calculating the endpoints of this confidence interval is given as follows:
+Recall the general form of a confidence interval:
+
+$$\text{point estimate} \pm \text{multiplier} \times \text{SE}.$$
+
+Thus, the formula for calculating the endpoints of a confidence interval for a mean is given as follows:
 
 $$\bar x \pm \text{t-quantitle}\times\big(\frac{s}{\sqrt{n}}\big)$$
 
@@ -666,10 +553,13 @@ Note that we can ask R to provide the endpoints of the 95\% confidence interval 
 t_test(x = nicotine,
        response = time_passed,
        mu = 45,
-       alternative = "two-sided",
-       conf_int = TRUE,
-       conf_level = 0.95)
+       alternative = "two.sided", # <4>
+       conf_level = 0.95 # <5>
+       )
 ```
+
+4. Change the `alternative = ` to a two-sided test (CI are always two-sided),
+5. and specify the `conf_level = `.
 
 \vspace{0.2in}
 
@@ -694,3 +584,252 @@ qt(0.995, df = 19)
 ```
 
 \vspace{1.2in}
+
+
+
+
+
+
+
+<!-- OLD STUFF -->
+
+<!-- ```{r} -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-width: 8 -->
+<!-- #| fig-align: center -->
+<!-- set.seed(7) -->
+<!-- nicotine_population <- tibble(time_passed = rnorm(n = 1000, mean = 45, sd = 7.3)) -->
+
+<!-- ggplot(data = nicotine_population, -->
+<!--        mapping = aes(x = time_passed)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.1) + -->
+<!--   geom_vline(xintercept = mean(nicotine_population$time_passed), color = "steelblue", size = 1) + -->
+<!--   geom_text(aes(label = round(mean(nicotine_population$time_passed), 1),  -->
+<!--                 x = mean(nicotine_population$time_passed),  -->
+<!--                 y = Inf), -->
+<!--             hjust = -0.5, -->
+<!--             vjust = 3, -->
+<!--             color = "steelblue" -->
+<!--             ) + -->
+<!--   labs(title = "Distribution of 'all' smokers", -->
+<!--        x = "Perceived Elapsed Time (seconds)", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+
+<!-- \vspace{0.7in} -->
+
+<!-- Note that in reality, the true population mean is usually an unknown quantity which we are trying to estimate.  Since it is not feasible to collect data on the entire population of smokers suffering from nicotine withdrawal, the researchers took a random sample of 20 subjects in order to estimate the average perceived elapsed time.  Let’s see what happens when we take various samples of size 20 from this population. -->
+
+<!-- ```{r} -->
+<!-- #| fig-width: 12 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
+<!-- set.seed(8) -->
+<!-- s1 <- sample(nicotine_population, size = 20) -->
+
+<!-- ggplot(data = s1, -->
+<!--        mapping = aes(x = time_passed)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.5) + -->
+<!--   geom_vline(xintercept = mean(s1$time_passed), color = "steelblue", size = 1) + -->
+<!--   geom_text(aes(label = round(mean(s1$time_passed), 1),  -->
+<!--                 x = mean(s1$time_passed),  -->
+<!--                 y = Inf), -->
+<!--             hjust = -0.5, -->
+<!--             vjust = 3, -->
+<!--             color = "steelblue" -->
+<!--             ) + -->
+<!--   labs(title = "Sample 1", -->
+<!--        x = "Perceived Elapsed Time (seconds)", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+<!-- 6. What is the average (or mean) perceived elapsed time of the 20 subjects in this "fake" study? -->
+
+<!-- \vspace{0.7in} -->
+
+<!-- 7. Does this necessarily mean that the average perceived elapsed time is greater than 45 seconds for all smokers suffering from nicotine withdrawal?  What would you say to a researcher who tried to use only this sample mean to draw this conclusion? -->
+
+<!-- \vspace{0.7in} -->
+
+<!-- Even though in reality we would carry out a study only once, we will take a sample of 20 subjects from this population over and over again so that we get an idea of how much the sample mean could change from sample to sample. Our second and third random samples of 20 subjects and their sample means are shown below: -->
+
+<!-- ```{r} -->
+<!-- #| fig-width: 12 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
+<!-- set.seed(5) -->
+<!-- s2 <- sample(nicotine_population, size = 20) -->
+
+<!-- ggplot(data = s2, -->
+<!--        mapping = aes(x = time_passed)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.5) + -->
+<!--   geom_vline(xintercept = mean(s2$time_passed), color = "steelblue", size = 1) + -->
+<!--   geom_text(aes(label = round(mean(s2$time_passed), 1),  -->
+<!--                 x = mean(s2$time_passed),  -->
+<!--                 y = Inf), -->
+<!--             hjust = -0.5, -->
+<!--             vjust = 3, -->
+<!--             color = "steelblue" -->
+<!--             ) + -->
+<!--   labs(title = "Sample 3", -->
+<!--        x = "Perceived Elapsed Time (seconds)", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| fig-width: 12 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
+<!-- set.seed(1) -->
+<!-- s3 <- sample(nicotine_population, size = 20) -->
+
+<!-- ggplot(data = s3, -->
+<!--        mapping = aes(x = time_passed)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.5) + -->
+<!--   geom_vline(xintercept = mean(s3$time_passed), color = "steelblue", size = 1) + -->
+<!--   geom_text(aes(label = round(mean(s3$time_passed), 1),  -->
+<!--                 x = mean(s3$time_passed),  -->
+<!--                 y = Inf), -->
+<!--             hjust = -0.5, -->
+<!--             vjust = 3, -->
+<!--             color = "steelblue" -->
+<!--             ) + -->
+<!--   labs(title = "Sample 3", -->
+<!--        x = "Perceived Elapsed Time (seconds)", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+
+<!-- We can start to collect these sample means in a new plot to create the *distribution of sample means*: -->
+
+<!-- ```{r} -->
+<!-- #| fig-width: 12 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
+<!-- #| fig-pos: "H" -->
+<!-- sample_means <- tibble(means = c(mean(s1$time_passed), -->
+<!--                        mean(s2$time_passed), -->
+<!--                        mean(s3$time_passed) -->
+<!--                        )) -->
+
+<!-- ggplot(data = sample_means, -->
+<!--        mapping = aes(x = means)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.5) + -->
+<!--   labs(title = "Distribution of Sample Means", -->
+<!--        x = "Mean of Perceived Elapsed Time (seconds) \n n = 20", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+
+
+
+
+<!-- ```{r} -->
+<!-- #| fig-pos: "H" -->
+<!-- set.seed(1) -->
+<!-- sample_means <- tibble(sim = 1:1000, -->
+<!--                        n = 20) |>  -->
+<!--   rowwise() |>  -->
+<!--   mutate(means = mean(sample(nicotine_population$time_passed, size = 20))) -->
+
+<!-- ggplot(data = sample_means, -->
+<!--        mapping = aes(x = means)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.08) + -->
+<!--   labs(title = "Distribution of Sample Means", -->
+<!--        x = "Mean of Perceived Elapsed Time (seconds) \n n = 20", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) -->
+<!-- ``` -->
+
+<!-- This is a distribution of sample means.  Recall that these 1000 samples (each consisting of 20 subjects) came from a population with a true mean perceived elapsed time of 45 seconds. So, this distribution gives us a good idea of what sample means from 20 subjects are likely (or unlikely) to occur by chance *if the true mean is 45 seconds*. -->
+
+<!-- Next, note that the researchers wanted to show that the mean perceived elapsed time for smokers suffering from nicotine withdrawal was in fact greater than 45 seconds.  The null and alternative hypotheses to address this research question are given as follows. -->
+
+<!-- > $H_0$:  The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is equal to 45 seconds. -->
+
+<!-- > $H_A$: The mean perceived elapsed time for *all* smokers suffering from nicotine withdrawal is greater than 45 seconds. -->
+
+<!-- Note that the distribution of sample means was created *assuming the null hypothesis is true*. To test this hypothesis, we compare our actual observed mean to this null distribution. If the sample mean from the actual research study is not likely to occur by chance according to this null model (i.e., if it is an outlier on this null distribution), then we have evidence against the null model and in support of the research question. -->
+
+<!-- 8. Recall that in the actual research study, the mean perceived elapsed time for the 20 subjects studied was 52.65 seconds.  Sketch this observed value on the null distribution above. -->
+
+<!-- \vspace{0.2in} -->
+
+<!-- There are two explanations for this observed mean of 52.65 seconds: either (1) the true mean perceived elapsed time for smokers suffering from nicotine withdrawal really is greater than 45 seconds, or (2) their time perception is not impaired (i.e., the true mean is actually 45 seconds) and the sample mean was greater than 45 seconds simply because of random chance. -->
+
+<!-- 9. Was a sample mean of 52.65 seconds likely to occur by chance if the true population mean is actually 45 seconds?  What does this imply about the research question? -->
+
+<!-- \vspace{0.8in} -->
+
+
+<!-- We can see the Central Limit Theorem applied to the sample means calculated from our hypothetical population from Example 6.2 as follows: -->
+
+<!-- -   We see that the distribution of sample means is approximately normal: -->
+
+<!-- ```{r} -->
+<!-- #| fig-width: 8 -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-align: center -->
+<!-- nicotine_norm <- tibble("x" = seq(35, 55, 0.001), -->
+<!--                            "dnorm" = dnorm(x,  -->
+<!--                                            mean = mean(sample_means$means),  -->
+<!--                                            sd = sd(sample_means$means) -->
+<!--                            )) -->
+
+<!-- ggplot(data = sample_means, -->
+<!--        mapping = aes(x = means)) + -->
+<!--   geom_dotplot(method = "histodot", -->
+<!--                dotsize = 0.08) + -->
+<!--   geom_line(data = nicotine_norm, -->
+<!--             aes(x = x, -->
+<!--                 y = dnorm -->
+<!--                 ), -->
+<!--             color = "steelblue", -->
+<!--             size = 1 -->
+<!--             ) + -->
+<!--   labs(title = "Distribution of Sample Means", -->
+<!--        x = "Mean of Perceived Elapsed Time (seconds) \n n = 20", -->
+<!--        y = "") + -->
+<!--   scale_x_continuous(limits = c(35,55), breaks = seq(0,80,5)) + -->
+<!--   theme(axis.text.y = element_blank(), -->
+<!--         axis.ticks.y = element_blank() -->
+<!--         ) + -->
+<!--   scale_y_continuous(limits = c(0,0.285)) -->
+<!-- ``` -->
+
+<!-- -   We see that this normal distribution is centered at *about* the true population mean, $\mu = 45$. -->
+
+<!-- ```{r} -->
+<!-- favstats(~ means, data = sample_means) -->
+<!-- ``` -->
+
+
+<!-- -   The standard deviation of all observations in our hypothetical population is $\sigma =$ r round(sd(nicotine_population$time_passed), 2) seconds. According to the central limit theorem, then, the standard deviation of the distribution of sample means is given by -->
+
+<!-- $$\frac{\sigma}{\sqrt n} = \frac{7.17}{\sqrt{20}}=1.60$$ -->
