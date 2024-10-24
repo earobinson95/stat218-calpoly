@@ -1243,11 +1243,94 @@ margin-right: 0; }
 <ul>
 <li>Review:
 <ul>
+<li>Misconceptions from Exit Ticket</li>
 <li>Examples 4.2 &amp; 4.3</li>
 </ul></li>
 <li>Observation vs Experiment</li>
 <li>Example 4.4</li>
 <li>Scope of Inference</li>
+</ul>
+</section>
+<section id="yesterday" class="slide level2">
+<h2>Yesterday…</h2>
+<p>What is the difference between a chi-square test of independence and a chi-square goodness-of-fit test? How do you know when to use each one?</p>
+</section>
+<section id="overview-of-chi-square-tests" class="slide level2">
+<h2>Overview of Chi-Square Tests</h2>
+<ul>
+<li><strong>Chi-Square Goodness-of-Fit Test</strong>: Tests whether the distribution of one categorical variable with more than two groups matches a pre-specified distribution.</li>
+<li><strong>Chi-Square Test of Independence</strong>: Tests whether two categorical variables are independent of each other.</li>
+</ul>
+</section>
+<section id="overview-of-chi-square-tests-1" class="slide level2">
+<h2>Overview of Chi-Square Tests</h2>
+<p><span class="math display">\[X^2 = \sum{\frac{(Observed - Expected)^2}{Expected}}\]</span></p>
+<ul>
+<li><strong>Expected Counts</strong>:
+<ul>
+<li>For <strong>Goodness-of-Fit</strong>: Based on a known or “status quo” distribution.</li>
+<li>For <strong>Independence Test</strong>: Based on marginal totals from the contingency table.</li>
+</ul></li>
+</ul>
+</section>
+<section id="simulation-vs-theory-based" class="slide level2">
+<h2>Simulation vs Theory Based</h2>
+<p><strong>Simulation:</strong> Always works!</p>
+<ul>
+<li><code>simulate.p.value = TRUE</code></li>
+</ul>
+<p><strong>Theory:</strong> Uses the chi-square distribution to approximate the simulated null distribution. + Degrees of Freedom:</p>
+<ul>
+<li>Goodness-of-Fit: <span class="math inline">\(\text{# categories} - 1\)</span></li>
+<li>Independence: <span class="math inline">\((\text{# categories explanatory} - 1)(\text{# categories response} - 1)\)</span></li>
+<li>Requires conditions: Large sample sizes (expected counts &gt; 5)</li>
+</ul>
+</section>
+<section id="key-differences" class="slide level2">
+<h2>Key Differences</h2>
+<table>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 21%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Number of Variables</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chi-Square Test of Independence</td>
+<td>2 categorical</td>
+<td>Test for relationship between variables</td>
+</tr>
+<tr class="even">
+<td>Chi-Square Goodness-of-Fit</td>
+<td>1 categorical</td>
+<td>Compare data to expected distribution</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="common-misconceptions" class="slide level2">
+<h2>Common Misconceptions</h2>
+<ul>
+<li><strong>Misconception 1</strong>: “Both tests measure relationships between variables.”
+<ul>
+<li><strong>Clarification</strong>: Only the test of independence measures relationships between two variables. The goodness-of-fit test compares the data to expected for a single categorical variable with more than two categories.</li>
+</ul></li>
+</ul>
+</section>
+<section id="common-misconceptions-1" class="slide level2">
+<h2>Common Misconceptions</h2>
+<ul>
+<li><strong>Misconception</strong>: “Test of independence is for small sample sizes.”
+<ul>
+<li><strong>Clarification</strong>: Both tests require sufficiently large expected counts in each category (commonly at least 5).</li>
+</ul></li>
 </ul>
 </section>
 <section id="to-do-2" class="slide level2">

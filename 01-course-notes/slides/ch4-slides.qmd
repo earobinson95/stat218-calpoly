@@ -66,10 +66,58 @@ Monday 10:10am-12pm + 4:10pm-6pm
 ### Today we will...
 
 + Review:
+  + Misconceptions from Exit Ticket
   + Examples 4.2 & 4.3
 + Observation vs Experiment
 + Example 4.4
 + Scope of Inference
+
+## Yesterday...
+
+What is the difference between a chi-square test of independence and a chi-square goodness-of-fit test? How do you know when to use each one?
+
+## Overview of Chi-Square Tests
+
+- **Chi-Square Goodness-of-Fit Test**: Tests whether the distribution of one categorical variable with more than two groups matches a pre-specified distribution.
+- **Chi-Square Test of Independence**: Tests whether two categorical variables are independent of each other.
+
+## Overview of Chi-Square Tests
+
+$$X^2 = \sum{\frac{(Observed - Expected)^2}{Expected}}$$
+
+- **Expected Counts**:
+  - For **Goodness-of-Fit**: Based on a known or "status quo" distribution.
+  - For **Independence Test**: Based on marginal totals from the contingency table.
+  
+## Simulation vs Theory Based
+
+**Simulation:** Always works!
+
++ `simulate.p.value = TRUE`
+
+**Theory:** Uses the chi-square distribution to approximate the simulated null distribution.
++ Degrees of Freedom:
+
+  + Goodness-of-Fit: $\text{# categories} - 1$
+  + Independence: $(\text{# categories explanatory} - 1)(\text{# categories response} - 1)$
++ Requires conditions: Large sample sizes (expected counts > 5)
+
+## Key Differences
+
+| Test                        | Number of Variables | Purpose                                      |
+|-----------------------------|---------------------|----------------------------------------------|
+| Chi-Square Test of Independence | 2 categorical   | Test for relationship between variables       |
+| Chi-Square Goodness-of-Fit   | 1 categorical      | Compare data to expected distribution |
+
+## Common Misconceptions
+
+- **Misconception 1**: "Both tests measure relationships between variables."
+  - **Clarification**: Only the test of independence measures relationships between two variables. The goodness-of-fit test compares the data to expected for a single categorical variable with more than two categories.
+
+## Common Misconceptions
+
+- **Misconception**: "Test of independence is for small sample sizes."
+  - **Clarification**: Both tests require sufficiently large expected counts in each category (commonly at least 5).
 
 ## To do:
 
