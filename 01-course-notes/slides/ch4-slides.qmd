@@ -46,7 +46,10 @@ Monday 10:10am-12pm + 4:10pm-6pm
 
 + Review
   + Explanatory/Response Variables
-  + Chi-square Test of Independence
+  + Example 4.1: Is Yawning Contagious?
++ Chi-square Test of Independence
+  + Simulation
+  + Theory
 + Examples 4.2 & 4.3 (in groups)
 + *P6: Exit Ticket*
 
@@ -56,6 +59,8 @@ Monday 10:10am-12pm + 4:10pm-6pm
   + Due Thursday 10/31 at 11:59pm
 + **Print Ch. 5 Notes**
   + For Class on Monday 10/28
++ **Print Ch. 6 Notes**
+  + For Class on Tuesday 10/29
   
 ## Friday, October 25th
 ### Today we will...
@@ -72,3 +77,5 @@ Monday 10:10am-12pm + 4:10pm-6pm
   + Due Thursday 10/31 at 11:59pm
 + **Print Ch. 5 Notes**
   + For Class on Monday 10/28
++ **Print Ch. 6 Notes**
+  + For Class on Tuesday 10/29
