@@ -1269,7 +1269,7 @@ margin-right: 0; }
 <li><strong>Expected Counts</strong>:
 <ul>
 <li>For <strong>Goodness-of-Fit</strong>: Based on a known or “status quo” distribution.</li>
-<li>For <strong>Independence Test</strong>: Based on marginal totals from the contingency table.</li>
+<li>For <strong>Independence Test</strong>: Based on row and column totals from the contingency table.</li>
 </ul></li>
 </ul>
 </section>
@@ -1279,10 +1279,13 @@ margin-right: 0; }
 <ul>
 <li><code>simulate.p.value = TRUE</code></li>
 </ul>
-<p><strong>Theory:</strong> Uses the chi-square distribution to approximate the simulated null distribution. + Degrees of Freedom:</p>
+<p><strong>Theory:</strong> Uses the chi-square distribution to approximate the simulated null distribution.</p>
+<ul>
+<li>Degrees of Freedom:
 <ul>
 <li>Goodness-of-Fit: <span class="math inline">\(\text{# categories} - 1\)</span></li>
 <li>Independence: <span class="math inline">\((\text{# categories explanatory} - 1)(\text{# categories response} - 1)\)</span></li>
+</ul></li>
 <li>Requires conditions: Large sample sizes (expected counts &gt; 5)</li>
 </ul>
 </section>
@@ -1329,7 +1332,7 @@ margin-right: 0; }
 <ul>
 <li><strong>Misconception</strong>: “Test of independence is for small sample sizes.”
 <ul>
-<li><strong>Clarification</strong>: Both tests require sufficiently large expected counts in each category (commonly at least 5).</li>
+<li><strong>Clarification</strong>: If using the chi-square distribution, both tests require sufficiently large expected counts in each category (commonly at least 5).</li>
 </ul></li>
 </ul>
 </section>
