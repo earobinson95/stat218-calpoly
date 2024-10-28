@@ -37,7 +37,7 @@ bodytemp_data <- tibble(class = "Stat218",
                )
 ```
 
-Many researchers claim that the value of 98.6 degrees Fahrenheit for the average body temperature for adult humans is out-of-date, and doesn't apply to present day adult humans. A random sample of students in Stat 218 classes at Cal Poly were asked to report their body temperature in degrees Fahrenheit.
+Many researchers claim that the value of 98.6 degrees Fahrenheit for the average body temperature for adult humans is out-of-date, and doesn't apply to present day adult humans. A *random sample* of students in Stat 218 classes at Cal Poly were asked to report their body temperature in degrees Fahrenheit.
 
 ```{r}
 #| echo: true
@@ -91,7 +91,7 @@ ggplot(data = bodytemp_data,
 
 \vspace{0.25in}
 
-2.  How many students were in the observed data set? What is the mean of the observed data? What is the standard deviation? Assign a symbol to each.
+2.  How many students were in the observed data set? What is the mean of the observed sample data? What is the standard deviation? Assign a symbol to each.
 
 \vspace{0.75in}
 
@@ -277,7 +277,7 @@ Use the table below to answer the following four questions.
 
 \vspace{1.4in}
 
-16. How might your 95% confidence interval change if you, instead, had an observed standard deviation of 3.25?
+16. How might your 95% confidence interval change if you, instead, had an observed standard deviation of 3.25 in your sample?
 
 \vspace{1.4in}
 
