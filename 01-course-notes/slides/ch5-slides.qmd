@@ -10,7 +10,12 @@ embed-resources: true
 ## Monday, October 28th
 ### Today we will...
 
++ Return Midterm Exams
+  + Average of 69% across three sections
+  + Solutions posted to Canvas
+  + Please compare your exam to the solutions, then discuss with Dr. Robinson during office hours
 + Ch. 5: Describing Numeric Variables (in groups)
+  + Finish for tomorrow
 
 ## To do:
 
@@ -23,6 +28,8 @@ embed-resources: true
 ## Tuesday, October 29th
 ### Today we will...
 
++ Review:
+  + Ch. 5 -- Describing Numeric Variables
 + Distribution of the Sample Mean
 + Central Limit Theorem *(complete activity for participation credit)*
 
@@ -36,7 +43,7 @@ embed-resources: true
 ## Thursday, October 31st
 ### Today we will...
 
-+ *Px: Check CLT for completion*
++ *P7: Check CLT for completion*
 + Lab 4: Nightlights and Myopia
   + Chi-square Test of Independence
 
@@ -48,4 +55,18 @@ embed-resources: true
 + **Lab 4: Nightlights and Myopia**
   + Due Monday 11/4 at 11:59pm
   
+## Friday, November 1st
+### Today we will...
+
++ P8: Entry Ticket
++ Review:
+  + Central Limit Theorem
++ Introduce t-test
   
+## To do:
+  
++ **Lab 4: Nightlights and Myopia**
+  + Due Monday 11/4 at 11:59pm
+
++ **P9: Final Group Formation Survey**
+  + Due Tuesday 11/5 at 11:59pm
