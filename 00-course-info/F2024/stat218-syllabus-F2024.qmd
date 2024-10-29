@@ -86,7 +86,7 @@ not_here_dates <- c(
   )
 
 exam_dates <- c(ymd(20241022), 
-                ymd(20241112),
+                ymd(20241119),
                 ymd(20241207)
                 )
 

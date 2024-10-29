@@ -31,10 +31,12 @@ The General Social Survey (GSS) is a high-quality survey which gathers data on A
 
 ```{r read-data}
 GSS <- read_csv("data/________")
-# put code to view top 6 rows here.
+# write code to view top 6 rows here.
 ```
 
 2.  In words and context of this problem, what does the parameter, $\mu$, represent?
+
+Your answer goes here.
 
 3.  Use the `favstats()` function to obtain the observed mean, standard deviation, and sample size. Make sure to identify them with the appropriate symbols/notation.
 
@@ -42,11 +44,11 @@ GSS <- read_csv("data/________")
 # your code goes here!
 ```
 
-$\bar x=$
+$\bar x=$ your answer
 
-$s=$
+$s=$ your answer
 
-$n=$
+$n=$ your answer
 
 4.  Fill in the blanks to create a histogram of the `hours` variable. You will want to play around with the `binwidth` argument until you get a distribution that looks "connected".
 
@@ -63,13 +65,15 @@ ggplot(data = GSS,
 5.  Copy and modify the code above to create a boxplot of the `hours` variable.
 
 ```{r boxplot}
-# copy code and modify for boxplot
+# copy code from above and modify to create a boxplot
 ```
 
 6.  How would you describe the distribution of hours worked? *Keep in mind you should address: center, spread, shape, and outliers!*
 
+Your answer goes here.
+
 ::: callout-note
-## Distribution of Sample Means (Null Distribution)
+## Distribution of Sample Means (i.e., Null Distribution)
 
 + Recall, when we're doing inference, we are interested in knowing what other statistics we might have gotten from other samples. If we were to record the mean hours worked for thousands of other samples of 500 respondents, we would be able to create the sampling distribution for the mean.
 
@@ -78,15 +82,19 @@ ggplot(data = GSS,
 
 6.  Predict what you think the Distribution of Sample Means would look like:
 
-+ Shape:
++ Shape: your answer
 
-+ Mean:
++ Mean: your answer
 
-+ Standard Deviation (aka Standard Error):
++ Standard Deviation (aka Standard Error): your answer
 
 7.  Check the normality assumption in order to use the t-distribution to test the research question. Explain.
 
+Your answer goes here.
+
 8.  Set up your null and alternative hypotheses (in words) to test the research question.
+
+Your answer goes here.
 
 9.  Complete the code below to conduct a t-test for our hypothesis test.
 
@@ -98,9 +106,13 @@ t_test(x = GSS,
        )
 ```
 
-10. Using the output above, make a decision regarding your hypothesis test.
+10. Using the output above and an $\alpha = 0.05$, make a decision (Reject the Null/Fail to Reject the Null) regarding your hypothesis test.
 
-11. Write a conclusion in context of the problem. Make sure to state your observed t-test statistic, degrees of freedom, and p-value in your conclusion.
+Your answer goes here.
+
+11. Write a conclusion in context of the problem. Make sure to state your significance level, observed T test statistic, degrees of freedom, and p-value in your conclusion.
+
+Your answer goes here.
 
 Note that by default, the output from the `t_test()` function gave you a 95% confidence interval.
 
@@ -114,8 +126,6 @@ Note that by default, the output from the `t_test()` function gave you a 95% con
 # Copy from above and adjust code for 99% confidence interval here.
 ```
 
-15. Interpret, in the context of these data, the 99% confidence interval.
+15. What do you notice about the 99% confidence interval compared to the 95% confidence interval? Is it wider? narrower? the same?
 
-16. What do you notice about the 99% confidence interval compared to the 95% confidence interval? Is it wider? narrower? the same?
-
-17. Based on your 99% confidence interval do you believe you would have evidence (at an $\alpha = 0.01$ cutoff) to conclude the mean hours worked in a week for all Americans differs from 40 hours? *Hint: think about (1) where does 40 fall in regards to the confidence interval? (2) what is your p-value from Q9?*
+16. Based on your 99% confidence interval do you believe you would have evidence (at an $\alpha = 0.01$ cutoff) to conclude the mean hours worked in a week for all Americans differs from 40 hours? *Hint: think about (1) where does 40 fall in regards to the confidence interval? (2) what is your p-value from Q9?*
