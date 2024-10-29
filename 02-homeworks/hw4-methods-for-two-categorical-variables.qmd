@@ -64,7 +64,7 @@ ggplot(data = iliad,
   geom_bar(stat = "count", position = "fill") +
   labs(title = "Outcomes for character's injured in the Iliad",
        x = "Location of Injury",
-       y = "Number of Characters")
+       y = "Proportion of Characters")
 ```
 
 \vspace{0.25in}

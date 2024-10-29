@@ -94,7 +94,7 @@ ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Cigarette Smokers",
+  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawl",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```
@@ -122,7 +122,7 @@ ggplot(data = nicotine,
 
 \vspace{0.3in}
 
-4.  Given your answer to the previous question, do you think it is appropriate to use only this sample mean to make inferences about the mean perceived elapsed time in the greater population of all smokers subjected to nicotine withdrawal? Explain.
+4.  Given your answer to the previous question, do you think it is appropriate to use only this sample mean to make inferences about the mean perceived elapsed time being greater then 45 seconds in the population of all smokers subjected to nicotine withdrawal? Explain.
 
 \vspace{0.3in}
 
@@ -311,7 +311,7 @@ ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Cigarette Smokers",
+  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawl",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```

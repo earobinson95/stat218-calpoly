@@ -24,7 +24,7 @@ execute:
   warning: false
 ---
 
-In this chapter, we will consider methods that allow us to make comparisons on numerical variables between two different groups.  In general, these methods should be used to address research questions involving a categorical predictor variable (with two categories) and a numerical response variable.
+In this chapter, we will consider methods that allow us to make comparisons on numerical variables between two different groups.  In general, these methods should be used to address research questions involving a *categorical explanatory* variable (with two categories) and a *numerical response* variable.
 
 Two different cases will be considered: 
 
