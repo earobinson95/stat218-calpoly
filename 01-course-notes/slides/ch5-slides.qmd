@@ -43,7 +43,7 @@ embed-resources: true
 ## Thursday, October 31st
 ### Today we will...
 
-+ *P7: Check CLT for completion*
++ Grab a piece of Halloween candy!
 + Lab 4: Nightlights and Myopia
   + Chi-square Test of Independence
 
@@ -55,13 +55,16 @@ embed-resources: true
 + **Lab 4: Nightlights and Myopia**
   + Due Monday 11/4 at 11:59pm
   
++ **Print Ch. 7 Notes**
+  + For class on Tuesday
+  
 ## Friday, November 1st
 ### Today we will...
 
-+ P8: Entry Ticket
 + Review:
   + Central Limit Theorem
 + Introduce t-test
++ *P8: Exit Ticket*
   
 ## To do:
   
@@ -70,3 +73,6 @@ embed-resources: true
 
 + **P9: Final Group Formation Survey**
   + Due Tuesday 11/5 at 11:59pm
+
++ **Print Ch. 7 Notes**
+  + For class on Tuesday
