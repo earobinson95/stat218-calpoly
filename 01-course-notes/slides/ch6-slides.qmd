@@ -7,86 +7,94 @@ format:
 embed-resources: true
 ---
 
-## Monday, October 30th
+## Friday, November 1st
 ### Today we will...
 
-+ Review Central Limit Theorem
++ Review:
+  + Central Limit Theorem
 + Introduce t-test
-+ Example 6.2 (in groups)
-
++ *P8: Exit Ticket*
+  
 ## To do:
   
-+ **Homework 6: What is the current average body temperature?**
-  + Due Thursday 11/2 at 11:59pm
++ **Lab 4: Nightlights and Myopia**
+  + Due Monday 11/4 at 11:59pm
 
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
++ **P9: Final Group Formation Survey**
+  + Due Tuesday 11/5 at 11:59pm
 
-## Tuesday, October 31st
++ **Print Ch. 7 Notes**
+  + For class on Tuesday
+
+## Monday, November 4th
 ### Today we will...
 
-+ Happy Halloween! Take some candy!
-+ Confidence Intervals for Single Numeric Variables
-+ Exit Ticket: Confidence Interval Interpretation
-
-##
-
-::: callout-note
-## Exit Ticket
-In a recent survey, 1,200 households planned to spend an average of \$75 on Halloween candy, with a 95% confidence interval of \$72 to \$78. 
-
-1. Interpret the 95\% confidence interval in context of the scenario.
-
-2. Explain what it means when we say we are 95\% confident in this context of this scenario.
-:::
-  
++ Review:
+  + CLT + t-test
++ Example 6.3: Confidence Intervals
++ [KaHoot: Confidence Intervals](https://create.kahoot.it/share/cal-poly-stat-218-confidence-intervals/de7fa693-2b3d-468f-89bb-f0f29412a67e)
 
 ## To do:
+  
++ **Lab 4: Nightlights and Myopia**
+  + Due TONIGHT 11/4 at 11:59pm
 
++ **P9: Final Group Formation Survey**
+  + Due Tuesday 11/5 at 11:59pm
+  
 + **Homework 6: What is the average body temperature?**
-  + Due Thursday 11/2 at 11:59pm
+  + Due Thursday 11/7 at 11:59pm
   
-+ **Study for Quiz 3: Inference for a Single Numerical Variables**
-  + In class Friday, 11/3
++ **Print Ch. 7 Notes**
+  + For class on Tuesday
 
-::: callout-warning
-Don't forget to take the Canvas Quiz **AND** submit your completed assignment.
-:::
+## Tuesday, November 5th
 
-## Thursday, November 2nd
-### Today we will...
++ Review:
+  + Examples 6.1 + 6.2
++ Ch. 7: Introduce Two-sample Independent t-test
+  + Example 7.1
+  + Practice, Example 7.2 (in groups)
+
+## To do:
+  
++ **P9: Final Group Formation Survey**
+  + Due TONIGHT 11/5 at 11:59pm
+  
++ **Homework 6: What is the average body temperature?**
+  + Due Thursday 11/7 at 11:59pm
+  
+## Thursday, November 7th
 
 + Lab 6: Hours worked
 
 ## To do:
   
 + **Homework 6: What is the average body temperature?**
-  + Due Thursday 11/2 at 11:59pm
+  + Due TONIGHT 11/7 at 11:59pm
   
 + **Lab 6: Hours worked**
-  + Due Monday 11/6 at 11:59pm
+  + Due Monday 11/11 at 11:59pm
   
 + **Study for Quiz 3: Inference for a Single Numerical Variables**
-  + In class Friday, 11/3
+  + In class Friday, 11/8
   
-+ **Print Chapter 7 Notes for class Monday**
-  
-## Friday, November 3rd
+## Friday, November 8th
 ### Today we will...
 
 + Quiz 3: Inference for a Single Numerical Variable
-+ Introduce Final Group Project
++ Ch. 7 Practice, Example 7.2 (in groups)
++ Group Project
+  + Form New Groups
+  + Introduce Final Group Project
 
 ## To do:
   
 + **Lab 6: Hours worked**
-  + Due Monday 11/6 at 11:59pm
+  + Due Monday 11/11 at 11:59pm
   
-+ **Print Chapter 7 Notes for class Monday**
-
 + **Group Project Check-point 0: Group Contract**
-  + Due Friday 11/10 at 11:59pm
+  + Due Wednesday 11/13 at 11:59pm
 
 
   
