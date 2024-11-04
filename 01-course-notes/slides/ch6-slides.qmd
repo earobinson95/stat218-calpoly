@@ -48,6 +48,9 @@ embed-resources: true
 + **Print Ch. 7 Notes**
   + For class on Tuesday
 
++ **Study for Quiz 3: Inference for a Single Numerical Variables**
+  + In class Friday, 11/8
+  
 ## Tuesday, November 5th
 
 + Review:
@@ -63,6 +66,9 @@ embed-resources: true
   
 + **Homework 6: What is the average body temperature?**
   + Due Thursday 11/7 at 11:59pm
+  
++ **Study for Quiz 3: Inference for a Single Numerical Variables**
+  + In class Friday, 11/8
   
 ## Thursday, November 7th
 
