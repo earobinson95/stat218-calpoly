@@ -16,7 +16,8 @@ execute:
   warning: false
 ---
 
-```{r setup}
+```{r}
+#| label: setup
 #| include: false
 library(tidyverse)
 library(mosaic)
@@ -32,88 +33,97 @@ The article reports on the results of a study in which seventy college undergrad
 
 The data below was simulated to reflect the results found in the paper.
 
-```{r data}
-color <- read.csv("data/interference.csv")
-head(color)
+```{r}
+color_data_long <- read.csv("data/color_data_long.csv")
+head(color_data_long)
 ```
 
+**Research Question** Does printing the name of colors in a different color impact the time it takes to read the words?
 
-**Research Question** Does printing the name of colors in a different color increase the time it takes to read the words?
+**1.  What are the variables of interest? What are their types? Which is the explanatory variable and which is the response?**
 
-1. What is the observational unit?
+  Your answer goes here.
 
-2. Should these observations be considered paired or independent? Explain your answer.
+**2. What is the observational unit?**
 
-3. Based on your answer to question 2, is the appropriate observed summary statistic to be used to analyze these data the difference in mean times or the mean difference in times? Explain your answer.
+  Your answer goes here.
 
-4. Write your parameter of interest.
+**3. Should these observations be considered paired or independent? Explain your answer.**
 
-5. Write out the null and alternative hypotheses (in words), in the context of this study.
+  Your answer goes here.
 
-6.  Create two histograms of the following:
+**4. Based on your previous answer, what is the appropriate observed summary statistic to be used to analyze these data the difference in mean times or the mean difference in times? Explain your answer.**
 
--   the distribution of reading times for words printed in black `Black`
--   the distribution of reading times for words printed in a different color `DiffCol`
+  Your answer goes here.
 
-```{r letter-comparison}
+**5. Write your parameter of interest.**
 
-## Code for histogram 1: Reading times printed in black
-ggplot(data = color, 
-       mapping = aes(x = ________)) + 
-  geom_histogram(binwidth = _____) +
-  labs(title = "_______________",
-       x = "_______________",
-       y = "_______________")
+  $\mu:$ Your answer goes here.
 
-## Code for histogram 2: Reading times printed in a different color
-ggplot(data = color, 
-       mapping = aes(x = ________)) + 
-  geom_histogram(binwidth = _____) +
-  labs(title = "_______________",
-       x = "_______________",
-       y = "_______________")
+**6. Write out the null and alternative hypotheses (in words), in the context of this study.**
+
+  + Null:
+  + Alternative:
+  
+Let's restructure the data.
+
+```{r}
+color_data <- color_data_long |> 
+  pivot_wider(id_cols = c("Subj"),
+              names_from = "Text_Color",
+              values_from = "Time_seconds"
+              )
+head(color_data)
 ```
 
-If you look at the data, you will notice there are three columns: `Subj`, `DiffCol`, and `Black`. There is not, however a column with the differences between the different color read time (`DiffCol`) and the black read time (`Black`). Let's make a new column with the differences!
+If you look at the restructured data, you will notice there are three columns: `Subj`, `DiffCol`, and `Black`. There is not, however a column with the differences between the different color read time (`DiffCol`) and the black read time (`Black`). Let's make a new column with the differences!
 
-```{r add-differences-to-data}
-color <- color |> 
+```{r}
+color_data <- color_data |> 
   mutate(Difference = DiffCol - Black)
-head(color)
+head(color_data)
 ```
 
-7. Create a histogram to visualize the difference in read time between the different colored text and the black text.
+**7. Create a histogram to visualize the difference in read time between the different colored text and the black text.**
 
-
-```{r difference-histogram}
-ggplot(data = color, 
+```{r}
+# select a binwidth that looks "chunky" but not too "chunky"
+ggplot(data = color_data, 
        mapping = aes(x = ________)) + 
-  geom_histogram(binwidth = _____) +
+  geom_histogram(binwidth = _____,
+                 color = "white"
+                 ) +
   labs(title = "_______________",
        x = "_______________",
        y = "_______________")
 ```
 
-8. Use the `favstats()` function to obtain the summary of the observed data. *Be careful about what you are summarizing!*
+**8. Use the `favstats()` function to obtain the summary statistics for the observed data.**
 
-```{r difference-stats}
+```{r}
 # favstats() code goes here
 ```
 
-9. What is the observed mean difference in reading times? Assign a symbol to this value.
+**9. What is the observed mean difference in reading times?**
 
-10 Check the normality assumption for using the t-test to investigate the research question.
+  Your answer goes here.
+  
+**10 Check the normality assumption for using the t-test to investigate the research question.**
 
-11. Calculate the t test-statistic. *Hint: (Feel free to use the code block below as a calculator)*
+  Your answer goes here.
+  
+**11. Calculate the T test-statistic.**
 
-```{r T-stat-calc}
-
+```{r}
+# Feel free to use the code block as a calculator
 ```
 
-12.  Fill in the code with these necessary pieces to conduct the paired t-test.
+T = ________
+
+**12.  Fill in the code with these necessary pieces to conduct the appropriate t-test for the data.**
 
 ```{r t-test}
-t_test(color, 
+t_test(x = color_data, 
        response = __________, 
        mu = ____, 
        alternative = "________", 
@@ -122,10 +132,19 @@ t_test(color,
       )
 ```
 
-13. What is the p-value for this hypothesis test? With an $alpha = 0.01$ what decision would you make?
+**13. What is the p-value for this hypothesis test? With an $alpha = 0.01$ what decision (reject/fail to reject the null) would you make? Explain.**
 
-14. What does the p-value you obtained mean, in the context of the study? *Hint: it is the probability of what...assuming what?*
+  Your answer goes here.
+  
+**14. Interpret the p-value in the context of the study?** *Hint: it is the probability of what...assuming what?*
 
-15. Interpret the confidence interval in context of the study. Careful to check your confidence level.
+  Your answer goes here.
+  
+**15. Interpret the confidence interval in context of the study. Careful to check your confidence level.**
 
-16. The abstract states, that the conflicting color stimuli "*caused* an increase of 2.3 seconds or 5.6% over the normal time for reading the same words printed in black." Is this statement valid? Explain.
+  Your answer goes here.
+  
+**16. The abstract states, that the conflicting color stimuli "*caused* an increase of 2.3 seconds or 5.6% over the normal time for reading the same words printed in black." Is this statement valid? Explain.**
+
+  Your answer goes here.
+  

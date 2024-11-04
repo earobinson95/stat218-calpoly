@@ -42,9 +42,11 @@ As seen in earlier chapters, research hypotheses involving either a single categ
 + $\sigma$ is the population standard devation
 :::
 
-## Example 6.1: Time Perception Impaired by Nicotine Withdrawl
+## Example 6.1: Time Perception Impaired by Nicotine Withdrawal
 
 A study conducted by researchers at Pennsylvania State University investigated whether time perception, a simple indication of a person's ability to concentrate, is impaired during nicotine withdrawal. The study results were presented in the paper *Smoking Abstinence Impairs Time Estimation Accuracy in Cigarette Smokers* [@klein2003smoking]. After a 24-hour smoking abstinence, 20 daily smokers were asked to estimate how much time had passed during a 45-second period. Suppose the resulting data on perceived elapsed time (in seconds) were summarizied and visualized as shown below (these results are artificial but are similar to the actual findings).
+
+**Research Question:**  Is there evidence the mean perceived elapsed time for all smokers suffering from nicotine withdrawal is significantly greater than the actual 45 seconds? 
 
 \newpage
 
@@ -54,7 +56,7 @@ library(mosaic)
 library(infer)
 
 set.seed(24)
-nicotine <- tibble(status = "withdrawl",
+nicotine <- tibble(status = "withdrawal",
                    sex = c(rep("male", 12), rep("female", 8)),
                    age = runif(20, min = 25, max = 50),
                    time_passed = rnorm(n = 20, mean = 55.05, sd = 9.32)
@@ -94,7 +96,7 @@ ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawl",
+  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawal",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```
@@ -311,7 +313,7 @@ ggplot(data = nicotine,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawl",
+  labs(title = "Time Estimation Accuracy from Cigarette Smokers Suffering from Nicotine Withdrawal",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```
@@ -342,12 +344,12 @@ $$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} =$$
 
 Why use this statistic? Because this quantity measures the position of our observed sample mean on the null model, just like the Z-score discussed in the previous chapter.
 
-$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} = \frac{\text{observed sample mean - mean of the distribution of sample means}}{\text{standard error}}$$
+$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} = \frac{\text{sample mean - null value}}{\text{standard error}}$$
 
 Note that this is very much like the Z-score, with one minor exception. We don't know the true population standard deviation, $\sigma$, so we estimate it with the standard deviation calculated from the 20 observed subjects in the study (this estimate is commonly denoted by $s$).
 
 This t-statistic comes from what is called a t-distribution. The amount of variability in a t-distribution depends on the sample size n. Therefore, this distribution is indexed by its *degrees of freedom* (df).
-
+ 
 ::: callout-note
 ### Degrees of Freedom for a Single Mean
 
@@ -401,7 +403,7 @@ For Example 6.1, we have a sample size of 20 subjects, which is not sufficiently
 
 \vspace{0.6in}
 
-## Example 6.2: Time Perception for Smokers NOT Suffering from Nicotine Withdrawl
+## Example 6.2: Time Perception for Smokers NOT Suffering from Nicotine Withdrawal
 
 For the data given in Example 6.1, we found evidence that the mean perceived elapsed was in fact greater than the actual 45 seconds that had elapsed. This study alone, however, doesn't really say that the nicotine withdrawal was what impaired one's perception of time. Why not?
 
@@ -411,7 +413,7 @@ Suppose that the researchers also studied 22 subjects who were smokers that did 
 
 ```{r}
 set.seed(24)
-nowithdrawl_data <- tibble(status = "no withdrawl",
+nowithdrawal_data <- tibble(status = "no withdrawal",
                    sex = c(rep("male", 12), rep("female", 10)),
                    age = runif(22, min = 25, max = 50),
                    time_passed = rnorm(n = 22, mean = 46.85, sd = 9.35)
@@ -421,7 +423,7 @@ nowithdrawl_data <- tibble(status = "no withdrawl",
 
 ```{r}
 #| echo: true
-head(nowithdrawl_data)
+head(nowithdrawal_data)
 ```
 
 Carry out the formal t-test to address this research question.
@@ -440,17 +442,17 @@ Carry out the formal t-test to address this research question.
 
 ```{r}
 #| echo: true
-favstats( ~ time_passed, data = nowithdrawl_data)
+favstats( ~ time_passed, data = nowithdrawal_data)
 ```
 
 ```{r}
 #| fig-align: center
 #| out-width: 70%
-ggplot(data = nowithdrawl_data,
+ggplot(data = nowithdrawal_data,
        mapping = aes(x = time_passed)) +
   geom_histogram(binwidth = 5,
                  color = "white") +
-  labs(title = "Time Estimation Accuracy from Smokers with No Withdrawl",
+  labs(title = "Time Estimation Accuracy from Smokers with No Withdrawal",
        y = "Number of Subjects",
        x = "Perceived Elapsed Time (seconds)")
 ```
@@ -469,7 +471,7 @@ knitr::include_graphics("06-images/nonsmoker_tapplet.PNG")
 
 ```{r}
 #| echo: true
-t_test(x = nowithdrawl_data,
+t_test(x = nowithdrawal_data,
        response = time_passed,
        mu = 45,
        alternative = "greater"
@@ -496,7 +498,7 @@ This procedure does NOT require any hypotheses concerning our population paramet
 + The confidence interval does not require any hypothesized value for the population parameter. Instead, we center the confidence interval on the sample mean. Consider the following example.
 :::
 
-## Example 6.3: Estimated Perceived Time from Nicotine Withdrawl
+## Example 6.3: Estimated Perceived Time from Nicotine Withdrawal
 
 Our goal is to construct a 95\% confidence interval for the mean perceived elapsed time for smokers suffering from nicotine withdrawal (Example 6.1). To do this, we will center our distribution of sample means on the observed sample mean. Then, we will find the lower and upper endpoints that separate the middle 95\% of the distribution from the rest (since we are constructing a 95\% confidence interval).
 
@@ -571,7 +573,15 @@ t_test(x = nicotine,
 
 \vspace{1.2in}
 
-\newpage
+::: callout-note
+## Key Statistical Concepts
+
+While the main purpose of *confidence intervals* is to provide an *estimated range* of plausible values for $\mu$, the interval should agree with conclusions found from hypothesis testing.
+
++ If $\mu_0$ falls within the confidence interval, then $\mu_0$ is a plausible value for $\mu$. Therefore, we would *Fail to Reject* the null hypothesis.
++ If $\mu_0$ falls outside the confidence interval, then $\mu_0$ is not a plausible value for $\mu$. Therefore, we would *Reject* the null hypothesis.
+
+:::
 
 4.  How would your calculations change if you wanted to obtain a 90\% confidence interval, instead?
 
