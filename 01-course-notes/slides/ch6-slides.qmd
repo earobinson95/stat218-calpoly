@@ -79,11 +79,14 @@ embed-resources: true
 + **Homework 6: What is the average body temperature?**
   + Due TONIGHT 11/7 at 11:59pm
   
-+ **Lab 6: Hours worked**
-  + Due Monday 11/11 at 11:59pm
++ **P13: Finish Example 7.1**
+  + Checked for completion in class tomorrow
   
 + **Study for Quiz 3: Inference for a Single Numerical Variables**
   + In class Friday, 11/8
+  
++ **Lab 6: Hours worked**
+  + Due Monday 11/11 at 11:59pm
   
 ## Friday, November 8th
 ### Today we will...

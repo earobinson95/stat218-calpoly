@@ -8,7 +8,7 @@ author:
   - "Resource Manager: NAME HERE"
 date: "DATE HERE"
 format: pdf
-editor: visual
+editor: source
 execute:
   echo: true
   error: true
@@ -18,13 +18,14 @@ execute:
 
 <!-- Note, anything in green is a comment and will not show when your document is rendered. Please type your material below the green comments. -->
 
-```{r setup}
+```{r}
+#| label: true
 #| include: false
 # The code to load in the necessary packages goes here!
 # You will need: tidyverse, mosaic, and moderndive
 ```
 
-+ DATA SET NAME: <copy paste link to data set here>
+-   DATA SET NAME: <copy paste link to data set here>
 
 ```{r read-data}
 ## This is where you will read in your data! 
@@ -47,48 +48,42 @@ DATA NAME <- DATA NAME |>
 
 ## Data Description
 
-<!-- In this section you are to describe your data set! -->
-
-<!-- This section has three tasks:
-1. Describe the context of your data set in your own words! Make sure to tell me where the data set came from, what an observational unit is, and what variables / information is stored in the data set.
-2. Tell me why your group picked this data set.
-3. Describe the two quantitative variables you are interested in. Which is the the explanatory variable and which is the response? What do you expect the relationship to be?
--->
+<!-- In this section you are to describe your data set! Include the following components in your paragraph description. -->
+<!-- Describe the context of your data set **in your own words**! Make sure to tell me where the data set came from, what an observational unit is, and what variables / information is stored in the data set. -->
+<!-- Tell me why your group picked this data set. -->
+<!-- Describe the two quantitative variables you are interested in. Which is the the explanatory variable and which is the response? What do you expect the relationship to be? -->
 
 Your data set description goes here. This should be a paragraph and read like a report.
 
-
 ## Data Visualization
-<!-- In this section you create three visualizations of your data -->
 
-### Histogram of RESPONSE VARIABLE
+<!-- In this section you will create three visualizations of your data -->
 
-```{r histogram-1}
+### Histogram of EXPLANATORY VARIABLE NAME
+
+```{r}
+## Code to make your second histogram goes here! 
+## Don't forget to choose nice binwidths and an axis title!
+```
+
+<!-- Describe what you see in the histogram. Your description must include the following components: center, spread, shape, outliers. Your group may choose to additionally run the favstats() function to get summary statistics for this variable.  -->
+
+Describe the histogram of the explanatory variable here.
+
+### Histogram of RESPONSE VARIABLE NAME
+
+```{r}
 ## Code to make your first histogram goes here! 
 ## Don't forget to choose nice binwidths (be dramatic) and axis titles!
 ```
 
-<!-- Here is where you describe what you see in the histogram. Your description must include the following components: center, spread, shape, outliers. Your group may choose to additionally run the favstats() function to get summary statistics for this variable. -->
+<!-- Describe what you see in the histogram. Your description must include the following components: center, spread, shape, outliers. Your group may choose to additionally run the favstats() function to get summary statistics for this variable. -->
 
 Describe the histogram of the response variable here.
 
+### Scatterplot of RESPONSE VARIABLE NAME and EXPLANATORY VARIABLE NAME
 
-### Histogram of EXPLANATORY VARIABLE
-
-```{r histogram-2}
-## Code to make your second histogram goes here! 
-## Don't forget to choose nice binwidths and an axis title!
-
-
-```
-
-<!-- Here is where you describe what you see in the histogram. Your description must include the following components: center, spread, shape, outliers.  Your group may choose to additionally run the favstats() function to get summary statistics for this variable.  -->
-
-Describe the histogram of the explanatory variable here.
-
-### Scatterplot of RESPONSE VARIABLE and EXPLANATORY VARIABLE
-
-```{r scatterplot}
+```{r}
 ## Code to make your scatterplot goes here! 
 ## Don't forget to choose nice axis labels!
 ```
@@ -97,9 +92,10 @@ Describe the histogram of the explanatory variable here.
 
 Describe scatterplot here.
 
-## Linear Relationship Between <INSERT NAME OF RESPONSE VARIABLE> and <INSERT NAME OF EXPLANATORY VARIABLE>
+## Linear Relationship Between RESPONSE VARIABLE NAME and EXPLANATORY VARIABLE NAME
 
 ### Model Conditions
+
 <!-- Here is where you describe the four conditions (LINE) for linear regression.  -->
 <!-- State what the condition is and if you believe it is / is not violated IN THE CONTEXT OF YOUR DATA! -->
 
@@ -115,14 +111,14 @@ Put conditions here. This should be in a paragraph form with complete sentences.
 ## Code to get coefficient table from linear regression
 ```
 
-Make sure to type the equation (in context of your data) and interpret the coefficients in context of your data set here.
+<!-- Make sure to type the equation (in context of your data) and interpret the coefficients in context of your data set here. -->
+
+Put paragraph with equation and interpretations of coefficients here.
 
 ### Inference for the Slope
 
-<!-- Here is where you describe the hypothesis test and results for whether the slope is 0.  -->
+<!-- Describe the hypothesis test and results for whether the slope is 0.  Make sure to include all parts necessary for a hypothesis test from setup to conclusion. Make sure to use context of your data.  -->
+<!-- Describe the confidence interval for the true slope.  Make sure to use context of your data.-->
 
-Put slope hypothesis test paragraph here. Make sure to include all parts necessary for a hypothesis test from setup to conclusion. Make sure to use context of your data.
+Put slope hypothesis test and interpretation of confidence interval paragraph here.
 
-<!-- Here is where you describe the confidence interval for the true slope. -->
-
-Put interpretation of confidence interval for the true slope here. Make sure to use context of your data.
