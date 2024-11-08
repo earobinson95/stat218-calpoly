@@ -402,11 +402,11 @@ knitr::include_graphics("08-images/F-stat.png")
 Let's use simulation to get an idea of the shape of the F-distribution.
 
 ```{r}
-#| fig-height: 8
+#| fig-height: 4
 #| fig-width: 8
 library(nullabor)
 set.seed(56156)
-lineup_data <- lineup(null_permute("Genre"), movie_ratings, pos = 3) 
+lineup_data <- lineup(null_permute("Genre"), movie_ratings, n = 5, pos = 4) 
 
 lineup_data |> 
 ggplot(mapping = aes(x = Rating, 
@@ -416,9 +416,9 @@ ggplot(mapping = aes(x = Rating,
        subtitle = "19 simulated data sets + 1 observed data set from study",
        x = "IMDb Score", 
        y = "Genre") +
-  theme(aspect.ratio = 1) +
   theme_bw() +
-  facet_wrap(~ .sample)
+  facet_wrap(~ .sample, ncol = 5) +
+  theme(aspect.ratio = 1)
 ```
 
 22. Which panel contains the actual data observed in the study? Was it hard to pick out? Remember what it was like trying to pick this out.
@@ -428,7 +428,7 @@ ggplot(mapping = aes(x = Rating,
 We could take these and calculate the F-statistic for each panel (simulated data set) and plot this to begin creating the distribution to compare our observed test statistic to. Note, we will see how to use `R` to calculate the F-statistic in just a bit.
 
 ```{r}
-#| fig-height: 8
+#| fig-height: 4
 #| fig-width: 8
 
 myaov <- function(data) {
@@ -443,7 +443,7 @@ fstats <- lineup_data |>
   mutate(stat = map(data, myaov)) |>
   unnest(stat) |> 
   mutate(F_stat = paste0("F=", round(stat, 2))) |> 
-  mutate(plot_type = ifelse(.sample == 3, "target", "null"))
+  mutate(plot_type = ifelse(.sample == 4, "target", "null"))
 
 lineup_data |> 
 ggplot(mapping = aes(x = Rating, 
@@ -452,12 +452,12 @@ ggplot(mapping = aes(x = Rating,
   labs(title = "Simulate Data under assumption all IMDb Scores are the same across Genres",
        subtitle = "19 simulated data sets + 1 observed data set from study",
        x = "IMDb Score", 
-       y = "Genre") +
-  theme(aspect.ratio = 1) +
+       y = "Genre")+
   theme_bw() +
-  facet_wrap(~ .sample) +
+  facet_wrap(~ .sample, ncol = 5) +
   geom_label(data = fstats, aes(label = F_stat, x = 5, y = 2.5, fill = plot_type), size = 3, color = "white", fontface = "bold", show.legend = F) +
-  scale_fill_manual(values = c("gray", "orange3"))
+  scale_fill_manual(values = c("gray", "orange3")) +
+  theme(aspect.ratio = 1) 
 ```
 
 ```{r}
@@ -564,18 +564,18 @@ In a hypothesis test, there are two competing hypotheses: the null and the alter
 
 |                                    | $H_0$ is True  | $H_0$ is False |
 |------------------------------------|----------------|----------------|
-| Reject $H_0$ (evidence)            | Type I Error   | Good Decision! |
-| Fail to Reject $H_0$ (insufficient evidence) | Good Decision! | Type II Error  |
+| Reject $H_0$                       | Type I Error   | Good Decision! |
+| Fail to Reject $H_0$               | Good Decision! | Type II Error  |
 
 :::
 
 31. Based on the decision you reached from the ANOVA test, what type of error could you have made?
 
-\vspace{0.25in}
+\vspace{0.3in}
 
 32. With an $\alpha = 0.05$, what percent of the time would we expect to make a Type I error?
 
-\vspace{0.25in}
+\vspace{0.3in}
 
 33. How does $\alpha$ relate to the probability of making a Type II error?
 
@@ -584,6 +584,8 @@ In a hypothesis test, there are two competing hypotheses: the null and the alter
 ### Inference after ANOVA
 
 If we had found a "significant" p-value, we could have concluded that at least one of the genres had a different mean movie rating. However, an ANOVA **does not** tell us which group(s) is(are) driving the differences.
+
+\newpage
 
 What we could do is compare all possible combinations of two means. With five groups, that would result in 10 different hypothesis tests for a difference in means. For example:
 
