@@ -117,11 +117,14 @@ embed-resources: true
 + **Lab 6: Hours worked**
   + Due Monday 11/11 at 11:59pm
 
-+ **Work through Example 7.2**
-  + For class on Tuesday 11/12
++ **Work through Example 7.2** for class on Tuesday 11/12
   
-+ **Group Project Check-point 0: Group Contract**
-  + Due Wednesday 11/13 at 11:59pm
++ **P10: Group Contract**
+  + Due Wednesday, 11/13 at 11:59pm
+  
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
+  + The sooner you get it in, the sooner Dr. Robinson will give feedback
 
 
   
