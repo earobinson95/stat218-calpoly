@@ -91,16 +91,34 @@ embed-resources: true
 ## Friday, November 8th
 ### Today we will...
 
-+ Quiz 3: Inference for a Single Numerical Variable
-+ Ch. 7 Practice, Example 7.2 (in groups)
++ Quiz 3: Inference for a Single Numerical Variable (20 minutes)
 + Group Project
   + Form New Groups
   + Introduce Final Group Project
++ Ch. 7 Practice, Example 7.2 (in groups)
+
+## Group Project
+
++ Introduce yourself to your new group
+  + If you could go anywhere in the world tomorrow, where would you go and why?
+  + Exchange contact info
++ All: join new group workspace; find link on Canvas groups
++ Recorder only: copy the `Final Project` template from the master work space
+  + Find link on Canvas modules
+  
+## Group Project
+
++ Pick a data set of interest from the provided website.
++ Pick 2 **numeric variables**
++ Big picture -- conducting a linear regression analysis (ch. 9) on the two variables (aka, is there a relationship -- think scatterplot!).
 
 ## To do:
   
 + **Lab 6: Hours worked**
   + Due Monday 11/11 at 11:59pm
+
++ **Work through Example 7.2**
+  + For class on Tuesday 11/12
   
 + **Group Project Check-point 0: Group Contract**
   + Due Wednesday 11/13 at 11:59pm
