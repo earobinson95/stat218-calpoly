@@ -57,8 +57,8 @@ Please respond to each other!
 # Key Concepts to Review
 
 Note: this may not be an exhaustive list. You should review all of your
-notes, assignments, labs, and quizzes from Chapters 5 - 7 (and concepts
-that are necessary to build off of from the first four chapters).
+notes, assignments, labs, and quizzes from Chapters 4 - 7 (and concepts
+that are necessary to build off of from the first three chapters).
 
 -   Can you describe a distribution for a numerical variable? (shape,
     center, spread, outliers)
@@ -68,6 +68,7 @@ that are necessary to build off of from the first four chapters).
 -   Work through hypotheses testing for the following types of scenarios
     (how does parameter wording change, how does the sampling
     distribution change?):
+    -   Two categorical variables (Chi-square Test of Independence)
     -   One numerical variable (t-test for a single mean)
     -   Comparing a numerical variable across two **independent** groups
         (two-sample independent t-test)
@@ -444,3 +445,74 @@ viii. Suppose we had found *evidence* in support of the research
       in blood pressure?
       
 \vspace{1in}
+
+11. In a [recent study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9831139/) conducted in the United Kingdom, researchers gathered data on 6,705 children to investigate the potential relationship between a mother's exposure to cats during pregnancy and the occurrence of psychotic episodes in their children. The study included two groups: one consisting of 4,746 children whose mothers did not have cats while pregnant and another group of 1,959 children whose mothers did have cats during pregnancy.
+
+Among the group of 4,746 children with no maternal cat exposure, 536 children experienced one or more psychotic episodes during the course of the study. In contrast, among the 1,959 children whose mothers had cats during pregnancy, 240 children had one or more psychotic episodes.
+
+**Research Question:** Does the psychotic episode rate differ between children who's moms did have cats while pregnant and those who's moms did not?
+
+(i) Create a contingency table of counts based on the data obtained in this study.
+
+\vspace{2in}
+
+(ii) Find the observed proportion of children who's moms did not have cats while pregnant that had one or more psychotic episode.
+
+\vspace{1in}
+
+(iii) Find the observed proportion of children who's moms did have cats while pregnant that had one or more psychotic episode.
+
+\vspace{1in}
+
+The following output was obtained from a chi-square test to investigate this question.
+
+```{r simulate-data}
+#| echo: false
+library(tidyverse)
+
+set.seed(56156)
+cats <- tibble(combo = c(rep("nocats-psychotic", 536),
+                                 rep("nocats-nopsychotic", 4746-536),
+                                 rep("cats-psychotic", 240),
+                                 rep("cats-nopsychotic", 1959-240)
+                                 )
+
+) |>
+  separate_wider_delim(cols = combo, names =  c("cats", "psychotic"), delim = "-")
+```
+
+```{r}
+#| echo: true
+library(infer)
+chisq_test(x = cats,
+           response = psychotic,
+           explanatory = cats)
+```
+
+\vspace{1.2in}
+
+(v) Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language.
+
+\vspace{1.2in}
+
+12.  Ten mice (6--8 weeks old) were randomly assigned to one of two groups; five were exposed to simulated environmental tobacco smoke for 6 h/day, 5 days/week for 5 months. The other 5 mice were kept in clean air during this time period. Then, all of the mice were allowed to recover for a further 4 months in filtered air before being killed for analysis of lung tumor incidence. The results are shown below.
+
+    |             | **Tumor** | No Tumor | Total |
+    |-------------|-----------|----------|-------|
+    | **Treated** | 4         | 1        | 5     |
+    | **Control** | 2         | 3        | 5     |
+    | **Total**   | 6         | 4        | 10    |
+
+**Research question:** Does the proportion of mice that develop a lung tumor differ between those exposed to tobacco smoke and the control group?
+
+(i) Convert the Research Question into $H_0$ and $H_A$.
+
+\vspace{1.2in}
+
+(iii). What proportions would you compare to answer the research question?
+
+\vspace{1.2in}
+
+(ii). Would it be appropriate to use the chi-square distribution to test the hypotheses? Explain.
+
+\vspace{1.2in}
