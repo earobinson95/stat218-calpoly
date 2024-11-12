@@ -38,10 +38,10 @@ knitr::include_graphics("images/paired-means.png")
 + Finish **Examples 7.2 + 7.3** for class Thursday
 
 + **P10: Group Contract**
-  + Due Wednesday, 11/14 at 11:59pm
+  + Due Thursday, 11/14 at 11:59pm
   
 + **Homework 7: New York City Trees**
-  + Due Thursday 11/9 at 11:59pm
+  + Due Thursday 11/14 at 11:59pm
   
 + **P11: Group Project Check Point 1: Data Set + Variable Selection**
   + Due Thursday, 11/21 at 11:59pm
