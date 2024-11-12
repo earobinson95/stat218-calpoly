@@ -7,19 +7,16 @@ format:
 embed-resources: true
 ---
 
-## Monday, November 6th
+## Tuesday, November 12th
 ### Today we will...
 
-+ Two-sample Independent t-test
++ Midterm 2 -- in class next week Tuesday 11/19
++ Review:
+  + Two-sample Independent t-test
   + Example 7.1
-+ Practice with two-sample independent t-test
-  + Example 7.2 (in groups) -- Checked for participation tomorrow
++ Example 7.2 (10 minutes)
++ Paired t-test (Example 7.3)
   
-::: callout-warning
-### MONDAY OFFICE HOURS
-Now 2pm - 3pm. We have job candidate talks for the rest of the quarter during my regular office hours.
-:::
-
 ## Two-Sample Independent t-test
 
 ```{r}
@@ -28,30 +25,6 @@ Now 2pm - 3pm. We have job candidate talks for the rest of the quarter during my
 knitr::include_graphics("images/two-independent-means.png")
 ```
 
-## To do:
-  
-+ **Homework 7: New York City Trees**
-  + Due Thursday 11/9 at 11:59pm
-  
-    
-+ **Example 7.2**
-  + For class participation tomorrow!
-  
-+ **Project Group Contract**
-  + Due Friday 11/10 at 11:59pm
-
-::: callout-warning
-### MONDAY OFFICE HOURS
-Now 2pm - 3pm. We have job candidate talks for the rest of the quarter during my regular office hours.
-:::
-
-## Tuesday, November 7th
-### Today we will...
-
-+ Check Example 7.2 for participation
-+ Paired t-test
-  + Example 7.3
-  
 ## Paired t-test
 
 ```{r}
@@ -61,16 +34,23 @@ knitr::include_graphics("images/paired-means.png")
 ```
 
 ## To do:
+  
++ Finish **Examples 7.2 + 7.3** for class Thursday
 
++ **P10: Group Contract**
+  + Due Wednesday, 11/14 at 11:59pm
+  
 + **Homework 7: New York City Trees**
   + Due Thursday 11/9 at 11:59pm
   
-+ **Project Group Contract**
-  + Due Friday 11/10 at 11:59pm
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
 
-## Thursday, November 9th
+## Thursday, November 14th
 ### Today we will...
 
++ Review:
+  + Examples 7.2 + 7.3
 + Lab 7: Color Interference 
 
 ::: column
@@ -97,36 +77,31 @@ knitr::include_graphics("images/diffcol.png")
 :::
 :::
 
-::: callout-warning
-## NO CLASS TOMORROW!
-:::
-
 ## To do:
 
-:::: columns
-::: column
 + **Homework 7: New York City Trees**
-  + Due Thursday 11/9 at 11:59pm
+  + Due TONIGHT 11/14 at 11:59pm
   
 + **Lab 7: Color Interference**
-  + Due Monday 11/13 at 11:59pm
-
-:::
-::: column
+  + Due Monday 11/18 at 11:59pm
   
-+ **Project Group Contract**
-  + Due Friday 11/10 at 11:59pm
-  
-+ **Study for Midterm Exam 2**
-  + In class, Tuesday 11/14
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
 
-:::
-::::
-
-::: callout-warning
-## NO CLASS TOMORROW!
-:::
 
 ## Friday, November 10th
-### NO CLASS for Veteran's Day
+
++ Start Ch. 8...
+
+## To do:
+  
++ **Lab 7: Color Interference**
+  + Due Monday 11/18 at 11:59pm
+  
++ **Study for Midterm Exam 2**
+  + In class, Tuesday 11/19
+  
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
+
   
