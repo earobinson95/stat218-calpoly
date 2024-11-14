@@ -79,6 +79,9 @@ knitr::include_graphics("images/diffcol.png")
 
 ## To do:
 
++ **Print Ch. 8 Notes**
+  + For class Friday
+
 + **Homework 7: New York City Trees**
   + Due TONIGHT 11/14 at 11:59pm
   
