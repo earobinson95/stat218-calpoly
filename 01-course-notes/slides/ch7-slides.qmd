@@ -94,7 +94,17 @@ knitr::include_graphics("images/diffcol.png")
 
 ## Friday, November 10th
 
++ Looking ahead...
 + Start Ch. 8...
+
+## Looking ahead...
+
++ Ch. 8 (~2 days + HW + lab) -- want to finish before Thanksgiving
+  + Take home 20 min. Canvas Quiz -- over break? open Monday-Wednesday of week 10?
++ Ch. 9 (~2 days + project) -- want to give 2 days to work on project
++ Final Exam -- Saturday Dec. 7
++ Final Project -- due Wednesday Dec. 11
++ No class finals week! Just office hours
 
 ## To do:
   
