@@ -7,28 +7,64 @@ format:
 embed-resources: true
 ---
 
-## Thursday, November 16th
+## Monday, November 18th
 ### Today we will...
 
-+ Begin Chapter 8 notes: Comparing a Numeric Variable Across More than Two Groups
++ Finish Chapter 8 notes
   + Introduce the F-statistic
+  + Multiple comparisons & Post-Hoc testing
+  
+**No class on Friday**
 
 ## To do:
 
-+ **Group Project Checkpoint 1 (Data + Variables)**
-  + Due Friday 11/17 at 11:59pm
++ **Lab 7: Color Interference**
+  + Due Monday 11/18 at 11:59pm
+  
++ **Study for Midterm Exam 2**
+  + In class, Tuesday 11/19
+  
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
 
-## Friday, November 17th
++ **Homework 8: Squirrel Size**
+  + Due Monday 11/25 at 11:59pm 
+
+## Tuesday, November 19th
+
+::: {style="font-size: 80%;"}
+
++ **Midterm Exam 2**
+  + You may use a calculator, and one (8.5" x 11") sheet of notes (front and back). You must turn in your note sheet with your exam.
+  + You have 50 minutes to complete the exam.
+  + Please *quietly* bring up your exam when you are finished. You may then leave.
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due Thursday, 11/21 at 11:59pm
++ **Homework 8: Squirrel Size**
+  + Due Monday 11/25 at 11:59pm 
+
+**No class on Friday**
+:::
+  
+## Thursday, November 21st
 ### Today we will...
 
-+ Finish Chapter 8 notes: Comparing a Numeric Variable Across More than Two Groups
-  + Multiple comparisons & Post-Hoc testing
++ Lab 8: Strawberries (ANOVA)
+  
+**No class on Friday**
 
 ## To do:
 
-+ **Group Project Checkpoint 1 (Data + Variables)**
-  + Due Friday 11/17 at 11:59pm
-  
++ **P11: Group Project Check Point 1: Data Set + Variable Selection**
+  + Due TONIGHT, 11/21 at 11:59pm
+
 + **Homework 8: Squirrel Size**
-  + Due Thursday 11/30
+  + Due Monday 11/25 at 11:59pm 
+  
++ **Lab 8: Soil Moisture and Early Growth Biomass for Strawberries**
+  + Due Monday 11/25 at 11:59pm
+  
++ **Chapter 8 Quiz** (Take-home on Canvas, 20 minutes)
+  + Open Sunday 12/1 - Tuesday 12/3
+
   
