@@ -53,7 +53,7 @@ embed-resources: true
   
 **No class on Friday**
 
-## To do:
+## To do: {.scrollable}
 
 + **P11: Group Project Check Point 1: Data Set + Variable Selection**
   + Due TONIGHT, 11/21 at 11:59pm
@@ -62,9 +62,12 @@ embed-resources: true
   + Due Monday 11/25 at 11:59pm 
   
 + **Lab 8: Soil Moisture and Early Growth Biomass for Strawberries**
-  + Due Monday 11/25 at 11:59pm
+  + Due Monday 12/3 at 11:59pm
   
 + **Chapter 8 Quiz** (Take-home on Canvas, 20 minutes)
   + Open Sunday 12/1 - Tuesday 12/3
+  
++ **Print Ch. 9 Notes**
+  + For Class Monday 12/3
 
   
