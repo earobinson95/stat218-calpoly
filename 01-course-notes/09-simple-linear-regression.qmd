@@ -33,7 +33,7 @@ library(magrittr)
 library(moderndive)
 ```
 
-In the previous chapters, we compared a numerical variable across two or more groups Two Sample Independent and paired t-tests and ANOVA. In this chapter, we will learn how to investigate the relationship between two numerical variables using a statistical analysis called simple linear regression
+In the previous chapters, we compared a numerical variable across two or more groups two-sample independent t-tests and paired t-tests and ANOVA. In this chapter, we will learn how to investigate the relationship between two numerical variables using a statistical analysis called simple linear regression
 
 ## Overview
 
@@ -111,18 +111,8 @@ ggplot(aes(x1,x2))+
 
 ## Example 8.1: Diving Penguins
 
-Emperor penguins are the most accomplished divers among birds, making routine dives of 5–12
-minutes, with the longest recorded dive over 27 minutes. These birds can also dive to depths
-of over 500 meters! Since air-breathing animals like penguins must hold their breath while
-submerged, the duration of any given dive depends on how much oxygen is in the bird’s body
-at the beginning of the dive, how quickly that oxygen gets used, and the lowest level of oxygen
-the bird can tolerate. The rate of oxygen depletion is primarily determined by the penguin’s
-heart rate. Consequently, studies of heart rates during dives can help us understand how these
-animals regulate their oxygen consumption in order to make such impressive dives.
-In this study, the researchers equipped emperor penguins with devices that record their heart
-rates during dives. The data set reports Dive Heart Rate (beats per minute), the Duration
-(minutes) of dives, and other related variables. Is there an association between dive heart rate
-and the duration of the dive?
+Emperor penguins are the most accomplished divers among birds, making routine dives of 5–12 minutes, with the longest recorded dive over 27 minutes. These birds can also dive to depths of over 500 meters! Since air-breathing animals like penguins must hold their breath while
+submerged, the duration of any given dive depends on how much oxygen is in the bird’s body at the beginning of the dive, how quickly that oxygen gets used, and the lowest level of oxygen the bird can tolerate. The rate of oxygen depletion is primarily determined by the penguin’s heart rate. Consequently, studies of heart rates during dives can help us understand how these animals regulate their oxygen consumption in order to make such impressive dives. In this study, the researchers equipped emperor penguins with devices that record their heart rates during dives. The data set reports Dive Heart Rate (beats per minute), the Duration (minutes) of dives, and other related variables. Is there an association between dive heart rate and the duration of the dive?
 
 In this study, the researchers equipped emperor penguins with devices that record their heart rates during dives. The data set reports Dive Heart Rate (beats per minute), the Duration (minutes) of dives, and other related variables.  
 
@@ -147,7 +137,7 @@ head(diving)
 
 A *scatterplot* is a graph showing a dot for each observational unit, where the location of the dot indicates the values of the observational unit for both the explanatory and response variables. Typically, the explanatory variable is placed on the $x$-axis and the response variable is placed on the $y$-axis.
 
-When describing a relationship or association between two quantitative variables as seen through a scatterplot, we look for four aspects of association: form, direction, strength, and outliers.
+When describing a relationship or association between two quantitative variables as seen through a scatterplot, we look for four aspects of association: *form, direction, strength, and outliers*.
 
 + The **form** of association between two quantitative variables is described by indicating whether a line would do a reasonable job summarizing the overall pattern in the data or if a curve would be better. It is important to note that, especially when the sample size is small, you don’t want to let one or two points on the scatter plot change your interpretation of whether or not the form of association is linear. In general, assume that the form is linear unless there is compelling (strong) evidence in the scatter plot that the form is not linear.
 
@@ -187,17 +177,20 @@ knitr::include_graphics("09-images/unusual-points.PNG")
 
 ```{r}
 #| echo: true
-#| out-width: 70%
+#| out-width: 60%
 #| fig-align: center
 ggplot(data = diving, 
-       mapping = aes(x = Dive_HeartRate, 
-                     y = Duration)
+       mapping = aes(x = Dive_HeartRate, # <1>
+                     y = Duration) # <2>
        ) +  
-  geom_point() +
+  geom_point() + # <3>
   labs(x = "Heart Rate (bpm",
        y = "Dive Duration (minutes)"
        )
 ```
+1. In the `aes()` code, specify the `x = explanatory` and
+2. `y = response` variables.
+3. Plot the `geom_points()` to create a scatter plot.
 
 \vspace{0.1in}
 
@@ -220,7 +213,7 @@ ggplot(data = diving,
 ::: callout-note
 ### Correlation
 
-Describing the direction, form, and strength of association based on a scatter plot, along with investigating unusual observations, is an important first step in summarizing the relationship between two quantitative variables. Another approach is to use a summary statistic. One of the statistics most commonly used for this purpose is the **correlation coefficient**. When the relationship has a roughly linear form, it’s strength and direction can be quantified by the correlation. 
+Describing the direction, form, and strength of association based on a scatter plot, along with investigating unusual observations, is an important first step in summarizing the relationship between two quantitative variables. Another approach is to use a summary statistic. One of the statistics most commonly used for this purpose is the **correlation coefficient**. When the relationship has a roughly linear form, it’s strength and direction can be quantified by the correlation.
 
 \vspace{0.1in}
 
@@ -259,36 +252,61 @@ The correlation coefficient uses a rather complex formula that is rarely compute
 ```{r}
 #| echo: true
 library(moderndive)
-get_correlation(data = diving, 
+get_correlation(data = diving,
                 Duration ~ Dive_HeartRate)
 ```
 
-4. Interpret the correlation obtained. Is it positive or negative? What does this imply about the relationship between the variables? Is it strong, moderate, or weak? How does this connect to what you saw in the scatter plot?
+<!-- 4. Interpret the correlation obtained. Is it positive or negative? What does this imply about the relationship between the variables? Is it strong, moderate, or weak? How does this connect to what you saw in the scatter plot? -->
+
+<!-- \vspace{0.8in} -->
+
+<!-- 5. Say you had another observation at (100, 15), as in a penguin with a heart rate of 100 beats per minute who dove for 15 minutes. How do you think this would change the correlation coefficient? -->
+
+<!-- \vspace{0.8in} -->
+
+4. If you knew the heart rate of a penguin, what might be a way to determine how long you would expect for them to dive for based on the data?
 
 \vspace{0.8in}
 
-5. Say you had another observation at (100, 15), as in a penguin with a heart rate of 100 beats per minute who dove for 15 minutes. How do you think this would change the correlation coefficient?
-
-\vspace{0.8in}
-
-6. If you knew the heart rate of a penguin, what might be a way to determine how long you would expect for them to dive for based on the data?
-
-\vspace{0.8in}
-
-7. Using the scatter plot below, draw the *linear* line you believe fits the data the best. How did you decide where to draw your line? Is your line the same as your group members?
+5. Using the scatter plot below, draw the *linear* line you believe fits the data the best. How did you decide where to draw your line? Is your line the same as your group members?
 
 ```{r}
-#| out-width: 70%
+#| echo: true
+#| out-width: 60%
 #| fig-align: center
 ggplot(data = diving, 
-       mapping = aes(x = Dive_HeartRate, 
-                     y = Duration)
+       mapping = aes(x = Dive_HeartRate, # <1>
+                     y = Duration) # <2>
        ) +  
-  geom_point() +
+  geom_point() +  # <3>
   labs(x = "Heart Rate (bpm",
        y = "Dive Duration (minutes)"
        )
 ```
+1. In the `aes()` code, specify the `x = explanatory` and
+2. `y = response` variables.
+3. Plot the `geom_points()` to create a scatter plot.
+
+```{r}
+#| echo: true
+#| out-width: 60%
+#| fig-align: center
+ggplot(data = diving, 
+       mapping = aes(x = Dive_HeartRate,
+                     y = Duration)
+       ) +  
+  geom_point() +
+  geom_smooth(method = "lm") + # <4>
+  labs(x = "Heart Rate (bpm",
+       y = "Dive Duration (minutes)"
+       )
+```
+
+4. To add a  visual regression line, use `geom_smooth(method = "lm")`. 
+
+::: callout-warning
+Using `geom_smooth()` is a visual representation of the linear regression and does not provide the regression coefficients as `lm()` described below does.
+:::
 
 ::: callout-note
 ### Least Squares Regression
@@ -305,35 +323,44 @@ knitr::include_graphics("09-images/pca-plot.jpg")
 
 :::
 
-8. On the scatter plot of the penguin heart rate and dive duration, draw the vertical distance between some of the points and the line you drew.
+6. On the scatter plot of the penguin heart rate and dive duration, draw the vertical distance between some of the points and the line you drew.
 
 \vspace{0.1in}
 
-9. When you square a residual what happens?
+<!-- 7. When you square a residual what happens? -->
 
-\vspace{0.8in}
+<!-- \vspace{0.8in} -->
 
-10. When you square large residuals what happens?
+<!-- 8. When you square large residuals what happens? -->
 
-\vspace{0.8in}
+<!-- \vspace{0.8in} -->
 
-11. When you square a number between 0 and 1 what happens?
+<!-- 9. When you square a number between 0 and 1 what happens? -->
 
-\vspace{0.8in}
+<!-- \vspace{0.8in} -->
 
 We will always use `R` to find the equation of the "best" regression line. Specifically, we will use the `lm()` function. The `lm` stands for *linear model* - the method we believe best models the relationship between our two variables. 
 
 ```{r}
 #| echo: true
-diving_lm <- lm(Duration ~ Dive_HeartRate,
-                data = diving)
+diving_lm <- lm(Duration ~ Dive_HeartRate, # <1>
+                data = diving) # <2>
 
-diving_lm |> 
-  tidy(conf.int = TRUE,
-       conf.level = 0.95)
+diving_lm |>  # <3>
+  tidy(conf.int = TRUE, # <4>
+       conf.level = 0.95) # <5>
 ```
+1. Assign the model output to the object name `diving_lm <-`. Using the `lm()` function, specify the `response ~ explanatory` variables.
+2. Make sure to specify the `data = ` set.
+3. Using the object `diving_lm` you just created,
+4. extract the `tidy()` table of coefficients with the `conf.int = TRUE` for confidence intervals, and
+5. the `conf.level`.
 
-12. Using the output from the `R` code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic $x$ and $y$. And put a carat (“hat”) over the $y$-variable name to emphasize that the line gives **predicted** values of the $y$ (response) variable.
+::: callout-warning
+Make sure the order of your variables are input as `response ~ explanatory`!
+:::
+
+7. Using the output from the `R` code above, write the equation of the regression line. Note that we’ve used variable names in the equation, not generic $x$ and $y$. And put a carat (“hat”) over the $y$-variable name to emphasize that the line gives **predicted** values of the $y$ (response) variable.
 
 \vspace{0.1in}
 
@@ -341,31 +368,36 @@ $$\widehat{\text{Dive Duration}} = \underline{\hspace{3cm}} + \underline{\hspace
 
 \vspace{0.1in}
 
-Notation: The equation of the best fit line is written as
+::: callout-note
+## Notation
+The equation of the best fit line is written as
 $\hat{y} = b_0 + b_1 \times \text{(x)}$ where
 
 + $b_0$ is the y-intercept coefficient
 + $b_1$ is the slope coefficient
 + $x$ is a value of the numeric explanatory variable
 + $\hat{y}$ is the predicted value for the response variable
+:::
 
-13. Is the slope positive or negative?  Explain how the sign of the slope tells you about whether your data display a positive or a negative association.
-
-\vspace{0.8in}
-
-14. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.
+8. Is the slope positive or negative?  Explain how the sign of the slope tells you about whether your data display a positive or a negative association.
 
 \vspace{0.8in}
 
-15. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.
+\newpage
+
+9. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 75 beats per minute.
+
+$$\widehat{\text{Dive Duration}} = \underline{\hspace{3cm}} + \underline{\hspace{3cm}} \times 75 = \underline{\hspace{3cm}}$$
+
+10. Use the least squares regression line to predict the diving duration for penguins with a heart rate of 76 beats per minute.
+
+$$\widehat{\text{Dive Duration}} = \underline{\hspace{3cm}} + \underline{\hspace{3cm}} \times 76 = \underline{\hspace{3cm}}$$
+
+11. By how much do your predictions in the above two questions differ? Does this number look familiar? Explain.
 
 \vspace{0.8in}
 
-16. By how much do your predictions in the above two questions differ? Does this number look familiar? Explain.
-
-\vspace{0.8in}
-
-17. These questions above were designed to help you interpret the slope. Interpret the slope in context:
+12. These questions above were designed to help you interpret the slope. Interpret the slope in context:
 
 \vspace{0.1in}
 
@@ -378,12 +410,12 @@ $\hat{y} = b_0 + b_1 \times \text{(x)}$ where
 The slope coefficient of a least squares regression model is interpreted as the predicted change in the mean response ($y$) variable for a one-unit change in the explanatory ($x$) variable. 
 :::
 
-18. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.
+13. Use the least squares regression line to predict the diving duration for a penguin with a heart rate of 0 beats per minute.
 
-\vspace{0.6in}
+$$\widehat{\text{Dive Duration}} = \underline{\hspace{3cm}} + \underline{\hspace{3cm}} \times 0 = \underline{\hspace{3cm}}$$
 
 
-19. Your answer to the above question should look familiar. What is this value?
+14. Your answer to the above question should look familiar. What is this value?
 
 \vspace{0.6in}
 
@@ -410,14 +442,20 @@ knitr::include_graphics("09-images/extrapolating.png")
 
 :::
 
-20. What was the lowest value of heart rate observed in these data? The highest?
+15. What was the lowest value of heart rate observed in these data? The highest?
+
+```{r}
+#| echo: true
+favstats(~Dive_HeartRate, data = diving)
+```
 
 \vspace{0.8in}
 
-21.	What heart rates do you believe would be an extrapolation?
+16.	What heart rates do you believe would be an extrapolation?
 
 \vspace{0.8in}
 
+\newpage
 
 ::: callout-note
 
@@ -425,18 +463,22 @@ knitr::include_graphics("09-images/extrapolating.png")
 
 A quantity related to the correlation coefficient (r) is called the coefficient of determination or R-squared ($R^2$). The coefficient of determination ($R^2$) is the percentage of total observed variation in the response variable that is accounted for by changes (variability) in the explanatory variable.
 
+\vspace{0.1in}
+
 Keep in mind that $R^2$, like correlation, requires that the relationship between the explanatory and response variables is linear!
+
+\vspace{0.1in}
 
 $R^2$ values are reported as proportions, but can also be thought of as a percent. Values close to 1 or 100% indicate that the explanatory variable is able to explain a large portion of the variability in the response. 
 
 We calculate $R^2$ by squaring the correlation (r). 
 :::
 
-22. Calculate the coefficient of determination ($R^2$) for the relationship between heart rate and dive duration.
+17. Calculate the coefficient of determination ($R^2$) for the relationship between heart rate and dive duration.
 
 \vspace{0.8in}
 
-23. Complete the following statement to interpret what this value means in the context of the data:
+18. Complete the following statement to interpret what this value means in the context of the data:
 
 \vspace{0.1in}
 
@@ -444,11 +486,9 @@ The coefficient of determination is \underline{\hspace{1cm}}%, this means that \
 
 \vspace{0.1in}
 
-Let's revisit the **research question**! Is there an association between dive heart rate and the duration of the dive?
+Let's revisit the **Research Question**! Is there an *association* between dive heart rate and the duration of the dive?
 
-\newpage
-
-24. Set up the null and alternative hypotheses.
+19. Set up the null and alternative hypotheses.
 
 + In words (version 1):
 
@@ -465,16 +505,16 @@ Let's revisit the **research question**! Is there an association between dive he
 
 \vspace{1.5in}
 
-25. Based on the slope coefficient found from our regression model, do you think there is convincing evidence of an association between a penguin's heart rate and the duration of their dive?
+20. Based on the slope coefficient found from our regression model, do you think there is convincing evidence of an association between a penguin's heart rate and the duration of their dive?
 
 \vspace{0.8in}
 
-\newpage
+<!-- \newpage -->
 
 ::: callout-note
 ### Inference for the Slope
 
-Recall, we want to use our data to draw inferences and make claims about the larger population. Since the slope will change from sample to sample, in order to make valid inferences about the true population slope, we must first understand how the slope is expected to change from sample to sample.  That is, we must determine what slope coefficients are likely to happen by chance when taking random samples from populations with the relationship between heart rate and dive duration.  
+Recall, we want to use our data to draw inferences and make claims about the larger population. Since the slope will change from sample to sample, in order to make valid inferences about the true population slope, we must first understand the sample variability of the slope.  That is, we must determine what slope coefficients are likely to happen by chance when taking random samples from populations with the relationship between heart rate and dive duration.
 
 ```{r}
 #| fig-align: center
@@ -504,24 +544,24 @@ In order to test the slope, we could conduct a simulation similar to what we did
 
 We would then repeat this process 100 or 1000 times to get an idea of what the sampling distribution of the *slope* looks like.
 
-26. Assuming there is no difference in mean percieved time elapsed between the smokers and non-smokers, where do you expect the distribution to be centered? Explain.
+21. Assuming there is *no relationship* between the penguin heart rate (bpm) and dive duration (minutes), where do you expect the sampling distribution of the slope to be centered? Explain.
 
 \vspace{0.8in}
 
-27. Suppose we wanted to complete the simulation using correlation as the summary measure, instead of slope. What would you calculate in Step 4 instead?
+22. Suppose we wanted to complete the simulation using correlation as the summary measure, instead of slope. What would you calculate in Step 4 instead?
 
 + Step 4: Calculate the ____________________________ for the new simulated data set and add it to the dot plot.
 
 \vspace{0.1in}
 
-The plot below contains 19 panels of "new simualted" data sets (under the assumption there is no association between penguin heart rate (bpm) and dive duration (minutes), following the process above) and one panel of the actual data observed from the study.
+The plot below contains 4 panels of "new simualted" data sets (under the assumption there is *no association* between penguin heart rate (bpm) and dive duration (minutes), following the process above) and one panel of the actual data observed from the study.
 
 ```{r}
-#| fig-height: 8
+#| fig-height: 4
 #| fig-width: 8
 library(nullabor)
 set.seed(56156)
-lineup_data <- lineup(null_permute("Dive_HeartRate"), diving, pos = 19) 
+lineup_data <- lineup(null_permute("Dive_HeartRate"), diving, pos = 2, n = 5) 
 
 lineup_data |> 
 ggplot(mapping = aes(x = Dive_HeartRate, 
@@ -529,8 +569,9 @@ ggplot(mapping = aes(x = Dive_HeartRate,
   geom_point(size = 1,
              shape = 1,
              alpha = 0.5) +
+  # geom_smooth(method = "lm") +
   labs(title = "Simulated Data under assumption there is no association \nbetween penguin heart rate and dive duration",
-       subtitle = "19 simulated data sets + 1 observed data set from study",
+       subtitle = "4 simulated data sets + 1 observed data set from study",
        x = "Penguin Heart Rate (bpm)", 
        y = "Dive Duration (minutes)") +
   scale_y_continuous(limits = c(-5,20)) +
@@ -539,19 +580,19 @@ ggplot(mapping = aes(x = Dive_HeartRate,
         axis.text = element_blank(),
         axis.ticks = element_blank()
         ) +
-  facet_wrap(~ .sample)
+  facet_wrap(~ .sample, ncol = 5)
 ```
 
-28. Which panel contains the actual data observed in the study? Was it hard to pick out? Remember what it was like trying to pick this out.
+23. Which panel contains the actual data observed in the study? Was it hard to pick out? Remember what it was like trying to pick this out.
 
 \vspace{0.8in}
 
-\newpage
+<!-- \newpage -->
 
 We could take these and calculate the regression equation for each panel (simulated data set). Recall, we are really interested in the estimated slope coefficient. We can plot this value to begin creating the distribution to compare our observed slope to.
 
 ```{r}
-#| fig-height: 8
+#| fig-height: 4
 #| fig-width: 8
 
 mylm <- function(data){
@@ -576,7 +617,7 @@ ggplot(mapping = aes(x = Dive_HeartRate,
              alpha = 0.5) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "Simulated Data under assumption there is no association \nbetween penguin heart rate and dive duration",
-       subtitle = "19 simulated data sets + 1 observed data set from study",
+       subtitle = "4 simulated data sets + 1 observed data set from study",
        x = "Penguin Heart Rate (bpm)", 
        y = "Dive Duration (minutes)") +
   scale_y_continuous(limits = c(-5,20)) +
@@ -585,7 +626,7 @@ ggplot(mapping = aes(x = Dive_HeartRate,
         axis.text = element_blank(),
         axis.ticks = element_blank()
         ) +
-  facet_wrap(~ .sample) +
+  facet_wrap(~ .sample, ncol = 5) +
   geom_label(data = slopestats, aes(label = slope, x = 65, y = 16, fill = plot_type), size = 3, color = "white", fontface = "bold", show.legend = F) +
   scale_fill_manual(values = c("gray", "orange3"))
 ```
@@ -603,8 +644,10 @@ slopestats1000 |>
   filter(plot_type == "null") |> 
   ggplot(aes(x = slope)) +
   geom_dotplot(method = "histodot",
-               dotsize = 0.13,
+               dotsize = 0.15,
+               binwidth = 0.006
                ) +
+  scale_x_continuous(limits = c(-0.15, 0.15), breaks = seq(-0.2, 0.2, 0.05)) +
   theme_test() +
   labs(title = "Distribution for the estimated slope (under assumption no association)",
        y = "",
@@ -613,8 +656,7 @@ slopestats1000 |>
         axis.ticks.y = element_blank())
 ```
 
-
-29. Take note that our observed slope was -0.13, do you believe this slope is likely to occur under the condition that there is no association between penguin heart rate and dive duration (i.e., the null is true)?
+24. Take note that our observed slope was -0.13, do you believe this slope is likely to occur under the condition that there is *no association* between penguin heart rate and dive duration (i.e., the null is true)?
 
 \vspace{0.8in}
 
@@ -632,7 +674,7 @@ diving_lm |>
 ```
 
 
-30. Based on the output above, write a conclusion for the research question in context of the problem.
+25. Based on the output above, write a conclusion for the research question in context of the problem.
 
 \vspace{1.5in}
 
@@ -643,30 +685,35 @@ diving_lm |>
 2. Independent observations
 3. Normality of response variable
 4. Equal variance
-
 :::
 
 ```{r}
 #| echo: true
 #| fig-align: center
-#| fig-width: 12
+#| fig-width: 8
 #| fig-height: 8
-library(easystats)
-check_model(diving_lm)
+par(mfrow = c(2,2)) # <1>
+plot(diving_lm) # <2>
 ```
 
-31. Check the conditions for using simple linear regression to test for an association between the penguin heart rate and dive duration.
+1. Set the plotting window to give a 2x2 grid of plots.
+2. Use the `plot(model_name)` function to plot the residuals for model diagnostics.
+
+```{r}
+#| echo: true
+par(mfrow = c(1,1)) # <3>
+```
+
+3. Reset the plotting window back to a 1x1 grid.
+
+26. Check the conditions for using simple linear regression to test for an association between the penguin heart rate and dive duration.
 
 \vspace{1.5in}
 
-32. Based on the conclusion you made based on slope, what conclusion do you think you would get if you tested the correlation instead?
-
-\vspace{1in}
-
-33. Note the 95% confidence interval for the true slope ($\beta_1$) is (-0.146, -0.116). Interpret this interval in context of the problem. 
+27. Note the 95% confidence interval for the true slope ($\beta_1$) is (-0.146, -0.116). Interpret this interval in context of the problem. 
 
 \vspace{1.5in}
 
-34. Why does it make sense that the 95% confidence interval does not contain 0?
+28. Why does it make sense that the 95% confidence interval does not contain 0?
 
 \vspace{1in}
