@@ -38,14 +38,19 @@ library(emmeans)
 library(broom)
 ```
 
+**COMMON FINAL: SATURDAY, DECEMBER 3RD AT 10:10AM - 1PM (FROST CENTER 181-0102)**
+
+**Finals Office Hours**
+
++ Friday 12/3 at 1:00 - 2:30pm
++ Saturday 12/4 at 8:30 - 9:30am
+
 # What to Expect
 
 -   You may bring **two** $8 \frac{1}{2} \times 11$ standard sheet of notes (both sides). I will not provide you with formulas, so put what you think you need on here. 
 -   Additionally, I will provide you with the table summary of the different situations.
--   You may bring any calculator to use. I will have a handful of simple
-    calculators. You may **not** use your phone as a calculator.
--   The exam is mostly multiple choice, but will have a couple of short
-    answer questions mixed in.
+-   You may bring any calculator to use. I will have a handful of simple calculators. You may **not** use your phone as a calculator.
+-   The exam is mostly multiple choice, but will have a couple of short answer questions mixed in.
 -   You will have 2 hours and 50 minutes to complete the exam.
 
 I have not finalized point assignment for the final yet, but I would expect approximately:
@@ -57,8 +62,7 @@ I have not finalized point assignment for the final yet, but I would expect appr
 ::: callout-tip
 ## Canvas Discussion Board
 
-Post any logistic or studying questions on the Canvas discussion board.
-Please respond to each other!
+Post any logistic or studying questions on the Canvas discussion board. Please respond to each other!
 :::
 
 # Key Concepts to Review
@@ -798,7 +802,7 @@ i. State the appropriate test needed to address the research questions
 > a. Single proportion test (binomial test)
 > b. Confidence Interval for $\pi$
 > c. Chi-square goodness of fit test
-> d. Chi-square test
+> d. Chi-square test of independence
 > e. Single t-test (one mean)
 > f. Confidence Interval for $\mu$
 > g. Two-sample independent t-test
