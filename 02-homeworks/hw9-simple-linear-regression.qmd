@@ -41,45 +41,7 @@ head(golf_data)
 
 ```{r}
 #| echo: true
-ggplot(data = golf_data, 
-       mapping = aes(x = Driving_Distance, 
-                     y = Percent_Accuracy)
-       ) +  
-  geom_point() +  
-  labs(x = "Driving Distance (yards)",  
-       y = "Accuracy (%)") 
-```
-
-1. Identify the following in context of the problem:
-
-+ Observation:
-
-\vspace{0.8in}
-
-+ Explanatory Variable (and data type):
-
-\vspace{0.8in}
-
-+ Response Variable (and data type):
-
-\vspace{0.8in}
-
-+ Population of Interest: 
-
-\vspace{0.8in}
-
-+ Sample (and Sample Size):
-
-\vspace{0.8in}
-
-2. Based on the scatterplot above, does it appear that there is a relationship between driving distance and percent accuracy? Explain.
-
-\vspace{1.5in}
-
-Note that we can add the line of best fit (linear regression line) on top of the scatterplot by adding an additional layer, `geom_smooth(method = 'lm', se = F)` to the code. Notice that `method = 'lm'` tells the smoothed line to be a straight line (linear regression model).
-
-```{r}
-#| echo: true
+#| out-width: 60%
 ggplot(data = golf_data, 
        mapping = aes(x = Driving_Distance, 
                      y = Percent_Accuracy)
@@ -89,6 +51,32 @@ ggplot(data = golf_data,
   labs(x = "Driving Distance (yards)",  
        y = "Accuracy (%)") 
 ```
+
+1. Identify the following in context of the problem:
+
++ Observation:
+
+\vspace{0.5in}
+
++ Explanatory Variable (and data type):
+
+\vspace{0.5in}
+
++ Response Variable (and data type):
+
+\vspace{0.5in}
+
++ Population of Interest: 
+
+\vspace{0.5in}
+
++ Sample (and Sample Size):
+
+\vspace{0.5in}
+
+2. Based on the scatterplot above, does it appear that there is a relationship between driving distance and percent accuracy? Explain.
+
+\vspace{1.5in}
 
 3. Set up the null and alternative hypotheses for testing for an association using the slope:
 
@@ -124,39 +112,18 @@ golf_model |>
          p.value = scales::pvalue(p.value))
 ```
 
-5. Check the assumptions/conditions for using simple linear regression on our data:
+5. Check the LINE (Linearity, Independent Observations, Normality, and Equal Variance) conditions for using simple linear regression on our data:
 
 ```{r}
 #| echo: true
 #| fig-width: 9
 #| fig-height: 6
-library(easystats)
-check_model(golf_model)
+par(mfrow = c(2,2))
+plot(golf_model)
+par(mfrow = c(1,1))
 ```
 
-+ Independent observations: individual data points must be independent.
-  + Check this assumption by investigating the sampling method and determining if the observational units are related in any way.
-  
-\vspace{0.8in}
-
-+ Linearity: the data should follow a linear trend.
-  + Check this assumption by examining the scatterplot of the two variables, the relationship on the scatterplot should appear linear.
-  + Also see top right panel in the plot above.
-  
-\vspace{0.8in}
-
-+ Equal/Constant variability: the variability of points around the least squares line remains roughly constant
-  + Check this assumption by examining the scatterplot of the two variables, the variability in the points around the regression line should be approximately the same for all of the values of $x$. When I say the "variability in the points," I mean you should be looking at the **vertical** spread of the points.
-  + Also see middle left panel in the plot above.
-
-\vspace{0.8in}
-
-
-+ Normality: residuals must be nearly normal.
-  + Check this assumption by examining a histogram of the response variable ($y$). 
-  + Also see top and bottom left panels in the plot above.
-  
-\vspace{0.8in}
+\vspace{1.5in}
 
 6. Using the output from the code above, write the equation of the regression line in the context of the problem.
 
