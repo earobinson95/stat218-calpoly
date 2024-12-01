@@ -7,78 +7,86 @@ format:
 embed-resources: true
 ---
 
-## Monday, November 27th
+## Monday, December 2nd
 ### Today we will...
 
 + Ch. 9 Notes: EDA for two numeric variables
-  
-::: callout-warning
-### MONDAY OFFICE HOURS 
-Now 2pm - 3pm
-:::
 
 ## To do:
   
-+ **Homework 8: Squirrel Size**
-  + Due Thursday 11/30 at 11:59pm
++ **Lab 8: Soil Moisture and Early Growth Biomass for Strawberries**
+  + Due Tuesday 12/3 at 11:59pm
   
-+ **Project Checkpoint 2 (Histograms + Scatterplot?)**
-  + Due Friday 12/1 at 11:59pm
++ **P12: Group Project Checkpoint 2 (Histograms + Scatterplot)**
+  + Due Tuesday 12/3 at 11:59pm
+  
++ **Quiz 4: ANOVA** (On Canvas: 20 minutes + 1 attempt)
+  + Due Tuesday 12/3 at 11:59pm
 
-::: callout-warning
-### MONDAY OFFICE HOURS
-Now 2pm - 3pm.
-:::
-
-## Tuesday, November 28th
+## Tuesday, December 3rd
 ### Today we will...
 
 + Ch. 9 Notes: Introduce Simple Linear Regression
 
 ## To do:
 
-+ **Homework 8: Squirrel Size**
-  + Due Thursday 11/30 at 11:59pm
-  
-+ **Project Checkpoint 2 (Histograms + Scatterplot?)**
-  + Due Friday 12/1 at 11:59pm
-  
-+ **Study for Quiz 4: ANOVA**
-  + In class, Friday 12/1
-
-## Thursday, November 30th
-### Today we will...
-
-+ Lab 8: Soil Moisture and Early Growth Biomass for Strawberries
-
-## To do:
-
-+ **Homework 8: Squirrel Size**
-  + Due Thursday 11/30 at 11:59pm
-  
 + **Lab 8: Soil Moisture and Early Growth Biomass for Strawberries**
-  + Due Monday 12/4 at 11:59pm
+  + Due Tuesday 12/3 at 11:59pm
   
-+ **Project Checkpoint 2 (Histograms + Scatterplot?)**
-  + Due Friday 12/1 at 11:59pm
++ **P12: Group Project Checkpoint 2 (Histograms + Scatterplot)**
+  + Due Tuesday 12/3 at 11:59pm
   
-+ **Study for Quiz 4: ANOVA**
-  + In class, Friday 12/1
++ **Quiz 4: ANOVA** (On Canvas: 20 minutes + 1 attempt)
+  + Due Tuesday 12/3 at 11:59pm
 
-
-## Friday, December 1st
+## Thursday, December 5th
 ### Today we will...
 
-+ Quiz 4: ANOVA (~20 minutes)
++ Finish Ch. 9 Notes: Inference for Slope
++ Take Course Evaluation
 + Project work time
-  
+
 ## To do:
-  
-+ **Lab 8: Soil Moisture and Early Growth Biomass for Strawberries**
-  + Due Monday 12/4 at 11:59pm
-  
-+ **Project Checkpoint 2 (Histograms + Scatterplot?)**
-  + Due Friday 12/1 at 11:59pm
 
 + **Homework 9: Golf Driving Distances**
   + Optional for Practice on Linear Regression
+
++ **Take Course Evaluation** by Friday 12/6 at 11:59pm
+
++ **Study for Final Exam**
+  + Saturday 12/7 at 10:10am - 1pm
+  + Frost Center 181-0102 (Only water allowed)
+
++ **Final Project Submission**
+  + Due Wednesday 12/11 at 11:59pm
+  + Individual Reflection due Friday 12/13 at 11:59pm
+
+## Friday, December 6th
+### Today we will...
+
++ KaHoot Review
++ Grab a Doughnut-hole
++ Take Course Evaluation
++ Review/Project work time
+
+## Finals week office hours
+
++ Friday 12/3 at 1pm - 2:30pm
++ Saturday 12/4 at 8:30 - 9:30am
++ Pick 1 or 2? Monday, Tuesday, or Wednesday?
+  
+## To do:
+
++ **Homework 9: Golf Driving Distances**
+  + Optional for Practice on Linear Regression
+
++ **Take Course Evaluation** by Friday 12/6 at 11:59pm
+
++ **Study for Final Exam**
+  + Saturday 12/7 at 10:10am - 1pm
+  + Frost Center 181-0102 (Only water allowed)
+
++ **Final Project Submission**
+  + Due Wednesday 12/11 at 11:59pm
+  + Individual Reflection due Friday 12/13 at 11:59pm
+
