@@ -43,6 +43,7 @@ embed-resources: true
 ### Today we will...
 
 + Finish Ch. 9 Notes: Inference for Slope
++ CANCEL POSIT CLOUD SUBSCRIPTION!
 + Take Course Evaluation
 + Project work time
 
@@ -66,6 +67,7 @@ embed-resources: true
 
 + KaHoot Review
 + Grab a Doughnut-hole
++ CANCEL POSIT CLOUD SUBSCRIPTION!
 + Take Course Evaluation
 + Review/Project work time
 
