@@ -26,7 +26,24 @@ embed-resources: true
 ## Tuesday, December 3rd
 ### Today we will...
 
-+ Ch. 9 Notes: Introduce Simple Linear Regression
++ Tips for final project
++ Finish Ch. 9 Notes: Inference for Slope
+
+## Final Project {.scrollable}
+
+Write in sentence + paragraph form!
+
++ Data Description
+  + Source of data (not just CORGIS)
+  + Observational unit + variables (general)
+  + Your why.
+  + 2 numeric variables -- units + how were they measured?
+  + Which is explanatory and which is response.
+  + Expected relationship.
++ Use context and units when describing the plots.
++ Edit the section headers (`## Scatterplot between EXPLANATORY VARIABLE and RESPONSE VARIABLE`).
+
+If you have "weird points" (e.g., an Age < 0), talk to Dr. Robinson about filtering it out.
 
 ## To do:
 
@@ -42,7 +59,6 @@ embed-resources: true
 ## Thursday, December 5th
 ### Today we will...
 
-+ Finish Ch. 9 Notes: Inference for Slope
 + CANCEL POSIT CLOUD SUBSCRIPTION!
 + Take Course Evaluation
 + Project work time
