@@ -87,7 +87,7 @@ $$X^2 = \sum{\frac{(Observed - Expected)^2}{Expected}}$$
 
 - **Expected Counts**:
   - For **Goodness-of-Fit**: Based on a known or "status quo" distribution.
-  - For **Independence Test**: Based on row and column totals from the contingency table.
+  - For **Independence Test**: Based on marginal totals from the contingency table.
   
 ## Simulation vs Theory Based
 
@@ -96,8 +96,8 @@ $$X^2 = \sum{\frac{(Observed - Expected)^2}{Expected}}$$
 + `simulate.p.value = TRUE`
 
 **Theory:** Uses the chi-square distribution to approximate the simulated null distribution.
-
 + Degrees of Freedom:
+
   + Goodness-of-Fit: $\text{# categories} - 1$
   + Independence: $(\text{# categories explanatory} - 1)(\text{# categories response} - 1)$
 + Requires conditions: Large sample sizes (expected counts > 5)
@@ -117,7 +117,7 @@ $$X^2 = \sum{\frac{(Observed - Expected)^2}{Expected}}$$
 ## Common Misconceptions
 
 - **Misconception**: "Test of independence is for small sample sizes."
-  - **Clarification**: If using the chi-square distribution, both tests require sufficiently large expected counts in each category (commonly at least 5).
+  - **Clarification**: Both tests require sufficiently large expected counts in each category (commonly at least 5).
 
 ## To do:
 
