@@ -22,20 +22,30 @@ execute:
   echo: false
 ---
 
-Data is a set of *variables* that capture various aspects of the world. It also contains *observations* over those variables.
+::: callout-note
++ **Why statistics?** To separate real patterns from coincidence and bias.
++ **What we use:** variables, observations, study designs, and models (often starting with a “just-by-chance” model).
++ **How we’ll practice today:** two short investigations (one about an arson case, one about “Bouba/Kiki”) to build intuition for variability, simulation, and evidence.
 
-## Example 0.1: Question the Arson `r fontawesome::fa("fire")`
+In the next chapter, we’ll pause to put names to these ideas (e.g., population, sample, variable, data type) so we can describe our investigations more precisely.
+:::
+
+## Example 0.1: Question the Arson
 
 <!-- https://www.sanluisobispo.com/news/local/crime/article278322808.html -->
 
-I am a detective in San Luis Obispo, California, and everyone in this room is a suspect in the three fires that have been set in the last 6 weeks. I have called all of you in for questioning. Given are 16 questions I want you to answer about these fires. Please answer all 16 questions.
+I am a detective in San Luis Obispo, California, and everyone in this room is a suspect in the three fires that have been set in the last 6 weeks.
 
 ```{r}
 #| fig-align: center
-#| out-width: 45%
+#| out-width: 60%
 #| fig-pos: "H"
 knitr::include_graphics("00-images/star-tribune-arson.png")
 ```
+
+I have called all of you in for questioning. Given are 16 questions I want you to answer about these fires. Please answer all 16 questions.
+
+\newpage
 
 -   One of the fires was started using gasoline. \hfill T \hspace{0.2in} F
 -   Matches were used to set the fires. \hfill T \hspace{0.2in} F
@@ -59,11 +69,11 @@ Before we look at results, let's discuss some predictions first! With your neigh
 
 1.  If you are not the criminal, how many questions would you expect to get correct?
 
-\vspace{0.25in}
+\vspace{0.5in}
 
 2.  If you are the criminal, how many questions would you expect to get correct?
 
-\vspace{0.25in}
+\vspace{0.5in}
 
 Let's see how everyone did!
 
@@ -71,7 +81,12 @@ Let's see how everyone did!
 
 The suspect convicted of the crime was found to have answered 13 of the 16 questions correct. The plot on the left displays the results from the convicted arson suspect. Sketch your results in the plot on the right.
 
-![](00-images/arson-sketch.png)
+```{r}
+#| fig-align: center
+#| out-width: 70%
+#| fig-pos: "H"
+knitr::include_graphics("00-images/arson-sketch.png")
+```
 
 3.  How do your results compare to the convicted suspect's results? How about the other suspects (i.e., your neighbor's) results?
 
@@ -79,7 +94,7 @@ The suspect convicted of the crime was found to have answered 13 of the 16 quest
 
 4.  Are you convinced the arson suspect was rightfully convicted?
 
-\vspace{0.25in}
+\vspace{0.3in}
 
 5.  How would your answer change if the convicted arson suspect answered...
 
@@ -200,7 +215,7 @@ Carry out the simulation study 100 times overall, keeping track of the probabili
 
 17. Does this activity provide evidence that students were not just guessing at random? If so, what do you think is going on here? Can we as class read Martian?
 
-\vspace{0.5in}
+\vspace{0.8in}
 
 ::: callout
 ## TED Talk: 3 Clues to Understanding Your Brain by Vilayanur Ramachandran (2007)
