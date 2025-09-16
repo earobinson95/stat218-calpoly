@@ -62,19 +62,19 @@ knitr::include_graphics("01-images//population-sample.png")
 
 -   Population of interest:
 
-\vspace{0.3in}
+\vspace{0.5in}
 
 -   Sample:
 
-\vspace{1.2in}
+\vspace{0.5in}
 
 -   Variable of interest:
 
-\vspace{0.3in}
+\vspace{0.2in}
 
 -   Data type:
 
-\vspace{0.3in}
+\vspace{0.2in}
 
 2. Suppose we were interested in whether all Cal Poly students could speak Martian. What would change from your answers above?
 
@@ -127,7 +127,7 @@ tidyr::tibble("Student" = rep(seq(1,35)),
 
 \newpage
 
-There might be extra variables collected on each observation and included in the data set than just our variable of interest. For example, we might have collected the `age`, `major`, `dorm`, and `height` of the student.
+There might be extra variables collected on each observation and included in the data set than just our variable of interest. For example, we might have collected the `age` of the student.
 
 ```{r}
 set.seed(56156)
@@ -137,12 +137,11 @@ tidyr::tibble("Student" = rep(seq(1,35)),
        "Major" = sample(c("Biological Sciences", "Microbiology", "Biochemistry", 
                           "Kinesiology", "Nutrition", "Animal Science", 
                           "Dairy Science", "Marine Sciences", 
-                          "Environmental Management & Protection", 
-                          "Food Science", "Psychology", "Statistics"), 
+                          "Food Science"), 
                         35, replace = TRUE),
        "Dorm" = sample(c("Yosemite", "Sequoia", "Tenaya", "Trinity", "Fremont", 
                          "Sierra Madre", "Muir", "Lassen", "Shasta", 
-                         "Poly Canyon Village", "Cerro Vista", "yakʔitʸutʸu"), 
+                         "PCV", "Cerro Vista", "yakʔitʸutʸu"), 
                        35, replace = TRUE),
        "Height (in)" = round(rnorm(35, 67, 8), 1)
        ) |> 
@@ -169,12 +168,14 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 1. Why was it important for the researchers to balance out the color, shape, and order of the toys across the study? For example, how would the study results have been affected if the researchers always made the helper toy a blue circle and the hinderer a yellow triangle?
 
-\vspace{0.8in}
+\vspace{1.2in}
 
 ::: callout-note
 ## DEFINITION
 **Confounding Variable:** characteristics other than the variable of interest (e.g., helper/hinderer) that may be related to the outcome (e.g., choice).
 :::
+
+\newpage
 
 2. Identify the following in the context of this example:
 
@@ -193,8 +194,6 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 + Data type:
 
 \vspace{0.3in}
-
-\newpage
 
 + How would you store this information in tidy data format? Think about what your rows and columns represent.
 
