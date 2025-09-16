@@ -47,22 +47,22 @@ I have called all of you in for questioning. Given are 16 questions I want you t
 
 \newpage
 
--   One of the fires was started using gasoline. \hfill T \hspace{0.2in} F
--   Matches were used to set the fires. \hfill T \hspace{0.2in} F
--   The trash was on the curb in front of the first house that caught on fire. \hfill T \hspace{0.2in} F
--   There was a doghouse in the backyard at the scene of the second fire. \hfill T \hspace{0.2in} F
--   The residence of the third fire had off-street parking. \hfill T \hspace{0.2in} F
--   The second residence had a screened porch. \hfill T \hspace{0.2in} F
--   The suspected entered the first residence through the kitchen window. \hfill T \hspace{0.2in} F
--   The suspect left a flashlight behind at the scene of the second fire. \hfill T \hspace{0.2in} F
--   All three fires took place on Tuesdays. \hfill T \hspace{0.2in} F
--   The porch light was on at the residence where the first fire took place. \hfill T \hspace{0.2in} F
--   The third fire was started in the garage. \hfill T \hspace{0.2in} F
--   There was a dog barking at the house next door to the third fire. \hfill T \hspace{0.2in} F
--   The suspect wore work boots at the scene of the first fire. \hfill T \hspace{0.2in} F
--   The home security system was triggered when the suspect fled the scene \newline of the third fire. \hfill T \hspace{0.2in} F
--   The lock on the back door at the first residence was broken. \hfill T \hspace{0.2in} F
--   Multiple fires were set at the second residence. \hfill T \hspace{0.2in} F
+(1)   One of the fires was started using gasoline. \hfill T \hspace{0.2in} F
+(2)   Matches were used to set the fires. \hfill T \hspace{0.2in} F
+(3)   The trash was on the curb in front of the first house that caught on fire. \hfill T \hspace{0.2in} F
+(4)   There was a doghouse in the backyard at the scene of the second fire. \hfill T \hspace{0.2in} F
+(5)   The residence of the third fire had off-street parking. \hfill T \hspace{0.2in} F
+(6)   The second residence had a screened porch. \hfill T \hspace{0.2in} F
+(7)   The suspected entered the first residence through the kitchen window. \hfill T \hspace{0.2in} F
+(8)   The suspect left a flashlight behind at the scene of the second fire. \hfill T \hspace{0.2in} F
+(9)   All three fires took place on Tuesdays. \hfill T \hspace{0.2in} F
+(10)  The porch light was on at the residence where the first fire took place. \hfill T \hspace{0.2in} F
+(11)  The third fire was started in the garage. \hfill T \hspace{0.2in} F
+(12)  There was a dog barking at the house next door to the third fire. \hfill T \hspace{0.2in} F
+(13)  The suspect wore work boots at the scene of the first fire. \hfill T \hspace{0.2in} F
+(14)  The home security system was triggered when the suspect fled the scene \newline of the third fire. \hfill T \hspace{0.2in} F
+(15)  The lock on the back door at the first residence was broken. \hfill T \hspace{0.2in} F
+(16)  Multiple fires were set at the second residence. \hfill T \hspace{0.2in} F
 
 
 Before we look at results, let's discuss some predictions first! With your neighbors, discuss the following questions.
