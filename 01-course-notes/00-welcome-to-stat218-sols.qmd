@@ -1,0 +1,296 @@
+---
+title: "Chapter 0: Welcome to Stat 218 - Applied Statistics for Life Science"
+format: 
+  html:
+    toc: true
+  pdf:
+    keep-tex: false
+    include-in-header:
+      text: |
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[R]{Chapter 0: Welcome to Stat 218 - Applied Statistics for Life Science}
+          \fancyfoot[C]{\thepage}
+  # docx:
+  #   toc: false
+prefer-html: true
+embed-resources: true
+bibliography: references.bib
+reference-location: section
+execute:
+  echo: false
+---
+
+::: callout-note
++ **Why statistics?** To separate real patterns from coincidence and bias.
++ **What we use:** variables, observations, study designs, and models (often starting with a “just-by-chance” model).
++ **How we’ll practice today:** two short investigations (one about an arson case, one about “Bouba/Kiki”) to build intuition for variability, simulation, and evidence.
+
+In the next chapter, we’ll pause to put names to these ideas (e.g., population, sample, variable, data type) so we can describe our investigations more precisely.
+:::
+
+## Example 0.1: Question the Arson
+
+<!-- https://www.sanluisobispo.com/news/local/crime/article278322808.html -->
+
+I am a detective in San Luis Obispo, California, and everyone in this room is a suspect in the three fires that have been set in the last 6 weeks.
+
+```{r}
+#| fig-align: center
+#| out-width: 60%
+#| fig-pos: "H"
+knitr::include_graphics("00-images/star-tribune-arson.png")
+```
+
+I have called all of you in for questioning. Given are 16 questions I want you to answer about these fires. Please answer all 16 questions.
+
+\newpage
+
+(1)   One of the fires was started using gasoline. \hfill T \hspace{0.2in} F
+(2)   Matches were used to set the fires. \hfill T \hspace{0.2in} F
+(3)   The trash was on the curb in front of the first house that caught on fire. \hfill T \hspace{0.2in} F
+(4)   There was a doghouse in the backyard at the scene of the second fire. \hfill T \hspace{0.2in} F
+(5)   The residence of the third fire had off-street parking. \hfill T \hspace{0.2in} F
+(6)   The second residence had a screened porch. \hfill T \hspace{0.2in} F
+(7)   The suspected entered the first residence through the kitchen window. \hfill T \hspace{0.2in} F
+(8)   The suspect left a flashlight behind at the scene of the second fire. \hfill T \hspace{0.2in} F
+(9)   All three fires took place on Tuesdays. \hfill T \hspace{0.2in} F
+(10)  The porch light was on at the residence where the first fire took place. \hfill T \hspace{0.2in} F
+(11)  The third fire was started in the garage. \hfill T \hspace{0.2in} F
+(12)  There was a dog barking at the house next door to the third fire. \hfill T \hspace{0.2in} F
+(13)  The suspect wore work boots at the scene of the first fire. \hfill T \hspace{0.2in} F
+(14)  The home security system was triggered when the suspect fled the scene \newline of the third fire. \hfill T \hspace{0.2in} F
+(15)  The lock on the back door at the first residence was broken. \hfill T \hspace{0.2in} F
+(16)  Multiple fires were set at the second residence. \hfill T \hspace{0.2in} F
+
+
+Before we look at results, let's discuss some predictions first! With your neighbors, discuss the following questions.
+
+1.  If you are not the criminal, how many questions would you expect to get correct?
+
+<span style="color:blue;">Just guessing with two outcomes (Correct / Incorrect) and equal probability implies we would expect 50% correct. Thus, expect 8 out of 16 correct.</span>
+
+2.  If you are the criminal, how many questions would you expect to get correct?
+
+<span style="color:blue;">Assuming they are honest and a perfect memory, they might know something and we would expect 16/16 correct.</span>
+
+Let's see how everyone did!
+
+\newpage
+
+The suspect convicted of the crime was found to have answered 13 of the 16 questions correct. The plot on the left displays the results from the convicted arson suspect. Sketch your results in the plot on the right.
+
+<span style="color:blue;">This is a stacked bar plot where the height of the bar indicates how many questions were correct for the convicted suspect and for you. The colors indicate the response category -- Correct or Incorrect.</span>
+
+```{r}
+#| fig-align: center
+#| out-width: 70%
+#| fig-pos: "H"
+knitr::include_graphics("00-images/arson-sketch-sols.png")
+```
+
+3.  How do your results compare to the convicted suspect's results? How about the other suspects (i.e., your neighbor's) results?
+
+<span style="color:blue;">My neighbors and I were much closer to 50% correct (e.g., 6, 7, 8, 9 correct) than the convicted suspect.</span>
+
+4.  Are you convinced the arson suspect was rightfully convicted?
+
+<span style="color:blue;">Ehh, maybe. Nobody "guessed" **13 or more** correct. </span>
+
+5.  How would your answer change if the convicted arson suspect answered...
+
+-   15 correct? <span style="color:blue;">Probably convinced. 15 correct is unusual!</span>
+
+\vspace{0.2in}
+
+-   10 correct? <span style="color:blue;">They could be just guessing. A handful of students "guessed" **10 or more** correct.</span>
+
+\vspace{0.2in}
+
+-   0 correct? <span style="color:blue;">This is suspicious!</span>
+
+\newpage
+
+## Example 0.2: Can our class speak Martian?
+
+When shown the two Martian letters, Kiki and Bouba, write down whether you think Bouba is on the left or on the right.
+
+```{r}
+#| out-width: 70%
+#| fig-align: center
+knitr::include_graphics("00-images/bouba-kiki.png")
+```
+
+
+
+1.  Were you correct or incorrect in identifying Bouba?
+
+<span style="color:blue;">Bouba is on the right!</span>
+
+2.  How many students are in class today?
+
+<span style="color:blue;">n = 36 students in class.</span>
+
+3.  How many students in the entire class were correct in identifying Bouba?(Sketch the *observed* class results in Q10)
+
+<span style="color:blue;">There were 30 students correct in identify Bouba on the right.</span>
+
+4.  If we really don't know Martian and are just guessing which is Bouba, how many students would you *expect* to choose Bouba correctly? Explain your reasoning.
+
+<span style="color:blue;">We would expect 50% (two outcomes -- correct/incorrect with equal probability) of 36, thus expect 18 students correct *if just guessing*</span>
+
+5.  How could we use a coin to simulate each student "just guessing" which Martian letter is Bouba?
+
+<span style="color:blue;">Flip the coin once (Heads = correctly identify Bouba; Tails = incorrectly identify Bouba)</span>
+
+6.  How could we use coins to simulate the entire class "just guessing" which Martian letter is Bouba?
+
+<span style="color:blue;">Everyone flip their coin and count up (i.e., aggregate) the results.</span>
+
+7.  Each student will flip a coin one time to simulate your "guess" under the assumption that we can't read Martian. (Let Heads = correct, Tails = incorrect).
+
+\vspace{0.1in}
+
+-   What was the result of your one simulation?
+
+<span style="color:blue;">If heads -- correct!</span>
+
+-   How many students "guessed" correctly in the first class simulation? (Sketch your results in Q10)
+
+<span style="color:blue;">21/36 correct</span>
+
+8.  Each student should flip their coin again. How many students "guessed" correctly in the second class simulation? (Sketch your results in Q10)
+
+<span style="color:blue;">18/36 correct</span>
+
+9.  Let's flip our coins one more time. How many students "guessed" correctly in the third class simulation? (Sketch your results in Q10)
+
+<span style="color:blue;">17/36 correct</span>
+
+10. Sketch the observed class results and the three simulated "guessing" class results.
+
+![](00-images/martian-sketch-sols.png)
+
+11. How do the **observed** class results compare to the simulated guessing classes results?
+
+<span style="color:blue;">The observed class results have a lot more students who were correct in identifying Bouba than the simulated "just guessing" class results.</span>
+
+\newpage
+
+12. Let's display our results in a different type of graph. Create a *dot-plot* to display the results of the three simulations compared to the observed class results.
+
+```{r}
+#| fig-align: center
+#| out-width: 80%
+knitr::include_graphics("00-images/martian-dotplot-sols.png")
+```
+
+We still only have a few simulations to compare our class data to. It would be much better to be able to see how our class compared to hundreds or thousands of "just-guessing" classes. Since we don't want to flip coins all class period, we will use a computer simulation (`Canvas > Online Simulation Applets > One proportion inference`) to get 100 "random guessing" statistics.
+
+13. Carry out the applet simulation. Note that you should consider the following questions when designing your simulation study:
+
+-   What are the two possible outcomes on each of the trials? <span style="color:blue;">Correct / Incorrect</span>
+-   What is the probability that a Bouba is accurately identified under the assumption that we are "just-guessing"? Change your `Probability of heads` accordingly.
+
+> Probability of heads: <span style="color:blue;">0.5 -> 50%</span>
+
+-   How many students were there in this study? Keep this value in mind when setting the `Number of tosses` value.
+
+> Number of tosses: <span style="color:blue;">36 correct</span>
+
+Carry out the simulation study 100 times overall, keeping track of the probability of employees chosen for management that were female on each of the simulated experiments. Sketch the 100 simulated "guessing" class results on the dot-plot in Q12.
+
+> Number of repetitions: <span style="color:blue;">100 correct</span>
+
+\newpage
+
+14. Is your class particularly good or bad at Martian? Use the plot above to explain your answer.
+
+<span style="color:blue;">We appear to be better than "just guessing" since our class observed results (30/36 correct) are noticably higher than the simulated class results. They are "unusual" compared to what we would *expect.*</span>
+
+15. Is it *possible* that we could see our class results just by chance if everyone was just guessing? Explain your reasoning.
+
+<span style="color:blue;">I suppose it is *possible* to get 30/36 correct if "just guessing".</span>
+
+16. Is it *likely* that we could see our class results just by chance if everyone was just guessing? Explain your reasoning.
+
+<span style="color:blue;">No, it is not "likely" to see 30/36 correct because we never saw results as extreme as those observed in our class simulations *under the assumption we were "just guessing"*.</span>
+
+17. Does this activity provide evidence that students were not just guessing at random? If so, what do you think is going on here? Can we as class read Martian?
+
+<span style="color:blue;">Since our observed results are "unusual" compared to what we expected, we have evidence to conclude that students were not just guessing at random.</span>
+
+::: callout
+## TED Talk: 3 Clues to Understanding Your Brain by Vilayanur Ramachandran (2007)
+
+The synesthesia part begins at roughly 17:30 minutes: <https://www.ted.com/talks/vs_ramachandran_3_clues_to_understanding_your_brain>
+:::
+
+<!-- ## Lab Days: Working in Teams `r fontawesome::fa("people-group")` -->
+
+<!-- Working in teams is beneficial for every student, but only if each person meaningfully engages in the discussions being had. Each of you will work in a group of 3-4 students to discuss the course concepts and complete the course activities and labs. -->
+
+<!-- To ensure the group's work is divided equitably each week, your team will be rotating through a set of group roles. This ensures one person doesn't act as the group leader for multiple class sessions, while someone else is always the note taker. You will circulate through the following roles each week: -->
+
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- | Role                                  | Responsibilities                                    | -->
+<!-- +=======================================+=====================================================+ -->
+<!-- | **Facilitator**                       | Responsible for organizing the team work: making    | -->
+<!-- |                                       |                                                     | -->
+<!-- | *Manages team progress through tasks* | sure all roles were assigned and clear, scheduling  | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | meetings, coordinating, leading discussion of       | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | assignment problems.                                | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- |                                       |                                                     | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- | **Recorder**                          | Responsible to make sure everyone is recording      | -->
+<!-- |                                       |                                                     | -->
+<!-- | *Manages communications*              | ideas. In lab assignments, responsible for          | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | collecting, organizing, and recording answers to    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | the assignment during the discussions, compiling    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | the summary of the answers discussed, soliciting    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | feedback on summaries from other group              | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | members, and submitting the final version of the    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | lab assignment.                                     | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- |                                       |                                                     | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- | **Resource Manager**                  | Responsible for pulling up course notes and other   | -->
+<!-- |                                       |                                                     | -->
+<!-- | *Manages team resources*              | useful resources (e.g., R note cards, applets,      | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | homework assignments, etc.). Contacts               | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | professor/TA for *group questions only*. Ensures    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | everyone understands team questions. Collects       | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | team supplies and organizes clean-up.               | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- |                                       |                                                     | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+<!-- | **Team Captain**                      | Responsible for making sure everyone has a          | -->
+<!-- |                                       |                                                     | -->
+<!-- | *Manages team participation*          | chance to contribute, asking quiet team members     | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | to speak up, asking loud team members to listen     | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | to others, and bringing the conversation back to    | -->
+<!-- |                                       |                                                     | -->
+<!-- |                                       | the lab assignment if it deviates.                  | -->
+<!-- +---------------------------------------+-----------------------------------------------------+ -->
+
+<!-- If you are in a group of *three*, the Facilitator also acts as the Team Captain\*. -->
+
+<!-- 1.  Please find your team members and introduce yourself by sharing something about your name. -->
+
+<!-- \vspace{0.1in} -->
