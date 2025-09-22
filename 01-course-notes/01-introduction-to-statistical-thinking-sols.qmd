@@ -14,8 +14,8 @@ format:
           \fancyhf{}
           \fancyhead[R]{Chapter 1: Introduction to Statistical Thinking and Data}
           \fancyfoot[C]{\thepage}
-  docx:
-    toc: false
+  # docx:
+  #   toc: false
 bibliography: references.bib
 reference-location: section
 execute:
@@ -27,17 +27,17 @@ In the previous notes, we encountered basic examples that required us to think s
 ::: callout-note
 ## DEFINITIONS
 
--   **Statistics:**
+-   **Statistics:** <span style="color:blue;">The study of how to collect, analyze, and draw conclusions from data.</span>
 
 \vspace{0.25in}
 
--   **Categorical (or qualitative) data:** Measurements that are classified into one of a group of categories.
+-   **Categorical (or qualitative) data:** Measurements that are classified into one of a group of categories. <span style="color:blue;">correct/incorrect, hair color, etc.</span>
 
--   **Numerical (or quantitative) data:** Measurements that are recorded on a naturally occurring numerical scale.
+-   **Numerical (or quantitative) data:** Measurements that are recorded on a naturally occurring numerical scale. <span style="color:blue;">height, speed, etc.</span>
 
 Most of what we'll be doing in this course centers on trying to understand a set of information. This set of information is from a...
 
--   **Population:** The complete collection of ALL elements that are of interest for a given problem.
+-   **Population:** The complete collection of ALL **elements** that are of interest for a given problem. <span style="color:blue;">Not necessarily people (subjects)</span>
 
 The population is often so big that obtaining all information about its elements is either difficult or impossible. So, we work with a more manageable set of data that we obtain from a...
 
@@ -55,34 +55,36 @@ knitr::include_graphics("01-images//population-sample.png")
 ```
 :::
 
+<span style="color:blue;">Notice it is hard to collect ALL elements in the population, thus we take a subset of elements (n = 10) and measure variables (e.g., hair color, height) on each observational unit in the sample.</span>
+
 ## Revisit Example 0.2: Can our class speak Martian?
 
 
 1. Identify the following in the context of this example:
 
--   Population of interest:
+-   Population of interest: <span style="color:blue;">All students enrolled in Stat 218 section xx at Cal Poly</span>
 
 \vspace{0.5in}
 
--   Sample:
+-   Sample: <span style="color:blue;">n = 36 students in class that day</span>
 
 \vspace{0.5in}
 
--   Variable of interest:
+-   Variable of interest: <span style="color:blue;">Outcome</span>
 
 \vspace{0.2in}
 
--   Data type:
+-   Data type: <span style="color:blue;">Categorical (correct/incorrect)</span>
 
 \vspace{0.2in}
 
 2. Suppose we were interested in whether all Cal Poly students could speak Martian. What would change from your answers above?
 
-\vspace{0.5in}
+<span style="color:blue;">The population is now all students enrolled at Cal Poly, not just our class.</span>
 
 3. What might be concerning about our sample if we wanted to know if all Cal Poly students could speak Martian?
 
-\vspace{0.5in}
+<span style="color:blue;">Students in our Stat 218 class might not be *representative* of all students at Cal Poly (e.g., maybe Life Science majors have something that makes them speak martian).</span>
 
 ::: callout-note
 ## DEFINITIONS
@@ -153,8 +155,9 @@ tidyr::tibble("Student" = rep(seq(1,35)),
 
 4. Identify each of the variables contained in the data set above and determine whether the variable contains measurements of categorical or numeric data types.
 
-\vspace{0.8in}
+<span style="color:blue;">Student (technically this ID's our observational unit, categorical), Outcome (this is our response of interest, categorical), Age (numeric), Major (categorical), Dorm (categorical), Height (numeric)</span>
 
+<span style="color:blue;">Note that the number of correct is not a variable, this counts up and summarizes the sample. Similarly, the average age is not a legit variable as this summarizes the variable age in our sample.</span>
 
 ## Example 1.1: Helper vs. Hinderer?
 
@@ -168,7 +171,7 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 1. Why was it important for the researchers to balance out the color, shape, and order of the toys across the study? For example, how would the study results have been affected if the researchers always made the helper toy a blue circle and the hinderer a yellow triangle?
 
-\vspace{1.2in}
+<span style="color:blue;">Eliminate biaws in the results. We want to narrow the conlcusion to say the helper/hinderer rather than an an infants' preference for say red or the right side.</span>
 
 ::: callout-note
 ## DEFINITION
@@ -179,19 +182,19 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 2. Identify the following in the context of this example:
 
-+ Population of interest:
++ Population of interest: <span style="color:blue;">ALL 10-month old infants</span>
 
 \vspace{0.3in}
 
-+ Sample:
++ Sample: <span style="color:blue;">n = 16 10-month olds in the study (note: the observational unit is one 10-month old)</span>
 
 \vspace{1.2in}
 
-+ Variable of interest:
++ Variable of interest: <span style="color:blue;">Choice</span>
 
 \vspace{0.3in}
 
-+ Data type:
++ Data type: <span style="color:blue;">Categorical --  (helper/hinderer)</span>
 
 \vspace{0.3in}
 
@@ -199,9 +202,10 @@ In a study reported in a November 2007 issue of Nature, researchers investigated
 
 ```{r}
 #| fig-pos: "H"
+set.seed(56156)
 options(knitr.kable.NA = '')
-tidyr::tibble("____________" = rep(NA, 16),
-       "_____________" = rep(NA, 16)
+tidyr::tibble("Infant" = 1:16,
+       "Choice" = sample(c("Helper", "Hinderer"), 16, replace = T)
        ) |> 
   knitr::kable() # |> 
   # kableExtra::kable_classic() |> 
@@ -212,37 +216,41 @@ tidyr::tibble("____________" = rep(NA, 16),
 
 4. Recall that this study involves 16 infants.  If the population of all 10-month-old infants has no real preference for one toy over the other, how many infants do you expect to choose the helper toy?  Explain.
 
-\vspace{0.5in}
+<span style="color:blue;">Expect 8 out of 16 (50% chance of selecting helper if no preference)</span>
 
 5. Suppose that 10 out of 16 infants choose the helper toy (62.5%). Since this value is higher than 50%, a researcher argues that these data show that the majority of all 10-month-old infants would choose the helper toy. What is wrong with their reasoning?
 
-\vspace{0.7in}
+<span style="color:blue;">Although 62.5% is higher than 50%, the researchers should conduct a simulation study to determine what results could have happened if there was no preference.</span>
 
 Once again, the key question is how to determine whether the study’s result is surprising under the assumption that there is no real preference for one toy over the other in the population of all 10-month-old infants. To answer this, we will simulate the process of 16 infants simply choosing a toy at random, over and over again. Each time we simulate the process, we’ll keep track of how many infants out of the 16 chose the helper toy (note that you could also keep track of the number that chose the hinderer toy). Once we’ve repeated this process a large number of times, we’ll have a pretty good sense for what outcomes would be very surprising, somewhat surprising, or not so surprising if the population of all 10-month-old infants has no real preference.
 
 Carry out the simulation via the `Online Simulation Applets > One Proportion Inference`. Note that you should consider the following questions when designing your simulation study:
 
-+ What are the two possible outcomes on each of the trials?
-+ What is the probability that the helper is selected under the assumption that the population of all 10-month-old infants has no real preference for either toy?  Change your `Probability of heads` accordingly.
-+ How many infants were used in this study?  Keep this value in mind when setting the `Number of tosses` value.
++ What are the two possible outcomes on each of the trials? <span style="color:blue;">Helper/Hinderer</span>
++ What is the probability that the helper is selected under the assumption that the population of all 10-month-old infants has no real preference for either toy?  Change your `Probability of heads` accordingly.  <span style="color:blue;">0.5</span>
++ How many infants were used in this study?  Keep this value in mind when setting the `Number of tosses` value.  <span style="color:blue;">n = 16</span>
 
 Carry out the simulation study 100 times overall, keeping track of the number of infants that choose the helper toy in each of the simulated experiments.  Sketch in your results below:
 
 ```{r}
 #| fig-align: center
 #| out-width: 60%
-knitr::include_graphics("01-images/helper-hinderer-applet-graph.png")
+knitr::include_graphics("02-images/helper-hinderer-sim.png")
 ```
+
+ <span style="color:blue;">Notice, most simulated sets had 8 out of 16 choose the helper.</span>
 
 6.	What does each dot on this plot represent?
 
-\vspace{0.5in}
+ <span style="color:blue;">One set of simulated 16 10-month olds under the assumption there is no preference. (Note: there are 100 of these sets!)</span>
 
 7.	Suppose that in the actual study 10 out of 16 infants chose the helper toy. Would this convince you that the majority of the population of all 10-month-old infants had a preference for the helper toy?  Why or why not?
 
-\vspace{0.7in}
+ <span style="color:blue;">Since 10 out of 16 is consistent with the results from our simulation study, we are not convinced that a majority of the population of all 10-month old infants have a preference for the helper toy.</span>
 
 8.	The actual study results are as follows: 14 out of 16 infants chose the helper toy. Mark this on the axis above the results of your simulations study.  Based on this statistical investigation, what should the researchers conclude? Recall that their research question was stated as follows:  Do 10-month-old infants tend to *prefer* the helper toy over the hinderer toy?
+
+ <span style="color:blue;">Since 14 out of 16 infants is in the tail end of our simulated distribution, we are convinced that a majority of the population of all 10-month old infants have a preference for helper toy.</span>
 
 \vspace{0.5in}
 
@@ -260,19 +268,19 @@ The large employee pool that can be tapped for management training is 60% women 
 
 1.	Identify the following in the context of this example:
 
-+ Population of interest:
++ Population of interest:  <span style="color:blue;">ALL employees who will be in the management program at this supermarket chain (i.e., think of this program going on for years and years).</span>
 
 \vspace{0.5in}
 
-+ Sample:
++ Sample:  <span style="color:blue;">n = 20 employees selected for training</span>
 
 \vspace{1.2in}
 
-+ Variable of interest:
++ Variable of interest:  <span style="color:blue;">sex of employee</span>
 
 \vspace{0.5in}
 
-+ Data type:
++ Data type:  <span style="color:blue;">categorical (man/woman)</span>
 
 \vspace{0.5in}
 
@@ -282,38 +290,42 @@ The large employee pool that can be tapped for management training is 60% women 
 ```{r}
 #| fig-align: center
 #| out-width: 75%
-knitr::include_graphics("01-images/women-managerial-training-sketc.png")
+knitr::include_graphics("01-images/women-managerial-training-sketc-sols.png")
 ```
 
 3.	If the selection process was unbiased, how many of the 20 employees selected for management do you expect to be women?  Explain.
 
-\vspace{0.5in}
+ <span style="color:blue;">0.60*20 = expect 12 employees selected for management training to be women. Note that employees for the program are selected from the larger employee pool where 60% are women and 40% are men. If the process is fair, there should be 60% women in the program and 40% men to match the random chance of being selected from the large pool.</span>
 
 Once again, the key question is how to determine whether the result is surprising under the assumption that the selection process is unbiased. To answer this, we will simulate the process of an unbiased selection process, over and over again. Each time we simulate the process, we’ll keep track of how many of the 20 employees selected for management were women. Once we’ve repeated this process a large number of times, we’ll have a pretty good sense for what outcomes would be very surprising, somewhat surprising, or not so surprising if there was no discrimination in the selection process.
 
 Carry out the applet simulation.  Note that you should consider the following questions when designing your simulation study:
 
-+ What are the two possible outcomes on each of the trials?
-+ What is the probability that a woman is selected for a managerial position under the assumption that there is no sex discrimination in the selection process?  Change your `Probability of heads` accordingly.
-+ How many subjects were there in this study?  Keep this value in mind when setting the `Number of tosses` value.
++ What are the two possible outcomes on each of the trials?  <span style="color:blue;">man/woman</span>
++ What is the probability that a woman is selected for a managerial position under the assumption that there is no sex discrimination in the selection process?  Change your `Probability of heads` accordingly.  <span style="color:blue;">0.6</span> 
++ How many subjects were there in this study?  Keep this value in mind when setting the `Number of tosses` value. <span style="color:blue;">n = 20</span>
 
 Carry out the simulation study 1000 times overall, keeping track of the probability of employees chosen for management that were women on each of the simulated experiments.  Sketch in your results below:
 
 ```{r}
 #| fig-align: center
 #| out-width: 60%
-knitr::include_graphics("01-images/women-managerial-training-applet.png")
+knitr::include_graphics("02-images/women-managerial-training-sim.png")
 ```
+
+ <span style="color:blue;">Note the simulated distribution is centered at about 60%.</span>
 
 4.	What does each dot on this plot represent?
 
-\vspace{0.5in}
+ <span style="color:blue;">One set of 20 employees simulated under the assumption the process is unbiased</span>
 
 5.	Recall that since the management program began, only 9 of the 20 employees (45%) chosen for management training were women  Does this outcome convince you that the selection process is biased against women?  Why or why not?
 
-\vspace{0.5in}
+ <span style="color:blue;">I am not convinced the selection process is biased toward women since 45% (or less) regularly occurred in our simulation study. The observed result of 0.45 is consistent with what we would see if the process was fair.</span>
 
 6. Can we use the results from the employee program from this large supermarket chain to say anything about employee programs from competing supermarkets?
+
+ <span style="color:blue;">No, our sample of n = 20 employees only came from the one supermarket and is not representative of other competing supermarkets.</span>
 
 \vspace{0.5in}
 
@@ -328,57 +340,59 @@ Researchers carried out a marketing field study in order to study preferences of
 knitr::include_graphics("01-images/font-style-image.png")
 ```
 
-The researchers aren’t sure which font is more appropriate for the label and simply want to know whether the majority of all consumers will choose the truffles with one font more than the other. In the sample of 40 subjects, 30 chose to take a truffle from the box that had Signet font.
+The researchers aren’t sure which font is more appropriate for the label and simply want to know whether the majority of all consumers will choose the truffles with one font more than the other. In the sample of **40 subjects, 30 chose to take a truffle from the box that had Signet font**. <span style="color:blue;">Observed results</span>
 
 `r fontawesome::fa("question")` **Research Question:**  Do the majority of consumers have a preference for one font over the other?
 
 1.	Identify the following in the context of this example:
 
-+ Population of interest:
++ Population of interest:  <span style="color:blue;">ALL potential consumers in the U.S.</span>
 
 \vspace{0.5in}
 
-+ Sample:
++ Sample: <span style="color:blue;">n = 40 subjects in the study</span>
 
 \vspace{1.2in}
 
-+ Variable of interest:
++ Variable of interest: <span style="color:blue;">Font</span>
 
 \vspace{0.5in}
 
-+ Data type:
++ Data type: <span style="color:blue;">Categorical (Signet / Salem)</span>
 
 \vspace{0.5in}
 
 2.	If there was no preference in the population, how many of the 40 consumers do you expect to choose Signet font?  Explain.
 
-\vspace{0.5in}
+<span style="color:blue;">Expect 20 out of 40 (50% chance of randomly choosing)</span>
 
 To gain an understanding of what outcomes we expect to see if there is no real preference in the population of all consumers, we will simulate this experiment under the condition that there is no preference for one font over the other.  Carry out the Applet simulation.  Note that you should consider the following questions when designing your simulation study:
 
-+ What are the two possible outcomes on each of the trials?
-+ What is the probability that the Signet font is selected under the assumption that there is no preference in the population? Change your `Probability of heads` accordingly.
-+ How many subjects were there in this study?  Keep this value in mind when setting the `Number of tosses` value.
++ What are the two possible outcomes on each of the trials? <span style="color:blue;">Signet / Salem</span>
++ What is the probability that the Signet font is selected under the assumption that there is no preference in the population? Change your `Probability of heads` accordingly. <span style="color:blue;">0.5</span>
++ How many subjects were there in this study?  Keep this value in mind when setting the `Number of tosses` value. <span style="color:blue;">n = 40</span>
 
 Carry out the simulation study 1000 times overall, keeping track of the number that choose Signet on each of the simulated experiments.  Sketch in your results below:
 
 ```{r}
 #| fig-align: center
 #| out-width: 60%
-knitr::include_graphics("01-images/font-applet.png")
+knitr::include_graphics("02-images/font-preference-sim.png")
 ```
 
 3.	What does each dot on this plot represent?
 
-\vspace{0.5in}
+<span style="color:blue;">One set of n = 40 consumers simulated under the assumption there is no preference for a font.</span>
 
 4.	In the actual study, 30 of the 40 selected the Signet font.  Does this outcome convince you that there is a preference for one font over the other?  Why or why not?
 
-\vspace{0.5in}
+<span style="color:blue;">I am convinced there is a preference for one font over the other since the observed results of 30 (or more) or 10 (or less) are not consistent with the results from the simulation study.</span>
+
+<span style="color:blue;">Note that 75% observed Signet but 25% observed signet would be just as unusual.</span>
 
 5. Why was it important for the researchers to present out the order in which the fonts were presented across the study? For example, how would the study results have been affected if the researchers always presented the Signet font on the left?
 
-\vspace{0.5in}
+<!-- <span style="color:blue;">It was important to balance out the fonts in order to eliminate bias from consumers having a preference for side. In this case, side would be a confounding variable.</span> -->
 
 ## References
 
