@@ -33,7 +33,7 @@ In this chapter, we will discuss methods for making decisions concerning researc
 
 ## Formal Hypothesis Testing
 
-In previous examples, we have used a logical process to make statistical decisions in problems involving a single categorical variable. Next, we will add more structure to these statistical investigations by introducing a procedure known as *hypothesis testing*. Before we discuss this procedure, we must introduce a few more definitions.
+In previous examples, we have used a logical process to make statistical decisions in problems involving a single categorical variable (e.g., choice -- helper/hinderer; font -- signet/salem; sex -- woman/man). Next, we will add more structure to these statistical investigations by introducing a procedure known as *hypothesis testing*. Before we discuss this procedure, we must introduce a few more definitions.
 
 ### Population Parameters vs. Sample Statistics
 
@@ -51,32 +51,36 @@ In each of the previous examples, we tested a claim about a **population paramet
 #| echo: false
 #| fig-align: center
 #| out-width: 70%
-knitr::include_graphics("01-images/parameter-vs-statistic.PNG")
+knitr::include_graphics("02-images/parameter-vs-statistic-helper-hinderer.png")
 ```
 Image Source: [medium.com](https://medium.com/geekculture/stat-digest-the-intuition-behind-confidence-interval-a166f79e4ace).
 
-\newpage
-
-+------------------------------------+---------------+------------------------+
-| **Example**                        | **Statistic** | **Parameter**          |
-+====================================+===============+========================+
-| Example 1.2: Helper vs. Hinderer   | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-+------------------------------------+---------------+------------------------+
-| Example 1.3: Are women passed over | \             |                        |
-| over for managerial training?      | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-+------------------------------------+---------------+------------------------+
-| Example 1.4: Font Preference       | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-|                                    | \             |                        |
-+------------------------------------+---------------+------------------------+
++------------------------------------+------------------------+---------------------------------+
+| **Example**                        | **Statistic $\hat p$** | **Parameter $\pi$**             |
++====================================+========================+=================================+
+| Example 1.2: Helper vs. Hinderer   | $\hat p$ =             | $\pi:$ the population           |
+|                                    | \                      | proportion of all 10-month      |
+|                                    | \                      | old infants who prefer the      |
+|                                    | \                      | helper.                         |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
++------------------------------------+------------------------+---------------------------------+
+| Example 1.3: Are women passed over | \                      |                                 |
+| over for managerial training?      | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
++------------------------------------+------------------------+---------------------------------+
+| Example 1.4: Font Preference       | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
+|                                    | \                      |                                 |
++------------------------------------+------------------------+---------------------------------+
 
 ::: callout-note
 ### Definitions
@@ -107,6 +111,8 @@ Before you begin a hypothesis test, you should clearly state your research quest
 -   The **null hypothesis**, H~0~, is what we will assume to be true, and we will evaluate the observed data from our study against what we *expected* to see under the null hypothesis. This will always contain a statement saying that the population parameter is **equal** to some value.
 
 -   The **alternative hypothesis**, H~A~, is what we are trying to show. Therefore, the research question is restated here in the alternative hypothesis. This will always contain statements of inequality, saying that the population parameter is **less than, greater than, or different from** the value in the null hypothesis.
+
+*Note: The hypotheses are ALWAYS about the population parameter.*
 :::
 
 For our three examples, the null and alternative hypotheses are shown below.
@@ -141,15 +147,12 @@ Note that we can also state these hypotheses in terms of the population paramete
 | Do 10-month-old infants tend to prefer     | H~0~:                                 |
 | the helper toy over the hinderer toy?      | \                                     |
 | \                                          | \                                     |
-| \                                          | \                                     |
 | \                                          | H~A~:                                 |
-| \                                          | \                                     |
 | \                                          | \                                     |
 | \                                          | \                                     |
 +--------------------------------------------+---------------------------------------+
 | Is there statistical evidence for          | H~0~:                                 |
 | sex discrimination against females?        | \                                     |
-| \                                          | \                                     |
 | \                                          | \                                     |
 | \                                          | H~A~:                                 |
 | \                                          | \                                     |
@@ -158,15 +161,13 @@ Note that we can also state these hypotheses in terms of the population paramete
 | Do the majority of all consumers           | H~0~:                                 |
 | prefer one font over the other?            | \                                     |
 | \                                          | \                                     |
-| \                                          | \                                     |
 | \                                          | H~A~:                                 |
-| \                                          | \                                     |
 | \                                          | \                                     |
 +--------------------------------------------+---------------------------------------+
 
 ### Evaluating Evidence Using p-values
 
-In in each of our three examples, we *assumed the null hypothesis was true* when setting up our probability for our Applet simulations. Then, we used the results simulated under this scenario to help us decide whether observing results such as our sample data would be an unusual event *if the null hypothesis were true*.
+In in each of our three examples, we ***assumed the null hypothesis was true*** when setting up our probability for our Applet simulations. Then, we used the results simulated under this scenario to help us decide whether observing results such as our sample data would be an unusual event *if the null hypothesis were true*.
 
 Up to this point, whether an observed result was considered unusual (or extreme) has been a rather subjective decision. Now, we will discuss the guidelines used by statisticians to determine whether an observed result is extreme enough under the null hypothesis for us to conclude that the evidence supports the research question.
 
@@ -257,7 +258,7 @@ Statisticians use what is called a **p-value** to quantify the amount of evidenc
 **p-value**: The probability of observing an outcome as extreme (or even more extreme) than the observed study result, assuming the null hypothesis is true.
 :::
 
-Note that in each of the above examples, we obtained the simulated results assuming the null hypothesis was true (plotted on the *null sampling distribution*). Therefore, to estimate the p-value, we simply determine how often outcomes as extreme (or more extreme) than the observed study results appeared in our simulation study.
+Note that in each of the above examples, we obtained the simulated results ***assuming the null hypothesis was true*** (plotted on the *null sampling distribution*). Therefore, to estimate the p-value, we simply determine how often outcomes as extreme (or more extreme) than the observed study results appeared in our simulation study.
 
 \newpage
 
@@ -481,7 +482,7 @@ knitr::include_graphics("02-images/helper-hinderer-sim2.png")
 
 + Conclusion: At an $\alpha = 0.05$, we have evidence to conclude the proportion of all 10-month-old infants that prefer the helper toy is greater than 0.5 (p = 0.002). 
 
-Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a simulation study with only 100 (or 1000) repetitions to *estimate* the p-value, we would ideally like to simulate this experiment over and over again, say an *infinite* number of times. This would provide us with the theoretical probabilities of interest so that can get exact p-values instead of an estimate of the p-value.
+Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a **simulation study** with only 100 (or 1000) repetitions to *estimate* the p-value, we would ideally like to simulate this experiment over and over again, say an *infinite* number of times. This would provide us with the **theoretical probabilities** of interest so that can get exact p-values instead of an estimate of the p-value.
 
 The following graphic shows what the null sampling distribution would look like if we kept repeating the simulation study over and over again, each time counting and plotting the number of infants that chose the helper toy (assuming there was no real preference in the population of all infants). This is known as the **binomial distribution**.
 
@@ -536,22 +537,22 @@ helperhinder_binom <- tibble("x" = seq(1,16),
 helperhinder_binom |> 
   ggplot(aes(x = x, y = dbinom)) +
   geom_segment(aes(xend = x, yend = 0), size = 1) +
-  geom_text(aes(label = round(dbinom, 3)), vjust = -0.6, color = "gray30", size = 3) +
+  geom_text(aes(label = sprintf("%.4f", dbinom)), vjust = -0.6, color = "gray30", size = 2.5) +
   labs(x = "Number of 10-month olds who chose 'Helper'",
        y = "Binomial Proportion") +
   scale_x_continuous(breaks = seq(1,16)) +
   scale_y_continuous(breaks = seq(0,0.25, 0.05), limits = c(0,0.25)) +
   theme_bw() +
-  theme(aspect.ratio = 0.5)
+  theme(aspect.ratio = 0.4)
 ```
 
 1. Find the probability of observing *exactly* 14 of the 16 10-month-old infants choosing the helper toy, assuming that the population of all 10-month-olds has no preference.
 
-\vspace{0.5in}
+\vspace{0.4in}
 
 2.	What is the exact p-value found using the binomial proportions?
 
-\vspace{0.5in}
+\vspace{0.4in}
 
 Alternatively, there is a handy function, `binom.test()` that helps us calculate our p-value from binomial proportions and takes the following arguments:
 
@@ -569,7 +570,7 @@ binom.test(x = 14, n = 16, p = 0.5, alternative = "greater")
 
 ## Confidence Intervals for a Single Categorical Variable
 
-When carrying out hypothesis tests, we are testing claims about population parameters. Sometimes, however, our goal is simply to *estimate* a parameter of interest. Statisticians typically do this with a **confidence interval** 
+When carrying out hypothesis tests, we are testing claims about population parameters. Sometimes, however, our goal is simply to **estimate** a parameter of interest. Statisticians typically do this with a **confidence interval** 
 
 ::: callout-note
 ### Definition
@@ -577,7 +578,7 @@ When carrying out hypothesis tests, we are testing claims about population param
 **Confidence interval:** a range of plausible values for the parameter of interest. 
 :::
 
-The big difference between **hypothesis testing** and **confidence intervals** is as follows: the construction of a confidence interval does NOT require any hypotheses concerning our population parameter of interest. The goal of a **hypothesis test** is to draw a conclusion about a claim whereas the goal of a **confidence interval** is to make an estimate for the parameter.
+The big difference between *hypothesis testing* and *confidence intervals* is as follows: the construction of a confidence interval does NOT require any hypotheses concerning our population parameter of interest. The goal of a *hypothesis test* is to draw a conclusion about a claim whereas the goal of a *confidence interval* is to make an *estimate* for the parameter.
 
 For example, consider the following scenario.
 
@@ -642,6 +643,8 @@ knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
 
 \vspace{0.8in}
 
+
+\newpage
 ::: callout-note
 #### Definition
 
@@ -654,7 +657,11 @@ knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
 knitr::include_graphics("02-images/acupuncture-sampling-distribution-sketch.png")
 ```
 
+*Note: We have been creating null sampling distributions -- "under the assumption the null is true". This is the same concept, except we *
+
 :::
+
+\vspace{0.2in}
 
 8.  Once we obtain the results of several runs of the simulation and plot the outcomes, on what value do you expect this distribution to be centered? Why?
 
@@ -677,11 +684,11 @@ A formal approach to calculating a confidence interval involves identifying the 
 
 \vspace{0.8in}
 
-\newpage
-
 #### Approach 2: Binomial
 
 Next, recall that we previously discussed the fact that running a simulation study to enables us to estimate proportions for our sampling distribution that we actually could obtain using the binomial distribution.
+
+\newpage
 
 The distribution appears as follows:
 
@@ -695,7 +702,7 @@ acupuncture_binom <- tibble("x" = seq(60,89)/89,
 acupuncture_binom |> 
   ggplot(aes(x = x, y = dbinom)) +
   geom_segment(aes(xend = x, yend = 0), size = 1) +
-  geom_text(aes(label = round(dbinom, 2)), vjust = -0.5, color = "gray30", size = 3) +
+  geom_text(aes(label = round(dbinom, 2)), vjust = -0.5, color = "gray30", size = 2.5) +
   labs(x = "Proportion that get relief",
        y = "Binomial Proportion") +
   scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
@@ -707,9 +714,9 @@ acupuncture_binom |>
 
 11.	Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
 
-\vspace{0.5in}
+\vspace{0.8in}
 
-#### Approach 3: Normal Approximation 
+#### Approach 3: Normal Approximation (aka Theoretical)
 <!-- (https://shiny.stat.ncsu.edu/jbpost2/NormalApproximation/) -->
 
 With the previous two approaches, we were simply trying to understand the basic idea behind a confidence interval.  A statistician would probably not use Simulation or the binomial distribution in the same way that we have just illustrated to calculate the endpoints for this confidence interval (think about some reasons why not).
@@ -749,8 +756,6 @@ acupuncture_binom |>
 ```
 
 To calculate the endpoints for a 95% confidence interval constructed using normal theory methods, we find the values on the x-axis of the above graph that separate the middle 95% from the rest.  This is done using the following steps:
-
-\newpage
 
 12.	Start with the **point estimate**, $\hat \pi$:
 
@@ -806,6 +811,7 @@ acupuncture_norm |>
 \vspace{0.8in}
 
 \newpage
+
 ::: callout-tip
 ### More on the Margin of Error
 **Question:**  Why is 1.96 used in the formula for a 95% confidence interval?
