@@ -1,0 +1,1032 @@
+---
+title: "Chapter 2: Inference and Confidence Intervals for a Single Categorical Variable"
+embed-resources: true
+format:
+  html:
+    toc: true
+  pdf:
+    keep-tex: false    
+    include-in-header:
+      text: |
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[R]{Chapter 2: Inference and Confidence Intervals for a Single Categorical Variable}
+          \fancyfoot[C]{\thepage}
+  docx:
+    toc: false
+prefer-html: true
+bibliography: references.bib
+reference-location: section
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r setup}
+library(tidyverse)
+options("digits" = 6)
+```
+
+In this chapter, we will discuss methods for making decisions concerning research questions involving only a single categorical variable. Even though we'll be adding lots of terminology along the way, we will use the same logical approach to answering questions that was introduced in Chapter 1.
+
+## Formal Hypothesis Testing
+
+In previous examples, we have used a logical process to make statistical decisions in problems involving a single categorical variable (e.g., choice -- helper/hinderer; font -- signet/salem; sex -- woman/man). Next, we will add more structure to these statistical investigations by introducing a procedure known as *hypothesis testing*. Before we discuss this procedure, we must introduce a few more definitions.
+
+### Population Parameters vs. Sample Statistics
+
+In each of the previous examples, we tested a claim about a **population parameter** of interest.
+
+::: callout-note
+### Definitions
+
+-   A **parameter** is a numerical descriptive measure of a *population*. This value is almost always unknown, and our goal is to either estimate this parameter or test claims regarding it.
+
+
+
+-   A **statistic** is a numerical descriptive measure of a *sample*. This value is calculated from the observed data.
+:::
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 70%
+knitr::include_graphics("02-images/parameter-vs-statistic-helper-hinderer.png")
+```
+Image Source: [medium.com](https://medium.com/geekculture/stat-digest-the-intuition-behind-confidence-interval-a166f79e4ace).
+
++------------------------------------+----------------------------------------------------------+--------------------------------------------------------------------------------------+
+| **Example**                        | **Statistic $\hat p$**                                   | **Parameter $\pi$**                                                                  |
++====================================+==========================================================+======================================================================================+
+| Example 1.2: Helper vs. Hinderer   | $\hat p$ = <span style="color:blue;">14/16 = 0.875</span>| $\pi:$ the population                                                                |
+|                                    | \                                                        | proportion of all 10-month                                                           |
+|                                    | \                                                        | old infants who prefer the                                                           |
+|                                    | \                                                        | helper.                                                                              |
+|                                    | \                                                        |                                                                                      |
+|                                    | \                                                        |                                                                                      |
++------------------------------------+----------------------------------------------------------+--------------------------------------------------------------------------------------+
+| Example 1.3: Are women passed over | <span style="color:blue;">$\hat p = 9/20 = 0.45$</span>  | <span style="color:blue;">$\pi$: the population proportion </span>                   |
+| over for managerial training?      | \                                                        | <span style="color:blue;">of all employees at the large supermarket</span>           |
+|                                    | \                                                        | <span style="color:blue;">selected for the management training</span>                |
+|                                    | \                                                        | <span style="color:blue;">who are women (think long term)</span>                     |
+|                                    | \                                                        |                                                                                      |
++------------------------------------+----------------------------------------------------------+--------------------------------------------------------------------------------------+
+| Example 1.4: Font Preference       | <span style="color:blue;">$\hat p = 30/40 = 0.75$</span> | <span style="color:blue;">$\pi$: the population proportion </span>                   |
+|                                    | \                                                        | <span style="color:blue;">of all potential U.S. consumers </span>                    |
+|                                    |                                                          | <span style="color:blue;">who prefer signet.</span>                                  |
+|                                    | \                                                        | \                                                                                    |
+|                                    | \                                                        | \                                                                                    |
+|                                    | <span style="color:blue;">$\hat p = 10/40 = 0.25$</span> | <span style="color:blue;">$\pi$: the population proportion </span>                   |
+|                                    | \                                                        | <span style="color:blue;">of all potential U.S. consumers </span>                    |
+|                                    | \                                                        | <span style="color:blue;">who prefer salem.</span>                                   |
+|                                    | \                                                        |                                                                                      |
++------------------------------------+----------------------------------------------------------+--------------------------------------------------------------------------------------+
+
+::: callout-note
+### Definitions
+
+**Hypothesis testing** is a procedure, based on sample evidence and probability, used to test a claim regarding a population parameter. The test will measure how well our observed sample statistic agrees with some assumption about this population parameter.
+:::
+
+Before you begin a hypothesis test, you should clearly state your research question. For instance, let's reconsider the research question from three of our previous examples.
+
++--------------------------------------------------------------+-------------------------------------------------------------------------------+
+| **Example**                                                  | **Research Question**                                                         |
++==============================================================+===============================================================================+
+| Example 1.2: Helper vs. Hinderer                             | Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?  |
+| \                                                            | \                                                                             |
++--------------------------------------------------------------+-------------------------------------------------------------------------------+
+| Example 1.3: Are women passed over for managerial training?  | Is there statistical evidence for sex discrimination against women?           |
+| \                                                            | \                                                                             |
++--------------------------------------------------------------+-------------------------------------------------------------------------------+
+| Example 1.4: Font Preference                                 | Do the majority of all consumers prefer one font over the other?              |
+| \                                                            | \                                                                             |
++--------------------------------------------------------------+-------------------------------------------------------------------------------+
+
+### Setting up the Null and Alternative Hypothesis
+
+::: callout-note
+### Definitions
+
+-   The **null hypothesis**, H~0~, is what we will assume to be true, and we will evaluate the observed data from our study against what we *expected* to see under the null hypothesis. This will always contain a statement saying that the population parameter is **equal** to some value.
+
+-   The **alternative hypothesis**, H~A~, is what we are trying to show. Therefore, the research question is restated here in the alternative hypothesis. This will always contain statements of inequality, saying that the population parameter is **less than, greater than, or different from** the value in the null hypothesis.
+
+*Note: The hypotheses are ALWAYS about the population parameter.*
+:::
+
+For our three examples, the null and alternative hypotheses are shown below.
+
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+| **Research Question**                                                         | **Hypotheses**                                                                                   |
++===============================================================================+==================================================================================================+
+| Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?  | H~0~: There is no preference for one toy over the other in the population of all 10-month-olds.  |
+| \                                                                             | \                                                                                                |
+| \                                                                             | H~A~: The majority of all 10-month-old infants prefer the helper toy.\                           |
+| \                                                                             | \                                                                                                |
+| \                                                                             | \                                                                                                |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+| Is there statistical evidence for sex discrimination against women?           | H~0~: The selection process is fair.                                                             |
+| \                                                                             | \                                                                                                |
+| \                                                                             | H~A~: The selection process is biased against women.                                             |
+| \                                                                             | \                                                                                                |
+| \                                                                             | \                                                                                                |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+| Do the majority of all consumers prefer one font over the other?              | H~0~: There is no preference for one font over the other in the population of all consumers.     |
+| \                                                                             | \                                                                                                |
+| \                                                                             | H~A~: The majority of all consumers would pick one font over the other.                          |
+| \                                                                             | \                                                                                                |
+| \                                                                             | \                                                                                                |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+
+Note that we can also state these hypotheses in terms of the population parameter of interest:
+
++--------------------------------------------+----------------------------------------------------------------------------+
+| **Research Question**                      | **Hypotheses**                                                             |
++============================================+============================================================================+
+| Do 10-month-old infants tend to prefer     | H~0~: <span style="color:blue;">The population proportion of all</span>    |
+| the helper toy over the hinderer toy?      | <span style="color:blue;">10-month olds' who prefer the helper</span>      |
+| \                                          | <span style="color:blue;">is equal to 0.50.</span>                         |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
+| \                                          | H~A~: <span style="color:blue;">The population proportion of all</span>    |
+| \                                          | <span style="color:blue;">10-month olds' who prefer the helper</span>      |
+| \                                          | <span style="color:blue;">is greater than 0.50.</span>                     |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
++--------------------------------------------+----------------------------------------------------------------------------+
+| Is there statistical evidence for          | H~0~: <span style="color:blue;">the population proportion</span>           |
+| sex discrimination against females?        | <span style="color:blue;">of all employees at the large supermarket</span> |
+| \                                          | <span style="color:blue;">selected for the management training</span>      |
+| \                                          | <span style="color:blue;">who are women is equal to 0.60</span>            |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
+| \                                          | H~A~:  <span style="color:blue;">the population proportion</span>          |
+| \                                          | <span style="color:blue;">of all employees at the large supermarket</span> |
+| \                                          | <span style="color:blue;">selected for the management training</span>      |
+| \                                          | <span style="color:blue;">who are women is less than 0.60</span>           |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
++--------------------------------------------+----------------------------------------------------------------------------+
+| Do the majority of all consumers           | H~0~: <span style="color:blue;">the population proportion</span>           |
+| prefer one font over the other?            | <span style="color:blue;">of all potential U.S. consumers</span>           |
+| \                                          | <span style="color:blue;">who prefer signet is equal to 0.50.</span>       |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          |
+| \                                          | H~A~: <span style="color:blue;">the population proportion</span>           |
+| \                                          | <span style="color:blue;">of all potential U.S. consumers</span>           |
+| \                                          | <span style="color:blue;">who prefer signet is different from 0.50.</span> |
+| \                                          | \                                                                          |
+| \                                          | \                                                                          | 
++--------------------------------------------+----------------------------------------------------------------------------+
+
+### Evaluating Evidence Using p-values
+
+In in each of our three examples, we ***assumed the null hypothesis was true*** when setting up our probability for our Applet simulations. Then, we used the results simulated under this scenario to help us decide whether observing results such as our sample data would be an unusual event *if the null hypothesis were true*.
+
+Up to this point, whether an observed result was considered unusual (or extreme) has been a rather subjective decision. Now, we will discuss the guidelines used by statisticians to determine whether an observed result is extreme enough under the null hypothesis for us to conclude that the evidence supports the research question.
+
+First, note that in our three examples, we examined different parts of the distribution of simulated results when deciding whether the observed data was extreme. Each of these cases is an example of a specific type of hypothesis test.
+
++-----------------------------------------+-----------------------------------------------------+--------------------+
+| **Research Question**                   | **Hypotheses**                                      | **Type of Test**   |
++=========================================+=====================================================+====================+
+| \                                       | \                                                   | \                  |
+| Do 10-month-old infants tend to prefer  | H~0~: <span style="color:blue;">$\pi = 0.50$</span> | \                  |
+| the helper toy over the hinderer toy?   | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
+| \                                       | H~A~: <span style="color:blue;">$\pi > 0.50$</span> | Upper-tailed Test  |
+| \                                       | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
++-----------------------------------------+-----------------------------------------------------+--------------------+
+| Is there statistical evidence for sex   | H~0~: <span style="color:blue;">$\pi = 0.60$</span> | \                  |
+| discrimination against women?           | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
+| \                                       | H~A~: <span style="color:blue;">$\pi < 0.60$</span> | Lower-tailed Test  |
+| \                                       | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
++-----------------------------------------+-----------------------------------------------------+--------------------+
+| Do the majority of all consumers        | H~0~: <span style="color:blue;">$\pi = 0.50$</span> | \                  |
+| prefer one font over the other?         | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
+| \                                       | H~A~: <span style="color:blue;">$\pi\ne0.50$</span> | Two-tailed Test    |
+| \                                       | \                                                   | \                  |
+| \                                       | \                                                   | \                  |
++-----------------------------------------+-----------------------------------------------------+--------------------+
+
+Statisticians use the following guidelines to determine whether the observed data supports the research question:
+
+::: callout-note
+**Upper-tailed test:** The observed result must fall in the upper 5% of the *null sampling distribution*.
+:::
+
+Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/helper-hinderer-sim.png")
+```
+
+<span style="color:blue;">Count to the right.</span>
+
+::: callout-note
+**Lower-tailed test:** The observed result must fall in the lower 5% of the null sampling distribution.
+:::
+
+Is there statistical evidence for sex discrimination against women?
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/women-managerial-training-sim.png")
+```
+
+<span style="color:blue;">Count to the left.</span>
+<span style="color:blue;">p-value = 1/100 = 0.01 < 0.05 -> reject the null</span>
+
+::: callout-note
+**Two-tailed test:** The observed result must fall in either the upper 2.5% or the lower 2.5% of the null sampling distribution.
+:::
+
+Do the majority of all consumers prefer one font over the other?
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/font-preference-sim.png")
+```
+
+<span style="color:blue;">Count both tail ends (10 or fewer is just as extreme as 30 or more).</span>
+<span style="color:blue;">p-value = 1/100 = 0.01 < 0.05 -> reject the null</span>
+
+::: callout-tip
+In practice, two-tail tests are typically conducted over an upper- or lower-tailed test.
+:::
+
+Statisticians use what is called a **p-value** to quantify the amount of evidence that an observed result from a set of data provides for a research question.
+
+::: callout-note
+#### Definition
+
+**p-value**: The probability of observing an outcome as extreme (or even more extreme) than the observed study result, assuming the null hypothesis is true.
+:::
+
+Note that in each of the above examples, we obtained the simulated results ***assuming the null hypothesis was true*** (plotted on the *null sampling distribution*). Therefore, to estimate the p-value, we simply determine how often outcomes as extreme (or more extreme) than the observed study results appeared in our simulation study.
+
+\newpage
+
++------------------------------------------------+------------------------------------------------+
+| **Example**                                    | **Estimate of p-value**                        |
++------------------------------------------------+------------------------------------------------+
+| \                                              | \                                              |
+| Helper vs. Hinderer?                           | <span style="color:blue;">p-value=0.01</span>  |
+| \                                              | \                                              |
++------------------------------------------------+------------------------------------------------+
+| Are Women Passed Over for Managerial Training? | <span style="color:blue;">p-value=0.13</span>  |
+| \                                              | \                                              |
++------------------------------------------------+------------------------------------------------+
+| Font Preference?                               | <span style="color:blue;">p-value=0.02</span>  |
+| \                                              | \                                              |
++------------------------------------------------+------------------------------------------------+
+
+::: callout-note
+#### Making a Decision with p-values and Significance Levels ($\alpha$)
+
+If the p-value is **less than** $\alpha$ -- typically 0.05 (5%), then the data provide enough statistical evidence to *reject the null hypothesis* and support the research question.
+
+\vspace{0.1in}
+
+If the p-value is **greater than (or equal to)** $\alpha$ -- typically 0.05 (5%), then the data do not provide enough statistical evidence to support the research question, and we *fail to reject the null hypothesis*.
+
+\vspace{0.1in}
+
+Note: We **never** make the decision to *accept the null hypothesis*. Instead, we evaluate whether the evidence supports or does not support the alternative hypothesis. 
+
+\vspace{0.1in}
+:::
+
+Why does this decision rule work? Consider the "Helper vs. Hinderer" example. Because the p-value falls below 5%, the observed result *must* have been in the upper 5% of the null sampling distribution. As stated earlier, this implies that the observed study result is very unlikely to happen by chance under the null hypothesis, which supports the research question.
+
+On the other hand, consider the "Are Women Passed Over for Managerial Training" example. Because the p-value was larger than 5%, the observed result *can't* have been in the lower 5% of the reference distribution. This implies that the observed study result is not all that unusual and could have easily happened by chance under the null hypothesis. Therefore, the null hypothesis *could* be true, and we have no evidence to support the research question.
+
+This decision rule is widely accepted for determining whether study results are statistically significant; however, some researchers do advocate using a more flexible rule similar to the following:
+
+\newpage
+
+::: callout-note
+#### General guidelines
+-   If the p-value falls below 0.05, we have *strong evidence* to support the alternative hypothesis (i.e., the research question).
+
+-   If the p-value falls below 0.10 but above 0.05, we have *marginal evidence* to support the alternative hypothesis (i.e., the research question).
+
+-   If the p-value is above 0.10, we *do have not have enough evidence* to support the alternative hypothesis (i.e., the research question).
+:::
+
+Next, we will review the steps involved in a formal hypothesis test for each of our three examples. Note that our conclusions are written in the context of the problem. Moreover, even a person with no statistical background should be able to understand these conclusions (i.e., a conclusion should NOT say something like "We reject the null hypothesis." -- this is your *decision*.)
+
+**Helper vs. Hinderer**
+
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Research Question                 | Do 10-month-old infants tend to prefer the helper toy over the hinderer toy?                                                                                           |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                                                                      |
+| Hypotheses                        | H~0~: There is no preference for one toy over the other in the population of all 10-month-olds; that is, the probability a 10-month-old selects the helper toy is 50%. |
+| \                                 | \                                                                                                                                                                      |
+| \                                 | H~A~: The majority of all 10-month-old infants prefer the helper toy; that is, the probability a 10-month-old selects the helper toy is greater than 50%.              |
+| \                                 | \                                                                                                                                                                      |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| p-value estimated from simulation | <span style="color:blue;">p-value=0.01 < 0.05 -> Reject the null </span>                                                                                               |
+| \                                 | \                                                                                                                                                                      |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Conclusion                        | <span style="color:blue;">At an $\alpha = 0.05$, we have strong evidence to conclude the population proportion of all 10-month old infants </span>                     |
+| \                                 | <span style="color:blue;"> who prefer the helper is greater than 0.50 (p-value = 0.01). </span>                                                                        |
+| \                                 | \                                                                                                                                                                      |
+| \                                 | \                                                                                                                                                                      |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+\newpage
+
+**Are Women Passed Over for Managerial Training?**
+
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+| Research Question                 | Is there statistical evidence of sex discrimination against women?                                                               |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                                |
+| Hypotheses                        | H~0~: The selection process is fair; that is, the probability a woman is selected is 60%.                                        |
+| \                                 | \                                                                                                                                |
+| \                                 | H~A~: The selection process is biased against women; that is, the probability a woman is selected is less than 60%.              |
+| \                                 | \                                                                                                                                |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+| p-value estimated from simulation | <span style="color:blue;">p-value=0.13 > 0.05 -> Fail to Reject the Null</span>                                                  |
+| \                                 | \                                                                                                                                |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+| Conclusion                        | <span style="color:blue;">At an $\alpha = 0.05$, we do not have enough evidence to conclude the population proportion </span>    |
+| \                                 | <span style="color:blue;">of all employees at the large supermarket selected for management training who are women  </span>      |
+| \                                 | <span style="color:blue;">is less than 0.60.  </span>                                                                            |
+| \                                 | \                                                                                                                                |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+
+**Font Preference**
+
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Research Question                 | Do the majority of all consumers prefer one font over the other?                                                                                                      |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| \                                 | \                                                                                                                                                                     |
+| Hypotheses                        | H~0~: There is no preference for one font over the other in the population of all consumers; that is, the probability of a consumer selecting the Signet font is 50%. |
+| \                                 | \                                                                                                                                                                     |
+| \                                 | H~A~: The majority of all consumers would pick one font over the other; that is, the probability of a consumer selecting the Signet font is different from 50%.       |
+| \                                 | \                                                                                                                                                                     |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| p-value estimated from simulation | <span style="color:blue;">p-value=0.02 < 0.05 -> Reject the Null</span>                                                                                               |
+| \                                 | \                                                                                                                                                                     |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Conclusion                        | <span style="color:blue;">At an $\alpha = 0.05$, we have strong evidence to conclude the population proportion of all U.S. consumers who prefer signet font</span>    |
+| \                                 | <span style="color:blue;">is different than 0.50.</span>                                                                                                              |
+| \                                 | \                                                                                                                                                                     |
+| \                                 | \                                                                                                                                                                     |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Next, let's carry out a formal hypothesis test for a few new examples.
+
+## Example 2.1 Claims of Numbness After Automobile Accident
+
+A 28-year-old developed pain involving the spine and the left side of her body after an automobile collision. They were actively involved in a personal litigation against the company that owned the other vehicle, and they reported constant pain and numbness in the left arm. To test their claims, researchers touched their left arm with either 1 finger or 2 fingers simultaneously while their eyes were closed. The word "touch" was said simultaneously with the presentation of the tactile stimulus so that the subject knew when to respond. She then had to indicate whether she felt 1 single touch or 2 simultaneous touches (with the double-touch stimulus, the fingertips were always spaced 2 inches apart). The subject received 100 stimuli overall; they were correct on 30 of them. Is there statistical evidence that they are intentionally answering incorrectly?
+
+1.  Identify both the population and sample of interest.
+
+<span style="color:blue;">Population: all possible stimuli trials that could have been given to the 28-year old</span>
+
+<span style="color:blue;">Sample: n = 100 stimuli the 28 year-old received</span>
+
+2.  Identify the single categorical variable of interest.
+
+<span style="color:blue;">Outcome (Correctly identified the touch/Incorrectly identified the touch)</span>
+
+3.  Identify both the parameter and statistic of interest.
+
+<span style="color:blue;">Parameter: the proportion of all possible stimuli trials the 28 year old would answer correctly. </span>
+
+<span style="color:blue;">Statistic: $\hat p = 30/100 = 0.3$ </span>
+
+4.  Carry out the formal hypothesis test to address the research question.
+
++ **Research Question** Is there statistical evidence that she is intentionally answering incorrectly? 
+
+\vspace{0.15in}
+
++ Hypotheses:
+
+\vspace{0.15in}
+
+<span style="color:blue;">Wording based on research question -</span>
+
+<span style="color:blue;">Null: The 28 year-old is just guessing for all possible stimuli.</span>
+
+<span style="color:blue;">Alternative: The 28 year-old is intentionally answering incorrectly for for all possible stimuli.</span>
+
+\vspace{0.15in}
+
+<span style="color:blue;">Wording based on parameter -</span>
+
+
+<span style="color:blue;">Null: the proportion of all possible stimuli trials the 28 year old would answer correctly is equal to 0.5.</span>
+
+<span style="color:blue;">Alternative: the proportion of all possible stimuli trials the 28 year old would answer correctly is less than 0.5.</span>
+
+\vspace{0.15in}
+
+<span style="color:blue;">Using symbols -</span>
+
+<span style="color:blue;">$H_0: \pi = 0.5$</span>
+
+<span style="color:blue;">$H_A: \pi < 0.5$</span>
+
++ Estimate p-value (Carry out the simulation study to investigate this p-value, sketch or paste your simulation results here)
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("02-images/example-2.1-sim.png")
+```
+
+\hfill Use the simulation results to estimate the p-value: <span style="color:blue;"><0.001  < 0.05 -> Reject the Null </span>
+
+<span style="color:blue;">(note that when we never have a simulation set as extreme or more extreme than what we observed, the p-value is "0", very very small!)</span>
+  
++ Conclusion:
+
+<span style="color:blue;">At an $\alpha = 0.05$, we have evidence to conclude the 28 year-old is intentionally answering incorrectly for for all possible stimuli (p < 0 .0001 ).</span>
+
+\vspace{0.8in}
+
+## Example 2.2: Effectiveness of an Experimental Drug
+
+Suppose a commonly prescribed drug for relieving nervous tension is believed to be only 70% effective. Experimental results with a *new* drug administered to a random sample of 20 adults who were suffering from nervous tension show that 18 received relief. Is there statistical evidence that the new experimental drug is more than 70% effective?
+
+1.  Identify both the population and sample of interest.
+
+<span style="color:blue;">Population: all adults suffering from nervous tension</span>
+
+<span style="color:blue;">Sample: n = 20 adults who received the new drug for nervous tension</span>
+
+2.  Identify the single categorical variable of interest.
+
+<span style="color:blue;">Relief (yes/no)</span>
+
+3.  Identify both the parameter and statistic of interest.
+
+<span style="color:blue;">Parameter: the proportion of all adults who receive relief from nervous tension</span>
+
+<span style="color:blue;">Statistic: $\hat p = 18/20 = 0.9$n</span>
+
+
+4.  Carry out the formal hypothesis test to address the research question.
+
++ **Research Question** Is there statistical evidence that the new drug is more than 70% effective?
+
+\vspace{0.15in}
+
++ Hypotheses:
+
+<span style="color:blue;">In words:</span>
+
+<span style="color:blue;">Null: the proportion of all adults who receive relief from nervous tension is equal to 0.7.</span>
+
+<span style="color:blue;">Alternative: the proportion of all adults who receive relief from nervous tension is greater than 0.7.</span>
+
+<span style="color:blue;">In symbols:</span>
+
+<span style="color:blue;">$H_0: \pi = 0.7$</span>
+
+<span style="color:blue;">$H_A: \pi > 0.7$</span>
+
++ Estimate p-value (Carry out the simulation study to investigate this p-value, sketch or paste your simulation results here)
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("02-images/example-2.2-sim.png")
+```
+
+\hfill Use the simulation results to estimate the p-value: <span style="color:blue;">0.03 < 0.05 -> Reject the Null</span>
+
+  
++ Conclusion:
+
+<span style="color:blue;">At an $\alpha = 0.05$, we have evidence to conclude the proportion of all adults who receive relief from nervous tension is greater than 0.70 (p = 0.03).</span>
+
+## Theoretical Approach to p-values
+
+There is one caveat regarding our current approach to obtaining a p-value. Certainly, different simulations will produce slightly different null sampling distributions. The general pattern will be the same, but variations do exist. For example, consider the Helper vs. Hinderer study.
+
+**Helper vs. Hinderer**
+
++ `r fontawesome::fa("question")`Do 10-month-olds tend to prefer the helper toy over the hinderer toy?
++ Hypotheses
+  + H~0~: There is no preference for one toy over the other in the population of all 10-month-olds; that is, the proportion of all 10-month-old infants who select the helper toy is equal to 0.50.
+  + H~A~: The majority of all 10-month-old infants prefer the helper toy; that is, the proportion of all 10-month-old infants who select the helper toy is greater than 0.50.
+
+The *observed* result was as follows: 14 out of 16 infants chose the helper toy. What if two different researchers each carried out their own simulation study with 1,000 repetitions to estimate the p-value?
+
++ p-value
+
+> Simulation #1: p-value: <span style="color:blue;">0.004 < 0.05 -> Reject the Null</span>
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/helper-hinderer-sim1.png")
+```
+
+> Simulation #2: p-value: <span style="color:blue;">0.002 < 0.05 -> Reject the Null</span>
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/helper-hinderer-sim2.png")
+```
+
++ Conclusion: At an $\alpha = 0.05$, we have evidence to conclude the proportion of all 10-month-old infants that prefer the helper toy is greater than 0.5 (p = 0.002). 
+
+Fortunately, regardless of which simulation study we use in the previous example, the final conclusion is the same and the discrepancy between the two estimated p-values is minimal. Note that as the number of repetitions in our simulation study increases, we would expect less discrepancy between these two estimates. So, instead of using a **simulation study** with only 100 (or 1000) repetitions to *estimate* the p-value, we would ideally like to simulate this experiment over and over again, say an *infinite* number of times. This would provide us with the **theoretical probabilities** of interest so that can get exact p-values instead of an estimate of the p-value.
+
+The following graphic shows what the null sampling distribution would look like if we kept repeating the simulation study over and over again, each time counting and plotting the number of infants that chose the helper toy (assuming there was no real preference in the population of all infants). This is known as the **binomial distribution**.
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+#| fig-cap: "The black dots/bars show results from 1000 simulations; the green bars show the results from the binomial distribution. Notice they follow a similar pattern."
+knitr::include_graphics("02-images/helper-hinderer-exact-binomial.png")
+```
+
+Statisticians often use the binomial distribution to calculate p-values when testing claims about a population proportion. However, before using the binomial distribution, we should check to make sure the following conditions are met.
+
+::: callout-note
+### The Binomial Distribution - When can we use it?
+
+This distribution can be used whenever the following assumptions are met:
+
++ There exist a fixed number of trials, n.
++ There are only two possible outcomes on each trial (“success” or “failure”).
++ The probability of “success” $\pi$ remains constant from trial to trial.
++ The n trials are independent.
+:::
+
+\newpage
+
+1. Check whether these assumptions seem reasonable for the Helper vs. Hinderer study.
+
++ There exist a fixed number of trials, n. <span style="color:blue;">n = 16</span>
+
+
+
++ There are only two possible outcomes on each trial (“success” or “failure”). <span style="color:blue;">helper/hinderer</span>
+
+
+
++ The probability of success ($\pi$) remains constant from trial to trial. <span style="color:blue;">$\pi = 0.50$</span>
+
+
+
++ The n trials are independent. <span style="color:blue;">The choice of one infant does not give us information about the choice of another infant </span>
+
+Once the conditions for the binomial distribution have been met, we can calculate binomial proportions of interest. While there is a mathematical formula for calculating these probabilities, we will not go into that in this class. Instead, I have provided you the calculated probabilities for the Helper vs. Hinder example in the graph below:
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+helperhinder_binom <- tibble("x" = seq(1,16),
+                             "dbinom" = dbinom(seq(1, 16), 16, prob = 0.5)
+)
+
+helperhinder_binom |> 
+  ggplot(aes(x = x, y = dbinom)) +
+  geom_segment(aes(xend = x, yend = 0), size = 1) +
+  geom_text(aes(label = sprintf("%.4f", dbinom)), vjust = -0.6, color = "gray30", size = 2.5) +
+  labs(x = "Number of 10-month olds who chose 'Helper'",
+       y = "Binomial Proportion") +
+  scale_x_continuous(breaks = seq(1,16)) +
+  scale_y_continuous(breaks = seq(0,0.25, 0.05), limits = c(0,0.25)) +
+  theme_bw() +
+  theme(aspect.ratio = 0.4)
+```
+
+1. Find the probability of observing *exactly* 14 of the 16 10-month-old infants choosing the helper toy, assuming that the population of all 10-month-olds has no preference.
+
+<span style="color:blue;">0.0018 -> 0.0018*100 = 0.18%</span>
+
+2.	What is the exact **p-value** found using the binomial proportions?
+
+<span style="color:blue;">0.0018 + 0.0002 + 0.0000 = 0.002</span>
+
+<span style="color:blue;">Note you add up the observed + the extremes (in this case, upper-tailed test).</span>
+
+Alternatively, there is a handy function, `binom.test()` that helps us calculate our p-value from binomial proportions and takes the following arguments:
+
++ `x`: the number of successes in our study
++ `n`: the sample size for our study
++ `p`: the proportion of successes we would expect to see under the null
++ `alternative`: "two-sided", "greater", "less"
+
+Below are the results from the Helper vs. Hinder example.
+
+```{r}
+#| echo: true
+binom.test(x = 14, n = 16, p = 0.5, alternative = "greater")
+```
+
+## Confidence Intervals for a Single Categorical Variable
+
+When carrying out hypothesis tests, we are testing claims about population parameters. Sometimes, however, our goal is simply to **estimate** a parameter of interest. Statisticians typically do this with a **confidence interval** 
+
+::: callout-note
+### Definition
+
+**Confidence interval:** a range of plausible values for the parameter of interest. 
+:::
+
+The big difference between *hypothesis testing* and *confidence intervals* is as follows: the construction of a confidence interval does NOT require any hypotheses concerning our population parameter of interest. The goal of a *hypothesis test* is to draw a conclusion about a claim whereas the goal of a *confidence interval* is to make an *estimate* for the parameter.
+
+For example, consider the following scenario.
+
+### Example 2.3: Effectivenss of Acupuncture
+
+In 2008, researchers from the University of Pennsylvania used data from the 2002 National Health Interview Survey (NHIS) to determine the proportion of survey respondents who reported effectiveness of acupuncture treatment for specific conditions. The NHIS is a nationally representative household interview survey of the U.S. civilian non-institutionalized population aged 18 years or older.
+
+In one part of this study, the researchers identified 89 survey respondents who reported seeing a practitioner of acupuncture to treat back pain. Of these 89 respondents, 77 reported that the acupuncture helped improve their symptoms.
+
+Source: 2008. Patrick J. LaRiccia et al. "Perceived Effectiveness of Acupuncture: Findings from the National Health Interview Survey." *Medical Acupuncture,* Volume 20, Number 4.
+
+1.  Identify the population of interest.
+
+\vspace{0.5in}
+
+2.  Identify the sample
+
+\vspace{0.5in}
+
+3.  Identify the parameter of interest.
+
+\vspace{0.5in}
+
+4.  Identify the observed sample statistic.
+
+\vspace{0.5in}
+
+Note that the goal of this study was clearly identified in the abstract for this manuscript:
+
+![](02-images/acupuncture-abstract.png)
+
+Recall that for the specific condition of back pain, 77 respondents reported that the acupuncture helped improve their symptoms.
+
+The objectives don't mention anything about a specific research hypothesis (for example, they're not conducting this study in order to show that "the majority of patients with back pain get relief from acupuncture"). So, we have no null or alternative hypothesis of interest. Instead, the goal is simply to estimate $\pi$, the population parameter of interest. What is our best guess for $\pi$ based on the observed data from the sample?
+
+\vspace{0.2in}
+
+$\hat\pi =$
+
+\vspace{0.2in}
+
+This is called a **point estimate.** However, we know that if we obtained a different random sample of 89 survey respondents, this point estimate would most likely change. The purpose of using an **interval estimate** (i.e., a confidence interval) instead of this point estimate is to account for the inherent sample-to-sample variation that exists in a sample statistic. Once we determine how much variation is expected in the statistic, we can obtain a range of likely values for the population parameter (called the confidence interval). So, our next goal is to determine how much variation we should expect under repeated sampling.
+
+#### Approach 1: Simulation
+
+```{r}
+#| fig-align: left
+#| out-width: 40%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
+```
+
+5.  Why is the Sample size (n) set to 89?
+
+\vspace{0.8in}
+
+6.  Where did the 0.865 value come from?
+
+\vspace{0.8in}
+
+7.  Why did we use 0.865 for the probability of success?
+
+\vspace{0.8in}
+
+
+\newpage
+::: callout-note
+#### Definition
+
+**Sampling Distribution:** is the distribution of a statistic (like the sample proportion) calculated from many random samples of the same size from a population. It shows how the statistic varies across different samples.
+
+```{r}
+#| fig-align: center
+#| out-width: 90%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/acupuncture-sampling-distribution-sketch.png")
+```
+
+*Note: We have been creating null sampling distributions -- "under the assumption the null is true". This is the same concept, except we *
+
+:::
+
+\vspace{0.2in}
+
+8.  Once we obtain the results of several runs of the simulation and plot the outcomes, on what value do you expect this distribution to be centered? Why?
+
+\vspace{0.8in}
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/acupuncture-ci-sim-prop.PNG")
+```
+
+A formal approach to calculating a confidence interval involves identifying the middle 95% of the sampling distribution. That is, we need to find a lower endpoint that separates the bottom 2.5% of the distribution and an upper endpoint that separates the top 2.5% of the distribution.
+
+9.  Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
+
+\vspace{0.8in}
+
+10. What information does this range of values really provide us?
+
+\vspace{0.8in}
+
+#### Approach 2: Binomial
+
+Next, recall that we previously discussed the fact that running a simulation study to enables us to estimate proportions for our sampling distribution that we actually could obtain using the binomial distribution.
+
+\newpage
+
+The distribution appears as follows:
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+acupuncture_binom <- tibble("x" = seq(60,89)/89,
+                             "dbinom" = dbinom(seq(60, 89), 89, prob = 0.865)
+)
+
+acupuncture_binom |> 
+  ggplot(aes(x = x, y = dbinom)) +
+  geom_segment(aes(xend = x, yend = 0), size = 1) +
+  geom_text(aes(label = round(dbinom, 2)), vjust = -0.5, color = "gray30", size = 2.5) +
+  labs(x = "Proportion that get relief",
+       y = "Binomial Proportion") +
+  scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
+  scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15)) +
+  theme_bw()+
+  theme(aspect.ratio = 0.5)
+```
+
+
+11.	Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
+
+\vspace{0.8in}
+
+#### Approach 3: Normal Approximation (aka Theoretical)
+<!-- (https://shiny.stat.ncsu.edu/jbpost2/NormalApproximation/) -->
+
+With the previous two approaches, we were simply trying to understand the basic idea behind a confidence interval.  A statistician would probably not use Simulation or the binomial distribution in the same way that we have just illustrated to calculate the endpoints for this confidence interval (think about some reasons why not).
+
+Instead, to calculate a confidence interval for a proportion, a statistician could make use of the normal curve (i.e., the bell-shaped curve). Note that the normal curve approximates the binomial distribution with a sample size of 89 and $\pi$ = 0.865 fairly well:
+
+```{r}
+#| fig-pos: "H"
+#| fig-cap: "The normal curve superimposed on binomial proportions."
+#| out-width: 80%
+#| fig-align: center
+acupuncture_binom <- tibble("x" = seq(60,89)/89,
+                             "dbinom" = dbinom(seq(60, 89), 89, prob = 0.865)
+)
+acupuncture_norm <- tibble("x" = seq(0,1, 0.001),
+                           "dnorm" = dnorm(x, 
+                                           mean = 0.865, 
+                                           sd = sqrt((0.865*(1-0.865))/89)
+                                           )* (1 / 89)
+                           )
+acupuncture_binom |> 
+  ggplot(aes(x = x, y = dbinom)) +
+  geom_segment(aes(xend = x, yend = 0), size = 1) +
+  geom_line(data = acupuncture_norm,
+            aes(x = x,
+                y = dnorm
+                ),
+            color = "steelblue",
+            size = 1
+            ) +
+  labs(x = "Proportion that get relief",
+       y = "Binomial Proportion") +
+  scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
+  scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15)) +
+  theme_bw() +
+  theme(aspect.ratio = 0.5)
+```
+
+To calculate the endpoints for a 95% confidence interval constructed using normal theory methods, we find the values on the x-axis of the above graph that separate the middle 95% from the rest.  This is done using the following steps:
+
+12.	Start with the **point estimate**, $\hat \pi$:
+
+\vspace{0.2in}
+
+13.	Calculate the **standard error** associated with this point estimate:
+
+$$\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
+
+
+14.	Calculate the **margin of error**: This is defined as 1.96 standard errors for a 95\% confidence interval.  *(This is discussed more on the next page)*.
+
+$$1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
+
+15.	Find the **endpoints** of the confidence interval:
+
+Lower endpoint = $\hat \pi - 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$
+
+\vspace{0.2in}
+
+Upper endpoint =  $\hat \pi + 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$
+
+\vspace{0.2in}
+
+Sketch the following values for our example on the normal curve shown below: 
+
++ the point estimate
++ the lower and upper endpoints
++ the margin of error.
+
+```{r}
+#| fig-pos: "H"
+acupuncture_norm |> 
+  ggplot(aes(x = x, y = dnorm)) +
+  geom_line(color = "steelblue",
+            size = 1
+            ) +
+  labs(x = "Proportion that get relief",
+       y = "Binomial Proportion") +
+  scale_x_continuous(limits = c(0.72, 1), breaks = seq(0.7, 1, 0.02)) +
+  theme_bw() +
+  theme(aspect.ratio = 0.4)
+```
+
+
+16.	What is the 95% confidence interval based on the normal theory approach for this problem?
+
+\vspace{0.5in}
+
+
+17.	What is the interpretation of this confidence interval?
+
+\vspace{0.8in}
+
+\newpage
+
+::: callout-tip
+### More on the Margin of Error
+**Question:**  Why is 1.96 used in the formula for a 95% confidence interval?
+
+**Answer:**  Because with the normal distribution, using  a margin of error of 1.96 $\times$ standard error gives us an error rate of 2.5% in each tail, resulting in a total error rate of 5%.
+ 
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/moe-values.png")
+``` 
+ 
++ If you are constructing a 95% confidence interval, then margin of error = 1.96 * standard error
++ Similarly, if you are constructing a 90% confidence interval, it can be shown that margin of error = 1.645 * standard error
++ If you are constructing a 99% confidence interval, it can be shown that margin of error = 2.575 * standard error
+:::
+
+::: callout-warning
+Several methods exist for constructing a confidence interval for a binomial proportion.  We have considered a method known as the “Wald” interval (normal approximation).  **Note that this method does not typically perform well for very small sample sizes or when the point estimate is very close to either zero or one.**
+:::
+
+This is because the normal curve does not approximate the binomial distribution very well in these situations.  For example, consider the binomial distribution with $\pi = 0.10$ and $n = 20$:
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+x_binom <- tibble("x" = seq(0,20)/20,
+                             "dbinom" = dbinom(seq(0, 20), 20, prob = 0.1)
+)
+
+x_norm <- tibble("x" = seq(-1,1, 0.001),
+                           "dnorm" = dnorm(x, 
+                                           mean = 0.1, 
+                                           sd = sqrt((0.1*(1-0.1))/20)
+                                           )* (1 / 20)
+                           )
+x_binom |> 
+  ggplot(aes(x = x, y = dbinom)) +
+  geom_segment(aes(xend = x, yend = 0), size = 1) +
+  geom_line(data = x_norm,
+            aes(x = x,
+                y = dnorm
+                ),
+            color = "steelblue",
+            size = 1
+            ) +
+  labs(x = "Proportion of Success",
+       y = "Binomial Proportion") +
+  scale_x_continuous(limits = c(-0.2, 1), breaks = seq(-0.2, 1, 0.2)) +
+  # scale_y_continuous(breaks = seq(0,0.15, 0.05), limits = c(0,0.15)) +
+  theme_bw() +
+  theme(aspect.ratio = 0.5)
+```
+
+This distribution is not approximated well by a bell-shaped curve. If we encountered a study with $n = 20$ and $\pi = 0.10$, then the normal approxmiation method would not provide us with a very reliable interval estimate of the true population proportion. 
+
+::: callout-note
+### Conditions for One Proportion Normal Approximation
+One rule of thumb is that as long as there are 10 "successes" and 10 "failures", the normal approximation should work reasonably well.
+:::
+
+18. Check this condition for the Acupuncture example.  Does the Wald interval seem to be appropriate here?
+
+\vspace{0.8in}
+
+::: callout-note
+### Big Picture: Confidence Intervals
+Confidence intervals provide a range of plausible values for a population parameter (like the population proportion) based on a sample. Rather than giving a single estimate, they reflect the uncertainty in our estimate due to random sampling from our population. Confidence intervals allow us to account for this variability and make more informed statements about what the population parameter could be. 
+:::
+
+### Extension (on own if desired): What Does "95% Confident" Really Mean?
+
+Once again, consider Example 2.3 regarding acupuncture treatment for back pain. Note that if we were to obtain another random sample of 89 individuals, the sample proportion from this new study will probably not be equal to 77/89 = 86.5\%. Thus, the confidence interval we calculate based on this statistic will also change.
+
+Also, note that the population parameter ($\pi$ = the proportion of the population that get relief) is equal to one true value, which happens to be unknown. In a single study conducted in the real world, we have no way of knowing for sure whether or not the confidence interval obtained from this study has captured this one true value.
+
+We can, however, conduct a simulation study to see how well our methods for constructing a confidence interval work. In this simulation study, we will set the population proportion to a value that is known, construct confidence intervals from several random samples, and see how often the resulting interval actually captures the true value of the population proportion.
+
+This process is easy to do using an applet available on the web. `Online Simulation Applets` > `Simulating Confidence Intervals for Population Parameter`
+
+Link: <http://www.rossmanchance.com/applets/2021/confsim/ConfSim.html> 
+
+Carry out the following steps.
+
+1.  Let's assume that the true population proportion for our acupuncture example is $\pi = 0.80$. In the applet, set the value of $\pi$ to be 0.80 and $n$ to be 89. Also, make sure that the method is set to "Wald" for "Proportions."
+
+\vspace{0.2in}
+
+2.  Click on "Sample." Then, click on the interval to see the sample proportion that was obtained. You should see something similar to the following.
+
+
+```{r}
+#| fig-align: center
+#| out-width: 80%
+#| fig-pos: "H"
+knitr::include_graphics("02-images/confint-sim.png")
+```
+
+> In the example shown above, the first random sample resulted in = 69/89 = .775. The confidence interval constructed using the Wald method was $0.689 \le \pi \le 0.862$. Note that this interval did in fact capture the true population proportion, $\pi = 0.80$.
+
+> Identify the following from your first random sample in the simulation study.
+
++ Sample proportion :
+
+\vspace{0.2in}
+
++ 95% confidence interval:
+
+\vspace{0.2in}
+
++ Did your confidence interval capture the true value of $\pi = 0.80$?
+
+\vspace{0.2in}
+
+3.  Click "Sample" again. Did you get the same interval? Does this new interval capture the true value of $\pi = 0.80$?
+
+\vspace{0.2in}
+
+4.  To investigate what happens in the long run, we can use the applet to take many more random samples and construct a confidence interval for each. Change the number of "Intervals" from 1 to 198 and click "Sample."
+
+> What percentage of the 200 intervals captures the true value of the population proportion, $\pi = 0.80$? Note that this information is given in the "Running Total."
+
+\vspace{0.2in}
+
+5.  Change the number of "Intervals" from 198 to 200 and click "Sample" over and over again until you've created 1,000 confidence intervals. What percentage of these 1000 intervals captures the true value of the population proportion, $\pi = .80$? This is often referred to as the *coverage rate*.
+
+\vspace{0.2in}
+
+6.  Predict how the coverage rate will change if you were to construct 90% confidence intervals instead of 95% confidence intervals. Then, in the applet, change the confidence level to 90% and click "Recalculate." Continue to press "Sample" until you have constructed 1,000 intervals. What percentage of these 1000 intervals captures the true value of the population proportion, $\pi = 0.80$?
+
+\vspace{0.2in}
+
+7.  Now, recall that in the actual study, you get only one sample and thus one confidence interval. Do you know for sure whether this one interval captures the truth?
+
+\vspace{0.2in}
+
+::: callout-note
+### Big Picture: Meaning of 95% Confident
+These simulations show us that if take repeated samples from a population and construct 95% confidence intervals each time, in the long run approximately 95% of our intervals will succeed in capturing the true value of the population proportion, $\pi$. So, when we collect data and calculate a single 95% confidence interval, we say we are 95% confident (or certain) that this interval captures the truth.
+:::
