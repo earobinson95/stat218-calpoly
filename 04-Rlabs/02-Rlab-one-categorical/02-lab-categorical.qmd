@@ -32,64 +32,59 @@ athletes <- read_csv("data/athletes.csv")
 
 Your answer goes here.
 
-# Visualizing One Categorical Variable
-
-Let's start by exploring how many matches in our data set were won by each uniform color
-
-2.  **Create a *frequency bar plot* of the variable `won`.**
-
-**Step 1:** Set-up the data and the variable(s) of interest
-
-**Step 2:** Define what geometric object should be plotted on the plot -- now we're using bars!
-
-**Step 3:** Declare nice x- and y-axis labels
-
-Let's carry out these steps in the code chunk below!
-
-```{r freq-barplot}
-ggplot(data = athletes, 
-       mapping = aes(x = ____)
-       ) + 
-  geom_bar(stat = "count") + 
-  labs(title = "______",
-       x = "____", 
-       y = "____")
-```
-
-We could also choose to display the data as a proportion in a ***relative frequency bar plot***. To find the relative frequency, we divide the count in each level by the total sample size. The resulting values are sample proportions.
-
-To get *proportions* instead of *counts* we need to override the default statistic `geom_bar(stat = "count")` wants to use. To do this, we tell it we want proportions on the y-axis. We do this using the following code:
-
-```         
-geom_bar(stat = "count",
-         aes(y = ..prop.., group = 1)
-         )
-```
-
-Notice, there are two periods (**..**) before **and** after prop. These periods are necessary to define a new statistic that should be used for the y-axis.
-
-3.  **Use this new code to modify the code you had previously. Copy-and-paste your code from the frequency bar plot above and change the y-axis to plot proportions instead of counts. Make sure to change your y-axis label to match proportions rather than counts!**
-
-```{r relative-freq-barplot}
-# Copy-and-paste your code from #2
-# Add the aes() input to geom_bar() so your plot has proportions instead of counts!
-
-
-```
-
-4.  **Try removing the `group = 1` input from `geom_bar()`. What happens? What do your bars look like? Once you've answered the question, make sure to put the `group = 1` back in to your code!**
+2.  **What are the variables in this study? Are the categorical or numeric?**
 
 Your answer goes here.
 
+# Visualizing One Categorical Variable
+
+Let's start by exploring how many matches in our data set were `won` by each uniform color. Notice we are not interested in which sport was competed in, only the color of the uniform.
+
+3.  **Create a *stacked bar plot* of the counts for the variable `won`.**
+
+**Step 1:** Set-up the data and color by the variable(s) of interest: `fill = VARIABLE`
+
+**Step 2:** Define what geometric object should be plotted on the plot -- now we're using bars! `geom_bar()`
+
+**Step 3:** Declare an informative y-axis label: `labs(y = "WHAT IS ON THE Y-AXIS?")`
+
+Fill out the missing parts of the code below
+
+```{r freq-barplot}
+
+ggplot(data = __________, 
+       mapping = aes(x = "Observed Results",
+                     fill = _______
+                     )
+       ) + 
+  geom_bar(stat = "count",
+           position = "stack"
+           ) + 
+  labs(y = "___________________")
+```
+
+We could also choose to display the data as a proportion in a ***filled bar plot***. To find the proportions, we divide the count in each level by the total sample size. The resulting values are sample proportions (your $\hat p$'s if you will).
+
+To get *proportions* instead of *counts* we need to change the position of the bars from `position = stack` to `position = fill`.
+
+4.  **Use this new code to modify the code you had previously. Copy-and-paste your code from the stacked bar plot above and change plot proportions instead of counts. Make sure to change your y-axis label to match proportions rather than counts!**
+
+```{r relative-freq-barplot}
+
+# Copy-and-paste + modify your code from above
+
+
+```
+
 # Summary statistics for categorical variables
 
-The other part of Exploratory Data Analysis (EDA) is making summary statistics. For a categorical variable, this means making frequency tables and relative frequency tables. Let's explore how to do that.
+The other part of Exploratory Data Analysis (EDA) is making summary statistics. For a categorical variable, this means making tables of counts and tables of proportions. Let's explore how to do that.
 
 For this piece you are going to learn about a tool -- "the pipe." This is a special operator written as \|`>`. The pipe is used as a connecting piece to keep your data flowing through a pipeline. We will use the pipe to string together two R functions:
 
 -   `count()`, which counts the number of observations (rows) for each group of a categorical variable
--   `mutate()`, which modifies our dataset by adding new variables or changing existing variables
-
+-   `mutate()`, which modifies our data set by adding new variables or changing existing variables
+ 
 Let's start with a short data pipeline.
 
 ```{r summarize}
@@ -126,7 +121,7 @@ Your answer goes here.
 
 # Scenario One: Original
 
-Research Question: Do competitors that wear red uniforms win a *majority* of the time?
+**Research Question:** Do competitors that wear red uniforms win a *majority* of the time?
 
 8.  **State the null and alternative hypotheses in words.**
 
@@ -138,11 +133,15 @@ Research Question: Do competitors that wear red uniforms win a *majority* of the
 
 Your answer goes here.
 
-10. **Run the code below. Based on the output, what decision do you make about your hypotheses? Justify your answer using the p-value.**
+Run the code below. Discuss in your group where the values 248, 457, and 0.5 came from.
 
 ```{r binom-test-1}
 binom.test(x = 248, n = 457, p = 0.5, alternative = "greater")
 ```
+
+10. **Based on the output above, what decision (Reject the Null or Fail to Reject the Null) do you make about your hypotheses? Justify your answer using the p-value.**
+
+Your answer goes here.
 
 11. **Write a conclusion in context of the scenario.**
 
@@ -150,7 +149,7 @@ Your answer goes here.
 
 # Scenario Two: One Sided vs. Two Sided
 
-Research Question: Does one color win more often than the other?
+**Research Question:** Does one color win more often than the other?
 
 12. **State the null and alternative hypotheses in words.**
 
@@ -158,7 +157,7 @@ Research Question: Does one color win more often than the other?
 
 -   Alternative:
 
-13. **Copy and change the code from question 10 to conduct a two-sided test.**
+13. **Copy and change the `binom.test()` code above to conduct a two-sided test.**
 
 ```{r binom-test-2}
 
@@ -176,12 +175,12 @@ The p-value for a two-sided test is "about" twice as large as that for a one-sid
 
 # Scenario Three: Distance Between the Statistic and the Null
 
-Research Question: Do competitors that wear red uniforms win a majority of the time?
+**Research Question:** Do competitors that wear red uniforms win a majority of the time?
 
 -   Recall: Going back to scenario one (one-sided hypothesis), we had the following information: hypothesized null = 0.5 and observed statistic = 0.543.
--   Now suppose 261 matches were won by competitors wearing read (i.e., an observe a statistic of 0.571).
+-   Now suppose instead of 248, we found that 261 matches were won by competitors wearing read (i.e., an observe a statistic of 0.571).
 
-15. **How does the distance between our observed statistic and hypothesized null change? Might be helpful to draw a picture.**
+15. **How does the distance between our observed statistic and hypothesized null value change? It might be helpful to draw a picture.**
 
 Your answer goes here.
 
@@ -203,7 +202,7 @@ As the observed sample statistic moves farther away from the hypothesized value,
 
 # Scenario 4: Effect of Sample Size
 
-Research Question: Do competitors that wear red uniforms win a majority of the time?
+**Research Question:** Do *boxing* competitors that wear red uniforms win a majority of the time?
 
 -   Recall: In scenario one (original) we had a sample size of 457 and a statistic of 0.543.
 
