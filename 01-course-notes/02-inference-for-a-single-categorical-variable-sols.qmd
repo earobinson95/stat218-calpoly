@@ -669,19 +669,19 @@ Source: 2008. Patrick J. LaRiccia et al. "Perceived Effectiveness of Acupuncture
 
 1.  Identify the population of interest.
 
-\vspace{0.5in}
+<span style="color:blue;">All U.S. civilian non-institutionalized individuals above 18 who reported seeing a practitioner of acupuncture to treat back pain.</span>
 
 2.  Identify the sample
 
-\vspace{0.5in}
+<span style="color:blue;">n = 89 survey respondents</span>
 
 3.  Identify the parameter of interest.
 
-\vspace{0.5in}
+<span style="color:blue;">$\pi$ the population proportion of all U.S. adults seeing an acupuncture specialist who saw improvement in their back pain.</span>
 
 4.  Identify the observed sample statistic.
 
-\vspace{0.5in}
+<span style="color:blue;">$\hat p = 77/90 = 0.865$ -> 86.5% saw improvement in back pain</span>
 
 Note that the goal of this study was clearly identified in the abstract for this manuscript:
 
@@ -693,7 +693,9 @@ The objectives don't mention anything about a specific research hypothesis (for 
 
 \vspace{0.2in}
 
-$\hat\pi =$
+$\hat\pi =$<span style="color:blue;">77/89 = 0.865</span>
+
+<span style="color:blue;">Note! The point estimate here (symbol $\hat pi$) is the same value as our observed statistic ($\hat p$). We just use a different notation mainly to talk about this being our "best guess" for $\pi$, but you can think of these as interchangeable.</span>
 
 \vspace{0.2in}
 
@@ -710,15 +712,17 @@ knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
 
 5.  Why is the Sample size (n) set to 89?
 
-\vspace{0.8in}
+<span style="color:blue;">The number of individuals in our original observed sample.</span>
 
 6.  Where did the 0.865 value come from?
 
-\vspace{0.8in}
+<span style="color:blue;">This is our point estimate of $\pi$, the population proportion of all US adults seeing a specialist who saw improvement in their back pain. Note this comes from our one observed sample. Our "best guess".</span>
 
 7.  Why did we use 0.865 for the probability of success?
 
-\vspace{0.8in}
+<span style="color:blue;">We want to know what the sampling distribution looks like *assuming* the population proportion really is the observed point estimate.</span>
+
+<span style="color:blue;">Note: this is the process we have been doing with our null distributions -- *under the assumption we are just guessing etc.*. We just change our assumptions to be under the assumption the population parameter really is what we saw in our sample. Then we want to know the sample to sample variability (see below).</span>
 
 
 \newpage
@@ -734,7 +738,7 @@ knitr::include_graphics("02-images/acupuncture-ci-sim-parms.png")
 knitr::include_graphics("02-images/acupuncture-sampling-distribution-sketch.png")
 ```
 
-*Note: We have been creating null sampling distributions -- "under the assumption the null is true". This is the same concept, except we *
+*Note: We have been creating null sampling distributions -- "under the assumption the null is true". This is the same concept, except we now assume the population parameter really is the point estimate.*
 
 :::
 
@@ -751,15 +755,21 @@ knitr::include_graphics("02-images/acupuncture-sampling-distribution-sketch.png"
 knitr::include_graphics("02-images/acupuncture-ci-sim-prop.PNG")
 ```
 
+<span style="color:blue;">Note there are 100 dots and the sampling distribution is centered at 0.865 (our point estimate!).</span>
+
 A formal approach to calculating a confidence interval involves identifying the middle 95% of the sampling distribution. That is, we need to find a lower endpoint that separates the bottom 2.5% of the distribution and an upper endpoint that separates the top 2.5% of the distribution.
 
 9.  Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
+
+<span style="color:blue;">(0.79, 0.93)</span>
+
+<span style="color:blue;">Note that there are ~95 "dots" between these two end points.</span>
 
 \vspace{0.8in}
 
 10. What information does this range of values really provide us?
 
-\vspace{0.8in}
+<span style="color:blue;">A *plausible interval* for the population proportion of all U.S. adults seeing an acupuncture specalist who see improvement in back pain.</span>
 
 #### Approach 2: Binomial
 
@@ -791,7 +801,9 @@ acupuncture_binom |>
 
 11.	Identify the lower and upper endpoints that separate close to the bottom 2.5% and the top 2.5% of the outcomes.
 
-\vspace{0.8in}
+<span style="color:blue;">(0.80, 0.93)</span>
+
+<span style="color:blue;">Note this leaves ~95% in the "middle". I know this actually is more like 94%, but close enough! We will talk about why this feels subjective and what is done in practice instead (aka below!).</span>
 
 #### Approach 3: Normal Approximation (aka Theoretical)
 <!-- (https://shiny.stat.ncsu.edu/jbpost2/NormalApproximation/) -->
@@ -832,28 +844,36 @@ acupuncture_binom |>
   theme(aspect.ratio = 0.5)
 ```
 
+<span style="color:blue;">We think of the area under that blue line as 100%! It is now continuous and we want to shade in and find the middle 95%. What end points capture that? we will use a math formula!</span>
+
+<span style="color:blue;">General formula --> point estimate $\pm$ critical value * standard error</span>
+
 To calculate the endpoints for a 95% confidence interval constructed using normal theory methods, we find the values on the x-axis of the above graph that separate the middle 95% from the rest.  This is done using the following steps:
 
-12.	Start with the **point estimate**, $\hat \pi$:
+12.	Start with the **point estimate**, $\hat \pi$: <span style="color:blue;">77/99 = 0.865</span>
 
 \vspace{0.2in}
 
 13.	Calculate the **standard error** associated with this point estimate:
 
-$$\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
+$$\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$ <span style="color:blue;">$$\sqrt{\frac{0.865(1-0.865)}{89}} =0.0362$$</span>
+
+<span style="color:blue;">Careful about order of operations! Take it step by step if you need.</span>
 
 
 14.	Calculate the **margin of error**: This is defined as 1.96 standard errors for a 95\% confidence interval.  *(This is discussed more on the next page)*.
 
-$$1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$
+$$1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}} =$$ 
+
+<span style="color:blue;">$1.96*0.0362 = 0.071$</span>
 
 15.	Find the **endpoints** of the confidence interval:
 
-Lower endpoint = $\hat \pi - 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$
+Lower endpoint = $\hat \pi - 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$ <span style="color:blue;"> $0.865 - 0.071 = 0.794$</span>
 
 \vspace{0.2in}
 
-Upper endpoint =  $\hat \pi + 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$
+Upper endpoint =  $\hat \pi + 1.96 \times \sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}=$ <span style="color:blue;"> $0.865 + 0.071 = 0.936$</span>
 
 \vspace{0.2in}
 
@@ -880,12 +900,12 @@ acupuncture_norm |>
 
 16.	What is the 95% confidence interval based on the normal theory approach for this problem?
 
-\vspace{0.5in}
+<span style="color:blue;">(0.794, 0.936)</span>
 
 
 17.	What is the interpretation of this confidence interval?
 
-\vspace{0.8in}
+<span style="color:blue;">We are 95% confident the population proportion of all U.S. adults seeing an acupuncture specialist who see imporvement in back pain is betwen 0.794 and 0.936.</span>
 
 \newpage
 
@@ -953,7 +973,9 @@ One rule of thumb is that as long as there are 10 "successes" and 10 "failures",
 
 18. Check this condition for the Acupuncture example.  Does the Wald interval seem to be appropriate here?
 
-\vspace{0.8in}
+<span style="color:blue;">77 reported relief (success) > 10 -- GOOD!</span>
+<span style="color:blue;">12 did not reported relief (failure) > 10 -- GOOD!</span>
+<span style="color:blue;">Thus, our conditions for using the normal approximation are met!</span>
 
 ::: callout-note
 ### Big Picture: Confidence Intervals
@@ -983,48 +1005,48 @@ Carry out the following steps.
 
 ```{r}
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 100%
 #| fig-pos: "H"
 knitr::include_graphics("02-images/confint-sim.png")
 ```
 
-> In the example shown above, the first random sample resulted in = 69/89 = .775. The confidence interval constructed using the Wald method was $0.689 \le \pi \le 0.862$. Note that this interval did in fact capture the true population proportion, $\pi = 0.80$.
+> In the example shown above, the first random sample resulted in $\hat \pi = 0.809$. The confidence interval constructed using the Wald method was $0.727 \le \pi \le 0.891$. Note that this interval did in fact capture the true population proportion we specified, $\pi = 0.80$.
 
 > Identify the following from your first random sample in the simulation study.
 
 + Sample proportion :
 
-\vspace{0.2in}
+<span style="color:blue;">For this example, $\hat \pi = 0.809$. Note yours is a different sample so it might be different!</span>
 
 + 95% confidence interval:
 
-\vspace{0.2in}
+<span style="color:blue;">(0.727, 0.891)</span>
 
 + Did your confidence interval capture the true value of $\pi = 0.80$?
 
-\vspace{0.2in}
+<span style="color:blue;">Yes! 0.80 falls beween 0.727 and 0.891.</span>
 
 3.  Click "Sample" again. Did you get the same interval? Does this new interval capture the true value of $\pi = 0.80$?
 
-\vspace{0.2in}
+<span style="color:blue;">My next sample resulted in a 95% confidence interval of (0.740, 0.900). Yes, this still captured 0.80. Let's do this again and again!</span>
 
 4.  To investigate what happens in the long run, we can use the applet to take many more random samples and construct a confidence interval for each. Change the number of "Intervals" from 1 to 198 and click "Sample."
 
 > What percentage of the 200 intervals captures the true value of the population proportion, $\pi = 0.80$? Note that this information is given in the "Running Total."
 
-\vspace{0.2in}
+<span style="color:blue;">Mine had 187 of the 200 repeated samples capture the population proportion of 0.80 (this is 93.5%). Those capturing the population proportion are shown in green and the intervals not are shown in red (terrible colors, I know).</span>
 
 5.  Change the number of "Intervals" from 198 to 200 and click "Sample" over and over again until you've created 1,000 confidence intervals. What percentage of these 1000 intervals captures the true value of the population proportion, $\pi = .80$? This is often referred to as the *coverage rate*.
 
-\vspace{0.2in}
+<span style="color:blue;">My running total sasy 937/1000 = 93.7% of the repeated samples have confidence intervals that capture the population proportion.</span>
 
 6.  Predict how the coverage rate will change if you were to construct 90% confidence intervals instead of 95% confidence intervals. Then, in the applet, change the confidence level to 90% and click "Recalculate." Continue to press "Sample" until you have constructed 1,000 intervals. What percentage of these 1000 intervals captures the true value of the population proportion, $\pi = 0.80$?
 
-\vspace{0.2in}
+<span style="color:blue;">The coverage rate will be closer to 90% of the repeated samples having confidence intervals that capture 0.80 instead of 95% capturing it.</span>
 
 7.  Now, recall that in the actual study, you get only one sample and thus one confidence interval. Do you know for sure whether this one interval captures the truth?
 
-\vspace{0.2in}
+<span style="color:blue;">Nope. Hence why we interpret with, "We are 95% confident..."</span>
 
 ::: callout-note
 ### Big Picture: Meaning of 95% Confident
