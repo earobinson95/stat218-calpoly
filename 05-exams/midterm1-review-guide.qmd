@@ -25,21 +25,10 @@ execute:
   message: false
 ---
 
-::: callout
-## Exam Office Hours (Dr. Robinson's office: 25-103)
-
-4 office hours on Monday, Oct. 21st:
-
-+ 10:10am - 12pm
-+ 4:10pm - 6pm
-
-No office hours on Thursday, Oct. 24th.
-:::
-
 # What to Expect
 
 -   You may bring an $8 \frac{1}{2} \times 11$ standard sheet of notes (both sides). I will not provide you with formulas, so put what you think you need on here.
-  + You will turn this in with your exam.
+  + You will turn this in with your exam so make sure you put your name on it.
 -   You may bring any calculator to use. I will have a handful of simple calculators. You may **not** use your phone as a calculator.
 -   The exam is mostly multiple choice, but will have a handful of short answer questions mixed in.
 - You will have 50 minutes to complete the exam. It took me approximately 15 minutes to complete.
@@ -57,18 +46,21 @@ Solutions to the review will *not* be posted.
 
 \*Note: this may not be an exhaustive list. You should review all of your notes, assignments, labs, and quizzes from Chapters 1 - 3.
 
--   Identifying pieces of a data set: population, observation, variable of interest, sample size, etc.
+-   Identifying pieces of a data set: population, observational unit, variable of interest, sample size, etc. (tidy data framework)
+-   Understand sampling distributions (i.e., sample to sample variability under the assumption xxx).
+  - What do we use a null sampling distribution for?
 -   Parameter vs Statistic
--   What impacts strength of evidence? How does this relate to the size of the p-value?
--   How do you interpret the p-value? Can you do this for various scenarios?
+-   What impacts strength of evidence? e.g. how does this relate to the size of the p-value?
+-   How do you interpret the p-value -- conceptually what does this probability tell you? Can you do this for various scenarios using context rather than rote definitions?
 -   Who can you generalize the results of the study to?
--   Confidence intervals for a single proportion.
-    -   All confidence levels.
+-   Calculate and interpret confidence intervals for a single proportion.
+    -   All confidence levels -- 90%, 95%, and 99%
     -   How does this relate to hypotheses testing?
     -   What impacts the width of confidence intervals?
--   Work through hypotheses testing for the following types of scenarios:
-    -   One categorical variable with two outcomes (single proportion)
-    -   One categorical variable with multiple categories (Chi-square Goodness of Fit)
+-   Work through hypotheses testing for one categorical variable with two outcomes (single proportion)
+  - know the symbols ($H_0$, $H_A$, $\pi$, $\hat p$, $\hat \pi$)
+  - how to set up a simulation study
+  - how to estimate a p-value given a simulation study
 
 \newpage
 
@@ -185,55 +177,187 @@ v.  State a conclusion in context of the research question.
 > c.  Survey A
 > d.  Survey B
 
-7.  A local doctor suspects that there is a seasonal trend in the occurrence of the common cold. She estimates that 40% of the cases each year occur in the winter, 40% in the spring, 10% in the summer and 10% in the fall. A random sample of 835 patient cases was collected, and the number of cold cases for each season was recorded.
+7. Suppose you want to investigate the question, *“What proportion of Americans support stronger gun laws?”* 
+Identify the observational unit and variable of interest. (2 pts)
 
-A summary table of the observed counts is included below:
+    a.	Observational unit = opinion on gun laws, variable = number of people who support stronger gun laws
+    
+    b.	Observational unit = opinion on gun laws, variable = political affiliation
+    
+    c.	Observational unit = an American, variable = opinion on gun laws
+    
+    d.	Observational unit = an American, variable = number of people who support stronger gun laws
 
-| Fall | Spring | Summer | Winter | Total |
-|------|--------|--------|--------|-------|
-| 165  | 292    | 169    | 374    | 835   |
+\hspace{0.1in}
 
-(i) If the doctor's suspicion was correct, what *proportions* would you expect for each cell? Insert the corresponding values in each cell.
+8. A student participates in a Coke versus Pepsi taste test. She correctly identifies which soda is which five times out of six tries. She claims that this proves that she can reliably tell the difference between the two soft drinks. You have studied statistics and you want to determine the probability of anyone getting at least five right out of six tries just by chance alone. Which of the following would provide an accurate estimate of that probability?  (2 pts)
 
-| Fall          | Spring          | Summer         | Winter          |
-|---------------|-----------------|----------------|-----------------|
-| $\pi_{fall}=$ \hspace{0.1in}| $\pi_{spring}=$ \hspace{0.1in}| $\pi_{summer}=$ \hspace{0.1in}| $\pi_{winter}=$ \hspace{0.1in}|
+    a.	Have the student repeat this experiment many times and calculate the percentage of times she correctly distinguishes between the brands.
+    
+    b.	Simulate this on the computer with a 50% chance of guessing the correct soft drink on each try, and calculate the percent of times there are five or more correct guesses out of six trials.
+    
+    c.	Repeat this experiment with a very large sample of people and calculate the percentage of people who make five correct guesses out of six tries. 
+    
+    d.	All of the methods listed above would provide an accurate estimate of the probability.
 
-(ii) If the table above represents what is assumed to be true under $H_0$, state the alternative hypothesis using words (what would the null be in words?).
+9. Researchers carried out a study to investigate whether two-year-old children learn words through overhearing the conversations of others. In this study, the child sat and watched while the experimenter introduced four new objects to another adult. All four objects were originally placed in a bucket so that they were hidden from sight. One of the four objects was considered the “target” object, and the other three were considered “neutral” objects. For each of the three neutral objects, the researcher would say, “I’ll show you this one” and then pull it out the bucket. However, before introducing the target object to the other adult, the researcher would say, “I’ll show you the toma.” After the child had overheard this conversation between the researcher and the other adult, the researcher presented all four objects to the child and asked him or her to find the “toma.” This was repeated for each of 12 two-year-old subjects, and the researchers kept track of how many could correctly identify the target object.
 
-\vspace{1.2in}
+**Research Question:**  Is there evidence that children learn new words through overhearing? In other words, is there evidence that more two-year-olds are correctly identifying the target object than we would expect by chance? 
 
-(iii) Compute the table of expected counts.
+a.	Which of the following gives the best description of the population of interest? (3 pts)
 
-| Fall | Spring | Summer | Winter |
-|------|--------|--------|--------|
-|   \hspace{0.1in}   |   \hspace{0.1in}     |   \hspace{0.1in}     |  \hspace{0.1in}      |
+    a.	The 12 two-year-olds observed in this study
+    
+    b.	The 10 two-year-olds that correctly identified the target object
+    
+    c.	The population proportion of all two-year-olds that would correctly identify the target object
+    
+    d.	All two-year-olds
 
-(iv) What is the summer cold cell's contribution to the $X^2$ test statistic?
 
-\vspace{1.2in}
+\hspace{0.1in}
 
-(v) Evaluate whether the conditions required to use the chi-square distribution to obtain a p-value are violated.
-
-\vspace{1.2in}
-
-(vi) A $X^2$ statistic of 124 was obtained for these data. Fill in the R code below to conduct the chi-square goodness of fit test.
+b.	Suppose the researchers will conduct a simulation study to get an idea of what outcomes to anticipate if the two-year old toddlers are really not able to learn new words through overhearing and are simply guessing when asked to find the target object. Complete the following simulation setup, conducting 100 simulated runs, for the researchers to use (3 pts)
 
 ```{r}
-#| eval: false
-#| echo: true
-chisq_test(x = cold_data,
-           response = _________,
-           p = c( ______, ______, ______, ______)
-)
+#| fig-align: center
+#| out-width: 40%
+knitr::include_graphics(here::here("03-quizzes/01-images/new-vocab-sim-parms.png"))
 ```
 
-(vii) A p-value of \<0.001 was obtained using the code you input above. Based on this p-value what would you conclude about the Doctor's hypothesis regarding the distribution of colds throughout the year?
-      -   How would you interpret this p-value?
+\newpage
 
-      -   What are the test statistics and associated degrees of freedom?
+Suppose the researchers carried out 100 simulated runs of the experiment, and the number of two-year old toddlers that correctly identified the target object when guessing was recorded for each simulated run. The results are summarized below.
 
-\vspace{1.8in}
+```{r}
+#| fig-align: center
+#| out-width: 40%
+knitr::include_graphics(here::here("03-quizzes/01-images/new-vocab-sim-dist.png"))
+```
+
+
+c. Evaluate the following statements based on the simulation results above. Circle the response that best reflects your conclusion. (2 pts each)
+
++ If 3 two-year old toddlers correctly identified the target object, does this provide convincing evidence that children are learning new words from overhearing?
+
+    \hspace{0.2in} Convinced \hspace{0.2in} Somewhat convinced \hspace{0.2in} Not convinced
+
++ If 7 two-year old toddlers correctly identified the target object, does this provide convincing evidence that children are learning new words from overhearing?
+
+    \hspace{0.2in} Convinced \hspace{0.2in} Somewhat convinced \hspace{0.2in} Not convinced
+
+\hspace{0.1in}
+
+d. Why would it be important for the researchers to balance out the order in which the objects were presented to the two-year old toddlers across the study? For example, how would the study results have been affected if the researchers always presented the target object last? (3 pts)
+
+\vspace{1.5in}
+
+10. A new delivery robot has been introduced on campus, offering an alternative to Grubhub for order-ahead pick-ups at the campus Panda Express. The university dining team wants to investigate whether the delivery robot is more accurate in fulfilling orders compared to Grubhub. An order is considered accurate if all items are correct and no items are missing. Previously, Grubhub had an accuracy rate of 80\% for orders. To test the robot’s performance, the team randomly selects 120 orders fulfilled by the robot over a month and finds that 102 of them are accurate.
+
+**Research Question**  Is there evidence to suggest that the campus delivery robot improved the accuracy of orders at Panda Express?
+
+a. Which of the following best describes the parameter of interest? (2 pts)
+
+    a. The proportion of all orders that are accurate at Panda Express.
+    b. The proportion of all orders accurately fulfilled by Grubhub.
+    c. The proportion of all orders accurately fulfilled by the campus delivery robot.
+    d. The proportion of all orders fulfilled by either the robot or Grubhub.
+
+b. Calculate the sample statistic (assign a symbol and show how you obtained this value). (2 pts)
+
+\vspace{0.5in}
+
+c. Write the null and alternative hypotheses for this study using *symbols*. (4 pts)
+
+\vspace{1in}
+
+The following graph shows the simulated null sampling distribution for 100 simulations. 
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+knitr::include_graphics(here::here("03-quizzes/02-images/delivery-robot-sim2.PNG"))
+```
+
+d. Where is the center of the sampling distribution? Explain why this center makes sense in the context of the study. (2 pts)
+
+\vspace{0.7in}
+
+e. Use the simulated distribution to estimate the p-value for the observed proportion. Show your work directly on the graph. (3 pts)
+
+    p-value = ________
+
+\vspace{0.15in}
+
+f. Based on the p-value and an $\alpha = 0.05$, we would _____ the null hypothesis. (1 pt)
+
+    a. Reject
+    b. Fail to Reject
+    c. Accept
+    
+g. Which of the following best describes the conclusion? (2 pts)
+
+    a. At an $\alpha = 0.05,$ we have evidence to conclude that the campus delivery robot improved the accuracy of orders at Panda Express (p = xx).
+    b. At an $\alpha = 0.05,$ we do not have enough evidence to conclude that the campus delivery robot improved the accuracy of orders at Panda Express (p = xx).
+    c. At an $\alpha = 0.05,$ we have evidence to conclude that the campus delivery robot and Grubhub have the same accuracy of orders at Panda Express (p = xx).
+    d. At an $\alpha = 0.05,$ we do not have enough evidence to conclude that the campus delivery robot and Grubhub have the same accuracy of orders at Panda Express (p = xx).
+
+h.	Suppose instead, the university dining team wanted to determine if there is evidence to suggest that the campus delivery robot changed the accuracy of orders at Panda Express. Which one of the following would change from the hypotheses in Question 3? (1 pt)
+
+    a.	Observed Sample Statistic
+    b.	Null hypothesis 
+    c.	Alternative hypothesis
+    d.	Sample Size
+
+<!-- 7.  A local doctor suspects that there is a seasonal trend in the occurrence of the common cold. She estimates that 40% of the cases each year occur in the winter, 40% in the spring, 10% in the summer and 10% in the fall. A random sample of 835 patient cases was collected, and the number of cold cases for each season was recorded. -->
+
+<!-- A summary table of the observed counts is included below: -->
+
+<!-- | Fall | Spring | Summer | Winter | Total | -->
+<!-- |------|--------|--------|--------|-------| -->
+<!-- | 165  | 292    | 169    | 374    | 835   | -->
+
+<!-- (i) If the doctor's suspicion was correct, what *proportions* would you expect for each cell? Insert the corresponding values in each cell. -->
+
+<!-- | Fall          | Spring          | Summer         | Winter          | -->
+<!-- |---------------|-----------------|----------------|-----------------| -->
+<!-- | $\pi_{fall}=$ \hspace{0.1in}| $\pi_{spring}=$ \hspace{0.1in}| $\pi_{summer}=$ \hspace{0.1in}| $\pi_{winter}=$ \hspace{0.1in}| -->
+
+<!-- (ii) If the table above represents what is assumed to be true under $H_0$, state the alternative hypothesis using words (what would the null be in words?). -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- (iii) Compute the table of expected counts. -->
+
+<!-- | Fall | Spring | Summer | Winter | -->
+<!-- |------|--------|--------|--------| -->
+<!-- |   \hspace{0.1in}   |   \hspace{0.1in}     |   \hspace{0.1in}     |  \hspace{0.1in}      | -->
+
+<!-- (iv) What is the summer cold cell's contribution to the $X^2$ test statistic? -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- (v) Evaluate whether the conditions required to use the chi-square distribution to obtain a p-value are violated. -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- (vi) A $X^2$ statistic of 124 was obtained for these data. Fill in the R code below to conduct the chi-square goodness of fit test. -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- chisq_test(x = cold_data, -->
+<!--            response = _________, -->
+<!--            p = c( ______, ______, ______, ______) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- (vii) A p-value of \<0.001 was obtained using the code you input above. Based on this p-value what would you conclude about the Doctor's hypothesis regarding the distribution of colds throughout the year? -->
+<!--       -   How would you interpret this p-value? -->
+
+<!--       -   What are the test statistics and associated degrees of freedom? -->
+
+<!-- \vspace{1.8in} -->
 
 <!-- 7.  In a [recent study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9831139/) conducted in the United Kingdom, researchers gathered data on 6,705 children to investigate the potential relationship between a mother's exposure to cats during pregnancy and the occurrence of psychotic episodes in their children. The study included two groups: one consisting of 4,746 children whose mothers did not have cats while pregnant and another group of 1,959 children whose mothers did have cats during pregnancy. -->
 
