@@ -130,6 +130,8 @@ fire_incidents |>
   mutate(Prop = round(Prop, 3))
 ```
 
+<span style="color:blue;">These are the Expected proportions based on ALL of California (the distribution we want to compare Riverside to).</span>
+
 The fire chief reported a total of 146 fires occurred in Riverside county between 2013 and 2020.
 
 \newpage
@@ -184,9 +186,10 @@ head(riverside_incidents) #<4>
 | Hypotheses             | $H_0$: The proportion of fires occurring in each season in Riverside County                |
 |                        | is equal to the proportion in all of California.                                           |
 |                        |\                                                                                           |
-|                        | ($\pi_\text{fall}$ = _____; $\pi_\text{winter}$ = _____;                                   |
-| \                      | $\pi_\text{spring}$ = _____; $\pi_\text{summer}$ = _____)                                  |
-|                        |\                                                                                           |
+|                        | ($\pi_\text{fall}$ = <span style="color:blue;">0.219</span>;                               |
+| \                      | $\pi_\text{winter}$ = <span style="color:blue;">0.073</span>                               |
+|                        |$\pi_\text{spring}$ = <span style="color:blue;">0.112</span>;                               |
+|                        |$\pi_\text{summer}$ = <span style="color:blue;">0.596</span>;                               |
 |                        |\                                                                                           |
 |                        | $H_A$: The proportion of fires occurring in each season in Riverside County                |
 |                        | is different from that in all of California                                                |
@@ -204,20 +207,21 @@ The approach we take here to address the research question is very similar to wh
 
 \vspace{0.1in}
 
-+----------------+--------+--------+--------+--------+--------+
-|                | Fall   | Winter | Spring | Summer | Total  |
-+================+========+========+========+========+========+
-| Expected Count | \      |        |        |        |        |
-|                | \      |        |        |        |        |
-|                | \      |        |        |        |        |
-|                | \      |        |        |        |        |
-+----------------+--------+--------+--------+--------+--------+
+<span style="color:blue;">Expected Count = N x expected proportion</span>
+
++----------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+--------------------------------------------+--------------------------------------+
+|                | Fall                                        | Winter                                      | Spring                                      | Summer                                     | Total                                |
++================+=============================================+=============================================+=============================================+============================================+======================================+
+| Expected Count | <span style="color:blue;">146(0.219)</span> | <span style="color:blue;">146(0.073)</span> | <span style="color:blue;">146(0.112)</span> |<span style="color:blue;">146(0.596)</span> | <span style="color:blue;">146</span> |
+|                | <span style="color:blue;">=31.97</span>     | <span style="color:blue;">=10.66</span>     | <span style="color:blue;">=16.35</span>     |<span style="color:blue;">=87.02</span>     |                                      |
+|                | \                                           |                                             |                                             |                                            |                                      |
++----------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+--------------------------------------------+--------------------------------------+
 
 Note that we must allow for some slight variations in the fire patterns over the four seasons because we do not anticipate the numbers to come out exactly at the expected number for each season. Over repeated samples, slight variations will occur in the fire patterns. We could use simulation to give us an idea of how much deviation from the expected counts we should anticipate.
 
 2.  We will use an adjustable spinner to simulate the variations we would expect to see *under* the assumption that the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California.
 
--   Visit <https://www.nctm.org/adjustablespinner/>.
+-   Visit <https://www.nctm.org/Classroom-Resources/Illuminations/Interactives/Adjustable-Spinner/>.
 -   Change the `Number of sectors` to 4 and change the color names to the Season names.
 -   Click the edges of the spinner and drag to set equal to the proportions given for seasons in all of California. *Hint: Start by shrinking the blue region, then yellow, followed by the cyan, and finally enlarge the red area. Don't get frustrated getting exact.*
 
@@ -225,7 +229,7 @@ Note that we must allow for some slight variations in the fire patterns over the
 #| out-width: 65%
 #| fig-align: center
 #| fig-pos: "H"
-knitr::include_graphics("03-images/spinner-setup.png")
+knitr::include_graphics("03-images/spinner-setup-sims.JPG")
 ```
 
 Why should the spinner's proportions for each season be set to match the seasonal proportions of fires in all of California? Explain.
@@ -238,18 +242,19 @@ Why should the spinner's proportions for each season be set to match the seasona
 
 Why is do we want to set this to 146? Explain.
 
-\vspace{0.3in}
+<span style="color:blue;">This is our sample size. We want to distribute the n = 146 fires in Riverside County to the four seasons *under the assumption the proportions follow the greater California distribution of fires.*</span>
 
 -   Record the results of your simulation in the table below.
 
 **Your simulation results**
 
-+----------------------+--------+--------+--------+--------+--------+
-|                      | Fall   | Winter | Spring | Summer | Total  |
-+======================+========+========+========+========+========+
-| **Simulated Counts** |\       |        |        |        |        |
-|                      |\       |        |        |        |        |
-+----------------------+--------+--------+--------+--------+--------+
+<span style="color:blue;">Note this was my simulation -- you might have different counts.</span>
+
++----------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+--------------------------------------------+--------------------------------------+
+|                      | Fall                                        | Winter                                      | Spring                                      | Summer                                     | Total                                |
++======================+=============================================+=============================================+=============================================+============================================+======================================+
+| **Simulated Counts** | <span style="color:blue;">31</span>         | <span style="color:blue;">12</span>         | <span style="color:blue;">15</span>         |<span style="color:blue;">88</span>         | <span style="color:blue;">146</span> |
++----------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+--------------------------------------------+--------------------------------------+
 
 Next, consider the actual fire statistics for Riverside County between 2013 and 2020.
 
@@ -280,12 +285,12 @@ riverside_incidents |> # <1>
 #| out-width: 100%
 #| fig-align: center
 #| fig-pos: "H"
-knitr::include_graphics("03-images/fire-lineup-sketch.png")
+knitr::include_graphics("03-images/fire-lineup-sketch-sols.png")
 ```
 
 4.  How does the observed Riverside data compare to the variations of simulated results *under* the assumption that the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California?
 
-\vspace{0.8in}
+<span style="color:blue;">The simulated counts (under the null) actually appear fairly similar to the expected counts making me think maybe the seasonal distribution of fires in Riverside County does match the seasonal distribution of fires across CA. Maybe there are a few more simulated fires in Fall than what we observed, but not super obvious. We will formally test this!</span>
 
 Recall that our goal is to determine whether this observed result is consistent or not with what our simulation tells us we should see if there really is no difference in the fire counts across seasons. To address the research question, we must identify whether or not the observed result would be considered "unusual" for each season. To formalize the process of determining whether our results are "unusual", recall that we can use the p-value approach. Recall the definition of a p-value.
 
@@ -347,27 +352,23 @@ knitr::include_graphics("03-images/fire-simulated-4pvalues.png")
 
 \vspace{0.3in}
 
-+--------+------------+----------+-----------------------+
-| Season | Obs. Count | p-value  | Reject or FTR?        |
-+========+============+==========+=======================+
-| Fall   |\           |          |                       |
-|        |\           |          |                       |
-+--------+------------+----------+-----------------------+
-| Winter |\           |          |                       |
-|        |\           |          |                       |
-+--------+------------+----------+-----------------------+
-| Spring |\           |          |                       |
-|        |\           |          |                       |
-+--------+------------+----------+-----------------------+
-| Summer |\           |          |                       |
-|        |\           |          |                       |
-+--------+------------+----------+-----------------------+
++--------+------------------------------------+-----------------------------------------+-------------------------------------+
+| Season | Obs. Count                         | p-value                                 | Reject or FTR?                      |
++========+====================================+=========================================+=====================================+
+| Fall   |<span style="color:blue;">25</span> |<span style="color:blue;">0.17</span>    |<span style="color:blue;">FTR</span> |
++--------+------------------------------------+-----------------------------------------+-------------------------------------+
+| Winter |<span style="color:blue;">5</span>  |<span style="color:blue;">0.07</span>    |<span style="color:blue;">FTR</span> |
++--------+------------------------------------+-----------------------------------------+-------------------------------------+
+| Spring |<span style="color:blue;">31</span> |<span style="color:blue;"><0.0001</span> |<span style="color:blue;">R</span>   |
++--------+------------------------------------+-----------------------------------------+-------------------------------------+
+| Summer |<span style="color:blue;">85</span> |<span style="color:blue;">0.87</span>    |<span style="color:blue;">FTR</span> |
++--------+------------------------------------+-----------------------------------------+-------------------------------------+
 
 \vspace{0.3in}
 
 6.  Why is it more difficult to determine whether or not our data is considered "unusual" in this situation than in the problems we dealt with previously?
 
-\vspace{0.8in}
+<span style="color:blue;">There are multiple p-values (more than 2 categories) that lead to different conclusions.</span>
 
 ::: callout-warning
 ### A comment regarding multiplicity
@@ -413,7 +414,7 @@ knitr::include_graphics("03-images/fire-simulated-4differences.png")
 
 8.  Find the sum of the Distance for all four seasons. What is this total distance? Does this value make sense for total distance? How might we overcome this issue?
 
-\vspace{0.8in}
+<span style="color:blue;">The sum of the distances is 0.. that doesn't help us. The positives and negative distances cancel out. We could take the absolute value? or square the distances. Let's square them!</span>
 
 So that the negative distances do not cancel out the positive ones, we will square each distance before adding them up.
 
@@ -446,15 +447,15 @@ knitr::include_graphics("03-images/fire-sqdistance-sketch.png")
 
 9.  What would a value of 0 imply on the above number line? Explain why this value less than 0 is not possible when the distances are squared and summed across the categories.
 
-\vspace{0.8in}
+<span style="color:blue;">The expected counts are equal to the observed counts since squaring a negative makes it positive.</span>
 
 10. What would a large value imply? Is this evidence for or against the original research question?
 
-\vspace{0.8in}
+<span style="color:blue;">The observed counts are VERY far from the expected counts. This is evidence for supporting our research question -- if the distribution of fires in riverside is different from what we expect based on the distribution of CA, we would reject the null.</span>
 
 11. When squared distances are computed and summed across all categories, the appropriate test is an upper-tailed test. Explain why this is the case.
 
-\vspace{0.8in}
+<span style="color:blue;">We squared the values so we already moved everything to one side.</span>
 
 A dot plot of the total squared distances from all 100 simulated sets of n = 146 fires under the assumption the is given below.
 
@@ -494,7 +495,7 @@ sim |>
 
 12. What is the approximate p-value from the above graph? What is the appropriate statistical decision for our research question?
 
-\vspace{0.8in}
+<span style="color:blue;">0/100 "dots" fall at or above our observed squared distance of 297.26. So a p-value = 0, but we say p-value < 0.0001.</span>
 
 However, the total of the squared distances fails under certain conditions since it does not take into consideration the *scale* of the expected values. The following **Test Statistic** accounts for the scale of the expected counts and is they typical summary measure used by statisticians.
 
