@@ -47,7 +47,7 @@ mastitis <- tibble(cow_id = sample(1:138, 138),
          ) |> 
   arrange(cow_id)
 
-write.csv(mastitis, "data/mastitis.csv", row.names = F)
+# write.csv(mastitis, "data/mastitis.csv", row.names = F)
 ```
 
 Mastitis is a common and costly condition in dairy cows and heifers. It is an inflammation of the mammary gland tissue and udder, which can be caused by various factors, including bacterial infections, environmental conditions, and poor milking practices. Mastitis can lead to reduced milk production and quality. Identifying whether the breed pattern of cows with mastitis consistent with the breed pattern of cows in the herd and is crucial for dairy farmer Selberg.
@@ -169,7 +169,11 @@ Recall that in practice, statisticians conduct a Goodness of Fit test using the 
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c(0.28, 0.04, 0.45, 0.23)
+           p = c("Brown Swiss"  = 0.28, 
+                 "Dutch Belted" = 0.04, 
+                 "Holstein"     = 0.45, 
+                 "Jersey"       = 0.23
+                 )
            )
 ```
 
@@ -180,7 +184,11 @@ chisq_test(mastitis,
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c(0.25, 0.25, 0.25, 0.25)
+           p = c("Brown Swiss"  = 0.25, 
+                 "Dutch Belted" = 0.25, 
+                 "Holstein"     = 0.25, 
+                 "Jersey"       = 0.25
+                 )
            )
 ```
 
@@ -191,7 +199,11 @@ chisq_test(mastitis,
 library(infer)
 chisq_test(mastitis,
            response = breed,
-           p = c(0.17, 0.10, 0.40, 0.33)
+           p = c("Brown Swiss"  = 0.17, 
+                 "Dutch Belted" = 0.10, 
+                 "Holstein"     = 0.40, 
+                 "Jersey"       = 0.33
+                 )
            )
 ```
 
