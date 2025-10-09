@@ -12,8 +12,8 @@ format:
           \fancyhf{}
           \fancyhead[R]{Chapter 3: Inference for a Single Categorical Variable with More than Two Categories}
           \fancyfoot[C]{\thepage}
-  docx:
-    toc: false
+  # docx:
+  #   toc: false
 prefer-html: true
 embed-resources: true
 bibliography: references.bib
@@ -520,13 +520,13 @@ $$\text{Test Statistic} = \sum \frac{(\text{Observed} - \text{Expected})^2}{\tex
 | $(O - E)^2$           | 47.61   | 32.49   | 213.16  | 4       | 297.26    |
 |                       |\        |         |         |         |           |
 +-----------------------+---------+---------+---------+---------+-----------+
-| $\frac{(O - E)^2}{E}$ | 1.49    | 3.04    | \       |\        | **17.98** |
-|                       |\        |         |         |         |           |
+| $\frac{(O - E)^2}{E}$ | 1.49    | 3.04    | <span style="color:blue;">213.16/16.4</span> | <span style="color:blue;">4/87</span>   | **17.58** |
+|                       |\        |         | <span style="color:blue;">=12.998</span>     | <span style="color:blue;">=0.046</span> |           |
 +-----------------------+---------+---------+---------+---------+-----------+
 
 13. The **Test Statistic** for this analysis would be:
 
-\vspace{0.5in}
+<span style="color:blue;">$X^2 = 17.58$; this is like our "$\hat p$"  from Ch. 2. The observed sample statistic.</span>
 
 Similar to what we have done in the past, now we must determine whether or not the **Test Statistic** from the observed data would be considered "unusual" under the null hypothesis.
 
@@ -536,7 +536,7 @@ Similar to what we have done in the past, now we must determine whether or not t
 #| out-width: 90%
 #| fig-align: center
 #| fig-pos: "H"
-knitr::include_graphics("03-images/fire-chisq-sketch.png")
+knitr::include_graphics("03-images/fire-chisq-sketch-sols.png")
 ```
 
 The `Online Simulation Applet > Goodness of Fit` can be used to compute the Test Statistic over repeated samples under the null hypothesis.
@@ -559,19 +559,23 @@ The following graph shows the test statistic computed for 100 simulations carrie
 knitr::include_graphics("03-images/fire-chisq-sim-applet.png")
 ```
 
-15. The Test Statistic for the observed data from our 146 fires in Riverside County is $X^2=17.98$. Is this value consistent with results we would expect to see if the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California? Explain.
+15. The Test Statistic for the observed data from our 146 fires in Riverside County is $X^2=17.58$. Is this value consistent with results we would expect to see if the seasonal distribution of fires in Riverside County matches the seasonal distribution of fires across California? Explain.
 
-\vspace{0.8in}
+
+<span style="color:blue;">This is the null sampling distribution! The distributions of $X^2$ simulated under the assumption the 146 fires in Riverside are distributed across seasons with equal proportions as the seasonal distribution of fires in all of CA. Notice that our observed $X^ = 17.58$ from the actual data falls in the upper end of the simulated distribution? It's not consistent with the null distribution of test statistics.</span>
 
 16. Consider the formula for the test statistic. What would a value near 0 imply? What would a large value imply? Explain.
 
 $$\text{Test Statistic} = \sum \frac{(\text{Observed} - \text{Expected})^2}{\text{Expected}}$$
+<span style="color:blue;">A value near 0 --> observed = expected</span>
 
-\vspace{0.7in}
+<span style="color:blue;">A large value --> observed is far from the expected</span>
 
 17. Compute the p-value, make a decision, and write a final conclusion for the original research question.
 
-\vspace{0.7in}
+<span style="color:blue;">p-value < 0.0001 --> Reject the null</span>
+
+<span style="color:blue;">At an $\alpha$ = 0.05, we have evidence to conclude that the seasonal distribution of fires in Riverside County differs from the seasonal distribution of fires in all of CA ($X^2$ = 17.58, p-value < 0.0001).</span>
 
 ::: callout-note
 ### The Chi-square Distribution and Goodness-of-fit Test
@@ -620,11 +624,12 @@ chisq_test(x = riverside_incidents, # <2>
 
 18. From the output above, identify your observed Chi-square test statistic with the degrees of freedom ($\chi_{df}^2)$, and the associated p-value.
 
-\vspace{0.8in}
+<span style="color:blue;">$X^2$ = 17.7, df = 3, p-value = 0.0005; note the $X^2$ slightly differs just because of rounding.</span>
 
 19. State a conclusion for your research question.
 
-\vspace{0.8in}
+<span style="color:blue;">At an $\alpha$ = 0.05, we have evidence to conclude that the seasonal distribution of fires in Riverside County differs from the seasonal distribution of fires in all of CA ($X^2$ = 17.7, df = 3, p-value = 0.0005).</span>
+
 
 \newpage
 
@@ -635,7 +640,7 @@ In order for the $\chi^2$ distribution to be a good approximation of the true sa
 
 -   The observations are independent
 -   We have a "large enough" sample size
-    -   This is checked by verifying there are at least 5 expected counts in each category
+    -   This is checked by verifying there are at least **5 expected counts** in each category
 
 If the condition about expected cell counts is violated, we are forced to use the simulation-based method.
 :::
@@ -646,8 +651,10 @@ If the condition about expected cell counts is violated, we are forced to use th
 
 -   Independent observations?
 
-\vspace{0.8in}
+<span style="color:blue;">Debatable, the season of one fire should not necessarily tell us about the season of another fire. I'm not a fire expert so maybe fires "jump" and a new fire is started and recorded. They might be related geographically. We'll roll with it, though.</span>
 
 -   "Large enough" sample size?
 
-\vspace{0.3in}
+<span style="color:blue;">The smallest expected count happens in the winter (0.073)*146 = 10.66. Note that 10.66 > 5, thus all other expected counts for the three other seasons will be > 5. SO we're good! Note you only need to calculate the smallest expected proportion because all others will be bigger.</span>
+
+<span style="color:blue;">Caution! This is the *expected* counts, not the *observed* counts because that Chi-square sampling distribution is generated under the assumption the null is true (i.e., the population follows the expected proportions).</span>
