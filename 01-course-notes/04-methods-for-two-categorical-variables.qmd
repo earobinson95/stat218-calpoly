@@ -73,6 +73,8 @@ When we analyze data on two variables, our first step is to distinguish between 
 -   **Response variable:** The outcome variable on which comparisons are made.
 
 -   **Explanatory (or predictor) variable:** This defines the groups to be compared.
+
+The *explanatory variable* is the variable we think is “explaining” the change in the response variable and the *response variable* is the variable we think is being impacted or changed by the explanatory variable. The explanatory variable is sometimes called the independent variable and the response variable is sometimes called the dependent variable.
 :::
 
 1.  What are the variables in the MythBusters Yawning experiment? Are they categorical or numerical? Which is the response variable? Which is the explanatory variable?
@@ -86,7 +88,7 @@ When we analyze data on two variables, our first step is to distinguish between 
 
 \vspace{0.1in}
 
--   A **contingency table** shows the joint counts (aka frequencies) of two categorical variables. The *rows* of the table denote the categories of the *explanatory variable*, and the *columns* denote the categories of the *response variable*.
+-   A **contingency table** shows the joint counts (aka frequencies) of two categorical variables. The *rows* of the table denote the categories of the *response variable*, and the *columns* denote the categories of the *explanatory variable*.
 
 :::
 
@@ -157,70 +159,72 @@ myth_busters |> # <1>
 1.  Start with the `myth_busters` data set
 2.  Count the number of subjects in each seeding group and yawn action combination
 
-It is easier to understand the relationship between the explanatory and response variables if we arrange our counts into a contingency table:
+It is easier to understand the relationship between the explanatory and response variables if we arrange our counts into a contingency table. This displays our *observed counts*:
 
 ```{r}
 #| echo: true
 library(janitor)  # <1>
 
 myth_busters |> # <2>
-  tabyl(seeding, action) |>  # <3>
+  tabyl(action, seeding) |>  # <3>
   adorn_totals(where = c("row", "col"))  # <4>
 ```
 
 1. Load the `janitor` package to access specific functions.
 2. Start with the `myth_busters` data set.
-3. Use the `tabyl` function to count the number of subjects in each seeding group and yawn action combination, and arrange in a contingency table format.
+3. Use the `tabyl` function to count the number of subjects in each yawn action and seeding group combination, and arrange in a contingency table format.
 4. Use the `adorn_totals()` function to add total counts to the contingency table.
 
 \vspace{0.1in}
 
-2.  Find the proportion that yawn in the Seeded group.
-
-\vspace{0.5in}
-
 3.  Find the proportion that yawn in the Control group.
 
-\vspace{0.5in}
+$$\hat p_{yawned|control}=$$
 
-We could instead obtain our observed proportion that yawn (and did not yawn) for each group using `adorn_percentages()`.
+2.  Find the proportion that yawn in the Seeded group.
+
+$$\hat p_{yawned|seeded}=$$
+
+::: callout-note
+Two variables are associated or related if the value of one variable gives you information about the value of the other variable. When comparing two groups this means that the proportions or means take different values in the two groups.
+:::
+
+3. Do the two variables (seeded group and yawn action) seem to be related?
+
+We could instead obtain our *observed proportion* that yawn (and did not yawn) for each group using `adorn_percentages()`.
 
 ```{r}
 #| echo: true
 myth_busters |> 
-  tabyl(seeding, action) |> 
+  tabyl(action, seeding) |> 
   adorn_totals(where = c("row", "col")) |> 
-  adorn_percentages(denominator = "row") # <5>
+  adorn_percentages(denominator = "col") # <5>
 ```
 
-5.  Calculate the observed proportions based on the "row" totals (number of subjects in each seeding group).
+5.  Calculate the *observed proportions* based on the "col" totals (number of subjects in each seeding group).
 
 ### Chi-square Test of Independence
 
-The above descriptive analysis tells us what we have learned about the 50 subjects in the study. Can we make any inferences beyond what happened in the study (i.e., general statements about the population)? Similar to what we did in Chapter 3 with the Chi-square Goodness of Fit Test for one categorical variablewith more than two groups, we will be simulating and calculating a Chi-Squared Test Statistic to compare what we observed in the data to what we would have expected to see under the assumption that yawn seeding has no relationship with yawn action (i.e., if the null hypothesis is true).
+The above descriptive analysis tells us what we have learned about the 50 subjects in the study. Can we make any inferences beyond what happened in the study (i.e., general statements about the population)? Similar to what we did in Chapter 3 with the Chi-square Goodness of Fit Test for one categorical variable with more than two groups, we will be simulating and calculating a Chi-Squared Test Statistic to compare what we observed in the data to what we would have expected to see under the assumption that yawn seeding has no relationship with yawn action (i.e., if the null hypothesis is true).
 
 4.  Write the null and alternative hypotheses for this study.
 
 \vspace{1.5in}
 
 ::: callout-note
-### Expected Counts under $H_0$
+### Expected Counts under the assumption the null is true
 
 The Chi-Squared Test Statistic ($X^2$) has exactly the same formula to what we used last week.
 
 $$
-\text{Test Statistic} =\sum\frac{\text{(Observed - Expected)}^2}{\text{Expected}} 
+\text{Test Statistic} =X^2 = \sum\frac{\text{(Observed - Expected)}^2}{\text{Expected}} 
 $$
 
-The only aspect that changes is how we get each cell's expected count. To find the *expected count* for each cell in our two variable table, we use three pieces of information:
+The only aspect that changes is how we get each cell's expected count. To find the *expected count* for each cell in our contingency table:
 
--   the row total for that cell (denoted with an $i$)
--   the column total for that cell (denoted with a $j$)
--   the total sample size
+$$\frac{\text{row total}}{\text{total sample size}} \times \text{col total}.$$
 
-We find the expected value of a cell using the following formula:
-
-$$\frac{\text{row}_i\text{ total} \times \text{column}_j\text{ total}}{\text{total sample size}}.$$
+The $\frac{\text{row total}}{\text{total sample size}}$ gives you the proportion of Response 1 (e.g., No yawn) in the entire sample regardless of explanatory variable group (e.g., regardless of Control or Seeded). Then assuming that is the expected probability of Outcome 1, we can distribute out the $n$ in each group to get the expected count (under the null) by multiplying by the $\text{col total}.$
 :::
 
 Once we have each of these, we can create a table of what counts we would have expected *under* the assumption there is no relationship between seeding group and yawn action (i.e., if the null is true).
@@ -230,11 +234,10 @@ Once we have each of these, we can create a table of what counts we would have e
 **Observed counts**
 
 ```{r}
+#| echo: false
 myth_busters |> 
-  count(seeding, action) |> 
-  pivot_wider(names_from = action,
-              values_from = n) |> 
-  adorn_totals(where = c("row", "col")) |> 
+  tabyl(action, seeding) |>  
+  adorn_totals(where = c("row", "col"))  |> 
   knitr::kable()
 ```
 
@@ -242,15 +245,15 @@ myth_busters |>
 
 
 +---------------------+--------------+--------------+--------------+
-|                     | No yawn      | Yawned       | Total        |
+|                     | Control      | Seeded       | Total        |
 +---------------------+--------------+--------------+--------------+
-| Control             | \            |              | 16           |
+| No yawn             | \            |              | 36           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
-| Seeded              | \            |              | 34           |
+| Yawned              | \            |              | 14           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
-| Total               | 36           | 14           | 50           |
+| Total               | 16           | 34           | 50           |
 +---------------------+--------------+--------------+--------------+
 
 **Chi-Square Test Statistic** Next, we compare each of our observed counts to what we would have expected under the assumption there is no relationship between seeding and yawn action.
@@ -280,18 +283,18 @@ We will answer the research question by replicating the experiment over and over
 **Simulated Counts**
 
 +---------------------+--------------+--------------+--------------+
-|                     | No yawn      | Yawned       | Total        |
+|                     | Control      | Seeded       | Total        |
 +---------------------+--------------+--------------+--------------+
-| Control             | \            |              | 16           |
+| No yawn             | \            |              | 36           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
-| Seeded              | \            |              | 34           |
+| Yawned              | \            |              | 14           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
-| Total               | 36           | 14           | 50           |
+| Total               | 16           | 34           | 50           |
 +---------------------+--------------+--------------+--------------+
 
-6. Divide your simulated counts by the row totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?
+6. Divide your simulated counts by the column totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?
 
 ```{r}
 #| out-width: 80%
@@ -380,7 +383,7 @@ chisq_test(x = myth_busters, # <2>
 In order for the $\chi^2$ distribution to be a good approximation of the null sampling distribution, we need to verify two conditions:
 
 -   Independent observations
--   Expected counts at least 5 in each category
+-   At least 5 expected counts in each category
 
 If the condition about expected cell counts is violated, we are forced to use the simulation-based method.
 :::
@@ -401,6 +404,7 @@ knitr::include_graphics("04-images/yawn-chisq-approx.PNG")
 ```{r}
 #| echo: true
 #| warning: true
+set.seed(93401)
 library(infer)
 chisq_test(x = myth_busters,
            explanatory = seeding,
@@ -412,89 +416,10 @@ chisq_test(x = myth_busters,
 
 6. In order to conduct a *simulation* instead, specify `simulate.p.value = TRUE`. Notice we no longer have `chisq_df`.
 
-## Example 4.2: Vested Interest and Task Performance
-
-*This example is from Investigating Statistical Concepts, Applications, and Methods by Beth Chance and Allan Rossman. 2006. Thomson-Brooks/Cole.*
-
-"A study published in the Journal of Personality and Social Psychology (Butler and Baumeister, 1998) investigated a conjecture that having an observer with a vested interest would decrease subjects' performance on a skill-based task. Subjects were given time to practice playing a video game that required them to navigate an obstacle course as quickly as possible. They were then told to play the game one final time with an observer present. Subjects were randomly assigned to one of two groups. One group (A) was told that the participant and observer would each win \$3 if the participant beat a certain threshold time, and the other group (B) was told only that the participant would win the prize if the threshold were beaten. The threshold was chosen to be a time that they beat in 30% of their practice turns. The following results are very similar to those found in the experiment: 3 of the 12 subjects in group A beat the threshold, and 8 of 12 subjects in group B achieved success."
-
-|                         | Achieved Success | Did not achieve success | Total |
-|-------------------------|:----------------:|:-----------------------:|:-----:|
-| A: Vested Interest      |        3         |            9            |  12   |
-| B. No Vested Interest   |        8         |            4            |  12   |
-| Total                   |       11         |           13            |  24   |
-
-**Research Question:** Does whether the observer has a vested interest or not have an impact on performance on a skill-based task?
-
-1.  What are the variables in the study? Are they categorical or numerical? Which is the explanatory variable? Which is the response variable?
-
-\vspace{0.8in}
-
-2.  Convert the research question into your null and alternative hypotheses.
-
-\vspace{1.2in}
-
-
-3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
-
-\vspace{0.8in}
-
-4.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
-
-```{r}
-#| out-width: 50%
-#| fig-align: center
-knitr::include_graphics("04-images/vested-interest-sim.PNG")
-```
-
-\vspace{0.8in}
-
-5.  Write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.
-
-\vspace{1.5in}
-
-## Example 4.3 High-Salt Diets and Cardiovascular Disease
-
-Suppose a retrospective study is carried out among men aged 50-54 in a specific county who died over a one-month period. The investigators try to include approximately an equal number of men who died from CVD (the cases) and men who died from other causes (the controls). Of 15 people who died from CVD, 4 were on a high-salt diet before they died. In contrast, of 15 people who died from other causes, only 1 was on a high-salt diet. The data are shown in the following contingency table:
-
-|         |           |          |       |
-|---------|:---------:|:--------:|:-----:|
-|         | High-Salt | Low-Salt | Total |
-| Non-CVD |     1     |    14    |  15   |
-| CVD     |     4     |    11    |  15   |
-| Total   |     5     |    25    |  30   |
-
-**Research Question:** Is there an association between the cause of death and salt diet? In other words, is the proprtion of the CVD group which has a high-salt diet different from the proportion of the Non-CVD group which has a high-salt diet?
-
-1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable?
-
-\vspace{0.8in}
-
-2.  Convert the research question into your null and alternative hypotheses.
-
-\vspace{1.2in}
-
-3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
-
-\vspace{0.8in}
-
-4.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
-
-```{r}
-#| out-width: 50%
-#| fig-align: center
-knitr::include_graphics("04-images/cvd-sim.PNG")
-```
-
-\vspace{0.8in}
-
-5.  Write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.
-
-\vspace{1.5in}
 
 ## Observational Studies vs. Designed Experiments
 
-Let’s reconsider the "Vested Interest and Task Performance" example. Our simulated results showed an association between the group (vested interest vs. no vested interest) and task performance (Acheieved Success vs Did not achieve success). But can we confidently say that having a vested interest causes the difference in performance? Similarly, in the "High-Salt Diet and Cardiovascular Disease" example, if there were evidence to reject the null, could we conclude that high-salt diets cause cardiovascular disease? The answer depends on the study's design—whether it was a designed experiment or an observational study.
+Recall the concept of a *confounding variable*, a characteristic other than the variable of interest that may be related to the outcome. 
 
 ::: callout-note
 ## Definitions
@@ -512,84 +437,280 @@ In **observational studies**, we can only establish that an *association* exists
 In **designed experiments**, *random assignment* helps balance confounding variables across treatment groups, controlling for their influence. Therefore, designed experiments can provide evidence of a *cause-and-effect* relationship.
 :::
 
-In the *"Vested Interest and Task Performance"* study, participants were randomly assigned to groups, making this a designed experiment. The randomization likely balanced out other factors that could influence performance, meaning the reduced performance in the vested interest group is most likely *caused* by the vested interest itself.
+## Example 4.2: Vested Interest and Task Performance
 
-\vspace{0.1in}
+*This example is from Investigating Statistical Concepts, Applications, and Methods by Beth Chance and Allan Rossman. 2006. Thomson-Brooks/Cole.*
 
-In contrast, the *"High-Salt Diet and Cardiovascular Disease"* study is an observational study. Other factors, like overall health behaviors (e.g., exercise habits), could explain the *association* between a high-salt diet and cardiovascular disease. Therefore, we can’t confidently conclude causation from this study.
+"A study published in the Journal of Personality and Social Psychology (Butler and Baumeister, 1998) investigated a conjecture that having an observer with a vested interest would decrease subjects' performance on a skill-based task. Subjects were given time to practice playing a video game that required them to navigate an obstacle course as quickly as possible. They were then told to play the game one final time with an observer present. Subjects were randomly assigned to one of two groups. One group (Vested Interest) was told that the participant and observer would each win \$3 if the participant beat a certain threshold time, and the other group (No Vested Interest) was told only that the participant would win the prize if the threshold were beaten. The threshold was chosen to be a time that they beat in 30% of their practice turns. The following results are very similar to those found in the experiment: 3 of the 12 subjects in group A beat the threshold, and 8 of 12 subjects in group B achieved success."
 
-## Example 4.4: Alcoholism and Depression
+|                         | Vested Interest  | No Vested Interest      | Total |
+|-------------------------|:----------------:|:-----------------------:|:-----:|
+| Achieved Success        |        3         |            8            |  11   |
+| Did not achieve success |        9         |            4            |  13   |
+| Total                   |       12         |           12            |  24   |
 
-Past research has suggested a high rate of alcoholism in families among patients with primary unipolar depression. A study of 210 families of females with primary unipolar depression found that 89 families had alcoholism present. A set of 299 control families found 94 present.
+**Research Question:** Does whether the observer has a vested interest or not have an impact on performance on a skill-based task?
 
-**Research Question:** Does the proportion of families afflicted by alcoholism differ between those families in which the female has primary unipolar depression and the control group? That is, is there a relationship between unipolar depression in females and alocholism in the family?
-
-```{r simulate-data2}
-#| include: false
-#| eval: false
-library(tidyverse)
-
-set.seed(56156)
-alcoholism <- tibble(id = sample(1:509, 509),
-                       combo = c(rep("Control-Yes", 94),
-                                 rep("Depression-Yes", 89),
-                                 rep("Control-No", 205),
-                                 rep("Depression-No", 121)
-                                 )
-                 
-) |> 
-  separate_wider_delim(cols = combo, names =  c("group", "alcoholism"), delim = "-") |> 
-  arrange(id) |> 
-  select(-id)
-
-write.csv(alcoholism, "data/alcoholism.csv", row.names = F)
-```
-
-```{r}
-alcoholism <- read_csv("data/alcoholism.csv")
-```
-
-```{r}
-alcoholism |> 
-  tabyl(group, alcoholism) |>
-  adorn_totals(where = c("row", "col")) |> 
-  knitr::kable()
-```
-
-1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable?
+1.  What are the variables in the study? Are they categorical or numerical? Which is the explanatory variable? Which is the response variable?
 
 \vspace{0.8in}
 
-2.  Identify the proportion of families afflicted by Alcoholism in both groups.
+2.  Convert the research question into your null and alternative hypotheses.
 
 \vspace{1.2in}
 
-3.  Convert the research question into your null and alternative hypotheses.
 
-\vspace{1.2in}
-
-4. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
+3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?
 
 \vspace{0.8in}
 
-
-5.  Is there evidence there a relationship between unipolar depression in females and alocholism in the family? Use the R output to answer this question. Make sure to include evidence in your conclusion.
+4.  Using the observed $X^2 = 4.196$ and the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.
 
 ```{r}
-#| echo: true
-library(infer)
-chisq_test(alcoholism,
-           response = alcoholism,
-           explanatory = group,
-           correct = FALSE
-           )
+#| out-width: 50%
+#| fig-align: center
+knitr::include_graphics("04-images/vested-interest-sim.PNG")
 ```
 
+\vspace{0.8in}
+
+5.  At an $\alpha = 0.10$, write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.
+
+\vspace{1.5in}
+
+6. Suppose all 12 individuals in the Vested Interest group hold high scores on Mario Cart and all 12 individuals in the No Vested Interest group are new to playing video games. Why would this be problematic? 
+
+\vspace{1.5in}
+
+7. The scenario states that subject's were *randomly* assigned to one of two groups. How does this ensure we are actually evaluating how vested interest is related to the success of the video game rather than say skill? 
+
+\vspace{1.5in}
+
+8. If we determined that having a vested interest does have a relationship with achieving an outcome or not, does this allow us to draw a cause-and-effect conclusion between vested interest and success?
+
+\vspace{1.5in}
+
+
+## Example 4.3: Home Court Advantage
+
+Sports teams prefer to play in front of their own fans rather than at the opposing team’s site. Having a sell-out crowd should provide even more excitement and lead to an even better performance, right? Well, consider the Oklahoma City Thunder, a National Basketball Association (NBA) team, in its second season (2008–2009) after moving from Seattle. This team had a win–loss record that was actually worse for home games with a sell-out crowd (3 wins and 15 losses) than for home games without a sell-out crowd (12 wins and 11 losses). (These data were noted in the April 20, 2009, issue of Sports Illustrated in the Go Figure column.)
+
+
+1. Identify the observational unit and variables in this study. Also classify each variable as categorical (specify levels) or numeric.
+
++ Observational Unit:
+
+\vspace{0.15in}
+
++ Explanatory Variable:
+
+\vspace{0.15in}
+
++ Response Variable:
+
+\vspace{0.15in}
+
+2. Complete the observed counts in the contingency table below:
+
+|                         | Sell-out Crowd   | Smaller Crowd           | Total |
+|-------------------------|:----------------:|:-----------------------:|:-----:|
+| Win                     |                  |                         |       |
+| Loss                    |                  |                         |       |
+| Total                   |                  |                         |       |
+
+3. When did the Thunder have a higher winning percentage: in front of a sell-out crowd or a smaller crowd? Support your answer by calculating the proportion of sell-out games that they won and also the proportion of non-sell-out games that they won.
+
+$$\hat p_{win|sell-out} = $$
+
+\vspace{0.15in}
+
+$$\hat p_{win|smaller} = $$
+
+\vspace{0.15in}
+
+4. Do the two variables appear to be associated? Explain.
+
+\vspace{0.3in}
+
+There are two possible explanations for this odd finding that the team had a better winning percentage with smaller crowds:
++ The sell-out crowd caused the Thunder to play worse, perhaps because of pressure or nervousness.
++ The sell-out crowd did not cause a worse performance, and some other issue (variable) explains why they had a worse winning percentage with sell-out crowds. In other words, a third variable is at play, which is related to both the crowd size and the game outcome.
+
+(Of course, another explanation is random chance, but as we saw with the Chi-Square Test of Independence, we can test for this and will later rule out random chance in this case.)
+
+5. Consider the second explanation. Suggest a plausible alternative variable that would explain why the team would be less likely to win in front of a sell-out crowd than in front of a smaller crowd. (Make sure it’s clear not just that your explanation would affect the team’s likelihood of winning but also that the team would be less likely to win in front of a sell-out crowd compared to a smaller crowd.)
+
+\vspace{0.5in}
+
+::: callout-note
+### Definition
+
+A **confounding variable** is a variable that is related both to the explanatory and to the response variable in such a way that its effects on the response variable cannot be separated from the effects of the explanatory variable.
+:::
+
+6. Identify the confounding variable based on your suggested explanation above. Explain how it is confounding: what is the link between this third variable and the response variable, and what is the link between this third variable and the explanatory variable? (Hint: Remember that this variable has to be recorded on the observational units: home games for the Thunder (i.e., legit variable).)
+
+\vspace{0.5in}
+
+
+Another variable recorded for these data was whether the opponent had a winning record the previous season. Of the Thunder’s 41 home games, 22 were against teams that won more than half of their games. Let’s refer to those 22 teams as "strong opponents". Of these 22 games, 13 were sell-outs. Of the 19 games against opponents that won less than half of their games that season (weak opponents), only 5 of those games were sell-outs.
+
+7. Was the Thunder more likely to have a sell-out crowd against a strong opponent or a weak opponent? Calculate the relevant (conditional) proportions to support your answer.
+
+$$\hat p_{sell-out|strong} = $$
+
+
+$$\hat p_{sell-out|weak} = $$
+
+When the Thunder played a strong opponent, they won only 4 of 22 games. When they played a weak opponent, the Thunder won 11 of 19 games.
+
+8. Was the Thunder less likely to win against a strong opponent than a weak one? Again calculate the relevant (conditional) proportions to support your answer.
+
+$$\hat p_{win|strong} = $$
+
+
+$$\hat p_{win|weak} = $$
+
+9. Explain how your answers to the previous two questions establish that strength of opponent is a confounding variable that prevents drawing a cause-and-effect conclusion between crowd size and game outcome.
+
 \vspace{1.2in}
 
-6.  Can we say that having unipolar depression *causes* alcoholism? Explain your reasoning.
+10. Although we did not carry out a Chi-square test of independence, summarize your conclusion about whether these data provide evidence that a sell-out crowd caused the Thunder to play worse. Write as if to a friend who has never studied statistics. Be sure to address the fact that the Thunder had a much smaller winning percentage in front of a sell-out crowd.
 
 \vspace{1.2in}
+
+
+::: callout-note
+### Key statistical idea
+Confounding explains why you cannot draw a cause-and-effect conclusion from association alone: The groups defined by the explanatory variable could differ in more ways than just the explanatory variable when confounding is present. The diagram below illustrates the confounding in the Thunder study. The top panel shows the study design: Observational units (home games) are sorted into groups according to the explanatory variable (whether
+the arena was sold out). Then the response (win/lose) was observed. The bottom panel shows the confounding: sell-out crowds tended to be against stronger opponents; weaker opponents tended not to sell out the arena.
+
+```{r}
+# out-width: 50%
+knitr::include_graphics("04-images/thunder-confounding.jpg")
+```
+
+:::
+
+
+
+<!-- ## Example 4.3 High-Salt Diets and Cardiovascular Disease -->
+
+<!-- Suppose a retrospective study is carried out among men aged 50-54 in a specific county who died over a one-month period. The investigators try to include approximately an equal number of men who died from CVD (the cases) and men who died from other causes (the controls). Of 15 people who died from CVD, 4 were on a high-salt diet before they died. In contrast, of 15 people who died from other causes, only 1 was on a high-salt diet. The data are shown in the following contingency table: -->
+
+<!-- |         |           |          |       | -->
+<!-- |---------|:---------:|:--------:|:-----:| -->
+<!-- |         | High-Salt | Low-Salt | Total | -->
+<!-- | Non-CVD |     1     |    14    |  15   | -->
+<!-- | CVD     |     4     |    11    |  15   | -->
+<!-- | Total   |     5     |    25    |  30   | -->
+
+<!-- **Research Question:** Is there an association between the cause of death and salt diet? In other words, is the proprtion of the CVD group which has a high-salt diet different from the proportion of the Non-CVD group which has a high-salt diet? -->
+
+<!-- 1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable? -->
+
+<!-- \vspace{0.8in} -->
+
+<!-- 2.  Convert the research question into your null and alternative hypotheses. -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- 3. Is it appropriate to use the Chi-square distribution or do we need to use simulation? -->
+
+<!-- \vspace{0.8in} -->
+
+<!-- 4.  Using the simulation output below, determine the p-value. Make a decision concerning the null hypothesis. -->
+
+<!-- ```{r} -->
+<!-- #| out-width: 50% -->
+<!-- #| fig-align: center -->
+<!-- knitr::include_graphics("04-images/cvd-sim.PNG") -->
+<!-- ``` -->
+
+<!-- \vspace{0.8in} -->
+
+<!-- 5.  Write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion. -->
+
+<!-- \vspace{1.5in} -->
+
+<!-- In the *"Vested Interest and Task Performance"* study, participants were randomly assigned to groups, making this a designed experiment. The randomization likely balanced out other factors that could influence performance, meaning the reduced performance in the vested interest group is most likely *caused* by the vested interest itself. -->
+
+<!-- \vspace{0.1in} -->
+
+<!-- In contrast, the *"High-Salt Diet and Cardiovascular Disease"* study is an observational study. Other factors, like overall health behaviors (e.g., exercise habits), could explain the *association* between a high-salt diet and cardiovascular disease. Therefore, we can’t confidently conclude causation from this study. -->
+
+<!-- ## Example 4.4: Alcoholism and Depression -->
+
+<!-- Past research has suggested a high rate of alcoholism in families among patients with primary unipolar depression. A study of 210 families of females with primary unipolar depression found that 89 families had alcoholism present. A set of 299 control families found 94 present. -->
+
+<!-- **Research Question:** Does the proportion of families afflicted by alcoholism differ between those families in which the female has primary unipolar depression and the control group? That is, is there a relationship between unipolar depression in females and alocholism in the family? -->
+
+<!-- ```{r simulate-data2} -->
+<!-- #| include: false -->
+<!-- #| eval: false -->
+<!-- library(tidyverse) -->
+
+<!-- set.seed(56156) -->
+<!-- alcoholism <- tibble(id = sample(1:509, 509), -->
+<!--                        combo = c(rep("Control-Yes", 94), -->
+<!--                                  rep("Depression-Yes", 89), -->
+<!--                                  rep("Control-No", 205), -->
+<!--                                  rep("Depression-No", 121) -->
+<!--                                  ) -->
+
+<!-- ) |>  -->
+<!--   separate_wider_delim(cols = combo, names =  c("group", "alcoholism"), delim = "-") |>  -->
+<!--   arrange(id) |>  -->
+<!--   select(-id) -->
+
+<!-- write.csv(alcoholism, "data/alcoholism.csv", row.names = F) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- alcoholism <- read_csv("data/alcoholism.csv") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- alcoholism |>  -->
+<!--   tabyl(group, alcoholism) |> -->
+<!--   adorn_totals(where = c("row", "col")) |>  -->
+<!--   knitr::kable() -->
+<!-- ``` -->
+
+<!-- 1.  What are the variables in the study? Which is the response variable? Which is the explanatory variable? -->
+
+<!-- \vspace{0.8in} -->
+
+<!-- 2.  Identify the proportion of families afflicted by Alcoholism in both groups. -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- 3.  Convert the research question into your null and alternative hypotheses. -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- 4. Is it appropriate to use the Chi-square distribution or do we need to use simulation? -->
+
+<!-- \vspace{0.8in} -->
+
+
+<!-- 5.  Is there evidence there a relationship between unipolar depression in females and alocholism in the family? Use the R output to answer this question. Make sure to include evidence in your conclusion. -->
+
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- library(infer) -->
+<!-- chisq_test(alcoholism, -->
+<!--            response = alcoholism, -->
+<!--            explanatory = group, -->
+<!--            correct = FALSE -->
+<!--            ) -->
+<!-- ``` -->
+
+<!-- \vspace{1.2in} -->
+
+<!-- 6.  Can we say that having unipolar depression *causes* alcoholism? Explain your reasoning. -->
+
+<!-- \vspace{1.2in} -->
 
 \newpage
 
