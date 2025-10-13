@@ -1,6 +1,6 @@
 ---
 title: "R Lab 3: Chi-square Goodness of Fit Test in R"
-subtitle: "Is the census report accurate?"
+subtitle: "Which music platform rules the city?"
 author:
   - "Team Captain: NAME HERE"
   - "Facilitator: NAME HERE"
@@ -8,7 +8,7 @@ author:
   - "Resource Manager: NAME HERE"
 date: "DATE HERE"
 format: pdf
-editor: source
+editor: visual
 execute:
   echo: true
   error: true
@@ -18,117 +18,100 @@ execute:
 
 0.  **Load the `infer` package below `library(tidyverse)`**
 
-```{r setup}
+```{r}
 # Load in the packages necessary for our analysis: tidyverse, infer
 library(tidyverse)
-library(infer)
+library(________)
 ```
 
-The accuracy of a census report for a city in southern California was questioned by some government officials. A random sample of 1,215 people living in the city was used to check the census report. The census results (expected probabilities) are given below:
+A recent market research report claimed that among residents of a large Southern California city, preferences for music streaming platforms were as follows:
 
-**Census Results**
+**Market Report**
 
-+ Black: 10%
-+ Asian: 3%
-+ Anglo: 38%
-+ Latino/Latina: 41%
-+ Indigenous: 6%
-+ All others: 2%
+-   Spotify: 41%
+-   Apple Music: 38%
+-   YouTube Music: 10%
+-   Amazon Music: 6%
+-   Pandora: 3%
+-   Other/Multiple: 2%
 
-**Research question:** Do the counts obtained via the random sample call into question the accuracy of the census report?
+A random sample of 1,215 residents was surveyed to see if this distribution still holds true today.
 
-1.  **Read in the data and call it `ca_sample`. Additionally, print the top 6 rows to inspect your data.**
+**Research question:** Do the streaming platform preferences of residents differ from those reported in the market research study?
 
-```{r read-data}
-ca_sample <- read_csv("data/census_sample.csv")
+1.  **Read in the data and call it `music_sample.csv`. Additionally, print the top 6 rows to inspect your data.**
+
+```{r}
+music_sample <- ____________("music_sample.csv")
+
 ```
 
 2.  **What is the observational unit for this study?**
 
-    A resident of the city.
+    Answer goes here.
 
-3.  **Create a summary table of the number of individuals in the sample who self-identified with each ethnic `origin`.**
+3.  **Create a summary table of the observed counts (number of individuals in the sample who listen to each `platform)`.**
 
-```{r summary-table}
-ca_sample |> 
-  count(origin)
+```{r}
+# your code goes here. look back at last week's lab!
 ```
 
-4.  **Using the skills you learned class last week, create a bar plot of the observed *proportions* of individuals in our sample who self-identified with each ethnic `origin`.**
+4.  **Notice the ordering of `platform` categories. Why do you think "Amazon Music" is first and "YouTube Music" is last in our list?**
 
-```{r bar-plot}
-ggplot(data = ca_sample,
-       mapping = aes(x = origin)
+    Answer goes here.
+
+5.  **Using the skills you learned class last week, create a bar plot of the observed *proportions* of individuals in our sample who listen to each music `platform`.**
+
+```{r}
+ggplot(data = _________,
+       mapping = aes(x = "Observed",
+                     fill = _________)
        ) +
   geom_bar(stat = "count",
-           aes(y = ..prop.., group = 1)
+           position = "__________"
            ) +
-  labs(title = "Is the census report correct?",
-       x = "Ethnic Origin",
-       y = "Proportion of Residents"
+  labs(y = "___________________________"
        )
 ```
 
-5.  **Notice the ordering of origin categories. Why do you think "All others" is first and "Latino/Latina" is last in our list?**
+6.  **Write the null and alternative hypotheses for investigating this research question.**
 
-    Alphabetical order.
+    Answer goes here.
 
-6.  **As a statistician, Lily questions the "All others" category. What might be some data and ethical concerns surrounding reporting and aggregating data in this way?**
+7.  **How many of the 1,215 people do we expect to see listening to each platform if the results of the market report accurate? Fill in the table below.**
 
-    This could unintentionally marginalize certain groups by treating minority groups as "the same". We want to be cautious about the implications of our data.
-
-7.  **Write the null and alternative hypotheses for investigating this research question.**
-
-    Null: The distribution of ethnic origin for individuals in the city matches the distribution of ethnic origin reported by the census.
-
-    Alternative: The distribution of ethnic origin for individuals in the city differs from the distribution of ethnic origin reported by the census.
-    
-    
-or...
-
-    Null: The proportions of ethnic origins for all city residents is equal to those reported by the census.
-
-    Alternative: At least one of the proportions of ethnic origins for all city residents is different from that reported by the census.
-
-or... could write out in symbols setting equal to the expected proportions.
-
-8.  **How many of the 1,215 people do we expect to see of each ethnic origin if the results of the census are accurate?**
-
-**Expected Counts**
-
-+ Black: 121.5
-+ Asian: 97.2
-+ Anglo: 461.7
-+ Latino/Latina: 498.15
-+ Indigenous: 72.9
-+ All others: 24.3
+    |   | Spotify | Apple Music | YouTube Music | Amazon Music | Pandora | Other/Multiple |
+    |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+    | **Expected Count** |  |  |  |  |  |  |
 
 *Note: we use the expected counts to check our conditions. We could have just checked the category with the smallest expected proportion.*
 
-9.  **Check the conditions for using the Chi-square distribution to test our hypotheses.**
+8.  **Check the conditions for using the Chi-square distribution to test our hypotheses.**
 
-+ Independent Observations: the ethnic origin of one resident does not tell us about the ethnic origin of another resident (assuming separate households/families)
+    Answer goes here.
 
-+ Expected counts are all greater than 5.
+9.  **Carry out the Chi-square Goodness of Fit Test and find the p-value for investigating this research question. Code only, you will interpret in the next questions.**
 
-Therefore, conditions are not violated!
-
-10. **Carry out the Chi-square Goodness of Fit Test and find the p-value for investigating this research question.**
-
-```{r chisq-goodness-of-fit}
-# CAUTION: Pay close attention to the order in the p = c() input.
-chisq_test(x = ca_sample,
-           response = origin,
-           p = c(0.02,0.38,0.03,0.1,0.06,0.41),
-           correct = FALSE
+```{r}
+# CAUTION: Pay close attention to the order in the p = c() input. And don't lose your parentheses!
+chisq_test(
+  x = ________,
+  response = _________,
+  p = c(
+    
+    
+    
+    
+    
+  ),
+  correct = FALSE
 )
 ```
 
-11. **From the output, identify the observed test statistic, degrees of freedom, and p-value.**
+10. **From the output, identify the observed test statistic, degrees of freedom, and p-value.**
 
     Answer goes here.
 
-12. **At an $\alpha = 0.05$, write a conclusion in the context of the research question.**
+11. **At an** $\alpha = 0.05$, write a conclusion in the context of the research question.
 
     Answer goes here.
-
