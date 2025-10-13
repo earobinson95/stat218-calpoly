@@ -47,11 +47,11 @@ head(iliad)
 
 **Research Question:** Is the location of an injury associated with whether the injury was fatal?
 
-1. Identify the explanatory and response variables in the context of this study.
+1.  Identify the explanatory and response variables in the context of this study.
 
 \vspace{0.6in}
 
-2. How would you describe the position of this bar plot? \hspace{0.1in} Filled \hspace{0.1in} Stacked \hspace{0.1in} Dodged
+2.  How would you describe the position of this bar plot? \hspace{0.1in} Filled \hspace{0.1in} Stacked \hspace{0.1in} Dodged
 
 ```{r}
 #| out-width: 70%
@@ -69,8 +69,7 @@ ggplot(data = iliad,
 
 \vspace{0.25in}
 
-3. Based on the plot does there appear to be an association between the variables? Explain
-your answer.
+3.  Based on the plot does there appear to be an association between the variables? Explain your answer.
 
 \vspace{0.8in}
 
@@ -78,9 +77,7 @@ We can summarize the recorded injuries in a contingency table:
 
 ```{r}
 iliad |>   
-  count(InjurySite, Lethal) |> 
-  pivot_wider(names_from = Lethal,
-              values_from = n) |> 
+  tabyl(Lethal, InjurySite) |> 
   adorn_totals(where = c("row", "col")) |> 
   knitr::kable()
 ```
@@ -99,25 +96,23 @@ $$\hat p_{\text{fatal|body}} =$$
 
 \vspace{0.15in}
 
-7. What proportion of limb injuries were fatal?
+7.  What proportion of limb injuries were fatal?
 
 $$\hat p_{\text{fatal|limb}} =$$
 
 \vspace{0.15in}
 
-8. Set up the null and alternative hypotheses to test the research question.
+8.  Set up the null and alternative hypotheses to test the research question.
 
 \vspace{1in}
 
+9.  In the table below, fill in the *expected* counts.
 
-9. In the table below, fill in the *expected* counts. 
-
-|          | Fatal | Nonfatal |
-|----------|-------|----------|
-| Body     |       |          |
-| Head/neck|       |          |
-| Limb     |       |          |
-| Unknown  |       |          |
+|               | Body | Head/neck | Limb | Unknown | TOTAL |
+|---------------|------|-----------|------|---------|-------|
+| **Fatal**     |      |           |      |         |       |
+| **Not Fatal** |      |           |      |         |       |
+| **TOTAL**     |      |           |      |         | 184   |
 
 \vspace{1in}
 
@@ -164,7 +159,8 @@ iliad |>
 
 \vspace{0.25in}
 
-a.
+a.  
+
 ```{r}
 #| echo: true
 chisq_test(x = iliad,
@@ -174,7 +170,8 @@ chisq_test(x = iliad,
            )
 ```
 
-b.
+b.  
+
 ```{r}
 #| echo: true
 chisq_test(x = iliad,
@@ -183,7 +180,8 @@ chisq_test(x = iliad,
            )
 ```
 
-c.
+c.  
+
 ```{r}
 #| echo: true
 chisq_test(x = iliad,
@@ -200,7 +198,6 @@ chisq_test(x = iliad,
 
 \vspace{2in}
 
-
 <!-- ## Scenario 2: -->
 
 <!-- In a recent study conducted in the United Kingdom, researchers gathered data on 6,705 children to investigate the potential relationship between a mother's exposure to cats during pregnancy and the occurrence of psychotic episodes in their children. The study included two groups: one consisting of 4,746 children whose mothers did not have cats while pregnant and another group of 1,959 children whose mothers did have cats during pregnancy. -->
@@ -209,20 +206,24 @@ chisq_test(x = iliad,
 
 <!-- **Research Question:** Does the pyscychtic episode rate differs between children who's moms did have cats while pregnant and those who's moms did not? -->
 
-<!-- 1.	Create a table of counts based on the data obtained in this study.  -->
+<!-- 1. Create a table of counts based on the data obtained in this study.  -->
 
-<!-- 2.	Find the proportion of children who's moms did not have cats while pregnant that had one or more pscychtic episode.  -->
+<!-- 2. Find the proportion of children who's moms did not have cats while pregnant that had one or more pscychtic episode.  -->
 
-<!-- 3.	Find the proportion of children who's moms did have cats while pregnant that had one or more pscychtic episode.  -->
+<!-- 3. Find the proportion of children who's moms did have cats while pregnant that had one or more pscychtic episode.  -->
 
 <!-- 4.  Sketch in the *filled* bar plot below. -->
 
 <!-- 5. Do the data provide statistical evidence for the research question?  Select the correct code/output for the chi-square test to investigate this question. -->
 
 <!-- a. -->
+
 <!-- ```{r} -->
+
 <!-- #| echo: true -->
+
 <!-- chisq_test(x = ) -->
+
 <!-- ``` -->
 
 <!-- 6. Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language. -->
