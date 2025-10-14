@@ -2325,7 +2325,7 @@ window.Quarto = {
   <li><a href="#example-4.2-vested-interest-and-task-performance" id="toc-example-4.2-vested-interest-and-task-performance" class="nav-link" data-scroll-target="#example-4.2-vested-interest-and-task-performance">Example 4.2: Vested Interest and Task Performance</a></li>
   <li><a href="#example-4.3-home-court-advantage" id="toc-example-4.3-home-court-advantage" class="nav-link" data-scroll-target="#example-4.3-home-court-advantage">Example 4.3: Home Court Advantage</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="04-methods-for-two-categorical-variables-sols.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -2406,6 +2406,10 @@ Note
 <ol type="1">
 <li>What are the variables in the MythBusters Yawning experiment? Are they categorical or numerical? Which is the response variable? Which is the explanatory variable?</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Explanatory: seeding (categorical - Seeded/Control)</span></li>
+<li><span style="color:blue;">Response: action (categorical - Yawned/NoYawn)</span></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2468,6 +2472,10 @@ Descriptive Methods for Two Categorical Variables:
 </div>
 </div>
 </div>
+<ul>
+<li><p><span style="color:blue;">Notice the “filled” bar plot displays <em>proportions</em>. We can see that the NoYawn pink region (top) for the Control group (left) is about 80%. Thus, we observed about 80% of individuals in the control group did not yawn. </span></p></li>
+<li><p><span style="color:blue;">The stacked and dodged bar plots show <em>counts</em>. We can see from the stacked bar plot that there were 16 total individuals in the control group and about 3 of them Yawned (blue bottom region on the left) </span></p></li>
+</ul>
 <p>Previously, we saw how we can summarize the counts from our data set using <code>count(VARIABLE)</code>. This is helpful, but notice we get one column for each count.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>myth_busters <span class="sc">|&gt;</span></span>
@@ -2531,11 +2539,11 @@ Descriptive Methods for Two Categorical Variables:
 <ol start="3" type="1">
 <li>Find the proportion that yawn in the Control group.</li>
 </ol>
-<p><span class="math display">\[\hat p_{yawned|control}=\]</span></p>
+<p><span class="math display">\[\hat p_{yawned|control}= \]</span><span style="color:blue;">11/35 = 0.324</span></p>
 <ol start="2" type="1">
 <li>Find the proportion that yawn in the Seeded group.</li>
 </ol>
-<p><span class="math display">\[\hat p_{yawned|seeded}=\]</span></p>
+<p><span class="math display">\[\hat p_{yawned|seeded}=\]</span> <span style="color:blue;">3/16 - 0.188</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2552,6 +2560,7 @@ Note
 <ol start="3" type="1">
 <li>Do the two variables (seeded group and yawn action) seem to be related?</li>
 </ol>
+<p><span style="color:blue;">We just found these above.. We observed the chance that an individual in the seeded group yawned (32%) is about double the chance an individual in the control group yawned (18%). The two variables Seeded and Action might be related. Let’s test it!</span></p>
 <p>We could instead obtain our <em>observed proportion</em> that yawn (and did not yawn) for each group using <code>adorn_percentages()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>myth_busters <span class="sc">|&gt;</span> </span>
@@ -2579,6 +2588,10 @@ Note
 <ol start="4" type="1">
 <li>Write the null and alternative hypotheses for this study.</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Null: There <em>is no relationship/association</em> between the seeding group and the action for <strong>all</strong> individuals.</span></li>
+<li><span style="color:blue;">Alt: There <em>is a relationship/association</em> between the seeding group and the action for <strong>all</strong> individuals.</span></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2640,10 +2653,10 @@ Expected Counts under the assumption the null is true
 <p><strong>Expected counts</strong> under assumption null is true (no relationship between seeding and action)</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 32%">
+<col style="width: 29%">
+<col style="width: 14%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -2654,18 +2667,16 @@ Expected Counts under the assumption the null is true
 </tr>
 <tr class="even">
 <td>No yawn</td>
-<td><br>
-<br>
+<td><span class="math inline">\(\frac{36}{50}\cdot16=11.52\)</span><br>
 </td>
-<td></td>
+<td><span class="math inline">\(\frac{36}{50}\cdot34=24.48\)</span></td>
 <td>36</td>
 </tr>
 <tr class="odd">
 <td>Yawned</td>
-<td><br>
-<br>
+<td><span class="math inline">\(\frac{14}{50}\cdot16=4.48\)</span><br>
 </td>
-<td></td>
+<td><span class="math inline">\(\frac{14}{50}\cdot34=9.52\)</span></td>
 <td>14</td>
 </tr>
 <tr class="even">
@@ -2676,19 +2687,19 @@ Expected Counts under the assumption the null is true
 </tr>
 </tbody>
 </table>
+<p><span style="color:blue;">Note: the smallest expected count is for the Control Yawned group because the control group has the smallest number of individuals (16 &lt; 34) and the yawned response had the smallest number of individuals (14 &lt; 36)</span></p>
 <p><strong>Chi-Square Test Statistic</strong> Next, we compare each of our observed counts to what we would have expected under the assumption there is no relationship between seeding and yawn action.</p>
 <p><span class="math display">\[
 X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.48}+\frac{(11-9.52)^2}{9.52}=0.999
 \]</span></p>
+<p><span style="color:blue;">This is our <em>observed</em> chi-square test statistic!</span></p>
 <div style="page-break-after: always;"></div>
 <section id="conducting-a-simulation-study-with-two-variables" class="level4">
 <h4 class="anchored" data-anchor-id="conducting-a-simulation-study-with-two-variables">Conducting a Simulation Study with Two Variables</h4>
 <p>We will answer the research question by replicating the experiment over and over again, but <em>under</em> the assumption that yawn seeding has no relationship with yawn action (i.e., the null is true). We’ll start with 14 yawners and 36 non-yawners, and we’ll randomly assign 34 of these 50 subjects to the seeded group and the remaining 16 to the non-seeded group.</p>
-<p><strong>Step 1:</strong> Write the action (yawned / no yawn) and the seeding (seeded / control) on _______ cards.</p>
-<p><strong>Step 2:</strong> Assume the null hypothesis is true (no relationship) and</p>
-<p>__________________________________________________.</p>
-<p><strong>Step 3:</strong> Create a new data set that could have happened if <span class="math inline">\(H_0\)</span> was true by</p>
-<p>__________________________________________________.</p>
+<p><strong>Step 1:</strong> Write the action (yawned / no yawn) and the seeding (seeded / control) on <span style="color:blue;">50</span> cards.</p>
+<p><strong>Step 2:</strong> Assume the null hypothesis is true (no relationship) and <span style="color:blue;">rip apart the observed pairs (breaking the relationship)</span>.</p>
+<p><strong>Step 3:</strong> Create a new data set that could have happened if <span class="math inline">\(H_0\)</span> was true by <span style="color:blue;">shuffling and randomly rematching to create simulated pairs assuming “no relationship” (null true)</span>.</p>
 <p><strong>Step 4:</strong> Construct the contingency table of your simulated counts from the shuffled/randomly matched cards to show the number of yawners and controls in each seeding group.</p>
 <p><strong>Simulated Counts</strong></p>
 <table class="caption-top table">
@@ -2707,18 +2718,16 @@ X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.4
 </tr>
 <tr class="even">
 <td>No yawn</td>
-<td><br>
-<br>
+<td>11<br>
 </td>
-<td></td>
+<td>25</td>
 <td>36</td>
 </tr>
 <tr class="odd">
 <td>Yawned</td>
-<td><br>
-<br>
+<td>5<br>
 </td>
-<td></td>
+<td>9</td>
 <td>14</td>
 </tr>
 <tr class="even">
@@ -2729,6 +2738,7 @@ X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.4
 </tr>
 </tbody>
 </table>
+<p><span style="color:blue;">Note: yours will be different because simulation is a random process!</span></p>
 <ol start="6" type="1">
 <li>Divide your simulated counts by the column totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?</li>
 </ol>
@@ -2741,8 +2751,14 @@ X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.4
 </div>
 </div>
 </div>
+<ul>
+<li><span style="color:blue;">simulated under the null: <span class="math inline">\(\hat p_{yawned | control}\)</span> = 5/16 = 0.3125</span></li>
+<li><span style="color:blue;">simulated under the null: <span class="math inline">\(\hat p_{yawned | seeded}\)</span> = 9/34 = 0.264</span></li>
+</ul>
+<p><span style="color:blue;">Recall, regardless of what group individuals are in, we expected 14/50 = 0.28 to yawn.</span></p>
 <p><strong>Step 5:</strong> Calculate the <span class="math inline">\(X^2\)</span> text statistic for your simulated counts <em>under</em> the assumption there is no relationship between seeding group and yawn action.</p>
 <p><em>Recall our expected counts will be the same for every simulation (and the same as for our observed test statistic calculation).</em></p>
+<p><span style="color:blue;">Simulated <span class="math inline">\(X^2 =\frac{(11-11.52)^2}{11.52}+\frac{(5-4.48)^2}{4.48}+\frac{(25-24.48)^2}{24.48}+\frac{(9-9.52)^2}{9.52}=0.12\)</span></span></p>
 <p><strong>Step 6:</strong> Plot the simulated <span class="math inline">\(X^2\)</span> test statistic on the dot plot below.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2756,6 +2772,7 @@ X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.4
 <ol start="7" type="1">
 <li>How does the observed test statistic compare to the simulated test statistics by your group members? Does this provide evidence for or against the alternative? Explain.</li>
 </ol>
+<p><span style="color:blue;">The observed <span class="math inline">\(X^2 = 0.999\)</span> is fairly consistent with the <span class="math inline">\(X^2\)</span> test statistics simulated under the assumtion there is no relationship between the seeding and action variables. We will likely fail to reject the null.</span></p>
 <p>We can conduct a large scale simulation using <code>Online Simulation Applets</code> &gt; <code>Two-way Tables</code>.</p>
 <ul>
 <li>Clear &gt; Copy/Paste in the data <a href="https://raw.githubusercontent.com/earobinson95/stat218-calpoly/refs/heads/main/01-course-notes/data/myth-yawns.csv" class="uri">https://raw.githubusercontent.com/earobinson95/stat218-calpoly/refs/heads/main/01-course-notes/data/myth-yawns.csv</a></li>
@@ -2776,12 +2793,15 @@ X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.4
 <ol start="8" type="1">
 <li>What does each “dot” on the above plot represent?</li>
 </ol>
+<p><span style="color:blue;">The <span class="math inline">\(X^2\)</span> test statistic for a sample of 50 subjects simulated assuming there is no relationship between yawning and action.</span></p>
 <ol start="9" type="1">
 <li>How often did we see results at least as extreme as the observed test statistic under assumption the null is true? Estimate the p-value from the simulation. What decision would you make about the research question?</li>
 </ol>
+<p><span style="color:blue;">p-value = 0.469. Note this is greater than the <span class="math inline">\(\alpha\)</span> cutoff of 0.05 -&gt; fail to reject the null</span></p>
 <ol start="10" type="1">
 <li>State your conclusion in terms of the research question.</li>
 </ol>
+<p><span style="color:blue;">At an <span class="math inline">\(\alpha = 0.05\)</span>, we <em>do not have enough evidence to conclude</em> there is a relationship between the seeding group and yawn action (<span class="math inline">\(X^2\)</span> = 0.999, p-value = 0.469).</span></p>
 </section>
 <section id="using-the-chi-square-distribution" class="level4">
 <h4 class="anchored" data-anchor-id="using-the-chi-square-distribution">Using The Chi-Square Distribution</h4>
@@ -2859,7 +2879,12 @@ Conditions for conducting a Chi-square Test:
 <ol start="11" type="1">
 <li>Check the conditions for using a Chi-square distribution to analyze the Myth Buster’s study. Is it appropriate to conduct a Chi-square Test?</li>
 </ol>
-<p>Notice the plot below shows the Chi-square distribution is not a very good approximation of our simulated sampling distribution of our test statistic. Therefore, we want to be cautious about using the theory-based Chi-square Test.</p>
+<ul>
+<li><span style="color:blue;">Independent observations: the yawn action from one subject does not influence the yawn action of another (in the room separately).</span></li>
+<li><span style="color:blue;">“Large enough sample size”: The smallest expected count is 4.48 (this is actually less than 5).</span></li>
+</ul>
+<p><span style="color:blue;">Since our “large enough sample size” condition is not met, it is not appropriate to use the Chi-Square distribution. We must rely on simulation!</span></p>
+<p>Notice the plot below shows the Chi-square distribution is not a very good approximation of our simulated sampling distribution of our test statistic. Therefore, we want to be cautious about using the theory-based Chi-square Test. <span style="color:blue;">USE SIMULATION INSTEAD! Simulation always works (as long as you have independence) since it does not rely on a mathematical distribution approximation for the null sampling distribution.</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

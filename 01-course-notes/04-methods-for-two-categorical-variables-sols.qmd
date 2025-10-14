@@ -4,15 +4,15 @@ embed-resources: true
 format: 
   html:
     toc: true
-  pdf:
-    keep-tex: false
-    include-in-header:
-      text: |
-          \usepackage{fancyhdr}
-          \pagestyle{fancy}
-          \fancyhf{}
-          \fancyhead[R]{Chapter 4: Methods for Two Categorical Variables}
-          \fancyfoot[C]{\thepage}
+  # pdf:
+  #   keep-tex: false
+  #   include-in-header:
+  #     text: |
+  #         \usepackage{fancyhdr}
+  #         \pagestyle{fancy}
+  #         \fancyhf{}
+  #         \fancyhead[R]{Chapter 4: Methods for Two Categorical Variables}
+  #         \fancyfoot[C]{\thepage}
   # docx:
   #   toc: false
 bibliography: references.bib
@@ -79,7 +79,8 @@ The *explanatory variable* is the variable we think is “explaining” the chan
 
 1.  What are the variables in the MythBusters Yawning experiment? Are they categorical or numerical? Which is the response variable? Which is the explanatory variable?
 
-\vspace{2in}
++ <span style="color:blue;">Explanatory: seeding (categorical - Seeded/Control)</span>
++ <span style="color:blue;">Response: action (categorical - Yawned/NoYawn)</span>
 
 ::: callout-note
 ### Descriptive Methods for Two Categorical Variables:
@@ -147,6 +148,9 @@ g_dodge <- ggplot(data = myth_busters,
 
 g_fill + g_stack + g_dodge
 ```
++ <span style="color:blue;">Notice the "filled" bar plot displays *proportions*. We can see that the NoYawn pink region (top) for the Control group (left) is about 80%. Thus, we observed about 80% of individuals in the control group did not yawn. </span>
+
++ <span style="color:blue;">The stacked and dodged bar plots show *counts*. We can see from the stacked bar plot that there were 16 total individuals in the control group and about 3 of them Yawned (blue bottom region on the left) </span>
 
 Previously, we saw how we can summarize the counts from our data set using `count(VARIABLE)`. This is helpful, but notice we get one column for each count.
 
@@ -179,17 +183,19 @@ myth_busters |> # <2>
 
 3.  Find the proportion that yawn in the Control group.
 
-$$\hat p_{yawned|control}=$$
+$$\hat p_{yawned|control}= $$<span style="color:blue;">11/35 = 0.324</span>
 
 2.  Find the proportion that yawn in the Seeded group.
 
-$$\hat p_{yawned|seeded}=$$
+$$\hat p_{yawned|seeded}=$$ <span style="color:blue;">3/16 - 0.188</span>
 
 ::: callout-note
 Two variables are associated or related if the value of one variable gives you information about the value of the other variable. When comparing two groups this means that the proportions or means take different values in the two groups.
 :::
 
 3. Do the two variables (seeded group and yawn action) seem to be related?
+
+<span style="color:blue;">We just found these above.. We observed the chance that an individual in the seeded group yawned (32%) is about double the chance an individual in the control group yawned (18%). The two variables Seeded and Action might be related. Let's test it!</span>
 
 We could instead obtain our *observed proportion* that yawn (and did not yawn) for each group using `adorn_percentages()`.
 
@@ -209,7 +215,8 @@ The above descriptive analysis tells us what we have learned about the 50 subjec
 
 4.  Write the null and alternative hypotheses for this study.
 
-\vspace{1.5in}
++ <span style="color:blue;">Null: There *is no relationship/association* between the seeding group and the action for **all** individuals.</span>
++ <span style="color:blue;">Alt: There *is a relationship/association* between the seeding group and the action for **all** individuals.</span>
 
 ::: callout-note
 ### Expected Counts under the assumption the null is true
@@ -244,17 +251,19 @@ myth_busters |>
 **Expected counts** under assumption null is true (no relationship between seeding and action)
 
 
-+---------------------+--------------+--------------+--------------+
-|                     | Control      | Seeded       | Total        |
-+---------------------+--------------+--------------+--------------+
-| No yawn             | \            |              | 36           |
-|                     | \            |              |              |
-+---------------------+--------------+--------------+--------------+
-| Yawned              | \            |              | 14           |
-|                     | \            |              |              |
-+---------------------+--------------+--------------+--------------+
-| Total               | 16           | 34           | 50           |
-+---------------------+--------------+--------------+--------------+
++---------------------+---------------------------------+------------------------------+--------------+
+|                     | Control                         | Seeded                       | Total        |
++---------------------+---------------------------------+------------------------------+--------------+
+| No yawn             | $\frac{36}{50}\cdot16=11.52$    | $\frac{36}{50}\cdot34=24.48$ | 36           |
+|                     | \                               |                              |              |
++---------------------+---------------------------------+------------------------------+--------------+
+| Yawned              | $\frac{14}{50}\cdot16=4.48$     | $\frac{14}{50}\cdot34=9.52$  | 14           |
+|                     | \                               |                              |              |
++---------------------+---------------------------------+------------------------------+--------------+
+| Total               | 16                              | 34                           | 50           |
++---------------------+---------------------------------+------------------------------+--------------+
+
+<span style="color:blue;">Note: the smallest expected count is for the Control Yawned group because the control group has the smallest number of individuals (16 < 34) and the yawned response had the smallest number of individuals (14 < 36)</span>
 
 **Chi-Square Test Statistic** Next, we compare each of our observed counts to what we would have expected under the assumption there is no relationship between seeding and yawn action.
 
@@ -262,21 +271,19 @@ $$
 X^2 =\frac{(13-11.52)^2}{11.52}+\frac{(3-4.48)^2}{4.48}+\frac{(23-24.48)^2}{24.48}+\frac{(11-9.52)^2}{9.52}=0.999
 $$
 
+<span style="color:blue;">This is our *observed* chi-square test statistic!</span>
+
 \newpage
 
 #### Conducting a Simulation Study with Two Variables
 
 We will answer the research question by replicating the experiment over and over again, but *under* the assumption that yawn seeding has no relationship with yawn action (i.e., the null is true). We'll start with 14 yawners and 36 non-yawners, and we'll randomly assign 34 of these 50 subjects to the seeded group and the remaining 16 to the non-seeded group.
 
-**Step 1:** Write the action (yawned / no yawn) and the seeding (seeded / control) on \_\_\_\_\_\_\_ cards.
+**Step 1:** Write the action (yawned / no yawn) and the seeding (seeded / control) on <span style="color:blue;">50</span> cards.
 
-**Step 2:** Assume the null hypothesis is true (no relationship) and
+**Step 2:** Assume the null hypothesis is true (no relationship) and <span style="color:blue;">rip apart the observed pairs (breaking the relationship)</span>.
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
-
-**Step 3:** Create a new data set that could have happened if $H_0$ was true by
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+**Step 3:** Create a new data set that could have happened if $H_0$ was true by <span style="color:blue;">shuffling and randomly rematching to create simulated pairs assuming "no relationship" (null true)</span>.
 
 **Step 4:** Construct the contingency table of your simulated counts from the shuffled/randomly matched cards to show the number of yawners and controls in each seeding group.
 
@@ -285,14 +292,16 @@ We will answer the research question by replicating the experiment over and over
 +---------------------+--------------+--------------+--------------+
 |                     | Control      | Seeded       | Total        |
 +---------------------+--------------+--------------+--------------+
-| No yawn             | \            |              | 36           |
+| No yawn             | 11           | 25           | 36           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
-| Yawned              | \            |              | 14           |
+| Yawned              | 5            | 9            | 14           |
 |                     | \            |              |              |
 +---------------------+--------------+--------------+--------------+
 | Total               | 16           | 34           | 50           |
 +---------------------+--------------+--------------+--------------+
+
+<span style="color:blue;">Note: yours will be different because simulation is a random process!</span>
 
 6. Divide your simulated counts by the column totals to give you the proportion of individuals who yawned and did not yawn for each seeding group. Sketch these in the second plot below. How do your simulated proportions compare to the observed proportions?
 
@@ -303,11 +312,17 @@ We will answer the research question by replicating the experiment over and over
 knitr::include_graphics("04-images/yawn-bar-sketch.png")
 ```
 
++ <span style="color:blue;">simulated under the null: $\hat p_{yawned | control}$ = 5/16 = 0.3125</span>
++ <span style="color:blue;">simulated under the null: $\hat p_{yawned | seeded}$ = 9/34 = 0.264</span>
+
+
+<span style="color:blue;">Recall, regardless of what group individuals are in, we expected 14/50 = 0.28 to yawn.</span>
+
 **Step 5:** Calculate the $X^2$ text statistic for your simulated counts *under* the assumption there is no relationship between seeding group and yawn action.
 
 *Recall our expected counts will be the same for every simulation (and the same as for our observed test statistic calculation).*
 
-\vspace{1.3in}
+<span style="color:blue;">Simulated $X^2 =\frac{(11-11.52)^2}{11.52}+\frac{(5-4.48)^2}{4.48}+\frac{(25-24.48)^2}{24.48}+\frac{(9-9.52)^2}{9.52}=0.12$</span>
 
 **Step 6:** Plot the simulated $X^2$ test statistic on the dot plot below.
 
@@ -320,7 +335,7 @@ knitr::include_graphics("04-images/yawn-dot-sketch.png")
 
 7.  How does the observed test statistic compare to the simulated test statistics by your group members? Does this provide evidence for or against the alternative? Explain.
 
-\vspace{0.8in}
+<span style="color:blue;">The observed $X^2 = 0.999$ is fairly consistent with the $X^2$ test statistics simulated under the assumtion there is no relationship between the seeding and action variables. We will likely fail to reject the null.</span>
 
 We can conduct a large scale simulation using `Online Simulation Applets` \> `Two-way Tables`.
 
@@ -339,15 +354,15 @@ knitr::include_graphics("04-images/yawn-sim.PNG")
 
 8. What does each "dot" on the above plot represent?
 
-\vspace{0.8in}
+<span style="color:blue;">The $X^2$ test statistic for a sample of 50 subjects simulated assuming there is no relationship between yawning and action.</span>
 
 9. How often did we see results at least as extreme as the observed test statistic under assumption the null is true? Estimate the p-value from the simulation. What decision would you make about the research question?
 
-\vspace{0.8in}
+<span style="color:blue;">p-value = 0.469. Note this is greater than the $\alpha$ cutoff of 0.05 -> fail to reject the null</span>
 
 10. State your conclusion in terms of the research question.
 
-\vspace{0.8in}
+<span style="color:blue;">At an $\alpha = 0.05$, we *do not have enough evidence to conclude* there is a relationship between the seeding group and yawn action ($X^2$ = 0.999, p-value = 0.469).</span>
 
 #### Using The Chi-Square Distribution
 
@@ -390,9 +405,12 @@ If the condition about expected cell counts is violated, we are forced to use th
 
 11. Check the conditions for using a Chi-square distribution to analyze the Myth Buster's study. Is it appropriate to conduct a Chi-square Test?
 
-\vspace{1.5in}
++ <span style="color:blue;">Independent observations: the yawn action from one subject does not influence the yawn action of another (in the room separately).</span>
++ <span style="color:blue;">"Large enough sample size": The smallest expected count is 4.48 (this is actually less than 5).</span>
 
-Notice the plot below shows the Chi-square distribution is not a very good approximation of our simulated sampling distribution of our test statistic. Therefore, we want to be cautious about using the theory-based Chi-square Test.
+<span style="color:blue;">Since our "large enough sample size" condition is not met, it is not appropriate to use the Chi-Square distribution. We must rely on simulation!</span>
+
+Notice the plot below shows the Chi-square distribution is not a very good approximation of our simulated sampling distribution of our test statistic. Therefore, we want to be cautious about using the theory-based Chi-square Test. <span style="color:blue;">USE SIMULATION INSTEAD! Simulation always works (as long as you have independence) since it does not rely on a mathematical distribution approximation for the null sampling distribution.</span>
 
 ```{r}
 #| out-width: 40%
