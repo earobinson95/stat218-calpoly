@@ -471,11 +471,12 @@ In **designed experiments**, *random assignment* helps balance confounding varia
 
 1.  What are the variables in the study? Are they categorical or numerical? Which is the explanatory variable? Which is the response variable?
 
-\vspace{0.8in}
++ <span style="color:blue;">Explanatory: Vesting Group (categorical) -- Vested Interest / No Vested Interest</span>
++ <span style="color:blue;">Response: Success (categorical) -- Achieved Success / Did not achieve success</span>
 
 2.  Convert the research question into your null and alternative hypotheses.
 
-\vspace{1.2in}
+<span style="color:blue;">xxx</span>
 
 
 3. Is it appropriate to use the Chi-square distribution or do we need to use simulation?

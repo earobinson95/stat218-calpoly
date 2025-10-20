@@ -139,7 +139,7 @@ Understanding this distribution is key to making decisions about the population 
 
 ## Exploring the Distribution of the Sampling Mean
 
-We will use an applet (<https://posit.cloud/spaces/556082/content/9064163>) to simulate drawing random samples from a population and observe the distribution of sample means.
+We will use an applet (<https://emily-robinson.shinyapps.io/06-CLT-app/>) to simulate drawing random samples from a population and observe the distribution of sample means.
 
 The goal is to simulate multiple samples of $n = 20$ drawn from a hypothetical population of smokers experiencing nicotine withdrawal.
 

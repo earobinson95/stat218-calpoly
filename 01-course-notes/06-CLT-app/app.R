@@ -136,7 +136,7 @@ server <- function(input, output, session) {
                 color = "steelblue",
                 size = 6
       ) +
-      labs(title = "Population: Distribution of 'all' smokers suffering from nicotine withdrawl",
+      labs(title = "Population: Distribution of 'all' smokers suffering from nicotine withdrawal",
            x = "Perceived Elapsed Time (seconds)",
            y = "") +
       scale_x_continuous(limits = c(0,80), breaks = seq(0,80,5)) +
