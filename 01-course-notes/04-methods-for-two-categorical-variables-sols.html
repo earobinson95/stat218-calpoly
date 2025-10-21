@@ -2999,12 +2999,25 @@ Key statistical idea:
 <ol type="1">
 <li>What are the variables in the study? Are they categorical or numerical? Which is the explanatory variable? Which is the response variable?</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Explanatory: Vesting Group (categorical) – Vested Interest / No Vested Interest</span></li>
+<li><span style="color:blue;">Response: Success (categorical) – Achieved Success / Did not achieve success</span></li>
+</ul>
 <ol start="2" type="1">
 <li>Convert the research question into your null and alternative hypotheses.</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Null: Whether the observer has a vested interest or not <strong>does not</strong> have an impact on performance on a skill-based task.</span></li>
+<li><span style="color:blue;">Alternative: Whether the observer has a vested interest or not <strong>has</strong> an impact on performance on a skill-based task.</span></li>
+</ul>
 <ol start="3" type="1">
 <li>Is it appropriate to use the Chi-square distribution or do we need to use simulation?</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Independence: Whether one subject achieves success or not does not tell us whether or not another person achieves success or not. </span></li>
+<li><span style="color:blue;">Expected counts &gt; 5: The smallest expected count is <span class="math inline">\(\frac{11}{24}(12) = 5.5\)</span> for the Vested Interest group. </span></li>
+</ul>
+<p><span style="color:blue;">It would be appropriate to use the chi-square distribution to approximate the simulated null sampling distribution. Simulation will still work, too!</span></p>
 <ol start="4" type="1">
 <li>Using the observed <span class="math inline">\(X^2 = 4.196\)</span> and the simulation output below, determine the p-value. Make a decision concerning the null hypothesis.</li>
 </ol>
@@ -3017,18 +3030,26 @@ Key statistical idea:
 </div>
 </div>
 </div>
+<p><span style="color:blue;">Given there is no relationship between vested interest and success, there is a 6% chance of observing a chi-square test statistic of 4.196 or greater.</span></p>
+<p><span style="color:blue;">p-value = 0.06 &lt; <span class="math inline">\(\alpha\)</span>-cutoff of 0.10 -&gt; Reject the Null</span></p>
 <ol start="5" type="1">
 <li>At an <span class="math inline">\(\alpha = 0.10\)</span>, write a conclusion in terms of the original research question. Make sure to include your evidence in your conclusion.</li>
 </ol>
+<p><span style="color:blue;">At an <span class="math inline">\(\alpha = 0.01\)</span>, we have evidence to conclude that whether the observer has a vested interest or not <strong>has</strong> an impact on performance on a skill-based task.</span></p>
 <ol start="6" type="1">
 <li>Suppose all 12 individuals in the Vested Interest group hold high scores on Mario Cart and all 12 individuals in the No Vested Interest group are new to playing video games. Why would this be problematic?</li>
 </ol>
+<p><span style="color:blue;">We would be confounding skill with having a vested interest or not.</span></p>
+<p><span style="color:blue;">Oddly, <span class="math inline">\(\hat p_{success | vested} = 3/12=0.25\)</span> and <span class="math inline">\(\hat p_{success | not vested} = 8/12=0.0.66\)</span>.</span></p>
+<p><span style="color:blue;">I should have flipped the groups that were Mario Cart pros – we don’t know whether the skill led to a win or whether the vested interest led to a win.</span></p>
 <ol start="7" type="1">
 <li>The scenario states that subject’s were <em>randomly</em> assigned to one of two groups. How does this ensure we are actually evaluating how vested interest is related to the success of the video game rather than say skill?</li>
 </ol>
+<p><span style="color:blue;">By randomly assigning subjects to either the vested or no vested groups, we balance the skill out between the two groups so the groups have similar characteristics outside of the vested group helping us determine a cause-and-effect relationship.</span></p>
 <ol start="8" type="1">
 <li>If we determined that having a vested interest does have a relationship with achieving an outcome or not, does this allow us to draw a cause-and-effect conclusion between vested interest and success?</li>
 </ol>
+<p><span style="color:blue;">Yes, since we randomly assigned the vested interest group we can assume any confounding variables are balanced between the two groups (e.g., skill).</span></p>
 </section>
 <section id="example-4.3-home-court-advantage" class="level2">
 <h2 class="anchored" data-anchor-id="example-4.3-home-court-advantage">Example 4.3: Home Court Advantage</h2>
@@ -3037,13 +3058,13 @@ Key statistical idea:
 <li>Identify the observational unit and variables in this study. Also classify each variable as categorical (specify levels) or numeric.</li>
 </ol>
 <ul>
-<li>Observational Unit:</li>
+<li>Observational Unit: <span style="color:blue;">An Oklahoma City Thunder NBA home game during the 2008-2009 season</span></li>
 </ul>
 <ul>
-<li>Explanatory Variable:</li>
+<li>Explanatory Variable: <span style="color:blue;">Crowd (categorical) - sell out / smaller</span></li>
 </ul>
 <ul>
-<li>Response Variable:</li>
+<li>Response Variable: <span style="color:blue;">Game outcome (categorical) - won / lost</span></li>
 </ul>
 <ol start="2" type="1">
 <li>Complete the observed counts in the contingency table below:</li>
@@ -3066,37 +3087,39 @@ Key statistical idea:
 <tbody>
 <tr class="odd">
 <td>Win</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">15</td>
 </tr>
 <tr class="even">
 <td>Loss</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">36</td>
 </tr>
 <tr class="odd">
 <td>Total</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">51</td>
 </tr>
 </tbody>
 </table>
 <ol start="3" type="1">
 <li>When did the Thunder have a higher winning percentage: in front of a sell-out crowd or a smaller crowd? Support your answer by calculating the proportion of sell-out games that they won and also the proportion of non-sell-out games that they won.</li>
 </ol>
-<p><span class="math display">\[\hat p_{win|sell-out} = \]</span></p>
-<p><span class="math display">\[\hat p_{win|smaller} = \]</span></p>
+<p><span class="math display">\[\hat p_{win|sell-out} = 3/28=0.107\]</span></p>
+<p><span class="math display">\[\hat p_{win|smaller} = 0.522\]</span></p>
 <ol start="4" type="1">
 <li>Do the two variables appear to be associated? Explain.</li>
 </ol>
+<p><span style="color:blue;">Yes, it appears that the probability of winning with a smaller crowd is about five times as large as the probability of winning with a sell-out crowd.</span></p>
 <p>There are two possible explanations for this odd finding that the team had a better winning percentage with smaller crowds: + The sell-out crowd caused the Thunder to play worse, perhaps because of pressure or nervousness. + The sell-out crowd did not cause a worse performance, and some other issue (variable) explains why they had a worse winning percentage with sell-out crowds. In other words, a third variable is at play, which is related to both the crowd size and the game outcome.</p>
 <p>(Of course, another explanation is random chance, but as we saw with the Chi-Square Test of Independence, we can test for this and will later rule out random chance in this case.)</p>
 <ol start="5" type="1">
 <li>Consider the second explanation. Suggest a plausible alternative variable that would explain why the team would be less likely to win in front of a sell-out crowd than in front of a smaller crowd. (Make sure it’s clear not just that your explanation would affect the team’s likelihood of winning but also that the team would be less likely to win in front of a sell-out crowd compared to a smaller crowd.)</li>
 </ol>
+<p><span style="color:blue;">The strength of the opposing team would make for a better competition meaning it might be more likely the game sells out, but also it might be more likely the team loses because it is a tougher game.</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3113,24 +3136,30 @@ Definition
 <ol start="6" type="1">
 <li>Identify the confounding variable based on your suggested explanation above. Explain how it is confounding: what is the link between this third variable and the response variable, and what is the link between this third variable and the explanatory variable? (Hint: Remember that this variable has to be recorded on the observational units: home games for the Thunder (i.e., legit variable).)</li>
 </ol>
+<p><span style="color:blue;">The strength of the opposing team.</span></p>
+<p><span style="color:blue;">The strength of the opposing team would make for a better competition meaning it might be more likely the game sells out, but also it might be more likely the team loses because it is a tougher game.</span></p>
 <p>Another variable recorded for these data was whether the opponent had a winning record the previous season. Of the Thunder’s 41 home games, 22 were against teams that won more than half of their games. Let’s refer to those 22 teams as “strong opponents”. Of these 22 games, 13 were sell-outs. Of the 19 games against opponents that won less than half of their games that season (weak opponents), only 5 of those games were sell-outs.</p>
 <ol start="7" type="1">
 <li>Was the Thunder more likely to have a sell-out crowd against a strong opponent or a weak opponent? Calculate the relevant (conditional) proportions to support your answer.</li>
 </ol>
-<p><span class="math display">\[\hat p_{sell-out|strong} = \]</span></p>
-<p><span class="math display">\[\hat p_{sell-out|weak} = \]</span></p>
+<p><span class="math display">\[\hat p_{sell-out|strong} = 13/22=0.591\]</span></p>
+<p><span class="math display">\[\hat p_{sell-out|weak} = 5/19=0.263\]</span></p>
+<p><span style="color:blue;">The probability they sell out against a strong team (59.1%) is a little more than twice as likely they sell out against a weak team (26.3%).</span></p>
 <p>When the Thunder played a strong opponent, they won only 4 of 22 games. When they played a weak opponent, the Thunder won 11 of 19 games.</p>
 <ol start="8" type="1">
 <li>Was the Thunder less likely to win against a strong opponent than a weak one? Again calculate the relevant (conditional) proportions to support your answer.</li>
 </ol>
-<p><span class="math display">\[\hat p_{win|strong} = \]</span></p>
-<p><span class="math display">\[\hat p_{win|weak} = \]</span></p>
+<p><span class="math display">\[\hat p_{win|strong} = 4/22=0.182\]</span></p>
+<p><span class="math display">\[\hat p_{win|weak} = 11/19 = 0.579\]</span></p>
+<p><span style="color:blue;">The probability they win against a strong team (18.2%) is under half as likely they win against a weak team (57.9%).</span></p>
 <ol start="9" type="1">
 <li>Explain how your answers to the previous two questions establish that strength of opponent is a confounding variable that prevents drawing a cause-and-effect conclusion between crowd size and game outcome.</li>
 </ol>
+<p><span style="color:blue;">The confounding variable of the strength of opponent appears to be related to the probability of selling out and the probability of winning. Thus, we can’t separate the strength of the opponent from the crowd size.</span></p>
 <ol start="10" type="1">
 <li>Although we did not carry out a Chi-square test of independence, summarize your conclusion about whether these data provide evidence that a sell-out crowd caused the Thunder to play worse. Write as if to a friend who has never studied statistics. Be sure to address the fact that the Thunder had a much smaller winning percentage in front of a sell-out crowd.</li>
 </ol>
+<p><span style="color:blue;">It appears the chance of winning against a sell out crowd (10.7%) is much less than the chance of winning against a smaller crowd (52.2%), however, we cannot determine the crowd size causes the chance of winning since the strength of the opposing team appears highly related to both the chance of selling out and the chance of winning.</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
