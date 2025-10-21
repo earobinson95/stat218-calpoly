@@ -1,0 +1,485 @@
+---
+title: "Chapter 5: Methods for Describing a Numerical Variable"
+format: 
+  html:
+    toc: true
+  # pdf:
+  #   keep-tex: false
+  #   include-in-header:
+  #     text: |
+  #         \usepackage{fancyhdr}
+  #         \pagestyle{fancy}
+  #         \fancyhf{}
+  #         \fancyhead[R]{Chapter 5: Methods for Describing a Numerical Variable}
+  #         \fancyfoot[C]{\thepage}
+  # docx:
+  #   toc: false
+prefer-html: true
+embed-resources: true
+bibliography: references.bib
+reference-location: section
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Now, we will consider descriptive methods appropriate for summarizing numerical variables.  
+
+## Example 5.1: IMDb Movie Reviews
+
+A data set was collected on movies released in 2020. Here is a list of some of the variables collected on the observational units (each movie):
+
+| **Variable**     | **Description**                                             |
+|----------------------------------|--------------------------------------|
+| `Movie`          | Title of the movie                                          |
+| `averageRating`  | Average IMDb user rating score from 1 to 10                 |
+| `numVotes`       | Number of votes from IMDb users                             |
+| `Genre`          | Categories the movie falls into (e.g., Action, Drama, etc.) |
+| `2020 Gross`     | Gross profit from movie viewing                             |
+| `runtimeMinutes` | Length of movie (in minutes)                                |
+|                  |                                                             |
+
+```{r data}
+#| include: false
+
+library(tidyverse)
+library(infer)
+movies <- readxl::read_xlsx("data/movies_2020.xlsx") |> 
+  distinct(Movie, .keep_all = TRUE)
+
+title_ids <- read_csv("data/movie_ids.csv")
+  
+movie_ids <- left_join(movies, 
+                       title_ids, 
+                       by = 
+                         intersect(
+                           colnames(movies), 
+                           colnames(title_ids)
+                           )
+                       )
+
+ratings <- read_csv("data/ratings.csv")
+
+movie_ratings <- left_join(movie_ids, 
+                           ratings, 
+                           by = "id"
+                           ) |>  
+  select(Movie, 
+         Genre, 
+         `2020 Gross`, 
+         runtimeMinutes, 
+         averageRating, 
+         numVotes) |>  
+  drop_na(averageRating)
+```
+
+```{r}
+#| echo: true
+head(movie_ratings)
+```
+
+\newpage
+
+1. What is the variable of interest? What is the data type?
+
+
+\vspace{0.4in}
+
+2. What is the observation?
+
+\vspace{0.4in}
+
+The `favstats` function from the `mosaic` package will provide us with key summary statistics for a numerical variable:
+
+```{r}
+#| echo: true
+library(mosaic) # <1>
+favstats(~ averageRating, data = movie_ratings) # <2>
+```
+
+1. Load the `mosaic` package to access the desired functions.
+2. Using the `favstats()` function, designate your `~ variable` and your `data = ` set.
+
+Next, let’s discuss the summary statistics provided in each piece of the output:
+
+::: callout-note
+### Measures of location and variability
+
+**Measures of location** These summaries give us an idea of where a data distribution lies.
+
++ **Mean** and **median** give us an idea of the center (or middle) of the distribution.
++ The percentiles (**Q1** and **Q3**) give us an idea of what percent of the data distribution lies at or below a particular value. 
+
+What summary (or summaries) we choose to describe the entire data set depends on our objective. If the goal is to describe where a data distribution is centered, then the mean or median may be an appropriate summary statistic. However, if interest lies in what value is exceeded by only 5% of the data distribution, for example, then we would use the 95th percentile.  
+
+\vspace{0.1in}
+
+**Measures of variability** These summaries help us quantify how much the observations in a data set tend to vary from each other. 
+
++ The **sd** (standard deviation) is a measure of variability and quantifies how individual data points vary from the mean. 
++ The **IQR** (inner-quartile range) is the distance between Q1 and Q3 (the first and third quartiles).
+:::
+
+For example, compare and contrast the variability in the following distributions. The first is the actual data distribution of IMDB movie ratings; the second is a hypothetical data set created for purposes of comparison.  Which data set has more variability?  Why?
+
+```{r dotplot-orig}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 3
+ggplot(data = movie_ratings, 
+       mapping = aes(x = averageRating)) +
+  geom_dotplot(dotsize = 0.1, method="histodot") +
+  labs(title = "Original Data Set", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Number of Movies" # Label for y axis
+       ) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
+```
+
+```{r dotplot-simulated}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 3
+
+
+# Set the seed for reproducibility
+set.seed(123)
+fake_data <- tibble(averageRating = c(rnorm(n = nrow(movie_ratings)-10, 
+                                          mean = mean(movie_ratings$averageRating),
+                                          sd = sd(movie_ratings$averageRating)/2
+                                          ),
+                                      runif(n = 10, 4, 5)
+)
+                    )
+ggplot(data = fake_data, 
+       mapping = aes(x = averageRating)) +
+  geom_dotplot(dotsize = 0.1, method="histodot") +
+  labs(title = "Hypothetical Data Set", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Number of Movies" # Label for y axis
+       ) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
+```
+
+3. How many observations are there in the data set?
+
+\vspace{0.4in}
+
+4. What is the mean IMDb Score for the data set?
+
+\vspace{0.4in}
+
+5. What is the lowest IMDb Score? The highest?
+
+\vspace{0.4in}
+
+6. Interpret the value of the standard deviation in the context of these data.
+
+\vspace{0.4in}
+
+## Graphical Summaries of Numerical Data
+
+In this section, we will discuss common methods for graphing numerical data.  Graphs conveniently allow us to examine both the location and the variability in a data set.  Moreover, we gain insight into the shape of a data distribution.
+
+### Dotplots
+
+A dotplot will plot a dot for each value in the data set. The code below was used to create a dotplot of the `averageRatings` variable from the movies data set.
+
+```{r dotplot-echo}
+#| echo: true
+#| eval: false
+ggplot(data = movie_ratings, # <1>
+       mapping = aes(x = averageRating) # <2>
+       ) +
+  geom_dotplot(dotsize = 0.5,  # <3>
+               method = "histodot"
+               ) +
+  labs(title = "Score of Movies from 2020",  # <4>
+       x = "IMDb Score (Average Rating)",
+       y = "Number of ___________"
+       )
+```
+
+1. Using the `ggplot()` function, tell R the data set name,
+2. and the `aes(x = ____)` quantitative variable.
+3. The geometric object we want to display is a `geom_dotplot`. We can adjust the `dotsize`.
+4. Don't forget to label your title, x-, and y-axes.
+
+```{r dotplot-eval}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| out-width: 70%
+#| fig-pos: H
+ggplot(data = movie_ratings, 
+       mapping = aes(x = averageRating)) +
+  geom_dotplot(dotsize = 0.5, method = "histodot") +
+  labs(title = "Score of Movies from 2020", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Number of ___________" # Label for y axis
+       ) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
+```
+
+7. What does each dot on the dotplot represent?
+
+\vspace{0.5in}
+
+8. How would you describe the shape of the distribution of IMDb scores? Think about measures of location and variability.
+
+\vspace{0.5in}
+
+
+### Histogram
+
+A histogram is created by dividing the range of the data distribution into bins and then counting the number of observations that fall in each bin  A rectangular column is plotted in each interval, and the height of the column is proportional to the frequency of observations within the interval.  The y-axis can be labeled with either the count or the percentage of the observations that fall in each interval.
+
+```{r dotplot-histo}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| out-width: 75%
+ggplot(data = movie_ratings, 
+       mapping = aes(x = averageRating)) +
+  geom_dotplot(dotsize = 0.5, method="histodot") +
+  geom_vline(xintercept = 1.25, linetype = "dashed") +
+  geom_vline(xintercept = 1.75, linetype = "dashed") +
+  geom_vline(xintercept = 2.25, linetype = "dashed") +
+  geom_vline(xintercept = 2.75, linetype = "dashed") +
+  geom_vline(xintercept = 3.25, linetype = "dashed") +
+  geom_vline(xintercept = 3.75, linetype = "dashed") +
+  geom_vline(xintercept = 4.25, linetype = "dashed") +
+  geom_vline(xintercept = 4.75, linetype = "dashed") +
+  geom_vline(xintercept = 5.25, linetype = "dashed") +
+  geom_vline(xintercept = 5.75, linetype = "dashed") +
+  geom_vline(xintercept = 6.25, linetype = "dashed") +
+  geom_vline(xintercept = 6.75, linetype = "dashed") +
+  geom_vline(xintercept = 7.25, linetype = "dashed") +
+  geom_vline(xintercept = 7.75, linetype = "dashed") +
+  geom_vline(xintercept = 8.25, linetype = "dashed") +
+  geom_vline(xintercept = 8.75, linetype = "dashed") +
+  geom_vline(xintercept = 9.25, linetype = "dashed") +
+  labs(title = "Score of Movies from 2020", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Number of Movies" # Label for y axis
+       ) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
+```
+\newpage
+
+To create a histogram of the IMDb scores, all we need to do is change the geometric object we are displaying on our plot! In a dotplot we use dots, but in a histogram we use bars.
+
+```{r histogram-echo}
+#| eval: false
+#| echo: true
+ggplot(data = movie_ratings, # <1>
+       mapping = aes(x = averageRating) # <2>
+       ) + 
+  geom_histogram(binwidth = 0.5) + # <3>
+  labs(title = "Score of Movies from 2020", # <4>
+       x = "IMDb Score (Average Rating)",
+       y = "Number of Movies"
+       )
+```
+
+1. Using the `ggplot()` function, denote your `data = ` set,
+2. and the `x = ` variable you want to explore.
+3. The geometric object we want to plot is `geom_histogram()` and we can specify the `binwidth = `.
+4. Don't forget to add titles, x-, and y-axes labels.
+
+```{r histogram}
+#| warning: false
+#| fig-align: center
+#| out-width: 75%
+ggplot(data = movie_ratings, 
+       mapping = aes(x = averageRating)) + 
+  geom_histogram(binwidth = 0.5, fill = "gray", color = "white") +
+  labs(title = "Score of Movies from 2020", # Title for plot
+       x = "IMDb Score (Average Rating)", # Label for x axis
+       y = "Number of Movies" # Label for y axis
+       ) +
+  # scale_x_continuous(limits = c(0,10), breaks = seq(0,10,1), expand = c(0,0)) +
+  scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
+```
+4. Which range of IMDb scores have the *highest* frequency (number of movies)?
+
+\vspace{0.2in}
+
+5. What IMDB scores are movies *rarely* rated?
+
+\vspace{0.2in}
+
+6. Are there IMDB scores that were possible but no movies in this sample were given those ratings?
+
+\vspace{0.2in}
+
+### Boxplot
+
+The procedure for constructing a boxplot is as follows:
+
+1.	Draw horizontal lines at Q1 (25th percentile), Q2 (median / 50th percentile), and Q3 (75th percentile).  Enclose these horizontal lines in a box.
+2.	Find the lower and upper whiskers:
+
++ The endpoint of the lower whisker is the larger of the minimum and (Q1 – 1.5*IQR).
++ The endpoint of the upper whisker is the smaller of the maximum and (Q3 + 1.5*IQR).
+
+::: callout-note
+### Outliers
+
+Any measurement beyond the endpoint of either whisker is classified as a potential outlier (an extreme observation).
+:::
+
+**Recall our Summary Statistics**
+
+```{r}
+#| echo: true
+library(infer)
+favstats(~ averageRating, data = movie_ratings)
+```
+
+**Bottom 6 and Top 6 Ratings**
+
+```{r}
+#| layout-ncol: 2
+
+#| tbl-cap: "Top 6 Ratings"
+movie_ratings %>% 
+  select(Movie, averageRating) |> 
+  slice_max(order_by = averageRating, n = 6)
+
+#| tbl-cap: "Bottom 6 Ratings"
+movie_ratings |> 
+  select(Movie, averageRating) |>  
+  slice_min(order_by = averageRating, n = 6) |> 
+  arrange(-averageRating)
+```
+
+\newpage
+
+7. Using the summary statistics (same as we saw earlier) and top/bottom values of the data set provided, sketch a box plot of IMDb scores. *Hint: You will need to determine if there are any outliers.*
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("05-images/boxplot.PNG")
+```
+
+8.	Are there any movies that are rated unusually low?  If so, which ones?
+
+\vspace{0.3in}
+
+9.	Are there any movies that are rated unusually high?  If so, which ones?
+
+
+\vspace{0.3in}
+
+### A Discussion of Skewness
+
+A data distribution is said to be symmetric if it has the same shape on both sides of the center. Skewness measures the amount of asymmetry in a data distribution.
+
+The distribution is said to be *skewed to the right* if the measurements tend to trail off to the right.  Similarly, a distribution is *skewed to the left* if the measurements trail off to the left.
+
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("05-images/skewed-sketc.PNG")
+```
+
+
+\newpage
+
+::: callout-note
+## Describing distributions of quantitative variables
+
+When describing distributions of quantitative variables we look at the **shape**, **center**, **spread**, and for **outliers**.
+
+  + There are two measures of *center*: mean and the median
+  + There are two measures of *spread*: standard deviation and the interquartile range, IQR = Q3 − Q1.
+:::
+
+10. Compare the three graphs of IMDb scores created above.
+
++ Which graph(s) show the shape of the distribution?
+
+\vspace{0.2in}
+
++ Which graph(s) show the outliers of the distribution?
+
+\vspace{0.2in}
+
++ Which graph plots the raw data (individual observations)?
+
+\vspace{0.2in}
+
+
+## Z-SCORES
+
+A *Z-score*, often called a standardized value, measures the number of standard deviations a single observation is away from the mean of the data distribution. The z-score can be used to transform observations to a dimensionless scale; in addition, it can be used to measure the position of an observation. Z-scores are calculated as shown below:
+
+$$\text{Z-score} = \frac{\text{Observation - Mean}}{\text{Standard Deviation}}$$
+
+Interpretation of Z-Scores:
+
++ As mentioned, the standardized values transform the data so that the data is placed on a standard, dimensionless scale that has a mean of 0 and a standard deviation of 1.
++ If a Z-Score is negative, then the observation is that many standard deviations below the mean.
++ If the Z-Score is positive, then the observation is that many standard deviations above the mean.
++ If the Z-Score is 0, then the data value is the same as the mean.
++ If the Standard Deviation is 0, then the Z-Score is not defined and thus cannot be computed.
+
+```{r}
+movie_ratings |> 
+  mutate(Zscore = (averageRating - mean(averageRating))/sd(averageRating)) |> 
+  select(Movie, averageRating, Zscore) |> 
+  head()
+```
+
+11.	Show how the Z-score for "Halloween" was calculated:
+
+ \vspace{0.5in}
+
+12.	What does this tell you about the relative position of "Halloween" in the data set?
+
+ \vspace{0.5in}
+ 
+13.	Show how the Z-score for "The Call of the Wild" was calculated:
+
+ \vspace{0.5in}
+
+14.	What does this tell you about the relative position of "The Call of the Wild" in the data set?
+
+ \vspace{0.5in}
+ 
+## The Identification of Outliers
+
+We have already discussed using boxplots to identify outliers.  In addition, we can use Z-scores.
+
++ Any data value whose Z-Score is below −2 or above 2 is considered a potential outlier.  
++ Any data value whose Z-Score is below -3 or above 3 is considered an outlier and warrants further investigation.
+
+These guidelines come from the Empirical Rule: If the probability distribution is bell-shaped and symmetric, then the Empirical Rule applies.  This rule says that APPROXIMATELY…
+
++ 68% of the data values fall within one standard deviation of the mean.
++ 95% of the data values fall within two standard deviations of the mean.
++ 99.7% of the data values fall within three standard deviations of the mean.
+
+```{r}
+#| out-width: 55%
+#| fig-align: center
+knitr::include_graphics("05-images/empirical-rule.PNG")
+```
