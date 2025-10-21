@@ -84,11 +84,11 @@ head(movie_ratings)
 1. What is the variable of interest? What is the data type?
 
 
-\vspace{0.4in}
+<span style="color:blue;">averageRating (this is the IMBD score), numeric variable</span>
 
 2. What is the observation?
 
-\vspace{0.4in}
+<span style="color:blue;">A move released in 2020</span>
 
 The `favstats` function from the `mosaic` package will provide us with key summary statistics for a numerical variable:
 
@@ -100,6 +100,12 @@ favstats(~ averageRating, data = movie_ratings) # <2>
 
 1. Load the `mosaic` package to access the desired functions.
 2. Using the `favstats()` function, designate your `~ variable` and your `data = ` set.
+
++ <span style="color:blue;">The smallest IMDb score is 1.9 (min) and the largest IMDb score is 9.2 (max).</span>
++ <span style="color:blue;">There are 215 movies in the data set (n) and 0 movies have missing IMDb scores.</span>
++ <span style="color:blue;">Q1 (quartile 1) gives the IMDB score where 25% of the movies have scores lower than 6.1.</span>
++ <span style="color:blue;">Q3 (quartile 3) gives the IMDB score where 75% of the movies have scores lower than 7.6.</span>
++ <span style="color:blue;">The IQR (inner-quartile range) is Q3-Q1 = 7.6-6.1 = 1.5. Thus, 50% of movies have scores between 6.1 and 7.6 (within a range of 1.5).</span>
 
 Next, let’s discuss the summary statistics provided in each piece of the output:
 
@@ -170,21 +176,27 @@ ggplot(data = fake_data,
   scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
 ```
 
+<span style="color:blue;">The top original data set has more variability in the IMDb scores because they range from 1.5 to 9.3 and have more spread in general, a less prominent squished distribution and peak.</span>
+
+<span style="color:blue;">looking at the favstats output on the previous page...</span>
+
 3. How many observations are there in the data set?
 
-\vspace{0.4in}
+<span style="color:blue;">n = 215</span>
 
 4. What is the mean IMDb Score for the data set?
 
-\vspace{0.4in}
+<span style="color:blue;">$\bar x$ = 6.7</span>
 
 5. What is the lowest IMDb Score? The highest?
 
-\vspace{0.4in}
+<span style="color:blue;">lowest = 1.9 (min) and highest = 9.2 (max)</span>
 
 6. Interpret the value of the standard deviation in the context of these data.
 
-\vspace{0.4in}
+<span style="color:blue;">sd = 1.25 (see last page for a better description)</span>
+
+<span style="color:blue;">On average, a movie has an IMDb score 1.25 away from the overall mean IMDb score of 6.7.</span>
 
 ## Graphical Summaries of Numerical Data
 
@@ -205,7 +217,7 @@ ggplot(data = movie_ratings, # <1>
                ) +
   labs(title = "Score of Movies from 2020",  # <4>
        x = "IMDb Score (Average Rating)",
-       y = "Number of ___________"
+       y = "Number of Movies"
        )
 ```
 
@@ -235,11 +247,16 @@ ggplot(data = movie_ratings,
 
 7. What does each dot on the dotplot represent?
 
-\vspace{0.5in}
+<span style="color:blue;">A single movie (observation). Note, this is NOT a sampling distribution (we will talk about this in Ch. 6). There are 215 dots on this plot (one for each movie's score).</span>
 
 8. How would you describe the shape of the distribution of IMDb scores? Think about measures of location and variability.
 
-\vspace{0.5in}
+<span style="color:blue;">When describing the distribution, address the center, spread, shape, and any outliers.</span>
+
++ <span style="color:blue;">Center: movie scores are cenetered around ~6.7-7.0</span>
++ <span style="color:blue;">Spread: 50% of the movies have scores between 6.1 and 7.6 (IQR = 1.5).</span>
++ <span style="color:blue;">Shape: Slightly skewed left</span>
++ <span style="color:blue;">xxx</span>
 
 
 ### Histogram
@@ -316,17 +333,20 @@ ggplot(data = movie_ratings,
   # scale_x_continuous(limits = c(0,10), breaks = seq(0,10,1), expand = c(0,0)) +
   scale_x_continuous(limits = c(1,10), breaks = seq(1,10,1))
 ```
+
+<span style="color:blue;">Think of this as a "bar plot" of numerical data. We create "bins" or "categories" of the numeric values (IMDb scores).</span>
+
 4. Which range of IMDb scores have the *highest* frequency (number of movies)?
 
-\vspace{0.2in}
+<span style="color:blue;">6.75 - 5.25 has the most movies in this range of IMDb scores.</span>
 
 5. What IMDB scores are movies *rarely* rated?
 
-\vspace{0.2in}
+<span style="color:blue;">1.75 - 4.25 all have 4 or less movies rated in each bin. Also 8.75-9.25 only has one movie rated in that "bin".</span>
 
 6. Are there IMDB scores that were possible but no movies in this sample were given those ratings?
 
-\vspace{0.2in}
+<span style="color:blue;">Yes, the data description on the first page says movie ratings are 1-10. We have no movies rated lower than 1.75 and none rated above 9.25.</span>
 
 ### Boxplot
 
@@ -376,17 +396,16 @@ movie_ratings |>
 ```{r}
 #| out-width: 80%
 #| fig-align: center
-knitr::include_graphics("05-images/boxplot.PNG")
+knitr::include_graphics("05-images/boxplot-sols.PNG")
 ```
 
 8.	Are there any movies that are rated unusually low?  If so, which ones?
 
-\vspace{0.3in}
+<span style="color:blue;">Any movies with IMDb scores less than Q1 - 1.5*IQR = 6.1 - 1.5(1.5) = 6.1-2.25 = 3.85 are considered outliers. Thus, yes, there are 5 movies with IMDb scores less than 3.85.</span>
 
 9.	Are there any movies that are rated unusually high?  If so, which ones?
 
-
-\vspace{0.3in}
+<span style="color:blue;">Any movies with IMDb scores higher than Q3 + 1.5*IQR = 9.2 + 1.5(1.5) = 9.2-2.25 = 11.45 are considered outliers. Thus, no, there are no movies with IMDb scores higher than 11.45.</span>
 
 ### A Discussion of Skewness
 
@@ -417,16 +436,15 @@ When describing distributions of quantitative variables we look at the **shape**
 
 + Which graph(s) show the shape of the distribution?
 
-\vspace{0.2in}
+<span style="color:blue;">histograms do the best job of showing the shape, although dot plots do okay too.</span>
 
 + Which graph(s) show the outliers of the distribution?
 
-\vspace{0.2in}
+<span style="color:blue;">boxplots do the best job at showing outliers, although you can kind of guess from dot plots.</span>
 
 + Which graph plots the raw data (individual observations)?
 
-\vspace{0.2in}
-
+<span style="color:blue;">dot plots show the raw individual observations.</span>
 
 ## Z-SCORES
 
@@ -451,19 +469,30 @@ movie_ratings |>
 
 11.	Show how the Z-score for "Halloween" was calculated:
 
- \vspace{0.5in}
+<span style="color:blue;">(7.8 - 6.7)/1.25 = 0.88</span>
 
 12.	What does this tell you about the relative position of "Halloween" in the data set?
 
- \vspace{0.5in}
+<span style="color:blue;">Halloween falls just under 1 standard deviation above the mean of 6.7.</span>
+
+<span style="color:blue;">Think of having a popsicle stick the length of your sd (1.25). If you place this at the mean score, Halloween (7.8) would fall almost at the top of that popsicle stick.</span>
  
 13.	Show how the Z-score for "The Call of the Wild" was calculated:
 
- \vspace{0.5in}
+<span style="color:blue;">(5.3 - 6.7)/1.25 = -1.12</span>
 
 14.	What does this tell you about the relative position of "The Call of the Wild" in the data set?
 
- \vspace{0.5in}
+<span style="color:blue;">Halloween falls just over 1 standard deviation below the mean of 6.7.</span>
+
+<span style="color:blue;">Think of having a popsicle stick the length of your sd (1.25). If you place this at the mean score, The Call of the Wild (5.3) would fall just past the end of that popsicle stick.</span>
+ 
+ 
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("05-images/z-scores.PNG")
+```
  
 ## The Identification of Outliers
 
@@ -483,3 +512,15 @@ These guidelines come from the Empirical Rule: If the probability distribution i
 #| fig-align: center
 knitr::include_graphics("05-images/empirical-rule.PNG")
 ```
+
+```{r}
+#| out-width: 55%
+#| fig-align: center
+knitr::include_graphics("05-images/empirical-rule-sols.PNG")
+```
+
+<span style="color:blue;">This is building up to the t-statistic we will introduce next week with this thinking.</span>
+
+
+
+
