@@ -3,17 +3,17 @@ title: "Chapter 6: Inferential Methods for a Single Numerical Variable"
 format: 
   html:
     toc: true
-  pdf:
-    keep-tex: false
-    include-in-header:
-      text: |
-          \usepackage{fancyhdr}
-          \pagestyle{fancy}
-          \fancyhf{}
-          \fancyhead[R]{Chapter 6: Inferential Methods for a Single Numerical Variable}
-          \fancyfoot[C]{\thepage}
-  docx:
-    toc: false
+  # pdf:
+  #   keep-tex: false
+  #   include-in-header:
+  #     text: |
+  #         \usepackage{fancyhdr}
+  #         \pagestyle{fancy}
+  #         \fancyhf{}
+  #         \fancyhead[R]{Chapter 6: Inferential Methods for a Single Numerical Variable}
+  #         \fancyfoot[C]{\thepage}
+  # docx:
+  #   toc: false
 prefer-html: true
 embed-resources: true
 bibliography: references.bib
@@ -327,17 +327,24 @@ ggplot(data = nicotine,
 
 1. What is the parameter of interest?
 
-\vspace{0.8in}
+<span style="color:blue;">$\mu:$ The population mean perceived time passed for all daily smokers suffering nicotine withdrawal.</span>
+
+<span style="color:blue;">The population mean [variable of interest] for [population].</span>
 
 2.  Set up the null and alternative hypotheses
 
-$H_0$: 
+$H_0$: <span style="color:blue;">The population mean perceived time passed for all daily smokers suffering nicotine withdrawal is equal to 45 seconds. (no impairment)</span>
 
 \vspace{0.8in}
 
-$H_A$:
+$H_A$: <span style="color:blue;">The population mean perceived time passed for all daily smokers suffering nicotine withdrawal is greater than 45 seconds. (impairment)</span>
 
 \vspace{0.8in}
+
+<span style="color:blue;">In Symbols:</span>
+
++ <span style="color:blue;">$H_0: \mu = 45$</span>
++ <span style="color:blue;">$H_A: \mu > 45$</span>
 
 
 \newpage
@@ -346,7 +353,9 @@ $H_A$:
 
 To determine whether or not the distance between $\mu$ (the hypothesized population mean, null value) and (the mean from our observed sample) is larger than what we would expect by random chance, we will use the following statistic:
 
-$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} =$$
+$$T = \frac{\bar x - \mu_0}{s/\sqrt{n}} = \frac{52.65-45}{7.27/\sqrt{20}}=4.71$$ 
+
+<span style="color:blue;">recall z-scores! The mean of our observed data is almost 5 sd above the expected mean (based on the sampling distribution of the mean under the assumption the null is true $\mu=45$), therefore our mean of 52.65 seconds is probably an outlier --> reject the null.</span>
 
 Why use this statistic? Because this quantity measures the position of our observed sample mean on the null model, just like the Z-score discussed in the previous chapter.
 
@@ -357,7 +366,7 @@ Note that this is very much like the Z-score, with one minor exception. We don't
 This t-statistic comes from what is called a t-distribution. The amount of variability in a t-distribution depends on the sample size n. Therefore, this distribution is indexed by its *degrees of freedom* (df).
  
 ::: callout-note
-### Degrees of Freedom for a Single Mean
+### Degrees of Freedom for a Single Mean (t-distribution)
 
 For inference on a single mean, $df = n - 1$.
 :::
@@ -392,7 +401,7 @@ t_test(x = nicotine, # <1>
 
 3.  Write a conclusion in context of the problem.
 
-\vspace{1.4in}
+<span style="color:blue;">At an $\alpha = 0.05$, we have evidence to conclude the population mean percieved time passed for all smokers suffering nicotine withdrawal is greater than 45 seconds (T = 4.71, df = 19, p-value = 0.000087).</span>
 
 ::: callout-note
 ### Checking the Normality Assumption:
@@ -407,7 +416,7 @@ For Example 6.1, we have a sample size of 20 subjects, which is not sufficiently
 
 4. Look back at the histogram of the original data. Does this seem to indicate that this is a reasonable assumption?
 
-\vspace{0.6in}
+<span style="color:blue;">The histogram of the observed data is approximately normalish (one peak, somewhat symmetric). Thus, okay to use the t-distribution! </span>
 
 ## Example 6.2: Time Perception for Smokers NOT Suffering from Nicotine Withdrawal
 
@@ -436,13 +445,18 @@ Carry out the formal t-test to address this research question.
 
 1.  Set up the null and alternative hypotheses
 
-> $H_0:$
+$H_0$: <span style="color:blue;">The population mean perceived time passed for all daily smokers NOT suffering nicotine withdrawal is equal to 45 seconds. (no impairment)</span>
 
 \vspace{0.8in}
 
-> $H_A:$
+$H_A$: <span style="color:blue;">The population mean perceived time passed for all daily smokers NOT suffering nicotine withdrawal is greater than 45 seconds. (impairment)</span>
 
 \vspace{0.8in}
+
+<span style="color:blue;">In Symbols:</span>
+
++ <span style="color:blue;">$H_0: \mu = 45$</span>
++ <span style="color:blue;">$H_A: \mu > 45$</span>
 
 2.  Check normality assumptions for using the CLT.
 
@@ -463,7 +477,9 @@ ggplot(data = nowithdrawal_data,
        x = "Perceived Elapsed Time (seconds)")
 ```
 
-\vspace{1.2in}
+<span style="color:blue;">n = 22 < 30 -- thus need to check for normality in the histogram.</span>
+
+<span style="color:blue;">Maybe slightly skewed, but decently normal. One peak, somewhat symmetric.</span>
 
 3.  Find the t-statistic *(practice calculating this out)* and the p-value.
 
@@ -484,11 +500,13 @@ t_test(x = nowithdrawal_data,
        )
 ```
 
-\vspace{0.8in}
+<span style="color:blue;">$$T=\frac{\bar x - \mu_0}{s/\sqrt{n}}=\frac{45.22-45}{6.83/\sqrt{22}}=0.151$$</span>
+
+<span style="color:blue;">The mean of this data is only 0.151 sd above the expected mean of 45 seconds. Probably not an outlier --> Fail to Reject</span>
 
 4.  Write a conclusion in the context of the problem.
 
-\vspace{1.2in}
+<span style="color:blue;">At an $\alpha = 0.05$, we do not have enough evidence to conclude the population mean perceived time passed for daily smokers NOT suffering nicotine withdrawal is greater than 45 seconds (T = 0.151, df = 21, p-value = 0.44).</span>
 
 ## Confidence Interval for a Single Population Mean
 
@@ -525,13 +543,29 @@ The appropriate t-quantile can be found using R *(typically I will give you a ta
 qt(0.975, df = 19)
 ```
 
+<span style="color:blue;">this is our t-quantile (will be close to 1.96 for 95%)</span>
+
+<span style="color:blue;">Notice 95% falls between -2.09 and +2.09.</span>
+
+```{r}
+#| out-width: 50%
+knitr::include_graphics("06-images/ci_95_2.jpg")
+```
+
+<span style="color:blue;">Thus, 97.5% falls BELOW +2.09. (2.5% in both tail ends).</span>
+
+```{r}
+#| out-width: 50%
+knitr::include_graphics("06-images/ci_95.jpg")
+```
+
 \vspace{0.2in}
 
-+ confidence level =
++ confidence level = <span style="color:blue;">95%</span>
 
 \vspace{0.2in}
 
-+ df =
++ df = <span style="color:blue;">20-1=19</span>
 
 \vspace{0.2in}
 
@@ -544,15 +578,16 @@ favstats( ~ time_passed, data = nicotine)
 
 1. Use this information to find the endpoints of the confidence interval:
 
-+ Lower endpoint = $\bar x - \text{t-quantitle}\times\big(\frac{s}{\sqrt{n}}\big)$
++ Lower endpoint = $\bar x - \text{t-quantitle}\times\big(\frac{s}{\sqrt{n}}\big)$ 
 
-\vspace{1.2in}
+<span style="color:blue;">$2.65-2.09(\frac{7.2}{\sqrt{20}})=49.29$</span>
 
 + Upper endpoint = $\bar x + \text{t-quantitle}\times\big(\frac{s}{\sqrt{n}}\big)$
 
-\vspace{1.2in}
+<span style="color:blue;">$2.65+2.09(\frac{7.2}{\sqrt{20}})=56.01$</span>
 
-\newpage
+
+<span style="color:blue;">Thus, the 95% confidence interval is (49.29, 56.01).</span>
 
 Note that we can ask R to provide the endpoints of the 95\% confidence interval for this mean when we use the `t_test` function with a `two-sided` test. We can change the confidence level with the `conf_level` argument.
 
@@ -573,11 +608,16 @@ t_test(x = nicotine,
 
 2.  Interpret the meaning of this interval. What does this interval tell us about the true mean perceived elapsed time for all smokers that are suffering from nicotine withdrawal?
 
-\vspace{1.4in}
+<span style="color:blue;">We are 95% confident the population mean perceived time passed for all daily smokers suffering nicotine withdrawal is between 49.3 and 56.1 seconds.</span>
 
 3.  Does this interval agree with what you learned from the hypothesis test? Explain.
 
-\vspace{1.2in}
+<span style="color:blue;">Yes, we can estimate the plausible values for the population mean are completely above 45 seconds (null value) and we rejected the null hypotheses (concluded evidence the population mean percieved time passed is greater than 45 seconds).</span>
+
+```{r}
+#| out-width: 50%
+knitr::include_graphics("06-images/ci-sketch.png")
+```
 
 ::: callout-note
 ## Key Statistical Concepts
@@ -599,8 +639,21 @@ qt(0.975, df = 19)
 qt(0.995, df = 19)
 ```
 
-\vspace{1.2in}
+<span style="color:blue;">The multiplier is now 1.73 instead of 2.09.</span>
 
+<span style="color:blue;">Notice 90% falls between -1.73 and +1.73.</span>
+
+```{r}
+#| out-width: 50%
+knitr::include_graphics("06-images/ci_90_2.jpg")
+```
+
+<span style="color:blue;">Thus, 95% falls BELOW +1.73. (5% in both tail end).</span>
+
+```{r}
+#| out-width: 50%
+knitr::include_graphics("06-images/ci_90.jpg")
+```
 
 
 
