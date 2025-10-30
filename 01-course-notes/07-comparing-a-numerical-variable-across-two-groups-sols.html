@@ -2327,7 +2327,7 @@ window.Quarto = {
   <li><a href="#example-7.3-diet-and-cholesterol-paired-t-test" id="toc-example-7.3-diet-and-cholesterol-paired-t-test" class="nav-link" data-scroll-target="#example-7.3-diet-and-cholesterol-paired-t-test">Example 7.3: Diet and Cholesterol (Paired t-test)</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="07-comparing-a-numerical-variable-across-two-groups-sols.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="07-comparing-a-numerical-variable-across-two-groups-sols.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -2423,6 +2423,7 @@ window.Quarto = {
 <ul>
 <li><span style="color:blue;"><span class="math inline">\(\bar x_\text{withdrawal} - \bar x_\text{no withdrawal}=52.65-45.22=7.43\)</span> seconds</span></li>
 </ul>
+<p><span style="color:blue;">We will use this to test claims (hypothesis testing) about the difference in the population means!</span></p>
 <p><strong>Facetted Histograms</strong></p>
 <p>When we want to add a categorical variable (like withdrawal status) to a histogram, we can create separate plots for each level of the categorical variable. These separate plots are called facets. We are comparing the perceived time passed between participants suffering withdrawal and participants not suffering withdrawal, so we will have two facets, one per status.</p>
 <div class="cell">
@@ -2462,23 +2463,26 @@ window.Quarto = {
 <ol start="6" type="1">
 <li>Set up the null and alternative hypotheses (in words and symbols).</li>
 </ol>
+<p><span style="color:blue;">Null: The difference in population mean perceived time passed between all daily smokers suffering nicotine withdrawal and all daily smokers NOT suffering nicotine withdrawal is equal to 0 (i.e., the population means are equal).</span></p>
+<p><span style="color:blue;">Alternative: The difference in population mean perceived time passed between all daily smokers suffering nicotine withdrawal and all daily smokers NOT suffering nicotine withdrawal is greater than 0 (the population mean perceived time passed for withdrawal is greater than the population mean perceived time passed for no withdrawal).</span></p>
 <p>In order to test our research question, we could conduct a simulation similar to what we did with two categorical variables (e.g., Mythbusters yawn experiment). Recall, we follwed the following steps:</p>
 <ul>
-<li>Step 1: Write the ____________ and ____________ on ______ cards.</li>
+<li>Step 1: Write the <span style="color:blue;">status</span> and <span style="color:blue;">time passed</span> on <span style="color:blue;">42</span> cards.</li>
 </ul>
 <ul>
-<li>Step 2: Simulate what could have happened if the null was true and ________________.</li>
+<li>Step 2: Simulate what could have happened if the null was true and <span style="color:blue;">rip apart the pairs of status and time passed.</span></li>
 </ul>
 <ul>
-<li>Step 3: Generate a new data set by _________________________________.</li>
+<li>Step 3: Generate a new data set by <span style="color:blue;">shuffling and randomly re-matching new simulated pairs (assuming no difference/relationship).</span></li>
 </ul>
 <ul>
-<li>Step 4: Calculate the ____________________________ for the new simulated data set and add it to the dot plot.</li>
+<li>Step 4: Calculate the <span style="color:blue;">difference in means</span> for the new simulated data set and add it to the dot plot.</li>
 </ul>
 <p>We would then repeat this process 100 or 1000 times to get an idea of what the sampling distribution of the <em>difference</em> in means between the two groups looks like.</p>
 <ol start="7" type="1">
-<li>Assuming there is <em>no difference</em> in mean percieved time elapsed between participants suffering from nicotine withdrawal and participants not suffering from nicotine withdrawal (i.e., Null is true), where do you expect the distribution to be centered? Explain.</li>
+<li>Assuming there is <em>no difference</em> in mean perceived time elapsed between participants suffering from nicotine withdrawal and participants not suffering from nicotine withdrawal (i.e., Null is true), where do you expect the distribution to be centered? Explain.</li>
 </ol>
+<p><span style="color:blue;">I would expect the difference to be 0 (centered) if the population means are the same!</span></p>
 <p>The plot below contains 19 panels of “new simulated” data sets under the assumption there is no difference in mean perceived time elapsed between the two groups (i.e., Null is true), following the process above, and one panel of the actual data observed from the sample of 42 daily smokers in our study.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2492,6 +2496,7 @@ window.Quarto = {
 <ol start="8" type="1">
 <li>Which panel contains the actual data observed in the sample of 42 daily smokers in our study? Was it hard to pick out? Remember what it was like trying to pick this out.</li>
 </ol>
+<p><span style="color:blue;">Panel 14 contains the OBSERVED data from our 42 daily smokers. All other panels contain boxplots displaying the null data sets simulated under the assumption the null is true (no difference). A little tricky to pick out, but not bad! Maybe there is something going on in our data.</span></p>
 <p>We could take these and calculate the observed difference in mean perceived elapsed time between the two groups for each panel and plot this to begin creating the distribution of our sampling difference in means.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2502,6 +2507,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p><span style="color:blue;">recall <span class="math inline">\(\bar x_\text{withdrawal} - \bar x_\text{no withdrawal}=7.43 seconds\)</span> from Q5.</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2514,6 +2520,7 @@ window.Quarto = {
 <ol start="9" type="1">
 <li>Does our observed data appear to be unusual compared to the data simulated under the assumption there is no difference?</li>
 </ol>
+<p><span style="color:blue;">yes, our observed difference in means is much larger than what we would expect to see under the assumptin there is no difference (null true) –&gt; p-value &lt; 0.0001. Draw your line at <span class="math inline">\(\bar x_\text{withdrawal} - \bar x_\text{no withdrawal}=7.43 seconds\)</span>!</span></p>
 <p>It turns out that these sample means vary in a predictable way, and we can use what we know about this predictable pattern to determine what outcomes are likely (or not likely) to happen by chance. This predictable pattern is called the <em>sampling distribution for the difference in means</em>.</p>
 <div style="page-break-after: always;"></div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2544,6 +2551,7 @@ Characteristics for Sampling Distribution for Difference in Means
 <ol start="10" type="1">
 <li>Calculate the observed T test-statistic for the study data.</li>
 </ol>
+<p><span style="color:blue;"><span class="math display">\[T = \frac{7.43 - 0}{\sqrt{\frac{7.27^2}{20}+\frac{6.83^2}{22}}}=3.41\]</span></span></p>
 <div style="page-break-after: always;"></div>
 <ol start="11" type="1">
 <li>Using the t-distribution provided below, show how you would estimate the p-value.</li>
@@ -2557,6 +2565,7 @@ Characteristics for Sampling Distribution for Difference in Means
 </div>
 </div>
 </div>
+<p><span style="color:blue;">Draw your line at T = 3.41 from above and recall <span class="math inline">\(H_A: \mu_\text{withdrawal} &gt; \mu_\text{no withdrawal}\)</span> (aka <span class="math inline">\(H_A: \mu_\text{withdrawal} - \mu_\text{no withdrawal}&gt;0\)</span>) so this is an upper tailed test _. p-value is very small!!!</span></p>
 <p>Additionally, we can use R to conduct our two-sample independent t-test to answer our research question.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t_test</span>(<span class="at">x =</span> time_elapsed,</span>
@@ -2604,6 +2613,7 @@ Characteristics for Sampling Distribution for Difference in Means
 <ol start="12" type="1">
 <li>Write the conclusion in context of the problem. Make sure to include your evidence.</li>
 </ol>
+<p><span style="color:blue;">At an <span class="math inline">\(\alpha=0.05\)</span>, we have evidence to conclude the difference in population mean perceived time passed between all daily smokers suffering nicotine withdrawal and all daily smokers not suffering nicotine withdrawal is greater than 0 (T = 3.41, df = 39, p = 0.0007).</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2624,9 +2634,15 @@ Conditions for two-sample independent t-test
 <ol start="13" type="1">
 <li>Check the conditions for using the two-sample independent t-test.</li>
 </ol>
+<ul>
+<li><span style="color:blue;">Independent observations between groups: the perceived time passed for a daily smoker in the withdrawal group does not tell us anything about the perceived time passed for a daily smoker in the no withdrawal group.</span></li>
+<li><span style="color:blue;">Independent observations within groups: the perceived time passed for a daily smoker in the withdrawal group does not tell us anything about the perceived time passed for a daily smoker in the withdrawal group. (similar for no withdrawal)</span></li>
+<li><span style="color:blue;">Large enough sample size: <span class="math inline">\(n_\text{withdrawal} = 20 &lt; 30\)</span> and <span class="math inline">\(n_\text{no withdrawal} = 22 &lt; 30\)</span>. Looking at the histograms of the observed data, these are approximately normal!</span></li>
+</ul>
 <ol start="14" type="1">
 <li>Can we say that nicotine withdrawal <em>causes</em> a longer perceived elapsed time? Explain.</li>
 </ol>
+<p><span style="color:blue;">We would need more information about how participants were assigned to groups. If withdrawal status was <em>randomly assigned</em> to participants, then we balance out the effect of confounding variables and can conclude causation.</span></p>
 </section>
 <section id="example-7.2-diet-and-cholesterol-two-sample-independent-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.2-diet-and-cholesterol-two-sample-independent-t-test">Example 7.2: Diet and Cholesterol (Two-sample Independent t-test)</h3>
