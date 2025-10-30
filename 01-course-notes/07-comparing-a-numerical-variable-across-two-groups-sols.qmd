@@ -1,0 +1,722 @@
+---
+title: "Chapter 7: Comparing a Numerical Variable Across Two Groups"
+format: 
+  html:
+    toc: true
+  pdf:
+    keep-tex: false
+    include-in-header:
+      text: |
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[R]{Chapter 7: Comparing a Numerical Variable Across Two Groups}
+          \fancyfoot[C]{\thepage}
+  docx:
+    toc: false
+prefer-html: true
+embed-resources: true
+bibliography: references.bib
+reference-location: section
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+In this chapter, we will consider methods that allow us to make comparisons on numerical variables between two different groups.  In general, these methods should be used to address research questions involving a *categorical explanatory* variable (with two categories) and a *numerical response* variable.
+
+Two different cases will be considered: 
+
+(1) When the samples are independent, and 
+
+(2) when the samples are dependent (i.e., matched or paired).
+
+## COMPARING TWO POPULATION MEANS: INDEPENDENT SAMPLES (two-sample independent t-test)
+
+The hypothesis testing procedures presented in this section should be used when the observations from the two groups being compared are *independent*. Whether or not the observations between the two groups are *independent* is determined by how the data are collected. To see this, consider the following example.
+
+### Example 7.1: Nicotine withdrawal and Perceived Elapsed Time
+
+```{r}
+library(tidyverse)
+library(mosaic)
+library(infer)
+
+set.seed(24)
+nicotine <- tibble(status = "withdrawal",
+                   sex = c(rep("male", 12), rep("female", 8)),
+                   age = runif(20, min = 25, max = 50),
+                   time_passed = rnorm(n = 20, mean = 55.05, sd = 9.32)
+                   ) |> 
+  sample(20) |> 
+  select(-orig.id)
+
+set.seed(24)
+nonsmokers <- tibble(status = "no withdrawal",
+                   sex = c(rep("male", 12), rep("female", 10)),
+                   age = runif(22, min = 25, max = 50),
+                   time_passed = rnorm(n = 22, mean = 46.85, sd = 9.35)
+                   ) |> 
+  sample(22) |> 
+  select(-orig.id)
+
+
+time_elapsed <- nicotine |> 
+  bind_rows(nonsmokers) |> 
+  mutate(age = round(age, 0),
+         time_passed = round(time_passed, 2)) |> 
+  sample(42) |> 
+  select(-orig.id)
+```
+
+Recall the study conducted by researchers at Pennsylvania State University which investigated whether time perception, a simple indication of a person’s ability to concentrate, is impaired during nicotine withdrawal. This study was discussed in Chapter 6. Twenty smokers were put through a 24-hour smoking abstinence and were asked to estimate how much time had passed during a 45-second period. Then, we analyzed another 22 individuals who were daily smokers, but were not asked to abstain from smoking for 24-hours (i.e., no nicotine withdrawal). They were also asked to estimate how much time had passed during a 45-second period. Suppose the resulting data on perceived elapsed time (in seconds) were collected from both groups as shown below (these results are artificial but are similar to the actual findings). 
+
+```{r}
+#| echo: true
+head(time_elapsed)
+```
+
+**Research Question**: Do daily smokers suffering from nicotine withdrawal tend to believe that more time has elapsed than daily smokers *not* suffering from nicotine withdrawal?
+
+1. What is the observational unit for this study?
+
+<span style="color:blue;">A daily smoker</span>
+
+2. What are the variables assessed in this study? What are their roles (explanatory / response) and data types?
+
++ <span style="color:blue;">Explanatory: status (categorical) - withdrawal/no withdrawal</span>
++ <span style="color:blue;">Response: time passed (numerical) measured in seconds</span>
+
+3. What are the parameters of interest for this study?
+
+<span style="color:blue;">$\mu_\text{withdrawal}:$ the population mean perceived time passed for all daily smokers suffering nicotine withdrawal.</span>
+<span style="color:blue;">$\mu_{\text{no withdrawal}}:$ the population mean perceived time passed for all daily smokers NOT suffering nicotine withdrawal.</span>
+
+<span style="color:blue;">$\mu_\text{withdrawal}-\mu_{\text{no withdrawal}}:$ the difference in population mean perceived time passed between for all daily smokers suffering nicotine withdrawal and all daily smokers NOT suffering nicotine withdrawal.</span>
+
+Similar to summarizing a single numeric variable, we can compare the two groups with summary statistics from the `favstats()` function.
+
+```{r}
+#| echo: true
+favstats(time_passed ~ status, data = time_elapsed) # <1>
+```
+
+1. Using the `favstats` function, denote the `response ~ explanatory` variables from the `data = ` set.
+
+\vspace{0.05in}
+
+4. Report the observed mean perceived time passed for study participants suffering from nicotine withdrawal. How about for participants *not* suffering from nicotine withdrawal?
+
++ <span style="color:blue;">$\bar x_\text{withdrawal}=52.65$ seconds</span>
++ <span style="color:blue;">$\bar x_\text{no withdrawal}=45.22$ seconds</span>
+
+
+5. Calculate the observed sample difference in the mean perceived time elapsed between participants suffering nicotine withdrawal and participants not suffering nicotine withdrawal.
+
++ <span style="color:blue;">$\bar x_\text{withdrawal} - \bar x_\text{no withdrawal}=52.65-45.22=7.43$ seconds</span>
+
+**Facetted Histograms**
+
+When we want to add a categorical variable (like withdrawal status) to a histogram, we can create separate plots for each level of the categorical variable. These separate plots are called facets. We are comparing the perceived time passed between participants suffering withdrawal and participants not suffering withdrawal, so we will have two facets, one per status.
+
+```{r}
+#| fig-height: 2.5
+#| echo: true
+ggplot(data = time_elapsed, 
+       mapping = aes(x = time_passed)) + 
+  geom_histogram(binwidth = 5, color = "white") + 
+  labs(x = "Perceived Time Elapsed (seconds)",
+       y = "Number of Participants") +
+  facet_wrap(~ status)
+```
+
+
+**Side-by-Side Box Plots**
+
+Another way we can incorporate a categorical into our plots is to plot our boxplots for each group side-by-side. As opposed to faceting, these boxplots will be on the **same** plot. We only need to add one extra piece to our code from the previous chapter: a categorical variable. 
+
+```{r}
+#| fig-height: 2
+#| echo: true
+ggplot(data = time_elapsed, 
+       mapping = aes(x = time_passed, 
+                     y = status)) +
+  geom_boxplot() +
+  labs(x = "Percieved Time Elapsed (seconds)", 
+       y = "Status")
+```
+
+Now that we have explored our data with summary statistics and visualizations, we want to use our data to draw inferences and make claims about the larger population.
+
+Since we know the difference will change from sample to sample, in order to make valid inferences about the true population difference, we must first understand how the difference in sample means is expected to change from sample to sample.  That is, we must determine what differences in means are likely to happen by chance when taking random samples from populations with the same mean.  
+
+6. Set up the null and alternative hypotheses (in words and symbols).
+
+\vspace{1.6in}
+
+In order to test our research question, we could conduct a simulation similar to what we did with two categorical variables (e.g., Mythbusters yawn experiment). Recall, we follwed the following steps:
+
++ Step 1: Write the ____________ and ____________ on ______ cards.
+
+\vspace{0.1in}
+
++ Step 2: Simulate what could have happened if the null was true and ________________.
+
+\vspace{0.1in}
+
++ Step 3: Generate a new data set by _________________________________.
+
+\vspace{0.1in}
+
++ Step 4: Calculate the ____________________________ for the new simulated data set and add it to the dot plot.
+
+\vspace{0.1in}
+
+We would then repeat this process 100 or 1000 times to get an idea of what the sampling distribution of the *difference* in means between the two groups looks like.
+
+7. Assuming there is *no difference* in mean percieved time elapsed between participants suffering from nicotine withdrawal and participants not suffering from nicotine withdrawal (i.e., Null is true), where do you expect the distribution to be centered? Explain.
+
+\vspace{1.2in}
+
+The plot below contains 19 panels of "new simulated" data sets under the assumption there is no difference in mean perceived time elapsed between the two groups (i.e., Null is true), following the process above, and one panel of the actual data observed from the sample of 42 daily smokers in our study.
+
+```{r}
+#| fig-height: 8
+#| fig-width: 8
+library(nullabor)
+set.seed(56156)
+lineup_data <- lineup(null_permute("status"), time_elapsed, pos = 14) 
+
+lineup_data |> 
+ggplot(mapping = aes(x = time_passed, 
+                     y = status)) +
+  geom_boxplot() +
+  labs(title = "Simulate Data under assumption there is no difference in \nthe mean perceived time elapsed (i.e., null is true)",
+       subtitle = "19 simulated data sets + 1 observed data set from study",
+       x = "Perceived Time Elapsed (seconds)", 
+       y = "Status") +
+  theme(aspect.ratio = 1) +
+  theme_bw() +
+  facet_wrap(~ .sample)
+```
+
+8. Which panel contains the actual data observed in the sample of 42 daily smokers in our study? Was it hard to pick out? Remember what it was like trying to pick this out.
+
+\vspace{1.2in}
+
+We could take these and calculate the observed difference in mean perceived elapsed time between the two groups for each panel and plot this to begin creating the distribution of our sampling difference in means.
+
+```{r}
+#| fig-height: 8
+#| fig-width: 8
+obs_diffs <- lineup_data |> 
+  group_by(.sample, status) |> 
+  reframe(mean = mean(time_passed)) |> 
+  pivot_wider(id_cols = .sample,
+              names_from = status,
+              values_from = mean) |> 
+  mutate(Diff_Means = round(`withdrawal` - `no withdrawal`, 2)) |>
+  mutate(label = paste0(round(`withdrawal`, 2), "-", round(`no withdrawal`, 2), " = ", Diff_Means)) |> 
+  mutate(plot_type = ifelse(.sample == 14, "target", "null"))
+
+lineup_data |> 
+ggplot() +
+  geom_boxplot(aes(x = time_passed,
+                   y = status),
+               alpha = 0.2) +
+  labs(title = "Calculate the difference in means",
+       subtitle = "withdrawal - No withdrawal",
+       x = "Percieved time elapsed (seconds)", 
+       y = "Status") +
+  facet_wrap(~ .sample) +
+  theme(aspect.ratio = 1) +
+  theme_bw() +
+  geom_label(data = obs_diffs, aes(label = label, x = 50, y = 1.5, fill = plot_type), size = 3, color = "white", fontface = "bold", show.legend = F) +
+  scale_fill_manual(values = c("gray", "orange3"))
+```
+
+```{r}
+#| fig-align: center
+#| fig-pos: H
+set.seed(56156)
+obs_diffs100 <- lineup(null_permute("status"), time_elapsed, pos = 1, n = 1001)  |> 
+  group_by(.sample, status) |> 
+  reframe(mean = mean(time_passed)) |> 
+  pivot_wider(id_cols = .sample,
+              names_from = status,
+              values_from = mean) |> 
+  mutate(Diff_Means = round(`withdrawal` - `no withdrawal`, 2)) |>
+  mutate(label = paste0(round(`withdrawal`, 2), "-", round(`no withdrawal`, 2), " = ", Diff_Means)) |> 
+  mutate(plot_type = ifelse(.sample == 1, "target", "null"))
+
+obs_diffs100 |> 
+  filter(plot_type == "null") |> 
+  ggplot(aes(x = Diff_Means)) +
+  geom_dotplot(method = "histodot",
+               dotsize = 0.15,
+               ) +
+  theme_test() +
+  labs(title = "Sampling Distribution for Difference in Means (under assumption no difference)",
+       y = "",
+       x = "Difference in mean percieved elapsed time (seconds) \n Withdrawal - No Withdrawal") +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+```
+
+9. Does our observed data appear to be unusual compared to the data simulated under the assumption there is no difference?
+
+\vspace{2in}
+
+It turns out that these sample means vary in a predictable way, and we can use what we know about this predictable pattern to determine what outcomes are likely (or not likely) to happen by chance.  This predictable pattern is called the *sampling distribution for the difference in means*.
+
+\newpage
+
+::: callout-note
+### Characteristics for Sampling Distribution for Difference in Means
+
+When the samples are **independent**, the sampling distribution for the difference in means can be described as follows.
+
+1.	mean = $\mu_1 – \mu_2$.
+
+2.	standard deviation of the sampling distribution (i.e., standard error) = $$\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+
+*Note: we are assuming the variances are unequal in this calculation, there are other formulas for assuming equal variances.*
+
+3. The shape of the sampling distribution is approximately normal if both sample sizes are “sufficiently large” (> 30 in each group) OR if both original populations are normally distributed.
+
+Given these characteristics, the test statistic we will use when testing for differences in two population means for independent samples is as follows:
+
+$$T= \frac{\text{observed value}-\text{null value}}{\text{standard error}}= \frac{(\bar x_1 - \bar x_2)-(\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$
+
+These test statistics both follow a t-distribution, and the degrees of freedom are given by $(n_1 - 1) +(n_2 - 1)$. 
+
+*Note: there are more complicated ways to adjust for these degrees of freedom, but that is beyond the scope of this class. You may notice that R outputs a different number of degrees of freedom than what this formula gives you.*
+:::
+
+10. Calculate the observed T test-statistic for the study data.
+
+\vspace{1.2in}
+
+\newpage
+
+11. Using the t-distribution provided below, show how you would estimate the p-value.
+
+```{r}
+#| out-width: 70%
+#| fig-align: center
+#| fig-pos: "H"
+knitr::include_graphics("07-images/tdist-7.1.png")
+```
+
+Additionally, we can use R to conduct our two-sample independent t-test to answer our research question.
+
+```{r}
+#| echo: true
+t_test(x = time_elapsed, # <1>
+       explanatory = status, # <2>
+       response = time_passed, # <3>
+       order = c("withdrawal", "no withdrawal"),
+       #mu = 0, # <4>
+       alternative = "greater", # <5>
+       conf_int = FALSE) # <6>
+```
+
+1. Using the `t_test()` function, designate the `x = ` data set.
+2. Then identify the `explanatory = ` variable,
+3. and the `response = ` variable.
+4. The `order = c("Group 1","Group 2")` we are testing is $\mu_1 - \mu_2$,
+5. with an `alternative = ` upper tailed test.
+6. Let's hide the confidence interval, `conf_int = FALSE`, output for now.
+
+\vspace{0.05in}
+
+12. Write the conclusion in context of the problem. Make sure to include your evidence.
+
+\vspace{1.2in}
+
+::: callout-note
+## Conditions for two-sample independent t-test
+
+1.	Independent observations *between* groups.
+2.  Independent observations *within* groups.
+3.  Sufficiently large sample sizes in both groups (i.e., $n_1>30$ and $n_2>30$). If not, is it reasonable to assume that both populations are normally distributed?
+
+:::
+
+13. Check the conditions for using the two-sample independent t-test.
+
+\vspace{1.1in}
+
+14. Can we say that nicotine withdrawal *causes* a longer perceived elapsed time? Explain.
+
+\vspace{1.1in}
+
+### Example 7.2: Diet and Cholesterol (Two-sample Independent t-test)
+
+Researchers investigated whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels. Twenty-eight (28) adults were randomly assigned a diet that included either corn flakes (14 individuals) or oat bran (14 individuals). After two weeks, cholesterol levels (mmol/L) of the participant were recorded.
+
+```{r}
+cholesterol_data_long <- read_csv("data/cholesterol_data_long.csv")
+```
+
+```{r}
+#| echo: true
+head(cholesterol_data_long)
+```
+
+**Research Question**: Does eating corn flakes compared to oat bran have an effect on serum cholesterol levels? In other words, is there a difference in mean cholesterol levels between all adults on a corn-flake diet compared to all adults on an oat bran diet?
+
+The summary statistics and visualizations for the study are provided below:
+
+```{r}
+#| echo: true
+favstats(Cholesterol ~ Diet, data = cholesterol_data_long)
+```
+
+```{r facet-preview}
+#| fig-height: 2.5
+#| fig-align: center
+ggplot(data = cholesterol_data_long, 
+       mapping = aes(x = Cholesterol)) + 
+  geom_histogram(binwidth = 0.75, color = "white") + 
+  labs(x = "Cholesterol Level (mmol/L)",
+       y = "Number of Participants") +
+  facet_wrap(~ Diet)
+```
+
+```{r vertical-box}
+#| fig-height: 2
+#| fig-align: center
+ggplot(data = cholesterol_data_long, 
+       mapping = aes(x = Cholesterol, 
+                     y = Diet)) +
+  geom_boxplot() +
+  labs(x = "Cholesterol Level (mmol/L)", 
+       y = "Diet")
+```
+
+1. What is the observational unit for this study?
+
+\vspace{1.2in}
+
+2. What are the variables assessed in this study? What are their roles (explanatory / response) and data types?
+
+\vspace{1.2in}
+
+3. What are the parameters of interest for this study?
+
+\vspace{1.2in}
+
+4. Report the observed sample mean cholesterol level for study participants on the corn flake diet. How about on the oat bran diet?
+
+\vspace{1.2in}
+
+5. Calculate the observed difference in the mean cholesterol level between participants on the corn flake diet and participants on the oat bran diet.
+
+\vspace{1.2in}
+
+6. Set up the null and alternative hypotheses, *in symbols*.
+
+\vspace{1.2in}
+
+7. Check the conditions for using the two-sample independent t-test.
+
++ Independent observations *within* groups:
+
+\vspace{0.1in}
+
++ Independent observations *between* groups:
+
+\vspace{0.1in}
+
++ Normality assumption:
+
+\vspace{0.1in}
+
+8. What do we know about the sampling distribution of the difference in means?
+
++ Shape:
+
+\vspace{0.1in}
+
++ Mean:
+
+\vspace{0.1in}
+
++ Standard Deviation (i.e., Standard Error):
+
+\vspace{0.1in}
+
+9. Calculate the observed T test-statistic for the data in the study.
+
+\vspace{1.2in}
+
+10. Using the t-distribution provided below, show how you would estimate the p-value.
+
+```{r}
+#| out-width: 65%
+#| fig-align: center
+knitr::include_graphics("07-images/tdist-7.2.png")
+```
+
+\newpage
+
+Alternatively, we could conduct the two-sample independent t-test via R.
+
+```{r}
+#| echo: true
+t_test(x = cholesterol_data_long,
+       explanatory = Diet,
+       response = Cholesterol,
+       order = c("CORNFLK", "OATBRAN"),
+       alternative = "two-sided",
+       conf_int = FALSE)
+```
+
+11. Using the output above, write a conclusion in context of the study. Make sure to include your evidence.
+
+\vspace{1.4in}
+
+12. If we had found evidence of a difference in cholesterol levels between the two diets, could we say that cereal diet *causes* a change in cholesterol levels? Explain.
+
+\vspace{1.2in}
+
+\newpage
+
+::: callout-note
+### Constructing a Confidence Interval for the Difference in Means 
+
+$$ \text{point estimate} \pm \text{t-quantile} \times \text{SE}$$
+
+$$(\bar x_1 - \bar x_2) \pm \text{t-quantile}\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+:::
+
+13. Calculate the 95\% confidence interval for the study using the t-quantile provided below:
+
+```{r}
+#| echo: true
+qt(0.975, df = 40)
+```
+
++ Lower Endpoint =  
+
+\vspace{0.5in}
+
++ Upper Endpoint =  
+
+\vspace{1.2in}
+
+14. Interpret the meaning of this 95% confidence interval in context of the study.
+
+\vspace{1.2in}
+
+15. What does it mean for 0 to fall within the confidence interval?
+
+\vspace{1.2in}
+
+
+## COMPARING TWO POPULATION MEANS: DEPENDENT SAMPLES (paired t-test)
+
+The hypothesis testing procedures presented in this section should be used when the observations from the two groups being compared are dependent. Whether or not the observations are dependent is determined by how the data are collected. To see this, consider the following example.
+
+### Example 7.3: Diet and Cholesterol (Paired t-test)
+
+```{r data-prep, echo = FALSE}
+
+# https://www.sjsu.edu/faculty/gerstman/StatPrimer/paired.pdf
+
+cholesterol_data <- tibble::tribble(
+          ~ ID, ~CORNFLK, ~OATBRAN,
+                                    "1", "4.61", "3.84",
+                                    "2", "6.42", "5.57",
+                                    "3", "5.40", "5.85",
+                                    "4", "4.54", "4.80",
+                                    "5", "3.98", "3.68",
+                                    "6", "3.82", "2.96",
+                                    "7", "5.01", "4.41",
+                                    "8", "4.34", "3.72",
+                                    "9", "3.80", "3.49",
+                                   "10", "4.56", "3.84",
+                                   "11", "5.35", "5.26",
+                                   "12", "3.89", "3.73",
+                                   "13", "2.25", "1.84",
+                                   "14", "4.24", "4.14"
+          )
+
+factorCols <- c("ID")
+cholesterol_data[,factorCols] <- lapply(cholesterol_data[,factorCols], as.factor)
+numericCols <- c("CORNFLK", "OATBRAN")
+cholesterol_data[,numericCols] <- lapply(cholesterol_data[,numericCols], as.numeric)
+
+cholesterol_data <- cholesterol_data |> 
+  mutate(CholesterolDiff = CORNFLK - OATBRAN)
+```
+
+Recall, in **Example 7.2**, researchers investigated whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels. Twenty-eight (28) individuals were randomly assigned a diet that included either corn flakes (14 individuals) or oat bran (14 individuals). After two weeks, cholesterol levels (mmol/L) of the participant were recorded.
+
+***But actually what happened was…***
+
+Fourteen (14) individuals were randomly assigned a diet that included either corn flakes or oat bran. After two weeks on the initial diet, serum cholesterol were measured and the participants were then crossed-over to the alternate diet. After two-weeks on the second diet, cholesterol levels were once again recorded.
+
+1.  How was the data collected differently from Example 7.2?
+
+\vspace{0.8in}
+
+2. Are the cholesterol levels of individuals independent across the 28 measurements? Explain.
+
+\vspace{0.8in}
+
+Since we can match or pair the cholesterol level measurements between the treatment groups, we call this a **paired study design**. These could be paired up by taking measurements on the same observational unit twice or taking measurements on similar observational units (e.g. identical twins, similar fields, etc.). When analyzing the data and making conclusions, we must take this design into consideration or we are violating a key assumption (independent observations *between* groups!).
+
+The data set below shows the data for each participant `ID`. The `CORNLK` column indicates the cholesterol level for that individual on the corn flake diet and the `OATBRAN` column indicates the cholesterol level for that individual on the oat bran diet.
+
+\vspace{0.1in}
+
+```{r data}
+#| echo: true
+head(cholesterol_data)
+```
+
+\vspace{0.1in}
+
+3.	What can be said about the Cholesterol of Subject ID #1 as compared to Subject ID #2, for example, regardless of which diet the Cholesterol levels were measured after?
+
+\vspace{1in}
+
+::: callout
+#### Big Idea
+
+For these data, the cholesterol level on the corn flake diet is related to the cholesterol level on the oat bran diet (the two measurements were made on the same person).  Thus, these two samples are *dependent*.
+
+\vspace{0.1in}
+
+In other words, much of the variability in the observations is due to differences between people. So, to control for this variability in cholesterol levels from person to person (which will help us isolate the effect of diet), we will work with the **DIFFERENCES** on each subject, instead.  This will remove the structure of dependence between the corn flake and oat bran groups and will control for the fact that some people, in general, tend to have higher (or lower) cholesterol levels than others.
+:::
+
+4. What does the `CholesterolDiff` column represent? Why does this calculation make sense?
+
+\vspace{0.8in}
+
+5. What does a positive difference of 0.77 indicate?
+
+\vspace{0.8in}
+
+6. What does a negative difference of -0.45 indicate?
+
+\vspace{0.8in}
+
+A histogram of the differences in cholesterol levels for the 14 individuals and a table of summary statistics are shown below. 
+
+```{r histogram}
+#| fig-align: center
+#| fig-height: 3
+#| fig-width: 4
+#| out-width: 75%
+ggplot(data = cholesterol_data, 
+       mapping = aes(x = CholesterolDiff)) +
+  geom_histogram(binwidth = 0.25, color = "white") +
+  labs(x = "Difference in cholesterol levels \n(Corn Flake - Oat Bran)",
+       y = "Number of Subjects") 
+```
+Summary statistics for the difference in cholesterol levels between the corn flake diet and oat bran diet are given below:
+
+```{r}
+#| echo: true
+favstats(~ CholesterolDiff, data = cholesterol_data)
+```
+7.	What is the mean of the differences for the 14 subjects?  Interpret this value. Does this value seem familiar?
+
+\vspace{1.2in}
+
+8.	If cereal diet had *no effect* on cholesterol levels, what would you expect the mean of these differences to be?
+
+\vspace{0.8in}
+
+::: callout
+#### Big Idea: paired t-test
+Note that these differences are represented by a single column of data. So, instead of viewing this as a problem involving a categorical predictor and a numerical response, you could view this as a problem involving a single numerical variable – the differences! Therefore, the hypothesis testing procedure is exactly the same as the procedure for testing a single population mean we discussed in Chapter 6.
+
+\vspace{0.1in}
+
+That is, the parameter of interest is the true population mean of the differences which we will represent by $\mu_\text{difference}$. 
+
++ Our best estimate for this parameter is the sample mean of the observed differences.  We’ll call this quantity $\bar x_\text{difference}$.
+
++ The sample standard deviation of the differences will be denoted by $s_\text{difference}$.
+:::
+
+We can carry out the hypothesis test as follows to determine whether cholesterol levels of all adults tend to *differ* between cereal diets.
+
+**Research Question** Researchers are still interested in whether eating corn flakes compared to oat bran had an effect on serum cholesterol levels.
+
+9. Write the parameter of interest in words.
+
+\vspace{1.2in}
+
+10. Set up the null and alternative hypotheses in words and symbols.
+
+\vspace{1.2in}
+
+11. Calculate the T test-statistic:
+
+$$T = \frac{\bar x_\text{difference} - \mu_\text{difference}}{s_\text{difference}/\sqrt{n}}$$
+
+\vspace{0.5in}
+
+12. Using the t-distribution provided below, show how you would estimate the p-value.
+
+```{r}
+#| out-width: 70%
+#| fig-align: center
+knitr::include_graphics("07-images/tdist-7.3.png")
+```
+
+Similar to Chapter 6, the R code below can be used to conduct the paired t-test:
+
+```{r}
+#| echo: true
+t_test(x = cholesterol_data,
+       response = CholesterolDiff,
+       mu = 0,
+       alternative = "two-sided")
+```
+
+13. State a conclusion in context of the study. Make sure to include proper evidence.
+
+\vspace{1.2in}
+
+14. How does your conclusion differ from your conclusion in Example 7.2 when we assumed independent samples?
+
+\vspace{1.2in}
+
+15. Can we conclude that the diet *caused* the change? Explain.
+
+::: callout-note
+#### Checking the Normality Assumption (CLT) for a Paired t-test
+
+Recall that for the t-test to be valid, at least one of the following conditions must be met:
+
++ Either the sample size is sufficiently large (greater than 30 or so), or
++ The distribution of the observed data is approximately normal (which would indicate that the population is normally distributed so that the Central Limit Theorem would apply even with a small sample size)
+:::
+
+16. Does the t-test appear to be a valid approach for testing this research question?  Justify your reasoning.
+
+\vspace{1.2in}
+
+17. Using the formula for confidence intervals for single numerical variables from Chapter 6 and the t-quantile provided below, calculate the 90\% confidence interval.
+
+```{r}
+#| echo: true
+qt(0.95, 13)
+```
+
+$$\bar x_\text{difference} \pm \text{t-quantile}\big(\frac{s_\text{difference}}{\sqrt{n}}\big)=$$
+
+\vspace{1.2in}
+
+18. Where does 0 fall within the confidence interval? Why does this make sense?
+
+\vspace{1.2in}
+
