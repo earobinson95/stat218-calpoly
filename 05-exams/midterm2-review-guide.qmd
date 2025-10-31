@@ -225,21 +225,21 @@ chisq_test(x = cats,
 
 \vspace{1.2in}
 
-(v) Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language.
+(iv) Write a solution and make sure to include the chi-square test statistic, degrees of freedom, the p-value, and a conclusion written in everyday language.
 
 \vspace{1.2in}
 
-(iii) Is this an observational study or designed experiment? Why?
+(v) Is this an observational study or designed experiment? Why?
 
 \vspace{1in}
 
 5.  Ten mice (6--8 weeks old) were randomly assigned to one of two groups; five were exposed to simulated environmental tobacco smoke for 6 h/day, 5 days/week for 5 months. The other 5 mice were kept in clean air during this time period. Then, all of the mice were allowed to recover for a further 4 months in filtered air before being killed for analysis of lung tumor incidence. The results are shown below.
 
-    |             | **Tumor** | No Tumor | Total |
-    |-------------|-----------|----------|-------|
-    | **Treated** | 4         | 1        | 5     |
-    | **Control** | 2         | 3        | 5     |
-    | **Total**   | 6         | 4        | 10    |
+|             | **Tumor** | No Tumor | Total |
+|-------------|-----------|----------|-------|
+| **Treated** | 4         | 1        | 5     |
+| **Control** | 2         | 3        | 5     |
+| **Total**   | 6         | 4        | 10    |
 
 **Research question:** Does the proportion of mice that develop a lung tumor differ between those exposed to tobacco smoke and the control group?
 
@@ -247,15 +247,15 @@ chisq_test(x = cats,
 
 \vspace{1.2in}
 
-(iii). What proportions would you compare to answer the research question?
+(ii) What proportions would you compare to answer the research question?
 
 \vspace{1.2in}
 
-(ii). Would it be appropriate to use the chi-square distribution to test the hypotheses? Explain.
+(iii) Would it be appropriate to use the chi-square distribution to test the hypotheses? Explain.
 
 \vspace{1.2in}
 
-(iii) Is this an observational study or designed experiment? Why?
+(iv) Is this an observational study or designed experiment? Why?
 
 \vspace{1in}
 
